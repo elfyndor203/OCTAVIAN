@@ -3,40 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\myStandards.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\src\\myStandards.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\rendering\\ECSComponentsDrawing\\drawHitBox2D.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\src\\rendering\\ECSComponentsDrawing\\drawHitBox2D.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\myStandards.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\myStandards.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\TODO\\TODO.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ECSEngine\\TODO\\TODO.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\math\\vectors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\math\\vectors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\ECS\\gameObjects.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\src\\ECS\\gameObjects.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\ECS\\components\\position2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\ECS\\components\\position2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\ECS\\gameObjects.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\ECS\\gameObjects.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\ECS\\components\\position2D.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\src\\ECS\\components\\position2D.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\runtime\\winMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\runtime\\winMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\definitions\\errorCodes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\definitions\\errorCodes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\ECS\\components\\hitBox2D.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\src\\ECS\\components\\hitBox2D.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\rendering\\ECSComponentsDrawing\\drawHitBox2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\rendering\\ECSComponentsDrawing\\drawHitBox2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\ECS\\components\\hitBox2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\ECS\\components\\hitBox2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\rendering\\drawing.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\rendering\\drawing.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\runtime\\messageHandler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\src\\runtime\\messageHandler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\runtime\\messageHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\runtime\\messageHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\rendering\\drawing.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\src\\rendering\\drawing.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,115 +50,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "winMain.h",
-              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\runtime\\winMain.h",
-              "RelativeDocumentMoniker": "ECSEngine\\include\\runtime\\winMain.h",
-              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\runtime\\winMain.h",
-              "RelativeToolTip": "ECSEngine\\include\\runtime\\winMain.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-27T22:26:06.318Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "errorCodes.h",
-              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\definitions\\errorCodes.h",
-              "RelativeDocumentMoniker": "ECSEngine\\include\\definitions\\errorCodes.h",
-              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\definitions\\errorCodes.h",
-              "RelativeToolTip": "ECSEngine\\include\\definitions\\errorCodes.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-27T22:20:07.155Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "myStandards.h",
-              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\myStandards.h",
-              "RelativeDocumentMoniker": "ECSEngine\\include\\myStandards.h",
-              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\myStandards.h",
-              "RelativeToolTip": "ECSEngine\\include\\myStandards.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-27T21:52:13.343Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "myStandards.c",
-              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\myStandards.c",
-              "RelativeDocumentMoniker": "ECSEngine\\src\\myStandards.c",
-              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\myStandards.c",
-              "RelativeToolTip": "ECSEngine\\src\\myStandards.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-27T22:10:01.305Z",
+              "Title": "TODO.txt",
+              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\TODO\\TODO.txt",
+              "RelativeDocumentMoniker": "ECSEngine\\TODO\\TODO.txt",
+              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\TODO\\TODO.txt",
+              "RelativeToolTip": "ECSEngine\\TODO\\TODO.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-08-31T06:29:23.701Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "vectors.h",
-              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\math\\vectors.h",
-              "RelativeDocumentMoniker": "ECSEngine\\include\\math\\vectors.h",
-              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\math\\vectors.h",
-              "RelativeToolTip": "ECSEngine\\include\\math\\vectors.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-27T21:53:39.742Z",
-              "EditorCaption": ""
+              "Title": "gameObjects.c",
+              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\ECS\\gameObjects.c",
+              "RelativeDocumentMoniker": "ECSEngine\\src\\ECS\\gameObjects.c",
+              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\ECS\\gameObjects.c",
+              "RelativeToolTip": "ECSEngine\\src\\ECS\\gameObjects.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-31T06:21:56.08Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "position2D.h",
-              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\ECS\\components\\position2D.h",
-              "RelativeDocumentMoniker": "ECSEngine\\include\\ECS\\components\\position2D.h",
-              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\ECS\\components\\position2D.h",
-              "RelativeToolTip": "ECSEngine\\include\\ECS\\components\\position2D.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "gameObjects.h",
+              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\ECS\\gameObjects.h",
+              "RelativeDocumentMoniker": "ECSEngine\\include\\ECS\\gameObjects.h",
+              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\ECS\\gameObjects.h",
+              "RelativeToolTip": "ECSEngine\\include\\ECS\\gameObjects.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-27T21:53:28.024Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "position2D.c",
-              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\ECS\\components\\position2D.c",
-              "RelativeDocumentMoniker": "ECSEngine\\src\\ECS\\components\\position2D.c",
-              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\ECS\\components\\position2D.c",
-              "RelativeToolTip": "ECSEngine\\src\\ECS\\components\\position2D.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-27T21:49:54.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "hitBox2D.c",
-              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\ECS\\components\\hitBox2D.c",
-              "RelativeDocumentMoniker": "ECSEngine\\src\\ECS\\components\\hitBox2D.c",
-              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\ECS\\components\\hitBox2D.c",
-              "RelativeToolTip": "ECSEngine\\src\\ECS\\components\\hitBox2D.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-27T21:49:02.615Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-31T06:21:45.522Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "messageHandler.h",
+              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\runtime\\messageHandler.h",
+              "RelativeDocumentMoniker": "ECSEngine\\include\\runtime\\messageHandler.h",
+              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\runtime\\messageHandler.h",
+              "RelativeToolTip": "ECSEngine\\include\\runtime\\messageHandler.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-31T06:18:47.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "messageHandler.c",
+              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\runtime\\messageHandler.c",
+              "RelativeDocumentMoniker": "ECSEngine\\src\\runtime\\messageHandler.c",
+              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\runtime\\messageHandler.c",
+              "RelativeToolTip": "ECSEngine\\src\\runtime\\messageHandler.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-31T06:17:34.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "drawHitBox2D.h",
+              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\rendering\\ECSComponentsDrawing\\drawHitBox2D.h",
+              "RelativeDocumentMoniker": "ECSEngine\\include\\rendering\\ECSComponentsDrawing\\drawHitBox2D.h",
+              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\rendering\\ECSComponentsDrawing\\drawHitBox2D.h",
+              "RelativeToolTip": "ECSEngine\\include\\rendering\\ECSComponentsDrawing\\drawHitBox2D.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-31T05:52:24.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "drawHitBox2D.c",
+              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\rendering\\ECSComponentsDrawing\\drawHitBox2D.c",
+              "RelativeDocumentMoniker": "ECSEngine\\src\\rendering\\ECSComponentsDrawing\\drawHitBox2D.c",
+              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\rendering\\ECSComponentsDrawing\\drawHitBox2D.c",
+              "RelativeToolTip": "ECSEngine\\src\\rendering\\ECSComponentsDrawing\\drawHitBox2D.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-31T05:52:38.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "hitBox2D.h",
               "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\ECS\\components\\hitBox2D.h",
               "RelativeDocumentMoniker": "ECSEngine\\include\\ECS\\components\\hitBox2D.h",
@@ -162,8 +148,31 @@
               "RelativeToolTip": "ECSEngine\\include\\ECS\\components\\hitBox2D.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-27T21:48:54.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-31T05:42:52.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "drawing.h",
+              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\rendering\\drawing.h",
+              "RelativeDocumentMoniker": "ECSEngine\\include\\rendering\\drawing.h",
+              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\rendering\\drawing.h",
+              "RelativeToolTip": "ECSEngine\\include\\rendering\\drawing.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-31T05:29:03.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "drawing.c",
+              "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\rendering\\drawing.c",
+              "RelativeDocumentMoniker": "ECSEngine\\src\\rendering\\drawing.c",
+              "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\rendering\\drawing.c",
+              "RelativeToolTip": "ECSEngine\\src\\rendering\\drawing.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-31T05:29:04.386Z"
             }
           ]
         }

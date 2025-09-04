@@ -1,5 +1,6 @@
 #pragma once
 #include "vectors.h"
+#include "myStandards.h"
 
 typedef struct gameObject gameObject;
 

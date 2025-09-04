@@ -1,26 +1,26 @@
-#include "drawing.h"
+ #include "drawing.h"
 #include <stdlib.h>
 
 layer* createNewLayer(bool visible) {
-	layer* newLayer = malloc(sizeof(layer) + initialCapacity * sizeof(line*));
-	if (!newLayer) {
-		printf("Malloc for newLayer failed");
-		return;
-	}
+	layer* newLayer = mallocCheck((sizeof(layer) + initialCapacity * sizeof(line*)), "newLayer");
 
 	newLayer->visible = visible;
 	newLayer->capacity = initialCapacity;
 	newLayer->elementCount = 0;
+
+	return newLayer;
 }
 
-void drawToLayer(line* line, layer* layer) {
-	if (layer->elementCount == layer->capacity) {
+void drawLineToLayer(line* line, layer* layer) {
+	if (layer->elementCount >= layer->capacity) {
 		printf("capacity reached");
+		// expandCapacity();
 	}
 	else {
-		size_t newPosition = layer->elementCount;
 		layer->elementCount += 1;
-		layer->lines[newPosition] = line;
+
+		size_t latestLine = layer->elementCount;
+		layer->lines[latestLine] = line;
 	}
 
 	printf("%zu", layer->elementCount);

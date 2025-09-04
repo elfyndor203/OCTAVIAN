@@ -23,6 +23,8 @@ vector2D addScalarToVector2D(float scalar, vector2D vectorA) {
 	vector2D resultantVector = originZeroZero;
 	resultantVector.x += scalar;
 	resultantVector.y += scalar;
+
+	return resultantVector;
 }
 
 

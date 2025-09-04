@@ -1,19 +1,7 @@
-﻿  hitBox2D.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\ECS\components\hitBox2D.c(13,28): warning C4047: 'function': 'hitBox2D *' differs in levels of indirection from 'hitBox2D **'
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\ECS\components\hitBox2D.c(13,28): warning C4024: 'initializeHitBox2DVectors': different types for formal and actual parameter 1
-  position2D.c
-  gameObjects.c
-  vectors.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\math\vectors.c(36,9): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\math\vectors.c(43,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+﻿  drawHitBox2D.c
   drawing.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\rendering\drawing.c(8,3): warning C4033: 'createNewLayer' must return a value
-  gameLoop.c
   messageHandler.c
   winMain.c
   Generating Code...
 C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\winMain.c(58,1): warning C4715: 'WinMain': not all control paths return a value
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\rendering\drawing.c(14,1): warning C4716: 'createNewLayer': must return a value
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\math\vectors.c(26,1): warning C4716: 'addScalarToVector2D': must return a value
-position2D.obj : error LNK2019: unresolved external symbol mallocCheck referenced in function createDefaultPosition2D
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\x64\Debug\ECSEngine.exe : fatal error LNK1120: 1 unresolved externals
+  ECSEngine.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\x64\Debug\ECSEngine.exe
