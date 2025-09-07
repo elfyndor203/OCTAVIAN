@@ -33,7 +33,7 @@ LRESULT CALLBACK gameMessageHandler(HWND windowHandle, UINT messageID, WPARAM wP
 		printComponentsList(mainObject);
 
 		layer* myNewLayer = createNewLayer(true);
-		drawHitBox2D(mainObject->hitBox2D)
+		//drawHitBox2D(mainObject->hitBox2D);
 
 		break;
 

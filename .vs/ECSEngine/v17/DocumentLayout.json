@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\math\\vectors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\math\\vectors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\runtime\\messageHandler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\src\\runtime\\messageHandler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\math\\vectors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|solutionrelative:ECSEngine\\include\\math\\vectors.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E55A7699-E4F4-41EE-99E1-F2F5E5098FCA}|ECSEngine\\ECSEngine.vcxproj|C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\rendering\\ECSComponentsDrawing\\drawHitBox2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "vectors.h",
               "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\include\\math\\vectors.h",
               "RelativeDocumentMoniker": "ECSEngine\\include\\math\\vectors.h",
@@ -119,13 +119,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "messageHandler.c",
               "DocumentMoniker": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\runtime\\messageHandler.c",
               "RelativeDocumentMoniker": "ECSEngine\\src\\runtime\\messageHandler.c",
               "ToolTip": "C:\\Users\\Elfyndor\\MyDocuments\\[1] Projects\\ECSEngine\\ECSEngine\\src\\runtime\\messageHandler.c",
               "RelativeToolTip": "ECSEngine\\src\\runtime\\messageHandler.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAiwCMAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-08-31T06:17:34.679Z",
               "EditorCaption": ""
@@ -140,8 +140,7 @@
               "RelativeToolTip": "ECSEngine\\include\\rendering\\ECSComponentsDrawing\\drawHitBox2D.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-31T05:52:24.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-31T05:52:24.13Z"
             },
             {
               "$type": "Document",
@@ -153,8 +152,7 @@
               "RelativeToolTip": "ECSEngine\\src\\rendering\\ECSComponentsDrawing\\drawHitBox2D.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-31T05:52:38.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-31T05:52:38.26Z"
             },
             {
               "$type": "Document",
