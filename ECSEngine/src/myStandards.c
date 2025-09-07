@@ -2,7 +2,7 @@
 
 void* mallocCheck(size_t sizeToMalloc, const char* name) {
 	void* pointer = malloc(sizeToMalloc);
-	if (pointer != NULL) {
+	if (pointer == NULL) {
 		fprintf(stderr, "Failed to allocate memory for %s", name);
 		exit(EXIT_OUT_OF_MEMORY);
 	}

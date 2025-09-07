@@ -3,7 +3,7 @@
 #include "vectors.h"
 #include "colors.h"
 
-#define initialCapacity 4
+#define initialCapacity 10
 
 typedef struct {
 	vector2D origin;
@@ -16,8 +16,14 @@ typedef struct {
 	bool visible;
 	size_t capacity;
 	size_t elementCount;
-	line* lines[];
+	line* lines[initialCapacity];
+	size_t sprites[initialCapacity];
 } layer;
 
 layer* createNewLayer(bool visible);
-void drawToLayer(line* line, layer* layer);
+
+// 
+
+
+
+void drawLineToLayer(line* line, layer* layer);

@@ -32,6 +32,9 @@ LRESULT CALLBACK gameMessageHandler(HWND windowHandle, UINT messageID, WPARAM wP
 		gameObject* mainObject = createGameObject(2, componentPosition2D, componentHitBox2D);
 		printComponentsList(mainObject);
 
+		layer* myNewLayer = createNewLayer(true);
+		//drawHitBox2D(mainObject->hitBox2D);
+
 		break;
 
 	default:

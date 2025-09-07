@@ -9,7 +9,7 @@
 #include "resources.h"
 #include "errorCodes.h"
 
-void* mallocCheck(size_t sizeToMalloc, char* name); 
+void* mallocCheck(size_t sizeToMalloc, const char* name); 
 
 
 

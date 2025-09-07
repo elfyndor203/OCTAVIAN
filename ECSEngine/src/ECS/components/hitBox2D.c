@@ -1,10 +1,8 @@
 #include "hitBox2D.h"
 
 hitBox2D* createDefaultHitBox2D(gameObject* parent) {
-	hitBox2D* newHitBox2D = malloc(sizeof(hitBox2D));
-	if (!newHitBox2D) {
-		printf("Failed to allocate memory for hitBox2D");
-	}
+	hitBox2D* newHitBox2D = mallocCheck((sizeof(hitBox2D)), "newHitBox2D");
+
 	newHitBox2D->parent = parent;
 	newHitBox2D->origin = originZeroZero;
 	newHitBox2D->width = defaultHitBoxSize;

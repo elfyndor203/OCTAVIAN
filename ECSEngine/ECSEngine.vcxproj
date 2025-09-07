@@ -28,12 +28,12 @@
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="include\rendering\drawing.h" />
+    <ClInclude Include="include\rendering\ECSComponentsDrawing\drawHitBox2D.h" />
     <ClInclude Include="include\resources\resources.h" />
     <ClInclude Include="include\runtime\gameLoop.h" />
     <ClInclude Include="include\runtime\messageHandler.h" />
     <ClInclude Include="include\runtime\winMain.h" />
     <ClInclude Include="include\myStandards.h" />
-    <ClInclude Include="src\myStandards.c" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resources\resources.rc" />
@@ -43,7 +43,9 @@
     <ClCompile Include="src\ECS\components\position2D.c" />
     <ClCompile Include="src\ECS\gameObjects.c" />
     <ClCompile Include="src\math\vectors.c" />
+    <ClCompile Include="src\myStandards.c" />
     <ClCompile Include="src\rendering\drawing.c" />
+    <ClCompile Include="src\rendering\ECSComponentsDrawing\drawHitBox2D.c" />
     <ClCompile Include="src\runtime\gameLoop.c" />
     <ClCompile Include="src\runtime\messageHandler.c" />
     <ClCompile Include="src\winMain.c" />
@@ -106,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\definitions;$(ProjectDir)\include\ECS;$(ProjectDir)\include\ECS\components;$(ProjectDir)\include\math;$(ProjectDir)\include\rendering;$(ProjectDir)\include\resources;$(ProjectDir)\include\runtime</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\definitions;$(ProjectDir)\include\ECS;$(ProjectDir)\include\ECS\components;$(ProjectDir)\include\math;$(ProjectDir)\include\rendering;$(ProjectDir)\include\rendering\ECSComponentsDrawing;$(ProjectDir)\include\resources;$(ProjectDir)\include\runtime</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -124,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\definitions;$(ProjectDir)\include\ECS;$(ProjectDir)\include\ECS\components;$(ProjectDir)\include\math;$(ProjectDir)\include\rendering;$(ProjectDir)\include\resources;$(ProjectDir)\include\runtime</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\definitions;$(ProjectDir)\include\ECS;$(ProjectDir)\include\ECS\components;$(ProjectDir)\include\math;$(ProjectDir)\include\rendering;$(ProjectDir)\include\rendering\ECSComponentsDrawing;$(ProjectDir)\include\resources;$(ProjectDir)\include\runtime</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -140,7 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\definitions;$(ProjectDir)\include\ECS;$(ProjectDir)\include\ECS\components;$(ProjectDir)\include\math;$(ProjectDir)\include\rendering;$(ProjectDir)\include\resources;$(ProjectDir)\include\runtime</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\definitions;$(ProjectDir)\include\ECS;$(ProjectDir)\include\ECS\components;$(ProjectDir)\include\math;$(ProjectDir)\include\rendering;$(ProjectDir)\include\rendering\ECSComponentsDrawing;$(ProjectDir)\include\resources;$(ProjectDir)\include\runtime</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -158,7 +160,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\definitions;$(ProjectDir)\include\ECS;$(ProjectDir)\include\ECS\components;$(ProjectDir)\include\math;$(ProjectDir)\include\rendering;$(ProjectDir)\include\resources;$(ProjectDir)\include\runtime</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\definitions;$(ProjectDir)\include\ECS;$(ProjectDir)\include\ECS\components;$(ProjectDir)\include\math;$(ProjectDir)\include\rendering;$(ProjectDir)\include\rendering\ECSComponentsDrawing;$(ProjectDir)\include\resources;$(ProjectDir)\include\runtime</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
