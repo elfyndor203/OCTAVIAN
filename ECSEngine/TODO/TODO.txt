@@ -1,0 +1,3 @@
+ECS component pools
+
+how do i access the component (hitbox2d) to draw it?
