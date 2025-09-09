@@ -8,14 +8,12 @@
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\math\vectors.h" />
-    <ClInclude Include="include\rendering\drawing.h" />
     <ClInclude Include="include\resources\resources.h" />
     <ClInclude Include="include\runtime\gameLoop.h" />
     <ClInclude Include="include\runtime\messageHandler.h" />
     <ClInclude Include="include\runtime\winMain.h" />
     <ClInclude Include="include\myStandards.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
-    <ClInclude Include="include\rendering\ECSComponentsDrawing\drawHitBox2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resources\resources.rc" />
@@ -28,8 +26,8 @@
     <ClCompile Include="src\rendering\drawing.c" />
     <ClCompile Include="src\runtime\gameLoop.c" />
     <ClCompile Include="src\runtime\messageHandler.c" />
-    <ClCompile Include="src\winMain.c" />
     <ClCompile Include="src\myStandards.c" />
     <ClCompile Include="src\rendering\ECSComponentsDrawing\drawHitBox2D.c" />
+    <ClCompile Include="src\runtime\winMain.c" />
   </ItemGroup>
 </Project>

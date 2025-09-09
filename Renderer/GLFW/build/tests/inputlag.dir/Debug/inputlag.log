@@ -1,0 +1,41 @@
+﻿  Building Custom Rule C:/Users/Elfyndor/Downloads/glfw-3.4/glfw-3.4/tests/CMakeLists.txt
+  inputlag.c
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(3433,37): warning C5287: operands are different enum types 'nk_edit_types' and 'nk_edit_flags'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(5265,47): warning C5287: operands are different enum types 'nk_panel_set' and 'nk_panel_type'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(5266,42): warning C5287: operands are different enum types 'nk_panel_set' and 'nk_panel_type'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(5359,46): warning C5287: operands are different enum types 'nk_window_flags' and 'nk_panel_flags'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(15599,18): warning C5287: operands are different enum types 'nk_panel_type' and 'nk_panel_set'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(15604,18): warning C5287: operands are different enum types 'nk_panel_type' and 'nk_panel_set'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(16822,5): warning C5287: operands are different enum types 'nk_panel_type' and 'nk_panel_set'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(16916,5): warning C5287: operands are different enum types 'nk_panel_type' and 'nk_panel_set'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(16989,5): warning C5287: operands are different enum types 'nk_panel_type' and 'nk_panel_set'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(17252,5): warning C5287: operands are different enum types 'nk_panel_type' and 'nk_panel_set'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(23770,44): warning C5287: operands are different enum types 'nk_edit_types' and 'nk_edit_flags'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+C:\Users\Elfyndor\Downloads\glfw-3.4\glfw-3.4\deps\nuklear.h(25334,44): warning C5287: operands are different enum types 'nk_panel_type' and 'nk_panel_set'; use an explicit cast to silence this warning
+  (compiling source file '../../../../../../../Downloads/glfw-3.4/glfw-3.4/tests/inputlag.c')
+  
+  getopt.c
+  Generating Code...
+  inputlag.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\GLFW\cmake-build\tests\Debug\inputlag.exe

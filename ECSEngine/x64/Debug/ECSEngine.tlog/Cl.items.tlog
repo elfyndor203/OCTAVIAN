@@ -7,4 +7,4 @@ C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\rendering\dra
 C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\rendering\ECSComponentsDrawing\drawHitBox2D.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\x64\Debug\drawHitBox2D.obj
 C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\runtime\gameLoop.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\x64\Debug\gameLoop.obj
 C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\runtime\messageHandler.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\x64\Debug\messageHandler.obj
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\winMain.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\x64\Debug\winMain.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\runtime\winMain.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\x64\Debug\winMain.obj

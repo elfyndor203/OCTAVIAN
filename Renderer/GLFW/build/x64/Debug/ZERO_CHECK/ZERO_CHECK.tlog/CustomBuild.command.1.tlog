@@ -1,0 +1,10 @@
+^C:\USERS\ELFYNDOR\MYDOCUMENTS\[1] PROJECTS\ECSENGINE\RENDERER\GLFW\CMAKE-BUILD\CMAKEFILES\8586EFCFF2535BAA6283629C08EC8FF0\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Elfyndor/Downloads/glfw-3.4/glfw-3.4 "-BC:/Users/Elfyndor/MyDocuments/[1] Projects/ECSEngine/Renderer/GLFW/cmake-build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Elfyndor/MyDocuments/[1] Projects/ECSEngine/Renderer/GLFW/cmake-build/GLFW.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

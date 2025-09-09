@@ -1,5 +1,3 @@
-﻿  messageHandler.c
-  winMain.c
-  Generating Code...
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\winMain.c(58,1): warning C4715: 'WinMain': not all control paths return a value
+﻿  winMain.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\ECSEngine\src\runtime\winMain.c(58,1): warning C4715: 'WinMain': not all control paths return a value
   ECSEngine.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\x64\Debug\ECSEngine.exe
