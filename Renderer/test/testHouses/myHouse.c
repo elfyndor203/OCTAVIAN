@@ -116,6 +116,8 @@ int main() {
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // wireframe
 
     while (!glfwWindowShouldClose(houseWindow)) {
+        vertices[0] += 1.0f;
+
         processInput(houseWindow); // process any input 
 
         glClearColor(0.5f, 0.5f, 0.5f, 0.5f);   // clears to the bg

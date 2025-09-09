@@ -1,2 +1,6 @@
-﻿  myHouse.c
+﻿  renderLayer.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(38,9): warning C4047: 'return': 'GLFWwindow *' differs in levels of indirection from 'int'
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(44,49): warning C4028: formal parameter 1 different from declaration
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(59,1): warning C4715: 'initializeVertexShader': not all control paths return a value
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(76,1): warning C4715: 'initializeFragmentShader': not all control paths return a value
   Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\x64\Debug\Renderer.exe

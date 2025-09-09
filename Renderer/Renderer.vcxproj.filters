@@ -2,10 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="GLFW\GLAD\src\glad.c" />
-    <ClCompile Include="src\test\myHouse.c" />
+    <ClCompile Include="src\renderLayer.c" />
+    <ClCompile Include="src\render.c" />
+    <ClCompile Include="include\layers.h" />
+    <ClCompile Include="src\layers.c" />
+    <ClCompile Include="src\shaders\hitBoxShaders.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\test\window.h" />
-    <ClInclude Include="include\test\myHouse.h" />
+    <ClInclude Include="include\renderLayer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\shaders\hitBoxShaders.h" />
   </ItemGroup>
 </Project>
