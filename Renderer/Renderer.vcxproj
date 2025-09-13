@@ -28,9 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\renderLayer.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="include\shaders\hitBoxShaders.h" />
+    <ClInclude Include="include\shaders\hitBoxShaders.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

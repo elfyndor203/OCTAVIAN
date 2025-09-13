@@ -1,4 +1,4 @@
-#include "hitBox2D.h"
+#include "ECS/components/hitBox2D.h"
 
 hitBox2D* createDefaultHitBox2D(gameObject* parent) {
 	hitBox2D* newHitBox2D = mallocCheck((sizeof(hitBox2D)), "newHitBox2D");

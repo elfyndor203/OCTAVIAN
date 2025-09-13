@@ -4,6 +4,9 @@ void processInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        addToVertices(0.001);
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
@@ -105,7 +108,7 @@ unsigned int createVertexBuffer(float* layer, unsigned int vertexCount) {
     glBindVertexArray(newVertexArray);        //bind the array
 
     glBindBuffer(GL_ARRAY_BUFFER, newVertexBuffer);                                   //bind the vertex buffer
-    glBufferData(GL_ARRAY_BUFFER, vertexCount*sizeof(float), layer, GL_STATIC_DRAW);    // give info about the array to the buffer
+    glBufferData(GL_ARRAY_BUFFER, vertexCount* 3 * sizeof(float), layer, GL_STATIC_DRAW);    // give info about the array to the buffer
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);       // sets up the vertex position attribute
     glEnableVertexAttribArray(0);

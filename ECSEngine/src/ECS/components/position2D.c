@@ -1,4 +1,4 @@
-#include "position2D.h"
+#include "ECS/components/position2D.h"
 
 position2D* createDefaultPosition2D(gameObject* parent) {
 	position2D* newPosition2D = mallocCheck(sizeof(position2D), "newPosition2D");

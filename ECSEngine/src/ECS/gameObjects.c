@@ -1,4 +1,4 @@
-#include "gameObjects.h"
+#include "ECS/gameObjects.h"
 
 gameObject* createBlankGameObject() {
 	gameObject* newGameObject = calloc(1, sizeof(gameObject));

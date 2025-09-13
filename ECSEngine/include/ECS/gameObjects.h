@@ -2,10 +2,10 @@
 #include <stdarg.h>
 #include <string.h>
 
-#include "componentTypes.h"
-#include "position2D.h"
-#include "transform2D.h"
-#include "hitBox2D.h"
+#include "ECS/componentTypes.h"
+#include "ECS/components/position2D.h"
+#include "ECS/components/transform2D.h"
+#include "ECS/components/hitBox2D.h"
 
 typedef struct gameObject{										// each gameObject takes an array of components
 	void* componentsList[componentsTotal];

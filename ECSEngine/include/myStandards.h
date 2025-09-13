@@ -6,8 +6,8 @@
 #include <stdint.h>
 #include <inttypes.h>
 
-#include "resources.h"
-#include "errorCodes.h"
+#include "resources/resources.h"
+#include "definitions/errorCodes.h"
 
 void* mallocCheck(size_t sizeToMalloc, const char* name); 
 

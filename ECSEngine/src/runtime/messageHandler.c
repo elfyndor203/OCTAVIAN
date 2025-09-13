@@ -1,4 +1,4 @@
-#include "messageHandler.h"
+#include "runtime/messageHandler.h"
 
 LRESULT CALLBACK windowProcedure(HWND windowHandle, UINT messageID, WPARAM wParam, LPARAM lParam) {
 
@@ -32,7 +32,6 @@ LRESULT CALLBACK gameMessageHandler(HWND windowHandle, UINT messageID, WPARAM wP
 		gameObject* mainObject = createGameObject(2, componentPosition2D, componentHitBox2D);
 		printComponentsList(mainObject);
 
-		layer* myNewLayer = createNewLayer(true);
 		//drawHitBox2D(mainObject->hitBox2D);
 
 		break;

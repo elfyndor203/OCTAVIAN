@@ -1,4 +1,4 @@
-#include "winMain.h"
+#include "runtime/winMain.h"
 
 const char windowClassName[] = "myWindowClass";
 

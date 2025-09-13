@@ -1,5 +1,5 @@
 #pragma once
-#include "vectors.h"
+#include "math/vectors.h"
 
 #define defaultHitBoxSize 1.0f
 
