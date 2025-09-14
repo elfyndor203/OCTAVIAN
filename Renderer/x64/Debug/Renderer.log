@@ -1,7 +1,18 @@
-﻿  renderLayer.c
+﻿  glad.c
+  layers.c
+  render.c
+  renderLayer.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\render.c(8,62): warning C4090: 'function': different 'const' qualifiers
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\render.c(9,66): warning C4090: 'function': different 'const' qualifiers
 C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(9,23): warning C4305: 'function': truncation from 'double' to 'float'
 C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(41,9): warning C4047: 'return': 'GLFWwindow *' differs in levels of indirection from 'int'
 C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(47,49): warning C4028: formal parameter 1 different from declaration
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(79,1): warning C4715: 'initializeFragmentShader': not all control paths return a value
+  hitBoxShaders.c
+  Generating Code...
 C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(62,1): warning C4715: 'initializeVertexShader': not all control paths return a value
-  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\x64\Debug\Renderer.exe
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\src\renderLayer.c(79,1): warning C4715: 'initializeFragmentShader': not all control paths return a value
+  layers.h
+x64\Debug\layers.obj : warning LNK4042: object specified more than once; extras ignored
+render.obj : error LNK2001: unresolved external symbol firstVertices
+renderLayer.obj : error LNK2019: unresolved external symbol addToVertices referenced in function processInput
+C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\x64\Debug\Renderer.exe : fatal error LNK1120: 2 unresolved externals
