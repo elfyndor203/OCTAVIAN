@@ -1,3 +1,9 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (ECSEngine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿  componentPools.c
+  gameObjects.c
+  vectors.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\math\vectors.c(38,9): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\math\vectors.c(45,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  myStandards.c
+  Generating Code...
 MSVCRTD.lib(exe_winmain.obj) : error LNK2019: unresolved external symbol WinMain referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\x64\Debug\ECS.exe : fatal error LNK1120: 1 unresolved externals
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\ECS.exe : fatal error LNK1120: 1 unresolved externals

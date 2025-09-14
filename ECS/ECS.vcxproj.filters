@@ -8,13 +8,9 @@
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\math\vectors.h" />
-    <ClInclude Include="include\resources\resources.h" />
     <ClInclude Include="include\myStandards.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
     <ClInclude Include="include\ECS\componentPools.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="resources\resources.rc" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\gameObjects.c" />
