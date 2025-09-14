@@ -1,0 +1,14 @@
+#pragma once
+#include "math/vectors.h"
+#include "myStandards.h"
+
+typedef struct gameObject gameObject;
+
+typedef struct {
+	size_t poolIndex;
+	size_t parentIndex;
+	vector2D globalPosition2D;
+	vector2D localPosition2D;
+} position2D;
+
+position2D* createDefaultPosition2D(gameObject* parent);

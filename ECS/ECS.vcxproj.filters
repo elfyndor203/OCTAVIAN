@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="include\definitions\colors.h" />
+    <ClInclude Include="include\ECS\components\hitBox2D.h" />
+    <ClInclude Include="include\ECS\components\position2D.h" />
+    <ClInclude Include="include\ECS\components\transform2D.h" />
+    <ClInclude Include="include\ECS\componentTypes.h" />
+    <ClInclude Include="include\ECS\gameObjects.h" />
+    <ClInclude Include="include\math\vectors.h" />
+    <ClInclude Include="include\myStandards.h" />
+    <ClInclude Include="include\definitions\errorCodes.h" />
+    <ClInclude Include="include\ECS\componentPools.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ECS\gameObjects.c" />
+    <ClCompile Include="src\math\vectors.c" />
+    <ClCompile Include="src\myStandards.c" />
+    <ClCompile Include="src\ECS\componentPools.c" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+﻿  Building Custom Rule C:/Users/Elfyndor/Downloads/glfw-3.4/glfw-3.4/tests/CMakeLists.txt
+  monitors.c
+  getopt.c
+  Generating Code...
+  monitors.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\ECSEngine\Renderer\GLFW\cmake-build\tests\Debug\monitors.exe
