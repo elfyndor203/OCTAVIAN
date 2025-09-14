@@ -5,11 +5,13 @@
 
 typedef enum {				// each component type is assigned a number, and componentsTotal == the number of actual components
 	componentParentObject,
-	componentChildObject,
 	componentPosition2D,
 	componentTransform2D,
 	componentHitBox2D,
+	componentChildObject,
 
 	componentsTotal
 } componentTypes;
+
+
 

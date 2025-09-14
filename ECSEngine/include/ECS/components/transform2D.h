@@ -4,7 +4,8 @@
 typedef struct gameObject gameObject;
 
 typedef struct {
-	gameObject* parent;
+	size_t poolIndex;
+	size_t parentIndex;
 	float rotation2D;
 	vector2D scale2D;
 } transform2D;

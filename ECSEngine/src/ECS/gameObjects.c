@@ -1,58 +1,94 @@
 #include "ECS/gameObjects.h"
+#include "ECS/componentPools.h"
 
-gameObject* createBlankGameObject() {
-	gameObject* newGameObject = calloc(1, sizeof(gameObject));
-	return newGameObject;
-}
-
-void addComponent(gameObject* parentObject, componentTypes componentType, void* componentToAdd) {	// adds an already created component to an object
-	parentObject->componentsList[parentObject->componentsCountTotal] = componentToAdd;				// sets next available slot in componentsList to the new component's pointer
-	parentObject->componentsCountTotal += 1;
-	parentObject->componentsMask |= (1ULL << componentType);										// marks the component as visible
-	parentObject->componentsCountPer[componentType] += 1;											// adds 1 to the counter for that component type	
-}
-
-gameObject* createGameObject(int componentsToAdd, ...) {
-	va_list components;
-	va_start(components, componentsToAdd);
-
-	gameObject* newGameObject = createBlankGameObject();
-
-	for (int i = 0; i < componentsToAdd; i++) {
-		componentTypes currentComponent = va_arg(components, componentTypes);
-
-		switch (currentComponent) {
-		case componentChildObject:
-			break;
-
-		case componentPosition2D:
-			;
-			position2D* position2D = createDefaultPosition2D(newGameObject);
-			addComponent(newGameObject, componentPosition2D, position2D);
-			break;
-
-		case componentTransform2D:
-			break;
-
-		case componentHitBox2D:
-			;
-			hitBox2D* hitBox2D = createDefaultHitBox2D(newGameObject);
-			addComponent(newGameObject, componentHitBox2D, hitBox2D);
-			break;
-		default:
-			printf("Unknown component type: %d\n", currentComponent);
-			exit(EXIT_FAILURE);
-		}
+size_t createGameObject(size_t parentIndex, bool is3D) {
+	gameObject newGameObject = { 0 };
+	
+	if (is3D) {
+		exit(EXIT_3D_NOT_SUPPORTED);										// change this later
+	}
+	else {
+		newGameObject.poolIndex = gameObjectsCounter;						
+		newGameObject.parentIndex = parentIndex;
+		
+		newGameObject.positionIndex = addNewPosition2D(newGameObject.poolIndex);					// stores the index of its position component
+		newGameObject.componentsMask |= (1ULL << componentPosition2D);		// marks the gameObject as having a position component
 	}
 
-	va_end(components);
-	return newGameObject;
+	gameObjectsPool[gameObjectsCounter] = newGameObject;					// stores gameObject in the next avail slot of the pool
+	gameObjectsCounter += 1;
+
+	return newGameObject.poolIndex;
 }
 
-void printComponentsList(gameObject* parent) {
-	printf("%d\n", parent->componentsCountTotal);
-	printf("%" PRIu64 "\n", parent->componentsMask);
+void addComponentToGameObject(size_t parentIndex, componentTypes componentType) {
+	gameObject* parentObject = &gameObjectsPool[parentIndex];
+
+	switch (componentType) {
+		case componentPosition2D: {
+			parentObject->positionIndex = addNewPosition2D(parentIndex);
+			break;
+		}
+
+		case componentTransform2D: {
+			parentObject->transformIndex = addNewTransform2D(parentIndex);
+			break;
+		}
+
+		case componentHitBox2D: {
+			parentObject->hitBoxIndex = addNewHitBox2D(parentIndex);
+			break;
+		}
+
+		case componentChildObject: {
+			size_t newChildObject = createGameObject(parentIndex, false);		// creates a default childObject
+			break;
+		}	
+	}
+	parentObject->componentsMask |= (1ULL << componentType);
 }
+
+//gameObject* createGameObject(int componentsToAdd, ...) {
+//	va_list components;
+//	va_start(components, componentsToAdd);
+//
+//	gameObject* newGameObject = createGameObject();
+//
+//	for (int i = 0; i < componentsToAdd; i++) {
+//		componentTypes currentComponent = va_arg(components, componentTypes);
+//
+//		switch (currentComponent) {
+//		case componentChildObject:
+//			break;
+//
+//		case componentPosition2D:
+//			;
+//			position2D* position2D = createDefaultPosition2D(newGameObject);
+//			addComponent(newGameObject, componentPosition2D, position2D);
+//			break;
+//
+//		case componentTransform2D:
+//			break;
+//
+//		case componentHitBox2D:
+//			;
+//			hitBox2D* hitBox2D = createDefaultHitBox2D(newGameObject);
+//			addComponent(newGameObject, componentHitBox2D, hitBox2D);
+//			break;
+//		default:
+//			printf("Unknown component type: %d\n", currentComponent);
+//			exit(EXIT_FAILURE);
+//		}
+//	}
+//
+//	va_end(components);
+//	return newGameObject;
+//}
+
+//void printComponentsList(gameObject* parent) {
+//	printf("%d\n", parent->componentsCountTotal);
+//	printf("%" PRIu64 "\n", parent->componentsMask);
+//}
 
 
 

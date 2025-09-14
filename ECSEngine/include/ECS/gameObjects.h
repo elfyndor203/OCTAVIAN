@@ -1,24 +1,31 @@
 #pragma once
-#include <stdarg.h>
-#include <string.h>
 
+#define MAX_GAMEOBJECTS 1024
+
+#include "myStandards.h"
 #include "ECS/componentTypes.h"
-#include "ECS/components/position2D.h"
-#include "ECS/components/transform2D.h"
-#include "ECS/components/hitBox2D.h"
 
-typedef struct gameObject{										// each gameObject takes an array of components
-	void* componentsList[componentsTotal];
-	int componentsCountTotal;
-	uint64_t componentsMask;							// tracks if the object has that component
-	uint16_t componentsCountPer[componentsTotal];		// tracks the number of each component
+typedef struct gameObject{
+	size_t poolIndex;
+
+	bool is3D;					// in case of the rare 3d position usage
+	size_t parentIndex;		// single index in pools of components it can physically only have one of
+
+	size_t positionIndex;		
+	size_t transformIndex;
+	size_t hitBoxIndex;		//
+	
+	uint64_t componentsMask;	// tracks if the object has each component
 } gameObject;
 
+gameObject gameObjectsPool[MAX_GAMEOBJECTS];
+size_t gameObjectsCounter = 0;
 
-void printComponentsList(gameObject* parent);
+size_t createGameObject(size_t parentIndex, bool is3D);
 
-gameObject* createBlankGameObject();
+//void printComponentsList(gameObject* parent);
 
-void addComponent(gameObject* parentObject, componentTypes componentType, void* componentToAdd);
 
-gameObject* createGameObject(int componentsToAdd, ...);
+void addComponentToGameObject(size_t parentIndex, componentTypes componentType);
+
+//gameObject* createGameObject(int componentsToAdd, ...);

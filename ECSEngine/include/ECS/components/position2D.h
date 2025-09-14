@@ -5,7 +5,8 @@
 typedef struct gameObject gameObject;
 
 typedef struct {
-	gameObject* parent;
+	size_t poolIndex;
+	size_t parentIndex;
 	vector2D globalPosition2D;
 	vector2D localPosition2D;
 } position2D;

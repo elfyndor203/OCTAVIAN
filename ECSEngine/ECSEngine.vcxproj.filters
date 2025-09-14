@@ -9,25 +9,17 @@
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="include\resources\resources.h" />
-    <ClInclude Include="include\runtime\gameLoop.h" />
-    <ClInclude Include="include\runtime\messageHandler.h" />
-    <ClInclude Include="include\runtime\winMain.h" />
     <ClInclude Include="include\myStandards.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
+    <ClInclude Include="include\ECS\componentPools.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resources\resources.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ECS\components\hitBox2D.c" />
-    <ClCompile Include="src\ECS\components\position2D.c" />
     <ClCompile Include="src\ECS\gameObjects.c" />
     <ClCompile Include="src\math\vectors.c" />
-    <ClCompile Include="src\rendering\drawing.c" />
-    <ClCompile Include="src\runtime\gameLoop.c" />
-    <ClCompile Include="src\runtime\messageHandler.c" />
     <ClCompile Include="src\myStandards.c" />
-    <ClCompile Include="src\rendering\ECSComponentsDrawing\drawHitBox2D.c" />
-    <ClCompile Include="src\runtime\winMain.c" />
+    <ClCompile Include="src\ECS\componentPools.c" />
   </ItemGroup>
 </Project>

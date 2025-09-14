@@ -6,7 +6,8 @@
 typedef struct gameObject gameObject;
 
 typedef struct {
-	gameObject* parent;
+	size_t poolIndex;
+	size_t parentIndex;
 	vector2D origin; // bottom right corner
 	float width;
 	float height;
