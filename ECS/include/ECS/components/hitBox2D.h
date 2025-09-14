@@ -1,24 +1,25 @@
 #pragma once
 #include "math/vectors.h"
 
-#define defaultHitBoxSize 1.0f
-
-typedef struct gameObject gameObject;
+#define DEFAULT_HITBOX_X 1.0f
+#define DEFAULT_HITBOX_Y 1.0f
 
 typedef struct {
 	size_t poolIndex;
 	size_t parentIndex;
-	vector2D origin; // bottom right corner
+
+	vector2D origin; // center
 	float width;
 	float height;
 
-	vector2D center;
 	vector2D bottom;
 	vector2D right;
 	vector2D top;
 	vector2D left;
 } hitBox2D;
 
-hitBox2D* createDefaultHitBox2D(gameObject* parent);
+hitBox2D hitBox2DPool[DEFAULT_MAX_COMPONENTS_PER_TYPE];
+size_t hitBox2DCounter;
 
-void initializeHitBox2DVectors(hitBox2D* hitBox2DToSet);
+size_t addNewHitBox2D(size_t parentIndex);
+void initializeHitBox2D(hitBox2D* hitBox);

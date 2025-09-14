@@ -10,12 +10,14 @@
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="include\myStandards.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
-    <ClInclude Include="include\ECS\componentPools.h" />
+    <ClInclude Include="include\definitions\defaultValues.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\gameObjects.c" />
     <ClCompile Include="src\math\vectors.c" />
     <ClCompile Include="src\myStandards.c" />
-    <ClCompile Include="src\ECS\componentPools.c" />
+    <ClCompile Include="src\ECS\components\position2D.c" />
+    <ClCompile Include="src\ECS\components\transform2D.c" />
+    <ClCompile Include="src\ECS\components\hitBox2D.c" />
   </ItemGroup>
 </Project>

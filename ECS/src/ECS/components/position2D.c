@@ -1,12 +1,23 @@
 #include "ECS/components/position2D.h"
 
-position2D* createDefaultPosition2D(gameObject* parent) {
-	position2D* newPosition2D = mallocCheck(sizeof(position2D), "newPosition2D");
+#include "ECS/gameObjects.h"
 
+vector2D defaultPosition2D = { DEFAULT_POSITION2D_X, DEFAULT_POSITION2D_Y };
 
-	newPosition2D->parent = parent;
-	newPosition2D->globalPosition2D = originZeroZero; // sets the global position to 0,0
-	newPosition2D->localPosition2D = originZeroZero; // sets the local position to 0,0
+size_t addNewPosition2D(size_t parentIndex) {					// attaches a new default position2D to some gameObject
+	gameObject* parentObject = &gameObjectsPool[parentIndex];
 
-	return newPosition2D;
+	position2D newPosition2D = { 0 };							
+	newPosition2D.poolIndex = position2DCounter;							// it can find itself
+	newPosition2D.parentIndex = parentIndex;								// it can find its parent object
+
+	parentObject->componentsMask |= (1ULL << componentPosition2D);			// parent object knows it exists
+	parentObject->positionIndex = newPosition2D.poolIndex;					// parent object can find it
+
+	newPosition2D.globalPosition2D = defaultPosition2D;			// default values
+	newPosition2D.localPosition2D = defaultPosition2D;
+
+	position2DPool[position2DCounter] = newPosition2D;			// add it to the pool
+	position2DCounter += 1;
+	return newPosition2D.poolIndex;
 }

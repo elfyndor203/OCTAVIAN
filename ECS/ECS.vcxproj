@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClInclude Include="include\definitions\colors.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
-    <ClInclude Include="include\ECS\componentPools.h" />
+    <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\ECS\components\hitBox2D.h" />
     <ClInclude Include="include\ECS\components\position2D.h" />
     <ClInclude Include="include\ECS\components\transform2D.h" />
@@ -31,7 +31,9 @@
     <ClInclude Include="include\myStandards.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ECS\componentPools.c" />
+    <ClCompile Include="src\ECS\components\hitBox2D.c" />
+    <ClCompile Include="src\ECS\components\position2D.c" />
+    <ClCompile Include="src\ECS\components\transform2D.c" />
     <ClCompile Include="src\ECS\gameObjects.c" />
     <ClCompile Include="src\math\vectors.c" />
     <ClCompile Include="src\myStandards.c" />
