@@ -1,6 +1,6 @@
-#include "ECS/components/position2D.h"
-
 #include "ECS/gameObjects.h"
+
+#include "ECS/components/position2D.h"
 
 vector2D defaultPosition2D = { DEFAULT_POSITION2D_X, DEFAULT_POSITION2D_Y };
 
@@ -12,7 +12,7 @@ size_t addNewPosition2D(size_t parentIndex) {					// attaches a new default posi
 	newPosition2D.parentIndex = parentIndex;								// it can find its parent object
 
 	parentObject->componentsMask |= (1ULL << componentPosition2D);			// parent object knows it exists
-	parentObject->positionIndex = newPosition2D.poolIndex;					// parent object can find it
+	parentObject->hitBoxIndex = newPosition2D.poolIndex;					// parent object can find it
 
 	newPosition2D.globalPosition2D = defaultPosition2D;			// default values
 	newPosition2D.localPosition2D = defaultPosition2D;

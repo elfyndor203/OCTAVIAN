@@ -22,4 +22,4 @@ hitBox2D hitBox2DPool[DEFAULT_MAX_COMPONENTS_PER_TYPE];
 size_t hitBox2DCounter;
 
 size_t addNewHitBox2D(size_t parentIndex);
-void initializeHitBox2D(hitBox2D* hitBox);
+void resizeHitBox2D(size_t hitBoxIndex, size_t sizeX, size_t sizeY);

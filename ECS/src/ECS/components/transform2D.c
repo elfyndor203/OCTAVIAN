@@ -1,6 +1,6 @@
-#include "ECS/components/transform2D.h"
-
 #include "ECS/gameObjects.h"
+
+#include "ECS/components/transform2D.h"
 
 vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 

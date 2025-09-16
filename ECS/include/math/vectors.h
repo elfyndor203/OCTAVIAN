@@ -6,6 +6,11 @@ typedef struct {
 	float y;
 } vector2D;
 
+typedef struct {
+	vector2D origin;
+	vector2D end;
+} line2D;
+
 static const vector2D originZeroZero = { 0, 0 };
 
 vector2D addVectors2D(int vectorsCount, ...);
