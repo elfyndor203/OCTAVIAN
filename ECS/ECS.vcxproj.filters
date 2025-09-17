@@ -11,6 +11,9 @@
     <ClInclude Include="include\myStandards.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
     <ClInclude Include="include\definitions\defaultValues.h" />
+    <ClInclude Include="include\errors\errorCodes.h" />
+    <ClInclude Include="include\errors\errorHandling.h" />
+    <ClInclude Include="include\ECS\pools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\gameObjects.c" />
@@ -19,5 +22,7 @@
     <ClCompile Include="src\ECS\components\position2D.c" />
     <ClCompile Include="src\ECS\components\transform2D.c" />
     <ClCompile Include="src\ECS\components\hitBox2D.c" />
+    <ClCompile Include="src\errors\errorHandling.c" />
+    <ClCompile Include="src\ECS\pools.c" />
   </ItemGroup>
 </Project>

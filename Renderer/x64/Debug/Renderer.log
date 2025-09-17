@@ -1,9 +1,9 @@
 ﻿  glad.c
   layers.c
   render.c
+  renderLayer.c
 C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\render.c(8,62): warning C4090: 'function': different 'const' qualifiers
 C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\render.c(9,66): warning C4090: 'function': different 'const' qualifiers
-  renderLayer.c
 C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\renderLayer.c(9,23): warning C4305: 'function': truncation from 'double' to 'float'
 C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\renderLayer.c(41,9): warning C4047: 'return': 'GLFWwindow *' differs in levels of indirection from 'int'
 C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\renderLayer.c(47,49): warning C4028: formal parameter 1 different from declaration

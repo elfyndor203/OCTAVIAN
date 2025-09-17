@@ -1,9 +1,20 @@
-﻿  componentPools.c
+﻿  hitBox2D.c
+  position2D.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\components\hitBox2D.c(18,40): warning C4244: 'function': conversion from 'float' to 'size_t', possible loss of data
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\components\hitBox2D.c(18,58): warning C4244: 'function': conversion from 'float' to 'size_t', possible loss of data
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\components\hitBox2D.c(30,18): error C4146: unary minus operator applied to unsigned type, result still unsigned
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\components\hitBox2D.c(30,25): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\components\hitBox2D.c(31,18): error C4146: unary minus operator applied to unsigned type, result still unsigned
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\components\hitBox2D.c(31,25): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+  transform2D.c
   gameObjects.c
+  errorHandling.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\errors\errorHandling.c(4,2): warning C4013: 'printf' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\errors\errorHandling.c(6,3): warning C4013: 'exit' undefined; assuming extern returning int
   vectors.c
 C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\math\vectors.c(38,9): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\math\vectors.c(45,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   myStandards.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\myStandards.c(8,2): error C2143: syntax error: missing ';' before '}'
   Generating Code...
-MSVCRTD.lib(exe_winmain.obj) : error LNK2019: unresolved external symbol WinMain referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\ECS.exe : fatal error LNK1120: 1 unresolved externals
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\errors\errorHandling.c(8,1): warning C4716: 'logError': must return a value

@@ -27,6 +27,9 @@
     <ClInclude Include="include\ECS\components\transform2D.h" />
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
+    <ClInclude Include="include\ECS\pools.h" />
+    <ClInclude Include="include\errors\errorCodes.h" />
+    <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="include\myStandards.h" />
   </ItemGroup>
@@ -35,6 +38,8 @@
     <ClCompile Include="src\ECS\components\position2D.c" />
     <ClCompile Include="src\ECS\components\transform2D.c" />
     <ClCompile Include="src\ECS\gameObjects.c" />
+    <ClCompile Include="src\ECS\pools.c" />
+    <ClCompile Include="src\errors\errorHandling.c" />
     <ClCompile Include="src\math\vectors.c" />
     <ClCompile Include="src\myStandards.c" />
   </ItemGroup>

@@ -6,12 +6,16 @@ typedef struct {
 	float y;
 } vector2D;
 
+typedef vector2D point2D;
+
 typedef struct {
-	vector2D origin;
-	vector2D end;
+	point2D origin;
+	point2D end;
 } line2D;
 
-static const vector2D originZeroZero = { 0, 0 };
+typedef float (*genericFloatOperations)(float, float);
+
+static const point2D originZeroZero = { 0, 0 };
 
 vector2D addVectors2D(int vectorsCount, ...);
 vector2D addScalarToVector2D(float scalar, vector2D vectorA);
@@ -22,3 +26,9 @@ bool isEqual(vector2D vectorA, vector2D vectorB);
 
 float magnitudeVector2D(vector2D vectorA);
 
+float addFloats(float floatOne, float floatTwo);
+float subtractFloats(float floatOne, float floatTwo);
+float multiplyFloats(float floatOne, float floatTwo);
+float divideFloats(float floatOne, float floatTwo);
+
+vector2D vector2DScalarElementWise(vector2D* vectorA, float scalar, genericFloatOperations operation);

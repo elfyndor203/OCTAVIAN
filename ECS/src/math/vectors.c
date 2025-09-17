@@ -56,3 +56,30 @@ bool isEqual(vector2D vectorA, vector2D vectorB) {
 	return true;
 }
 
+float addFloats(float floatOne, float floatTwo) {
+	return floatOne + floatTwo;
+}
+
+float subtractFloats(float floatOne, float floatTwo) {
+	return floatOne - floatTwo;
+}
+
+float multiplyFloats(float floatOne, float floatTwo) {
+	return floatOne * floatTwo;
+}
+
+float divideFloats(float floatOne, float floatTwo) {
+	if (floatTwo == 0) {
+		logError(ERR_DIVIDE_BY_ZERO);
+		return floatOne;
+	}
+	return floatOne / floatTwo;
+}
+
+vector2D vector2DScalarElementWise(vector2D* vectorA, float scalar, genericFloatOperations operation) {
+	vector2D resultantVector = { 0 };
+	resultantVector.x = operation(vectorA->x, scalar);
+	resultantVector.y = operation(vectorA->y, scalar);
+
+	return resultantVector;
+}

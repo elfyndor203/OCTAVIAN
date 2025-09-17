@@ -13,7 +13,7 @@ typedef struct {
 	vector2D localPosition2D;
 } position2D;
 
-position2D position2DPool[DEFAULT_MAX_COMPONENTS_PER_TYPE];
-size_t position2DCounter;
+extern position2D position2DPool;
+extern size_t position2DCounter;
 
 size_t addNewPosition2D(size_t parentIndex);

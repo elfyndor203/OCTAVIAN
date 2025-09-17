@@ -6,7 +6,9 @@
 #include <stdint.h>
 #include <inttypes.h>
 
-#include "definitions/errorCodes.h"
+#include "errors/errorCodes.h"
+#include "errors/errorHandling.h"
+
 #include "definitions/defaultValues.h"
 
 void* mallocCheck(size_t sizeToMalloc, const char* name); 

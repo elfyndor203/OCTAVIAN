@@ -15,7 +15,7 @@ typedef struct {
 	vector2D scale;
 } transform2D;
 
-transform2D transform2DPool[DEFAULT_MAX_COMPONENTS_PER_TYPE];
-size_t transform2DCounter;
+extern transform2D transform2DPool;
+extern size_t transform2DCounter;
 
 size_t addNewTransform2D(size_t parentIndex);

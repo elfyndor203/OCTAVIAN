@@ -18,7 +18,7 @@ typedef struct gameObject{
 	uint64_t componentsMask;	// tracks if the object has each component
 } gameObject;
 
-gameObject gameObjectsPool[MAX_GAMEOBJECTS];
-size_t gameObjectsCounter = 0;
+extern gameObject gameObjectsPool;
+extern gameObjectsCounter;
 
 size_t createGameObject(size_t parentIndex, bool is3D);
