@@ -27,21 +27,24 @@
     <ClInclude Include="include\ECS\components\transform2D.h" />
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
-    <ClInclude Include="include\ECS\pools.h" />
+    <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="include\myStandards.h" />
+    <ClInclude Include="ZZZTestRuntime\zzzTestMain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\components\hitBox2D.c" />
     <ClCompile Include="src\ECS\components\position2D.c" />
     <ClCompile Include="src\ECS\components\transform2D.c" />
+    <ClCompile Include="src\ECS\componentTypes.c" />
     <ClCompile Include="src\ECS\gameObjects.c" />
-    <ClCompile Include="src\ECS\pools.c" />
+    <ClCompile Include="src\ECS\scenes.c" />
     <ClCompile Include="src\errors\errorHandling.c" />
     <ClCompile Include="src\math\vectors.c" />
     <ClCompile Include="src\myStandards.c" />
+    <ClCompile Include="ZZZTestRuntime\zzzTestMain.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -117,7 +120,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <ResourceCompile>
@@ -135,7 +138,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <ResourceCompile>
@@ -151,7 +154,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <ResourceCompile>
@@ -169,7 +172,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <ResourceCompile>

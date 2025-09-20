@@ -1,8 +1,8 @@
 #pragma once
 #include "math/vectors.h"
 
-#define DEFAULT_HITBOX_X 1.0f
-#define DEFAULT_HITBOX_Y 1.0f
+#define DEFAULT_HITBOX_X 10.0f
+#define DEFAULT_HITBOX_Y 10.0f
 
 #define DEFAULT_MAX_HITBOXES 1024
 
@@ -13,9 +13,6 @@ typedef struct {
 	point2D origin; // center
 	vector2D bottomLeft; // to create the lines
 } hitBox2D;
-
-extern hitBox2D hitBox2DPool;
-extern size_t hitBox2DCounter;
 
 typedef struct {
 	size_t poolIndex;
@@ -28,8 +25,6 @@ typedef struct {
 	point2D topLeft;
 } hitBoxVertices;
 
-extern hitBox2D hitBox2DPool;
-extern size_t hitBox2DCounter;
-
 size_t hitBox2DAddNew(size_t parentIndex);
-void hitBox2DResize(size_t hitBoxIndex, size_t sizeX, size_t sizeY);
+void hitBox2DResize(size_t hitBoxIndex, float sizeX, float sizeY);
+hitBoxVertices hitBox2DGenerateVertices(size_t parentIndex);

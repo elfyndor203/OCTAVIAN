@@ -13,7 +13,4 @@ typedef struct {
 	vector2D localPosition2D;
 } position2D;
 
-extern position2D position2DPool;
-extern size_t position2DCounter;
-
-size_t addNewPosition2D(size_t parentIndex);
+size_t position2DAddNew(size_t parentIndex);

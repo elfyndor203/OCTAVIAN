@@ -1,0 +1,10 @@
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\components\hitBox2D.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\hitBox2D.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\components\position2D.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\position2D.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\components\transform2D.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\transform2D.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\componentTypes.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\componentTypes.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\gameObjects.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\gameObjects.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\ECS\scenes.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\scenes.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\errors\errorHandling.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\errorHandling.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\math\vectors.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\vectors.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\myStandards.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\myStandards.obj
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\ZZZTestRuntime\zzzTestMain.c;C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\x64\Debug\zzzTestMain.obj

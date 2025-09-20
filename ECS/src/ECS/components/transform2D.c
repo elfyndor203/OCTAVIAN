@@ -1,14 +1,15 @@
 #include "ECS/gameObjects.h"
+#include "ECS/scenes.h"
 
 #include "ECS/components/transform2D.h"
 
 vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 
 size_t addNewTransform2D(size_t parentIndex) {
-	gameObject* parentObject = &gameObjectsPool[parentIndex];
+	gameObject* parentObject = getGameObject(parentIndex);
 
 	transform2D newTransform2D = { 0 };
-	newTransform2D.poolIndex = transform2DCounter;
+	newTransform2D.poolIndex = *getTransform2DCounter();
 	newTransform2D.parentIndex = parentIndex;
 
 	parentObject->componentsMask |= (1ULL << componentTransform2D);
@@ -17,7 +18,9 @@ size_t addNewTransform2D(size_t parentIndex) {
 	newTransform2D.rotation = DEFAULT_ROTATION;
 	newTransform2D.scale = defaultScale;
 
-	transform2DPool[transform2DCounter] = newTransform2D;
-	transform2DCounter += 1;
+	getTransform2DPool()[*getTransform2DCounter()] = newTransform2D;
+	*getTransform2DCounter() += 1;
+
+	printf("Added new transform2D to object %zu \n", parentIndex);
 	return newTransform2D.poolIndex;
 }

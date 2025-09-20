@@ -13,7 +13,8 @@
     <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
-    <ClInclude Include="include\ECS\pools.h" />
+    <ClInclude Include="include\ECS\scenes.h" />
+    <ClInclude Include="ZZZTestRuntime\zzzTestMain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\gameObjects.c" />
@@ -23,6 +24,8 @@
     <ClCompile Include="src\ECS\components\transform2D.c" />
     <ClCompile Include="src\ECS\components\hitBox2D.c" />
     <ClCompile Include="src\errors\errorHandling.c" />
-    <ClCompile Include="src\ECS\pools.c" />
+    <ClCompile Include="src\ECS\scenes.c" />
+    <ClCompile Include="src\ECS\componentTypes.c" />
+    <ClCompile Include="ZZZTestRuntime\zzzTestMain.c" />
   </ItemGroup>
 </Project>

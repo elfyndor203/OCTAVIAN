@@ -8,10 +8,10 @@ typedef enum {				// each component type is assigned a number, and componentsTot
 	componentPosition2D,
 	componentTransform2D,
 	componentHitBox2D,
-	componentChildObject,
+								// 1 to 1s
+	componentChildObject,	// multiple to 1s
 
 	componentsTotal
 } componentTypes;
-
 
 

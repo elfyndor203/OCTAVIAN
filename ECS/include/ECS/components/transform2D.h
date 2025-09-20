@@ -15,7 +15,4 @@ typedef struct {
 	vector2D scale;
 } transform2D;
 
-extern transform2D transform2DPool;
-extern size_t transform2DCounter;
-
 size_t addNewTransform2D(size_t parentIndex);
