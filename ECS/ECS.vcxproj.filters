@@ -14,7 +14,24 @@
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\ECS\scenes.h" />
+    <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="ZZZTestRuntime\zzzTestMain.h" />
+    <ClInclude Include="include\renderer.h" />
+    <ClInclude Include="internalInclude\ECS\components\hitBox2D.h" />
+    <ClInclude Include="internalInclude\ECS\components\position2D.h" />
+    <ClInclude Include="internalInclude\ECS\components\transform2D.h" />
+    <ClInclude Include="internalInclude\ECS\componentTypes.h" />
+    <ClInclude Include="internalInclude\ECS\gameObjects.h" />
+    <ClInclude Include="internalInclude\ECS\scenes.h" />
+    <ClInclude Include="internalInclude\definitions\aliases.h" />
+    <ClInclude Include="internalInclude\definitions\colors.h" />
+    <ClInclude Include="internalInclude\definitions\defaultValues.h" />
+    <ClInclude Include="internalInclude\errors\errorCodes.h" />
+    <ClInclude Include="internalInclude\errors\errorHandling.h" />
+    <ClInclude Include="internalInclude\math\vectors.h" />
+    <ClInclude Include="internalInclude\myStandards.h" />
+    <ClInclude Include="include\types.h" />
+    <ClInclude Include="include\gameLogic.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\gameObjects.c" />

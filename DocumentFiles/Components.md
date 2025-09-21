@@ -4,7 +4,7 @@ To add new component type:
 * Add .c
 * Add to componentTypes enum
 * Add pool to scene struct
-* Add counter to scene struct definition
+* Add counter to scene struct definition	
 * Add pool to poolsList\[]
 * Add get function in scenes.c
 

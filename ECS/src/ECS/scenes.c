@@ -17,33 +17,45 @@ transform2D* getTransform2DPool() {
 hitBox2D* getHitBox2DPool() {
 	return currentScene->hitBox2DPool;
 }
+
+hitBox2DVertices* getHitBox2DVerticesPool() {
+	return currentScene->hitBox2DVerticesPool;
+}
 ////////////////////////////////////////////////////////// get components
-gameObject* getGameObject(size_t objectIndex) {
+gameObject* getGameObject(gameObjectIndex objectIndex) {
 	return &currentScene->gameObjectsPool[objectIndex];
 }
-gameObject* getParentObject(size_t objectIndex) {
+gameObject* getParentObject(gameObjectIndex objectIndex) {
 	return &currentScene->gameObjectsPool[currentScene->gameObjectsPool[objectIndex].parentIndex];
 }
-position2D* getPosition2D(size_t objectIndex) {
+position2D* getPosition2D(gameObjectIndex objectIndex) {
 	return &currentScene->position2DPool[currentScene->gameObjectsPool[objectIndex].positionIndex];
 }
-transform2D* getTransform2D(size_t objectIndex) {
+transform2D* getTransform2D(gameObjectIndex objectIndex) {
 	return &currentScene->transform2DPool[currentScene->gameObjectsPool[objectIndex].transformIndex];
 }
-hitBox2D* getHitBox2D(size_t objectIndex) {
+hitBox2D* getHitBox2D(gameObjectIndex objectIndex) {
 	return &currentScene->hitBox2DPool[currentScene->gameObjectsPool[objectIndex].hitBoxIndex];
 }
+
+hitBox2DVertices* getHitBox2DVertices(gameObjectIndex objectIndex) {
+	return &currentScene->hitBox2DVerticesPool[currentScene->hitBox2DPool[currentScene->gameObjectsPool[objectIndex].hitBoxIndex].verticesIndex];
+}
+
 ////////////////////////////////////////////////////////// get counters
-size_t* getGameObjectsCounter() {
+counter* getGameObjectsCounter() {
 	return &currentScene->gameObjectsCounter;
 }
-size_t* getPosition2DCounter() {
+counter* getPosition2DCounter() {
 	return &currentScene->position2DCounter;
 }
-size_t* getTransform2DCounter() {
+counter* getTransform2DCounter() {
 	return &currentScene->transform2DCounter;
 }
-size_t* getHitBox2DCounter() {
+counter* getHitBox2DCounter() {
 	return &currentScene->hitBox2DCounter;
+}
+counter* getHitBox2DVerticesCounter() {
+	return &currentScene->hitBox2DVerticesCounter;
 }
 //////////////////////////////////////////////////////////

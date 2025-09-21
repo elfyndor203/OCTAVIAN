@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\colors.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
     <ClInclude Include="include\definitions\defaultValues.h" />
@@ -30,8 +31,24 @@
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
+    <ClInclude Include="include\gameLogic.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="include\myStandards.h" />
+    <ClInclude Include="include\renderer.h" />
+    <ClInclude Include="include\types.h" />
+    <ClInclude Include="internalInclude\definitions\aliases.h" />
+    <ClInclude Include="internalInclude\definitions\colors.h" />
+    <ClInclude Include="internalInclude\definitions\defaultValues.h" />
+    <ClInclude Include="internalInclude\ECS\components\hitBox2D.h" />
+    <ClInclude Include="internalInclude\ECS\components\position2D.h" />
+    <ClInclude Include="internalInclude\ECS\components\transform2D.h" />
+    <ClInclude Include="internalInclude\ECS\componentTypes.h" />
+    <ClInclude Include="internalInclude\ECS\gameObjects.h" />
+    <ClInclude Include="internalInclude\ECS\scenes.h" />
+    <ClInclude Include="internalInclude\errors\errorCodes.h" />
+    <ClInclude Include="internalInclude\errors\errorHandling.h" />
+    <ClInclude Include="internalInclude\math\vectors.h" />
+    <ClInclude Include="internalInclude\myStandards.h" />
     <ClInclude Include="ZZZTestRuntime\zzzTestMain.h" />
   </ItemGroup>
   <ItemGroup>
@@ -56,26 +73,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -117,7 +134,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internalInclude;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,7 +152,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internalInclude;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,7 +168,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internalInclude;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -169,7 +186,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internalInclude;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

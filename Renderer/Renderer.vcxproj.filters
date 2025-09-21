@@ -4,12 +4,12 @@
     <ClCompile Include="GLFW\GLAD\src\glad.c" />
     <ClCompile Include="src\renderLayer.c" />
     <ClCompile Include="src\render.c" />
-    <ClCompile Include="include\layers.h" />
+    <ClCompile Include="internalInclude\layers.h" />
     <ClCompile Include="src\layers.c" />
     <ClCompile Include="src\shaders\hitBoxShaders.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\renderLayer.h" />
-    <ClInclude Include="include\shaders\hitBoxShaders.h" />
+    <ClInclude Include="internalInclude\renderLayer.h" />
+    <ClInclude Include="internalInclude\shaders\hitBoxShaders.h" />
   </ItemGroup>
 </Project>

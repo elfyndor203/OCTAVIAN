@@ -3,7 +3,7 @@
 
 #include "ECS/components/position2D.h"
 
-gameObject createGameObject(size_t parentIndex, bool is3D) {
+gameObjectIndex createGameObject(gameObjectIndex parentIndex, bool is3D) {
 	gameObject* parentObject = getGameObject(parentIndex);
 
 	gameObject newGameObject = { 0 };	
@@ -23,7 +23,7 @@ gameObject createGameObject(size_t parentIndex, bool is3D) {
 	*getGameObjectsCounter() += 1;
 
 	printf("\nCreated new gameObject as a child of object %zu \n", parentIndex);
-	return newGameObject;
+	return newGameObject.poolIndex;
 }
 
 

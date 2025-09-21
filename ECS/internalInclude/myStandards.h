@@ -10,6 +10,7 @@
 #include "errors/errorHandling.h"
 
 #include "definitions/defaultValues.h"
+#include "definitions/aliases.h"
 
 void* mallocCheck(size_t sizeToMalloc, const char* name); 
 

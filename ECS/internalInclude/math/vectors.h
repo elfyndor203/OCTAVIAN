@@ -9,7 +9,7 @@ typedef struct {
 typedef vector2D point2D;
 
 typedef struct {
-	point2D origin;
+	point2D localOrigin;
 	point2D end;
 } line2D;
 
