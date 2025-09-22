@@ -13,4 +13,4 @@ typedef struct {
 	vector2D localPosition2D;
 } position2D;
 
-size_t position2DAddNew(size_t parentIndex);
+componentIndex position2DAddNew(size_t parentIndex);

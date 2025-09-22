@@ -43,7 +43,7 @@ transform2D* getTransform2D(gameObjectIndex objectIndex);
 hitBox2D* getHitBox2D(gameObjectIndex objectIndex);
 
 // subcomponents													
-hitBox2DVertices* getHitBox2DVertices(componentIndex hitBoxIndex);
+hitBox2DVertices* getHitBox2DVertices(gameObjectIndex objectIndex);
 
 ////////////////////////////////////////////////////////// counters
 counter* getGameObjectsCounter();

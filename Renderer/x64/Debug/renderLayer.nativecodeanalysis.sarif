@@ -1,0 +1,83 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "MSVC Code Analysis",
+          "version": "14.44.35214.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/elfyndor/mydocuments/[1] projects/octavian/renderer/src/renderlayer.c"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "c6c801e5e2919cfa9fedcbf501470d664d15e2b7ffa0bf06e04bd0dce9b7193e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/elfyndor/mydocuments/[1] projects/octavian/renderer/internalinclude/renderlayer.h"
+          },
+          "hashes": {
+            "sha-256": "f3c1680ef56c8d95c2fc08052b665a7eb13393c23ae36a28c821f637d0879069"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/elfyndor/mydocuments/[1] projects/octavian/renderer/glfw/glad/include/glad/glad.h"
+          },
+          "hashes": {
+            "sha-256": "e60c0f9b40d77a8a7095cf8ac3b88f145d19816062ebe6e144652bd3efa79215"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/elfyndor/mydocuments/[1] projects/octavian/renderer/glfw/glad/include/khr/khrplatform.h"
+          },
+          "hashes": {
+            "sha-256": "5ee5d5c2c6b2abd028cec8dc1a24e995bb47b075654a6fc55f3a1293de36943f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/elfyndor/mydocuments/[1] projects/octavian/renderer/glfw/glfw-3.4/glfw-3.4/include/glfw/glfw3.h"
+          },
+          "hashes": {
+            "sha-256": "0fd04b330d92fc4bd6630c20d1006cef36d25b16ec9f911ec4041918482307bb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/elfyndor/mydocuments/[1] projects/octavian/renderer/internalinclude/shaders/hitboxshaders.h"
+          },
+          "hashes": {
+            "sha-256": "15b64e259d22311544e24c542ae01e5b6b7881e3bded370ec133a0cb66427fe0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/elfyndor/mydocuments/[1] projects/octavian/renderer/internalinclude/layers.h"
+          },
+          "hashes": {
+            "sha-256": "2d57c9b8ff366910dc17683d945ba0eda6c5eab48e39af0736ed125e2b0a7ca1"
+          }
+        }
+      ]
+    }
+  ]
+}

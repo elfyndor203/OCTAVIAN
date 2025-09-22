@@ -1,0 +1,43 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "MSVC Code Analysis",
+          "version": "14.44.35214.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/elfyndor/mydocuments/[1] projects/octavian/renderer/src/shaders/hitboxshaders.c"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "0d3033f9a2a5e3d812884ec6959ad644161ecce55eb30e7911443aaf02bb979f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/elfyndor/mydocuments/[1] projects/octavian/renderer/internalinclude/shaders/hitboxshaders.h"
+          },
+          "hashes": {
+            "sha-256": "15b64e259d22311544e24c542ae01e5b6b7881e3bded370ec133a0cb66427fe0"
+          }
+        }
+      ]
+    }
+  ]
+}

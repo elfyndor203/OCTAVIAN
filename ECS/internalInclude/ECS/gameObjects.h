@@ -18,4 +18,4 @@ typedef struct gameObject{
 	uint64_t componentsMask;	// tracks if the object has each component
 } gameObject;
 
-gameObjectIndex createGameObject(gameObjectIndex parentIndex, bool is3D);
+gameObjectIndex gameObjectCreateNew(gameObjectIndex parentIndex, bool is3D);

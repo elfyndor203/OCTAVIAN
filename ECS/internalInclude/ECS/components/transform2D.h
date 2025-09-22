@@ -15,4 +15,4 @@ typedef struct {
 	vector2D scale;
 } transform2D;
 
-size_t addNewTransform2D(size_t parentIndex);
+componentIndex addNewTransform2D(size_t parentIndex);

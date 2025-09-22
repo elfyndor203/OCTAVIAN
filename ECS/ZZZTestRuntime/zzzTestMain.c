@@ -3,10 +3,10 @@
 int main() {
 
 	printf("hey \n");
-	size_t rootObject = createGameObject(0, false);
+	size_t rootObject = gameObjectCreateNew(0, false);
 	hitBox2DAddNew(rootObject);
 
-	size_t oneObjectHA = createGameObject(0, false);
+	size_t oneObjectHA = gameObjectCreateNew(0, false);
 	position2DAddNew(oneObjectHA);
 	hitBox2DAddNew(oneObjectHA);
 	hitBox2DResize(oneObjectHA, 55, 100);

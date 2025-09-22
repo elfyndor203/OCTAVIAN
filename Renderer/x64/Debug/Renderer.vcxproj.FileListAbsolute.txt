@@ -1,0 +1,2 @@
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\Renderer.lib.lastcodeanalysissucceeded
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\x64\Debug\NativeCodeAnalysis.read.1.tlog

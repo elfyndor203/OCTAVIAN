@@ -3,7 +3,7 @@
 
 #include "ECS/components/position2D.h"
 
-gameObjectIndex createGameObject(gameObjectIndex parentIndex, bool is3D) {
+gameObjectIndex gameObjectCreateNew(gameObjectIndex parentIndex, bool is3D) {
 	gameObject* parentObject = getGameObject(parentIndex);
 
 	gameObject newGameObject = { 0 };	

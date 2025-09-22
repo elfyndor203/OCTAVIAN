@@ -5,7 +5,7 @@
 
 vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 
-size_t addNewTransform2D(size_t parentIndex) {
+componentIndex addNewTransform2D(size_t parentIndex) {
 	gameObject* parentObject = getGameObject(parentIndex);
 
 	transform2D newTransform2D = { 0 };
