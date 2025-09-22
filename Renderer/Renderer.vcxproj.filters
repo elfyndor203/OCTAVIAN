@@ -11,5 +11,7 @@
   <ItemGroup>
     <ClInclude Include="internalInclude\renderLayer.h" />
     <ClInclude Include="internalInclude\shaders\hitBoxShaders.h" />
+    <ClInclude Include="include\Renderer.h" />
+    <ClInclude Include="include\myPublicStandards.h" />
   </ItemGroup>
 </Project>
