@@ -44,7 +44,7 @@ counter* getHitBox2DVerticesCounter();
 
 gameObjectIndex gameObjectCreateNew(gameObjectIndex parentIndex, bool is3D);
 componentIndex position2DAddNew(size_t parentIndex);
-componentIndex addNewTransform2D(size_t parentIndex);
+componentIndex transform2DAddNew(size_t parentIndex);
 componentIndex hitBox2DAddNew(gameObjectIndex parentIndex);
 void hitBox2DResize(gameObjectIndex parentIndex, float sizeX, float sizeY);
 componentIndex hitBox2DGenerateVertices(gameObjectIndex parentIndex);

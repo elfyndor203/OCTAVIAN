@@ -24,6 +24,11 @@ componentIndex hitBox2DAddNew(gameObjectIndex parentIndex) {
 	return newHitBox2D.poolIndex;
 }
 
+void hitBox2DReposition(gameObjectIndex parentIndex) {
+	hitBox2D* hitBox = getHitBox2D(parentIndex);
+	hitBox-> = getPosition2D(parentIndex)->globalPosition2D; 
+}
+
 void hitBox2DResize(gameObjectIndex parentIndex, float sizeX, float sizeY) {
 	getHitBox2D(parentIndex)->size.x = sizeX;
 	getHitBox2D(parentIndex)->size.y = sizeY;

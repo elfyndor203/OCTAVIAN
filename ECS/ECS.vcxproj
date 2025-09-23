@@ -30,6 +30,7 @@
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\ECS\scenes.h" />
+    <ClInclude Include="internalInclude\ECS\components\physics2D.h" />
     <ClInclude Include="internalInclude\errors\errorCodes.h" />
     <ClInclude Include="internalInclude\errors\errorHandling.h" />
     <ClInclude Include="include\ECS.h" />

@@ -1,2 +1,5 @@
-﻿  hitBox2D.c
+﻿  errorHandling.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\errors\errorHandling.c(5,3): warning C4013: 'printf' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\errors\errorHandling.c(7,4): warning C4013: 'exit' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\src\errors\errorHandling.c(16,1): warning C4715: 'logError': not all control paths return a value
   ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\ECS.lib

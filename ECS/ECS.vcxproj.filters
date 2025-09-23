@@ -33,6 +33,7 @@
     <ClInclude Include="include\types.h" />
     <ClInclude Include="include\ECS.h" />
     <ClInclude Include="include\myPublicStandards.h" />
+    <ClInclude Include="internalInclude\ECS\components\physics2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\gameObjects.c" />

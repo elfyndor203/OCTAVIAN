@@ -15,4 +15,4 @@ typedef struct {
 	vector2D scale;
 } transform2D;
 
-componentIndex addNewTransform2D(size_t parentIndex);
+componentIndex transform2DAddNew(gameObjectIndex parentIndex);

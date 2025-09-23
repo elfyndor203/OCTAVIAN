@@ -19,3 +19,4 @@ typedef struct gameObject{
 } gameObject;
 
 gameObjectIndex gameObjectCreateNew(gameObjectIndex parentIndex, bool is3D);
+bool gameObjectHasComponent(gameObjectIndex gameObject, componentTypes component);
