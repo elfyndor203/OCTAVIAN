@@ -24,11 +24,6 @@ componentIndex hitBox2DAddNew(gameObjectIndex parentIndex) {
 	return newHitBox2D.poolIndex;
 }
 
-void hitBox2DReposition(gameObjectIndex parentIndex) {
-	hitBox2D* hitBox = getHitBox2D(parentIndex);
-	hitBox-> = getPosition2D(parentIndex)->globalPosition2D; 
-}
-
 void hitBox2DResize(gameObjectIndex parentIndex, float sizeX, float sizeY) {
 	getHitBox2D(parentIndex)->size.x = sizeX;
 	getHitBox2D(parentIndex)->size.y = sizeY;
@@ -40,8 +35,9 @@ subcomponentIndex hitBox2DGenerateVertices(gameObjectIndex parentIndex) {
 	hitBox2D* hitBox = getHitBox2D(parentIndex);
 	vector2D hitBoxWidth = { hitBox->size.x, 0 };
 	vector2D hitBoxHeight = { 0, hitBox->size.y };
+	vector2D totalOffset = addVectors2D(2, hitBox->localOrigin, getPosition2D(parentIndex)->globalPosition2D);
 
-	point2D bottomLeft = addVectors2D(2, hitBox->localOrigin, vector2DScalarElementWise(&hitBox->size, -2.0f, divideFloats));
+	point2D bottomLeft = addVectors2D(3, totalOffset, hitBox->localOrigin, vector2DScalarElementWise(&hitBox->size, -2.0f, divideFloats));
 	point2D bottomRight = addVectors2D(2, bottomLeft, hitBoxWidth);
 	point2D topRight = addVectors2D(2, bottomRight, hitBoxHeight);
 	point2D topLeft = addVectors2D(2, topRight, vector2DScalarElementWise(&hitBoxHeight, -1, multiplyFloats));

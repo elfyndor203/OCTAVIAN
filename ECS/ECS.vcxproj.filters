@@ -46,5 +46,6 @@
     <ClCompile Include="src\ECS\scenes.c" />
     <ClCompile Include="src\ECS\componentTypes.c" />
     <ClCompile Include="ZZZTestRuntime\zzzTestMain.c" />
+    <ClCompile Include="src\ECS\components\physics2D.c" />
   </ItemGroup>
 </Project>

@@ -7,7 +7,7 @@ vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 
 componentIndex transform2DAddNew(gameObjectIndex parentIndex) {
 	if (gameObjectHasComponent(parentIndex, componentTransform2D)) {
-		logError(WARNING_REPLACED_COMPONENT);
+		logError(WARNING_COMPONENT_REPLACED);
 	}
 	gameObject* parentObject = getGameObject(parentIndex);
 

@@ -1,4 +1,4 @@
-#include "renderLayer.h"
+#include "reference/renderLayer.h"
 
 void processInput(GLFWwindow* window)
 {
@@ -107,10 +107,10 @@ unsigned int createVertexBuffer(float* layer, unsigned int vertexCount) {
 
     glBindVertexArray(newVertexArray);        //bind the array
 
-    glBindBuffer(GL_ARRAY_BUFFER, newVertexBuffer);                                   //bind the vertex buffer
+    glBindBuffer(GL_ARRAY_BUFFER, newVertexBuffer);                                          //bind the vertex buffer
     glBufferData(GL_ARRAY_BUFFER, vertexCount* 3 * sizeof(float), layer, GL_STATIC_DRAW);    // give info about the array to the buffer
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);       // sets up the vertex position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);            // sets up the vertex position attribute
     glEnableVertexAttribArray(0);
 
     return newVertexArray;

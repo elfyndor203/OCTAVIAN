@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\components\hitBox2D.c" />
+    <ClCompile Include="src\ECS\components\physics2D.c" />
     <ClCompile Include="src\ECS\components\position2D.c" />
     <ClCompile Include="src\ECS\components\transform2D.c" />
     <ClCompile Include="src\ECS\componentTypes.c" />

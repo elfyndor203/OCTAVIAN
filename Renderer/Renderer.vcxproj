@@ -20,17 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLFW\GLAD\src\glad.c" />
-    <ClCompile Include="internalInclude\layers.h" />
-    <ClCompile Include="src\layers.c" />
-    <ClCompile Include="src\render.c" />
-    <ClCompile Include="src\renderLayer.c" />
+    <ClCompile Include="internalInclude\Reference\layers.h" />
+    <ClCompile Include="src\Reference\layers.c" />
+    <ClCompile Include="src\Reference\render.c" />
+    <ClCompile Include="src\Reference\renderLayer.c" />
     <ClCompile Include="src\shaders\hitBoxShaders.c" />
+    <ClCompile Include="src\update.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\myPublicStandards.h" />
     <ClInclude Include="include\Renderer.h" />
-    <ClInclude Include="internalInclude\renderLayer.h" />
+    <ClInclude Include="internalInclude\myStandards.h" />
+    <ClInclude Include="internalInclude\Reference\renderLayer.h" />
     <ClInclude Include="internalInclude\shaders\hitBoxShaders.h" />
+    <ClInclude Include="internalInclude\update.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
