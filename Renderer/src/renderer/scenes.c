@@ -11,3 +11,8 @@ rendererObject* getRendererObjectPool() {
 counter* getRendererObjectCounter() {
 	return &currentScene->rendererObjectCounter;
 }
+
+rendererObject* getRendererObject(rendererObjectIndex rendererObject) {
+	return &getRendererObjectPool()[rendererObject];
+}
+

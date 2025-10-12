@@ -8,3 +8,5 @@
 #include "definitions/aliases.h"
 #include "definitions/defaultValues.h"
 
+static int success;
+static char infoLog[512];

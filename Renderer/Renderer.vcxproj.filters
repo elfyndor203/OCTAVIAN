@@ -2,26 +2,28 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="GLFW\GLAD\src\glad.c" />
-    <ClCompile Include="src\Reference\renderLayer.c" />
-    <ClCompile Include="src\Reference\render.c" />
-    <ClCompile Include="internalInclude\Reference\layers.h" />
-    <ClCompile Include="src\Reference\layers.c" />
     <ClCompile Include="src\shaders\hitBoxShaders.c" />
-    <ClCompile Include="src\update.c" />
     <ClCompile Include="src\renderer\scenes.c" />
     <ClCompile Include="src\renderer\rendererObject.c" />
     <ClCompile Include="src\newTestMain.c" />
+    <ClCompile Include="src\renderer\window.c" />
+    <ClCompile Include="src\shaders\shaders.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="internalInclude\Reference\renderLayer.h" />
     <ClInclude Include="internalInclude\shaders\hitBoxShaders.h" />
     <ClInclude Include="include\Renderer.h" />
-    <ClInclude Include="include\myPublicStandards.h" />
+    <ClInclude Include="include\RendererStandards.h" />
     <ClInclude Include="internalInclude\update.h" />
     <ClInclude Include="internalInclude\myStandards.h" />
     <ClInclude Include="internalInclude\renderer\scenes.h" />
     <ClInclude Include="internalInclude\definitions\aliases.h" />
     <ClInclude Include="internalInclude\definitions\defaultValues.h" />
     <ClInclude Include="internalInclude\renderer\rendererObject.h" />
+    <ClInclude Include="internalInclude\renderer\window.h" />
+    <ClInclude Include="internalInclude\shaders\shaders.h" />
+    <ClInclude Include="internalInclude\Reference\verticesInput.h" />
+    <ClInclude Include="include\RendererTypes.h" />
+    <ClInclude Include="internalInclude\definitions\macros.h" />
+    <ClInclude Include="GLFW\GLAD\include\glad\glad.h" />
   </ItemGroup>
 </Project>

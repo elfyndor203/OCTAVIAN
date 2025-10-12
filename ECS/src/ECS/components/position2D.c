@@ -5,7 +5,7 @@
 
 vector2D defaultPosition2D = { DEFAULT_POSITION2D_X, DEFAULT_POSITION2D_Y };
 
-componentIndex position2DAddNew(size_t parentIndex) {								// attaches a new default position2D to some gameObject
+componentIndex position2DAddNew(gameObjectIndex parentIndex) {								// attaches a new default position2D to some gameObject
 	if (gameObjectHasComponent(parentIndex, componentPosition2D)) {
 		logError(WARNING_COMPONENT_REPLACED);
 	}

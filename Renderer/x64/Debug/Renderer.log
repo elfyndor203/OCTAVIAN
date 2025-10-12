@@ -1,2 +1,15 @@
-﻿x64\Debug\layers.obj : warning LNK4042: object specified more than once; extras ignored
-  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\Renderer.lib
+﻿  newTestMain.c
+  rendererObject.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,49): error C2065: 'NEW_VAO': undeclared identifier
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,49): error C2440: 'function': cannot convert from 'int' to 'GLRequest'
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,49): warning C4024: 'registerObject': different types for formal and actual parameter 2
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,58): warning C4013: 'NEW_VBO' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,58): error C2440: 'function': cannot convert from 'int' to 'GLRequest'
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,58): warning C4024: 'registerObject': different types for formal and actual parameter 3
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,86): warning C4013: 'NEW_EBO' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,86): error C2440: 'function': cannot convert from 'int' to 'GLRequest'
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,86): warning C4024: 'registerObject': different types for formal and actual parameter 4
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\renderer\rendererObject.c(72,27): warning C4267: 'function': conversion from 'size_t' to 'GLint', possible loss of data
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\renderer\rendererObject.c(72,70): warning C4267: 'function': conversion from 'size_t' to 'GLsizei', possible loss of data
+  scenes.c
+  Generating Code...

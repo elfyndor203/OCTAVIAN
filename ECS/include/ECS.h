@@ -1,19 +1,6 @@
 #pragma once
-#include "myPublicStandards.h"
-
-struct point2D;	// alias for vector2D
-
-typedef size_t gameObjectIndex;
-typedef size_t componentIndex;
-typedef size_t subcomponentIndex;
-typedef size_t counter;
-
-typedef struct scene scene;
-typedef struct gameObject gameObject;
-typedef struct position2D position2D;
-typedef struct transform2D transform2D;
-typedef struct hitBox2D hitBox2D;
-typedef struct hitBox2DVertices hitBox2DVertices;
+#include "ECSStandards.h"
+#include "ECStypes.h"
 
 ////////////////////////////////////////////////////////// pools
 gameObject* getGameObjectsPool();
@@ -43,8 +30,8 @@ counter* getHitBox2DVerticesCounter();
 //////////////////////////////////////////////////////////
 
 gameObjectIndex gameObjectCreateNew(gameObjectIndex parentIndex, bool is3D);
-componentIndex position2DAddNew(size_t parentIndex);
-componentIndex transform2DAddNew(size_t parentIndex);
+componentIndex position2DAddNew(gameObjectIndex parentIndex);
+componentIndex transform2DAddNew(gameObjectIndex parentIndex);
 componentIndex hitBox2DAddNew(gameObjectIndex parentIndex);
 void hitBox2DResize(gameObjectIndex parentIndex, float sizeX, float sizeY);
 componentIndex hitBox2DGenerateVertices(gameObjectIndex parentIndex);

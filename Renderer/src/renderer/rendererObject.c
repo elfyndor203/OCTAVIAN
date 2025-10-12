@@ -1,7 +1,8 @@
 #include "renderer/rendererObject.h"
 #include "renderer/scenes.h"
+#include "definitions/macros.h"
 
-void registerObject(size_t engineIndex, GLRequest VAORequest, GLRequest VBORequest, GLRequest EBORequest, bool is3D, bool dynamic) {	// determines whether or not to generate a new VBO, EBO, and VAO
+size_t registerObject(size_t engineIndex, GLRequest VAORequest, GLRequest VBORequest, GLRequest EBORequest, bool is3D, bool dynamic) {	// determines whether or not to generate a new VBO, EBO, and VAO
 	rendererObject newRendererObject = { 0 };
 	newRendererObject.engineLink = engineIndex;
 
@@ -28,6 +29,7 @@ void registerObject(size_t engineIndex, GLRequest VAORequest, GLRequest VBOReque
 
 	getRendererObjectPool()[*getRendererObjectCounter()] = newRendererObject;
 	*getRendererObjectCounter() += 1;
+	return newRendererObject.poolIndex;
 }
 
 GLuint createVAO() {

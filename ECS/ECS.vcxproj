@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\myPublicStandards.h" />
+    <ClInclude Include="include\ECSStandards.h" />
     <ClInclude Include="internalInclude\definitions\aliases.h" />
     <ClInclude Include="internalInclude\definitions\colors.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
@@ -36,8 +36,7 @@
     <ClInclude Include="include\ECS.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="internalInclude\myStandards.h" />
-    <ClInclude Include="include\renderer.h" />
-    <ClInclude Include="include\types.h" />
+    <ClInclude Include="include\ECStypes.h" />
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\colors.h" />
     <ClInclude Include="include\definitions\defaultValues.h" />
@@ -138,6 +137,7 @@
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)internalInclude;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,6 +156,7 @@
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)internalInclude;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -172,6 +173,7 @@
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)internalInclude;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,6 +192,7 @@
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)internalInclude;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

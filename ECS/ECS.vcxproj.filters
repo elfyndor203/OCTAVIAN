@@ -16,7 +16,6 @@
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="internalInclude\definitions\aliases.h" />
     <ClInclude Include="ZZZTestRuntime\zzzTestMain.h" />
-    <ClInclude Include="include\renderer.h" />
     <ClInclude Include="internalInclude\ECS\components\hitBox2D.h" />
     <ClInclude Include="internalInclude\ECS\components\position2D.h" />
     <ClInclude Include="internalInclude\ECS\components\transform2D.h" />
@@ -30,9 +29,9 @@
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="internalInclude\math\vectors.h" />
     <ClInclude Include="include\myStandards.h" />
-    <ClInclude Include="include\types.h" />
+    <ClInclude Include="include\ECStypes.h" />
     <ClInclude Include="include\ECS.h" />
-    <ClInclude Include="include\myPublicStandards.h" />
+    <ClInclude Include="include\ECSStandards.h" />
     <ClInclude Include="internalInclude\ECS\components\physics2D.h" />
   </ItemGroup>
   <ItemGroup>
