@@ -21,17 +21,24 @@
   <ItemGroup>
     <ClCompile Include="GLFW\GLAD\src\glad.c" />
     <ClCompile Include="internalInclude\Reference\layers.h" />
+    <ClCompile Include="src\newTestMain.c" />
     <ClCompile Include="src\Reference\layers.c" />
     <ClCompile Include="src\Reference\render.c" />
     <ClCompile Include="src\Reference\renderLayer.c" />
+    <ClCompile Include="src\renderer\rendererObject.c" />
+    <ClCompile Include="src\renderer\scenes.c" />
     <ClCompile Include="src\shaders\hitBoxShaders.c" />
     <ClCompile Include="src\update.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\myPublicStandards.h" />
     <ClInclude Include="include\Renderer.h" />
+    <ClInclude Include="internalInclude\definitions\aliases.h" />
+    <ClInclude Include="internalInclude\definitions\defaultValues.h" />
     <ClInclude Include="internalInclude\myStandards.h" />
     <ClInclude Include="internalInclude\Reference\renderLayer.h" />
+    <ClInclude Include="internalInclude\renderer\rendererObject.h" />
+    <ClInclude Include="internalInclude\renderer\scenes.h" />
     <ClInclude Include="internalInclude\shaders\hitBoxShaders.h" />
     <ClInclude Include="internalInclude\update.h" />
   </ItemGroup>

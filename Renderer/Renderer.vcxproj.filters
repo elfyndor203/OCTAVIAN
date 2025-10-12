@@ -8,6 +8,9 @@
     <ClCompile Include="src\Reference\layers.c" />
     <ClCompile Include="src\shaders\hitBoxShaders.c" />
     <ClCompile Include="src\update.c" />
+    <ClCompile Include="src\renderer\scenes.c" />
+    <ClCompile Include="src\renderer\rendererObject.c" />
+    <ClCompile Include="src\newTestMain.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="internalInclude\Reference\renderLayer.h" />
@@ -16,5 +19,9 @@
     <ClInclude Include="include\myPublicStandards.h" />
     <ClInclude Include="internalInclude\update.h" />
     <ClInclude Include="internalInclude\myStandards.h" />
+    <ClInclude Include="internalInclude\renderer\scenes.h" />
+    <ClInclude Include="internalInclude\definitions\aliases.h" />
+    <ClInclude Include="internalInclude\definitions\defaultValues.h" />
+    <ClInclude Include="internalInclude\renderer\rendererObject.h" />
   </ItemGroup>
 </Project>

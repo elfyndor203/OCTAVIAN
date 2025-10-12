@@ -5,4 +5,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-typedef unsigned int uint;
+#include "definitions/aliases.h"
+#include "definitions/defaultValues.h"
+

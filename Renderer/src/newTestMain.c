@@ -1,8 +1,11 @@
-#include "reference/renderLayer.h"
+#include "myStandards.h"
+#include "renderer/scenes.h"
+#include "renderer/rendererObject.h"
+#include "Reference//renderLayer.h"
 
 int running = 1;
 
-int REFERENCEmain() {
+int main() {
     GLFWwindow* realWindow = initializeWindow("realWindow");
 
     unsigned int hitBoxVertexShader = initializeVertexShader(hitBoxVertexShaderSource);
@@ -18,7 +21,7 @@ int REFERENCEmain() {
         glClearColor(0.5f, 0.5f, 0.5f, 0.5f);   // clears to the bg
         glClear(GL_COLOR_BUFFER_BIT);           // clears the color buffer only
 
-        
+
         glUseProgram(hitBoxShaderProgram);       // use the shader program
 
         hitBoxVAO = createVertexBuffer(firstVertices, firstVerticesCount);
@@ -28,7 +31,6 @@ int REFERENCEmain() {
         glfwSwapBuffers(realWindow);
         glfwPollEvents();
         processInput(realWindow); // process any input 
-
 
         if (glfwWindowShouldClose(realWindow)) {
             break;
