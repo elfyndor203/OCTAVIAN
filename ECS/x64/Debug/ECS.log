@@ -1,1 +1,16 @@
-﻿  ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\ECS.lib
+﻿  zzzTestMain.c
+  hitBox2D.c
+  physics2D.c
+  position2D.c
+  transform2D.c
+  gameObject.c
+  scene.c
+  errorHandling.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\internal\errors\errorHandling.c(7,4): warning C4013: 'exit' undefined; assuming extern returning int
+  vector2D.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\internal\math\vectors\vector2D\vector2D.c(37,9): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\internal\math\vectors\vector2D\vector2D.c(44,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  myStandards.c
+  Generating Code...
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\internal\errors\errorHandling.c(16,1): warning C4715: 'logError': not all control paths return a value
+  ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\ECS.exe

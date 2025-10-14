@@ -1,4 +1,5 @@
-#include "ECS/components/physics2D/physics2D.h" 
+#include "physics2D.h" 
+
 #include "ECS/scene/scene.h"
 
 //void updatePosition2D(gameObjectIndex parentIndex) {

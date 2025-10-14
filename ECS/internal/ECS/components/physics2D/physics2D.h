@@ -5,13 +5,13 @@
 
 #define DELTA_TIME
 
-typedef struct physics2D {
+typedef struct {
 	size_t poolIndex;
 	size_t parentIndex;
 
 	vector2D velocity;
 	vector2D acceleration;
 	vector2D forceNet;
-};
+} physics2D;
 
-void updatePosition2D(gameObjectIndex parentIndex);
+//void position2D_update(gameObjectIndex parentIndex);

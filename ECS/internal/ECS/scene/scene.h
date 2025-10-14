@@ -1,5 +1,6 @@
 #pragma once
 #include "standards/myStandards.h"
+
 #include "ECS/gameObject/gameObject.h"
 #include "ECS/components/position2D/position2D.h"
 #include "ECS/components/transform2D/transform2D.h"
@@ -28,27 +29,27 @@ extern scene* currentScene;
 extern scene mainScene;
 
 ////////////////////////////////////////////////////////// pools
-gameObject* getGameObjectPool();
-position2D* getPosition2DPool();
-transform2D* getTransform2DPool();
-hitBox2D* getHitBox2DPool();
+gameObject* gameObject_getPool();
+position2D* position2D_getPool();
+transform2D* transform2D_getPool();
+hitBox2D* hitBox2D_getPool();
 
 hitBox2DVertices* getHitBox2DVerticesPool();
 
 ////////////////////////////////////////////////////////// objects and components
-gameObject* getGameObject(gameObjectIndex objectIndex);
-gameObject* getParentObject(gameObjectIndex objectIndex);
-position2D* getPosition2D(gameObjectIndex objectIndex);
-transform2D* getTransform2D(gameObjectIndex objectIndex);
-hitBox2D* getHitBox2D(gameObjectIndex objectIndex);
+gameObject* gameObject_get(gameObjectIndex objectIndex);
+gameObject* gameObject_getParentObject(gameObjectIndex objectIndex);
+position2D* position2D_get(gameObjectIndex objectIndex);
+transform2D* transform2D_get(gameObjectIndex objectIndex);
+hitBox2D* hitBox2D_get(gameObjectIndex objectIndex);
 
 // subcomponents													
-hitBox2DVertices* getHitBox2DVertices(gameObjectIndex objectIndex);
+hitBox2DVertices* hitBox2DVertices_get(gameObjectIndex objectIndex);
 
 ////////////////////////////////////////////////////////// counters
-counter* gameObjectGetCounter();
-counter* getPosition2DCounter();
-counter* getTransform2DCounter();
-counter* getHitBox2DCounter();
+counter* gameObject_getCounter();
+counter* position2D_getCounter();
+counter* transform2D_getCounter();
+counter* hitBox2D_getCounter();
 
-counter* getHitBox2DVerticesCounter();
+counter* hitBox2DVertices_getCounter();

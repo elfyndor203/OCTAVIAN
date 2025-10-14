@@ -1,5 +1,6 @@
 #pragma once
 #include "standards/myStandards.h"
+
 #include "math/vectors/vector2D/vector2D.h"
 
 #define DEFAULT_POSITION2D_X 0
@@ -13,4 +14,4 @@ typedef struct {
 	vector2D localPosition2D;
 } position2D;
 
-componentIndex position2DAddNew(size_t parentIndex);
+componentIndex position2D_addNew(gameObjectIndex parentIndex);

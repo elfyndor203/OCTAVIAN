@@ -1,9 +1,9 @@
 #pragma once
+#include "standards/myStandards.h"
+
+#include "ECS/components/componentTypes/componentTypes.h"
 
 #define MAX_gameObject 1024
-
-#include "standards/myStandards.h"
-#include "ECS/components/componentTypes/componentTypes.h"
 
 typedef struct gameObject{
 	gameObjectIndex poolIndex;
@@ -18,5 +18,5 @@ typedef struct gameObject{
 	uint64_t componentsMask;	// tracks if the object has each component
 } gameObject;
 
-gameObjectIndex gameObjectCreateNew(gameObjectIndex parentIndex, bool is3D);
-bool gameObjectHasComponent(gameObjectIndex gameObject, componentTypes component);
+gameObjectIndex gameObject_createNew(gameObjectIndex parentIndex, bool is3D);
+bool gameObject_hasComponent(gameObjectIndex gameObject, componentTypes component);

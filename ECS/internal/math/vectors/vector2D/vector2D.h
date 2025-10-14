@@ -17,18 +17,18 @@ typedef float (*genericFloatOperations)(float, float);
 
 static const point2D originZeroZero = { 0, 0 };
 
-vector2D addVectors2D(int vectorsCount, ...);
-vector2D addScalarToVector2D(float scalar, vector2D vectorA);
+vector2D vector2D_addV(int vectorsCount, ...);
+vector2D vector2D_addS(float scalar, vector2D vectorA);
 
-float dotProductVectors2D(vector2D vectorA, vector2D vectorB);
-float angleBetweenVectors2D(vector2D vectorA, vector2D vectorB);
-bool isEqual(vector2D vectorA, vector2D vectorB);
+float vector2D_dot(vector2D vectorA, vector2D vectorB);
+float vector2D_angle(vector2D vectorA, vector2D vectorB);
+bool vector2D_isEqual(vector2D vectorA, vector2D vectorB);
 
-float magnitudeVector2D(vector2D vectorA);
+float vector2D_magnitude(vector2D vectorA);
 
-float addFloats(float floatOne, float floatTwo);
-float subtractFloats(float floatOne, float floatTwo);
-float multiplyFloats(float floatOne, float floatTwo);
-float divideFloats(float floatOne, float floatTwo);
+float floats_add(float floatOne, float floatTwo);
+float floats_subtract(float floatOne, float floatTwo);
+float floats_multiply(float floatOne, float floatTwo);
+float floats_divide(float floatOne, float floatTwo);
 
-vector2D vector2DScalarElementWise(vector2D* vectorA, float scalar, genericFloatOperations operation);
+vector2D vector2D_elementWiseS(vector2D* vectorA, float scalar, genericFloatOperations operation);

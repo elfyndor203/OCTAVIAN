@@ -1,5 +1,6 @@
 #pragma once
 #include "standards/myStandards.h"
+
 #include "math/vectors/vector2D/vector2D.h"
 
 #define DEFAULT_ROTATION 0.0f
@@ -15,4 +16,4 @@ typedef struct {
 	vector2D scale;
 } transform2D;
 
-componentIndex transform2DAddNew(gameObjectIndex parentIndex);
+componentIndex transform2D_addNew(gameObjectIndex parentIndex);
