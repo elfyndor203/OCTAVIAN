@@ -1,0 +1,4 @@
+﻿  errorHandling.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\internal\errors\errorHandling.c(7,4): warning C4013: 'exit' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\internal\errors\errorHandling.c(16,1): warning C4715: 'logError': not all control paths return a value
+  Core.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\Core.lib

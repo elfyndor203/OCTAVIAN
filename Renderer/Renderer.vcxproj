@@ -28,12 +28,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLFW\GLAD\include\glad\glad.h" />
-    <ClInclude Include="external\include\RendererStandards.h" />
-    <ClInclude Include="external\include\Renderer.h" />
-    <ClInclude Include="external\include\RendererTypes.h" />
+    <ClInclude Include="include\RendererStandards.h" />
+    <ClInclude Include="include\Renderer.h" />
+    <ClInclude Include="include\RendererTypes.h" />
     <ClInclude Include="internal\definitions\aliases.h" />
     <ClInclude Include="internal\definitions\defaultValues.h" />
     <ClInclude Include="internal\definitions\macros.h" />
+    <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
     <ClInclude Include="internal\standards\myStandards.h" />
     <ClInclude Include="reference\Reference\verticesInput.h" />
     <ClInclude Include="internal\renderer\rendererObject\rendererObject.h" />

@@ -1,8 +1,9 @@
-#include "renderer/rendererObject/rendererObject.h"
+#include "rendererObject_internal.h"
+
 #include "renderer/scene/scene.h"
 #include "definitions/macros.h"
 
-size_t rendererObject_register(size_t engineIndex, GLRequest VAORequest, GLRequest VBORequest, GLRequest EBORequest, bool is3D, bool dynamic) {	// determines whether or not to generate a new VBO, EBO, and VAO
+rendererObjectIndex rendererObject_register(size_t engineIndex, GLRequest VAORequest, GLRequest VBORequest, GLRequest EBORequest, bool is3D, bool dynamic) {	// determines whether or not to generate a new VAO
 	rendererObject newRendererObject = { 0 };
 	newRendererObject.engineLink = engineIndex;
 
@@ -71,4 +72,18 @@ void GLAttributes_set(GLuint VAO, GLuint VBO, size_t dimensions) {
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glVertexAttribPointer(0, dimensions, GL_FLOAT, GL_FALSE, dimensions * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+}
+
+rendererObjectIndex rendererObject_new(size_t engineIndex, float* vertexArray, size_t vertexCount, uint* indexArray, size_t indexCount, bool is3D, bool isDynamic) {	// makes it so macros are not needed externally
+	if (indexArray != NULL) {
+		rendererObjectIndex newRendererObject = rendererObject_register(engineIndex, VAO_NEW, VBO_NEW(vertexArray, vertexCount), EBO_NEW(indexArray, indexCount), is3D, isDynamic);
+	}
+	else {
+		rendererObjectIndex newRendererObject = rendererObject_register(engineIndex, VAO_NEW, VBO_NEW(vertexArray, vertexCount), EBO_NONE, is3D, isDynamic);
+	}
+	
+}
+
+void renderObject(rendererObjectIndex rendererObject) {
+
 }
