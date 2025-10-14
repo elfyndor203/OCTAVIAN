@@ -1,6 +1,6 @@
-#include "shaders/shaders.h"
+#include "shader.h"
 
-unsigned int initializeVertexShader(const char* vertexShader) {
+unsigned int vertexShader_initialize(const char* vertexShader) {
     unsigned int newVertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(newVertexShader, 1, &vertexShader, NULL);     // figures out where and what the shader is
     glCompileShader(newVertexShader);                                  // compiles the shader
@@ -17,7 +17,7 @@ unsigned int initializeVertexShader(const char* vertexShader) {
     }
 }
 
-unsigned int initializeFragmentShader(const char* fragmentShader) {
+unsigned int fragmentShader_initialize(const char* fragmentShader) {
     unsigned int newFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(newFragmentShader, 1, &fragmentShader, NULL);
     glCompileShader(newFragmentShader);
@@ -34,7 +34,7 @@ unsigned int initializeFragmentShader(const char* fragmentShader) {
     }
 }
 
-unsigned int createShaderProgram(int vertexShader, int fragmentShader) {
+unsigned int shaderProgram_create(int vertexShader, int fragmentShader) {
     unsigned int newShaderProgram = glCreateProgram();
     glAttachShader(newShaderProgram, vertexShader);    // attach both
     glAttachShader(newShaderProgram, fragmentShader);

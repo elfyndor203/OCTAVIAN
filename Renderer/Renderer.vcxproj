@@ -20,29 +20,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLFW\GLAD\src\glad.c" />
-    <ClCompile Include="src\newTestMain.c" />
-    <ClCompile Include="src\renderer\rendererObject.c" />
-    <ClCompile Include="src\renderer\scenes.c" />
-    <ClCompile Include="src\renderer\window.c" />
-    <ClCompile Include="src\shaders\hitBoxShaders.c" />
-    <ClCompile Include="src\shaders\shaders.c" />
+    <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
+    <ClCompile Include="internal\renderer\scene\scene.c" />
+    <ClCompile Include="internal\renderer\window\window.c" />
+    <ClCompile Include="internal\shaders\hitBox2D\hitBox2D_shaders.c" />
+    <ClCompile Include="internal\shaders\shader\shader.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLFW\GLAD\include\glad\glad.h" />
-    <ClInclude Include="include\RendererStandards.h" />
-    <ClInclude Include="include\Renderer.h" />
-    <ClInclude Include="include\RendererTypes.h" />
-    <ClInclude Include="internalInclude\definitions\aliases.h" />
-    <ClInclude Include="internalInclude\definitions\defaultValues.h" />
-    <ClInclude Include="internalInclude\definitions\macros.h" />
-    <ClInclude Include="internalInclude\myStandards.h" />
-    <ClInclude Include="internalInclude\Reference\verticesInput.h" />
-    <ClInclude Include="internalInclude\renderer\rendererObject.h" />
-    <ClInclude Include="internalInclude\renderer\scenes.h" />
-    <ClInclude Include="internalInclude\renderer\window.h" />
-    <ClInclude Include="internalInclude\shaders\hitBoxShaders.h" />
-    <ClInclude Include="internalInclude\shaders\shaders.h" />
-    <ClInclude Include="internalInclude\update.h" />
+    <ClInclude Include="external\include\RendererStandards.h" />
+    <ClInclude Include="external\include\Renderer.h" />
+    <ClInclude Include="external\include\RendererTypes.h" />
+    <ClInclude Include="internal\definitions\aliases.h" />
+    <ClInclude Include="internal\definitions\defaultValues.h" />
+    <ClInclude Include="internal\definitions\macros.h" />
+    <ClInclude Include="internal\standards\myStandards.h" />
+    <ClInclude Include="reference\Reference\verticesInput.h" />
+    <ClInclude Include="internal\renderer\rendererObject\rendererObject.h" />
+    <ClInclude Include="internal\renderer\scene\scene.h" />
+    <ClInclude Include="internal\renderer\window\window.h" />
+    <ClInclude Include="internal\shaders\hitBox2D\hitBox2D_shaders.h" />
+    <ClInclude Include="internal\shaders\shader\shader.h" />
+    <ClInclude Include="reference\update.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -54,26 +53,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -119,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\internalInclude;$(ProjectDir)\GLFW\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\internal;$(ProjectDir)\GLFW\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -136,7 +135,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\internalInclude;$(ProjectDir)\GLFW\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\internal;$(ProjectDir)\GLFW\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -151,7 +150,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\internalInclude;$(ProjectDir)\GLFW\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\internal;$(ProjectDir)\GLFW\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -168,7 +167,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\internalInclude;$(ProjectDir)\GLFW\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\internal;$(ProjectDir)\GLFW\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>

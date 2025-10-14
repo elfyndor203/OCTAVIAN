@@ -2,28 +2,27 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="GLFW\GLAD\src\glad.c" />
-    <ClCompile Include="src\shaders\hitBoxShaders.c" />
-    <ClCompile Include="src\renderer\scenes.c" />
-    <ClCompile Include="src\renderer\rendererObject.c" />
-    <ClCompile Include="src\newTestMain.c" />
-    <ClCompile Include="src\renderer\window.c" />
-    <ClCompile Include="src\shaders\shaders.c" />
+    <ClCompile Include="internal\shaders\hitBox2D\hitBox2D_shaders.c" />
+    <ClCompile Include="internal\renderer\scene\scene.c" />
+    <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
+    <ClCompile Include="internal\renderer\window\window.c" />
+    <ClCompile Include="internal\shaders\shader\shader.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="internalInclude\shaders\hitBoxShaders.h" />
-    <ClInclude Include="include\Renderer.h" />
-    <ClInclude Include="include\RendererStandards.h" />
-    <ClInclude Include="internalInclude\update.h" />
-    <ClInclude Include="internalInclude\myStandards.h" />
-    <ClInclude Include="internalInclude\renderer\scenes.h" />
-    <ClInclude Include="internalInclude\definitions\aliases.h" />
-    <ClInclude Include="internalInclude\definitions\defaultValues.h" />
-    <ClInclude Include="internalInclude\renderer\rendererObject.h" />
-    <ClInclude Include="internalInclude\renderer\window.h" />
-    <ClInclude Include="internalInclude\shaders\shaders.h" />
-    <ClInclude Include="internalInclude\Reference\verticesInput.h" />
-    <ClInclude Include="include\RendererTypes.h" />
-    <ClInclude Include="internalInclude\definitions\macros.h" />
+    <ClInclude Include="internal\shaders\hitBox2D\hitBox2D_shaders.h" />
+    <ClInclude Include="external\include\Renderer.h" />
+    <ClInclude Include="external\include\RendererStandards.h" />
+    <ClInclude Include="reference\update.h" />
+    <ClInclude Include="internal\standards\myStandards.h" />
+    <ClInclude Include="internal\renderer\scene\scene.h" />
+    <ClInclude Include="internal\definitions\aliases.h" />
+    <ClInclude Include="internal\definitions\defaultValues.h" />
+    <ClInclude Include="internal\renderer\rendererObject\rendererObject.h" />
+    <ClInclude Include="internal\renderer\window\window.h" />
+    <ClInclude Include="internal\shaders\shader\shader.h" />
+    <ClInclude Include="reference\Reference\verticesInput.h" />
+    <ClInclude Include="external\include\RendererTypes.h" />
+    <ClInclude Include="internal\definitions\macros.h" />
     <ClInclude Include="GLFW\GLAD\include\glad\glad.h" />
   </ItemGroup>
 </Project>

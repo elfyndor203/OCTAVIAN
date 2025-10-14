@@ -1,8 +1,8 @@
-#include "renderer/rendererObject.h"
-#include "renderer/scenes.h"
+#include "renderer/rendererObject/rendererObject.h"
+#include "renderer/scene/scene.h"
 #include "definitions/macros.h"
 
-size_t registerObject(size_t engineIndex, GLRequest VAORequest, GLRequest VBORequest, GLRequest EBORequest, bool is3D, bool dynamic) {	// determines whether or not to generate a new VBO, EBO, and VAO
+size_t rendererObject_register(size_t engineIndex, GLRequest VAORequest, GLRequest VBORequest, GLRequest EBORequest, bool is3D, bool dynamic) {	// determines whether or not to generate a new VBO, EBO, and VAO
 	rendererObject newRendererObject = { 0 };
 	newRendererObject.engineLink = engineIndex;
 
@@ -11,10 +11,10 @@ size_t registerObject(size_t engineIndex, GLRequest VAORequest, GLRequest VBOReq
 		if (is3D == false) {
 			dimensions = 2;
 		}
-		newRendererObject.VAO = createVAO();
-		newRendererObject.VBO = createVBO(VBORequest.dataCount, VBORequest.dataArray, dimensions, dynamic);
-		newRendererObject.EBO = createEBO(EBORequest.dataCount, EBORequest.dataArray, dynamic);
-		setGLAttributes(newRendererObject.VAO, newRendererObject.VBO, dimensions);
+		newRendererObject.VAO = VAO_create();
+		newRendererObject.VBO = VBO_create(VBORequest.dataCount, VBORequest.dataArray, dimensions, dynamic);
+		newRendererObject.EBO = EBO_create(EBORequest.dataCount, EBORequest.dataArray, dynamic);
+		GLAttributes_set(newRendererObject.VAO, newRendererObject.VBO, dimensions);
 	}
 	else {
 		newRendererObject.VAO = VAORequest.ID;
@@ -27,19 +27,19 @@ size_t registerObject(size_t engineIndex, GLRequest VAORequest, GLRequest VBOReq
 		}
 	}
 
-	getRendererObjectPool()[*getRendererObjectCounter()] = newRendererObject;
-	*getRendererObjectCounter() += 1;
+	rendererObject_getPool()[*rendererObject_getCounter()] = newRendererObject;
+	*rendererObject_getCounter() += 1;
 	return newRendererObject.poolIndex;
 }
 
-GLuint createVAO() {
+GLuint VAO_create() {
 	GLuint newVAO = 0;
 	glGenVertexArrays(1, &newVAO);    // create the array and buffers
 	glBindVertexArray(newVAO);
 	return newVAO;
 }
 
-GLuint createVBO(GLsizeiptr vertexCount, float* dataArray, size_t dimensions, bool dynamic) {
+GLuint VBO_create(GLsizeiptr vertexCount, float* dataArray, size_t dimensions, bool dynamic) {
 
 	GLuint newVBO = 0;
 	glGenBuffers(1, &newVBO);
@@ -53,7 +53,7 @@ GLuint createVBO(GLsizeiptr vertexCount, float* dataArray, size_t dimensions, bo
 	return newVBO;
 }
 
-GLuint createEBO(GLsizeiptr indexCount, uint* indexArray, bool dynamic) {
+GLuint EBO_create(GLsizeiptr indexCount, uint* indexArray, bool dynamic) {
 	GLuint newEBO = 0;
 	glGenBuffers(1, &newEBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, newEBO);
@@ -66,7 +66,7 @@ GLuint createEBO(GLsizeiptr indexCount, uint* indexArray, bool dynamic) {
 	return newEBO;
 }
 
-void setGLAttributes(GLuint VAO, GLuint VBO, size_t dimensions) {
+void GLAttributes_set(GLuint VAO, GLuint VBO, size_t dimensions) {
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glVertexAttribPointer(0, dimensions, GL_FLOAT, GL_FALSE, dimensions * sizeof(float), (void*)0);

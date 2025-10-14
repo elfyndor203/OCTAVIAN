@@ -1,6 +1,6 @@
 #pragma once
-#include "myStandards.h"
-#include "renderer/rendererObject.h"
+#include "standards/myStandards.h"
+#include "renderer/rendererObject/rendererObject.h"
 
 #define NEW_GLOBJECT(inputDataArray, inputDataCount) ((GLRequest){.ID = -1, .dataArray = inputDataArray, .dataCount = inputDataCount, .createNewID = true})				// for simpler use of GLRequest, -1 == create new
 #define EXISTING_GLOBJECT(IDNum) ((GLRequest){.ID = (IDNum), .createNewID = false})

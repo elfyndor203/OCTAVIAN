@@ -1,7 +1,7 @@
-#include "renderer/window.h"
+#include "window.h"
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
     // make sure the viewport matches the new window dimensions; note that width and 
     // height will be significantly larger than specified on retina displays.
@@ -17,7 +17,7 @@ void TESTprocessInput(GLFWwindow* window)
         printf("pressed w");
 }
 
-GLFWwindow* initializeWindow(char* windowName) {
+GLFWwindow* window_initialize(char* windowName) {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -31,7 +31,7 @@ GLFWwindow* initializeWindow(char* windowName) {
     }
 
     glfwMakeContextCurrent(newWindow);
-    glfwSetFramebufferSizeCallback(newWindow, framebuffer_size_callback);
+    glfwSetFramebufferSizeCallback(newWindow, framebufferSizeCallback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {

@@ -1,15 +1,14 @@
-﻿  newTestMain.c
+﻿  glad.c
   rendererObject.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,49): error C2065: 'NEW_VAO': undeclared identifier
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,49): error C2440: 'function': cannot convert from 'int' to 'GLRequest'
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,49): warning C4024: 'registerObject': different types for formal and actual parameter 2
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,58): warning C4013: 'NEW_VBO' undefined; assuming extern returning int
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,58): error C2440: 'function': cannot convert from 'int' to 'GLRequest'
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,58): warning C4024: 'registerObject': different types for formal and actual parameter 3
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,86): warning C4013: 'NEW_EBO' undefined; assuming extern returning int
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,86): error C2440: 'function': cannot convert from 'int' to 'GLRequest'
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\newTestMain.c(18,86): warning C4024: 'registerObject': different types for formal and actual parameter 4
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\renderer\rendererObject.c(72,27): warning C4267: 'function': conversion from 'size_t' to 'GLint', possible loss of data
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\src\renderer\rendererObject.c(72,70): warning C4267: 'function': conversion from 'size_t' to 'GLsizei', possible loss of data
-  scenes.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(72,27): warning C4267: 'function': conversion from 'size_t' to 'GLint', possible loss of data
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(72,70): warning C4267: 'function': conversion from 'size_t' to 'GLsizei', possible loss of data
+  scene.c
+  window.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(39,9): warning C4047: 'return': 'GLFWwindow *' differs in levels of indirection from 'int'
+  hitBox2D_shaders.c
+  shader.c
   Generating Code...
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader.c(35,1): warning C4715: 'fragmentShader_initialize': not all control paths return a value
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader.c(18,1): warning C4715: 'vertexShader_initialize': not all control paths return a value
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\Renderer.exe : fatal error LNK1120: 1 unresolved externals
