@@ -4,10 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include <inttypes.h>
+//#include <inttypes.h>
 
-#include "errors/errorCodes.h"
-#include "errors/errorHandling.h"
+#include "Errors.h"
 
 #include "definitions/defaultValues.h"
 #include "definitions/aliases.h"

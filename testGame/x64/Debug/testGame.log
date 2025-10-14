@@ -1,1 +1,4 @@
-﻿
+﻿  testMain.c
+C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\ECS\include\ECS.h(2,10): error C1083: Cannot open include file: 'ECSStandards.h': No such file or directory
+  (compiling source file 'testMain.c')
+  

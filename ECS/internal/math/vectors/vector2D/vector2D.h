@@ -1,5 +1,5 @@
 #pragma once
-#include "standards/myStandards.h"
+#include "standards/ECSStandards.h"
 
 typedef struct {
 	float x;

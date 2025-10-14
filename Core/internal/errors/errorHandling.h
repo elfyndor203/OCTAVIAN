@@ -1,7 +1,6 @@
 #pragma once
-#include "errorCodes.h"
+#include "standards/coreStandards.h"
 
-#include <stdbool.h>
-#include <stdio.h>
+#include "errorCodes.h"
 
 bool logError(errorCodes errorCode);	// true if error, false if warning

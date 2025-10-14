@@ -1,4 +1,5 @@
 #pragma once
+#include "standards/coreStandards.h"
 
 #define FATAL_THRESHOLD 9999
 #define ERROR_THRESHOLD 99999

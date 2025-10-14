@@ -1,5 +1,5 @@
 #pragma once
-#include "standards/myStandards.h"
+#include "standards/ECSStandards.h"
 
 #include "ECS/components/componentTypes/componentTypes.h"
 #include "math/vectors/vector2D/vector2D.h"

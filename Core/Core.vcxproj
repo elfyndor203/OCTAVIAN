@@ -128,6 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Errors.h" />
+    <ClInclude Include="internal\errors\errorCodes.h" />
+    <ClInclude Include="internal\errors\errorHandling.h" />
+    <ClInclude Include="internal\standards\coreStandards.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="internal\errors\errorHandling.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

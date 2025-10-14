@@ -33,7 +33,7 @@
     <ClInclude Include="internal\ECS\components\physics2D\physics2D.h" />
     <ClInclude Include="include\ECS.h" />
     <ClInclude Include="include\math\vectors.h" />
-    <ClInclude Include="internal\standards\myStandards.h" />
+    <ClInclude Include="internal\standards\ECSStandards.h" />
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\colors.h" />
     <ClInclude Include="include\definitions\defaultValues.h" />
@@ -56,7 +56,7 @@
     <ClCompile Include="internal\ECS\gameObject\gameObject.c" />
     <ClCompile Include="internal\ECS\scene\scene.c" />
     <ClCompile Include="internal\math\vectors\vector2D\vector2D.c" />
-    <ClCompile Include="internal\standards\myStandards.c" />
+    <ClCompile Include="internal\standards\ECSStandards.c" />
     <ClCompile Include="ZZZTestRuntime\zzzTestMain.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -130,7 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(SolutionDir)Core/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(SolutionDir)Core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -154,7 +154,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(SolutionDir)Core/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(SolutionDir)Core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -176,7 +176,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(SolutionDir)Core/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(SolutionDir)Core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -200,7 +200,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>Win32;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(SolutionDir)Core/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(SolutionDir)Core\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>

@@ -1,5 +1,5 @@
 #pragma once
-#include "standards/myStandards.h"
+#include "standards/ECSStandards.h"
 
 #include "ECS/gameObject/gameObject.h"
 #include "ECS/components/position2D/position2D.h"
