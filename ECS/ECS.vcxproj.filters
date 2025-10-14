@@ -1,50 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="internalInclude\definitions\colors.h" />
+    <ClInclude Include="internal\definitions\colors.h" />
     <ClInclude Include="include\ECS\components\hitBox2D.h" />
     <ClInclude Include="include\ECS\components\position2D.h" />
     <ClInclude Include="include\ECS\components\transform2D.h" />
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\math\vectors.h" />
-    <ClInclude Include="internalInclude\myStandards.h" />
+    <ClInclude Include="internal\standards\myStandards.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
-    <ClInclude Include="internalInclude\definitions\defaultValues.h" />
-    <ClInclude Include="internalInclude\errors\errorCodes.h" />
-    <ClInclude Include="internalInclude\errors\errorHandling.h" />
+    <ClInclude Include="internal\definitions\defaultValues.h" />
+    <ClInclude Include="internal\errors\errorCodes.h" />
+    <ClInclude Include="internal\errors\errorHandling.h" />
     <ClInclude Include="include\ECS\scenes.h" />
-    <ClInclude Include="internalInclude\definitions\aliases.h" />
+    <ClInclude Include="internal\definitions\aliases.h" />
     <ClInclude Include="ZZZTestRuntime\zzzTestMain.h" />
-    <ClInclude Include="internalInclude\ECS\components\hitBox2D.h" />
-    <ClInclude Include="internalInclude\ECS\components\position2D.h" />
-    <ClInclude Include="internalInclude\ECS\components\transform2D.h" />
-    <ClInclude Include="internalInclude\ECS\componentTypes.h" />
-    <ClInclude Include="internalInclude\ECS\gameObjects.h" />
-    <ClInclude Include="internalInclude\ECS\scenes.h" />
+    <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D.h" />
+    <ClInclude Include="internal\ECS\components\position2D\position2D.h" />
+    <ClInclude Include="internal\ECS\components\transform2D\transform2D.h" />
+    <ClInclude Include="internal\ECS\gameObject\gameObject.h" />
+    <ClInclude Include="internal\ECS\scene\scene.h" />
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\colors.h" />
     <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
-    <ClInclude Include="internalInclude\math\vectors.h" />
+    <ClInclude Include="internal\math\vectors\vector2D\vector2D.h" />
     <ClInclude Include="include\myStandards.h" />
-    <ClInclude Include="include\ECStypes.h" />
-    <ClInclude Include="include\ECS.h" />
-    <ClInclude Include="include\ECSStandards.h" />
-    <ClInclude Include="internalInclude\ECS\components\physics2D.h" />
+    <ClInclude Include="external\include\ECStypes.h" />
+    <ClInclude Include="external\include\ECS.h" />
+    <ClInclude Include="external\include\ECSStandards.h" />
+    <ClInclude Include="internal\ECS\components\physics2D\physics2D.h" />
+    <ClInclude Include="internal\ECS\components\componentTypes\componentTypes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ECS\gameObjects.c" />
-    <ClCompile Include="src\math\vectors.c" />
-    <ClCompile Include="src\myStandards.c" />
-    <ClCompile Include="src\ECS\components\position2D.c" />
-    <ClCompile Include="src\ECS\components\transform2D.c" />
-    <ClCompile Include="src\ECS\components\hitBox2D.c" />
-    <ClCompile Include="src\errors\errorHandling.c" />
-    <ClCompile Include="src\ECS\scenes.c" />
-    <ClCompile Include="src\ECS\componentTypes.c" />
+    <ClCompile Include="internal\ECS\gameObject\gameObject.c" />
+    <ClCompile Include="internal\math\vectors\vector2D\vector2D.c" />
+    <ClCompile Include="internal\standards\myStandards.c" />
+    <ClCompile Include="internal\ECS\components\position2D\position2D.c" />
+    <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
+    <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
+    <ClCompile Include="internal\errors\errorHandling.c" />
+    <ClCompile Include="internal\ECS\scene\scene.c" />
     <ClCompile Include="ZZZTestRuntime\zzzTestMain.c" />
-    <ClCompile Include="src\ECS\components\physics2D.c" />
+    <ClCompile Include="internal\ECS\components\physics2D\physics2D.c" />
   </ItemGroup>
 </Project>

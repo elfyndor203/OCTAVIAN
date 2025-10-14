@@ -1,7 +1,7 @@
 #include <stdarg.h>
-#include "myStandards.h"
+#include "standards/myStandards.h"
 
-#include "math/vectors.h"
+#include "vector2D.h"
 
 vector2D addVectors2D(int vectorsCount, ...) {
 	va_list(arguments);

@@ -1,6 +1,7 @@
 #pragma once
-#include "myStandards.h"
-#include "math/vectors.h"
+#include "standards/myStandards.h"
+#include "ECS/components/componentTypes/componentTypes.h"
+#include "math/vectors/vector2D/vector2D.h"
 
 #define DEFAULT_HITBOX_X 10.0f
 #define DEFAULT_HITBOX_Y 10.0f

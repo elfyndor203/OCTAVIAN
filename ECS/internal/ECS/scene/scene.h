@@ -1,26 +1,26 @@
 #pragma once
-#include "myStandards.h"
-#include "ECS/gameObjects.h"
-#include "ECS/components/position2D.h"
-#include "ECS/components/transform2D.h"
-#include "ECS/components/hitBox2D.h"
+#include "standards/myStandards.h"
+#include "ECS/gameObject/gameObject.h"
+#include "ECS/components/position2D/position2D.h"
+#include "ECS/components/transform2D/transform2D.h"
+#include "ECS/components/hitBox2D/hitBox2D.h"
 
 // a scene contains one instance of every pool
 typedef struct {
-	counter gameObjectsCounter;
-	gameObject gameObjectsPool[MAX_GAMEOBJECTS];
+	counter gameObjectCounter;
+	gameObject gameObjectPool[MAX_gameObject];
 
 	////////////////////////////////////////////////////////// 1 to 1 components
 	counter position2DCounter;
-	position2D position2DPool[MAX_GAMEOBJECTS]; 
+	position2D position2DPool[MAX_gameObject]; 
 	counter transform2DCounter;
-	transform2D transform2DPool[MAX_GAMEOBJECTS];
+	transform2D transform2DPool[MAX_gameObject];
 	counter hitBox2DCounter;
-	hitBox2D hitBox2DPool[MAX_GAMEOBJECTS];
+	hitBox2D hitBox2DPool[MAX_gameObject];
 
 	////////////////////////////////////////////////////////// 1 to 1 subcomponents
 	counter hitBox2DVerticesCounter;
-	hitBox2DVertices hitBox2DVerticesPool[MAX_GAMEOBJECTS];
+	hitBox2DVertices hitBox2DVerticesPool[MAX_gameObject];
 	//////////////////////////////////////////////////////////
 } scene;
 
@@ -28,7 +28,7 @@ extern scene* currentScene;
 extern scene mainScene;
 
 ////////////////////////////////////////////////////////// pools
-gameObject* getGameObjectsPool();
+gameObject* getGameObjectPool();
 position2D* getPosition2DPool();
 transform2D* getTransform2DPool();
 hitBox2D* getHitBox2DPool();
@@ -46,7 +46,7 @@ hitBox2D* getHitBox2D(gameObjectIndex objectIndex);
 hitBox2DVertices* getHitBox2DVertices(gameObjectIndex objectIndex);
 
 ////////////////////////////////////////////////////////// counters
-counter* getGameObjectsCounter();
+counter* gameObjectGetCounter();
 counter* getPosition2DCounter();
 counter* getTransform2DCounter();
 counter* getHitBox2DCounter();

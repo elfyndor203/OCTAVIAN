@@ -1,6 +1,6 @@
 #pragma once
-#include "myStandards.h"
-#include "math/vectors.h"
+#include "standards/myStandards.h"
+#include "math/vectors/vector2D/vector2D.h"
 
 #define DEFAULT_POSITION2D_X 0
 #define DEFAULT_POSITION2D_Y 0

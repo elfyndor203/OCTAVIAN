@@ -3,7 +3,7 @@
 #include "ECStypes.h"
 
 ////////////////////////////////////////////////////////// pools
-gameObject* getGameObjectsPool();
+gameObject* getgameObjectPool();
 position2D* getPosition2DPool();
 transform2D* getTransform2DPool();
 hitBox2D* getHitBox2DPool();
@@ -21,7 +21,7 @@ hitBox2D* getHitBox2D(gameObjectIndex objectIndex);
 hitBox2DVertices* getHitBox2DVertices(gameObjectIndex objectIndex);
 
 ////////////////////////////////////////////////////////// counters
-counter* getGameObjectsCounter();
+counter* getgameObjectCounter();
 counter* getPosition2DCounter();
 counter* getTransform2DCounter();
 counter* getHitBox2DCounter();

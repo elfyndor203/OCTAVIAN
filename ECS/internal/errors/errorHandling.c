@@ -1,4 +1,4 @@
-#include "errors/errorHandling.h"
+#include "errorHandling.h"
 
 bool logError(errorCodes errorCode) {
 	if (errorCode <= ERROR_THRESHOLD) {

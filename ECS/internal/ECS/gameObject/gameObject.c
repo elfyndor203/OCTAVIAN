@@ -1,8 +1,8 @@
-#include "ECS/gameObjects.h"
-#include "ECS/scenes.h"
+#include "gameObject.h"
+#include "ECS/scene/scene.h"
 
-#include "ECS/components/position2D.h"		// two required components
-#include "ECS/components/transform2D.h"
+#include "ECS/components/position2D/position2D.h"		// two required components
+#include "ECS/components/transform2D/transform2D.h"
 
 gameObjectIndex gameObjectCreateNew(gameObjectIndex parentIndex, bool is3D) {
 	gameObject* parentObject = getGameObject(parentIndex);
@@ -13,15 +13,15 @@ gameObjectIndex gameObjectCreateNew(gameObjectIndex parentIndex, bool is3D) {
 		logError(EXIT_3D_NOT_SUPPORTED);										// change this later
 	}
 	else {
-		newGameObject.poolIndex = *getGameObjectsCounter();							// it can find itself						
+		newGameObject.poolIndex = *gameObjectGetCounter();							// it can find itself						
 		newGameObject.parentIndex = parentIndex;								// it can find its parent
 
 		parentObject->componentsMask |= (1ULL << componentChildObject);			// parent object knows it exists
 //		parentObject->childIndex = newGameObject.poolIndex;						// parent object doesn't care where it is in the pool because there can be as many children as wanted
 	}
 
-	getGameObjectsPool()[*getGameObjectsCounter()] = newGameObject;
-	*getGameObjectsCounter() += 1;
+	getGameObjectPool()[*gameObjectGetCounter()] = newGameObject;
+	*gameObjectGetCounter() += 1;
 
 	position2DAddNew(newGameObject.poolIndex);
 	transform2DAddNew(newGameObject.poolIndex);

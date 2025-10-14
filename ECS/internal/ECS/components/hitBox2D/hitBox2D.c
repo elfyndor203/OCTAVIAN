@@ -1,7 +1,7 @@
-#include "ECS/gameObjects.h"
-#include "ECS/scenes.h"
+#include "ECS/gameObject/gameObject.h"
+#include "ECS/scene/scene.h"
 
-#include "ECS/components/hitBox2D.h"
+#include "ECS/components/hitBox2D/hitBox2D.h"
 
 vector2D defaultHitBox2D = { DEFAULT_HITBOX_X, DEFAULT_HITBOX_Y };
 

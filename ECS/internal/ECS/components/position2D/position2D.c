@@ -1,7 +1,7 @@
-#include "ECS/gameObjects.h"
-#include "ECS/scenes.h"
+#include "ECS/gameObject/gameObject.h"
+#include "ECS/scene/scene.h"
 
-#include "ECS/components/position2D.h"
+#include "position2D.h"
 
 vector2D defaultPosition2D = { DEFAULT_POSITION2D_X, DEFAULT_POSITION2D_Y };
 

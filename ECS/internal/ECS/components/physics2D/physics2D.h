@@ -1,7 +1,7 @@
 #pragma once
-#include "myStandards.h"
+#include "standards/myStandards.h"
 
-#include "math/vectors.h"
+#include "math/vectors/vector2D/vector2D.h"
 
 #define DELTA_TIME
 

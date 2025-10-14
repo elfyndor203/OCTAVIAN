@@ -1,9 +1,9 @@
 #pragma once
 
-#define MAX_GAMEOBJECTS 1024
+#define MAX_gameObject 1024
 
-#include "myStandards.h"
-#include "ECS/componentTypes.h"
+#include "standards/myStandards.h"
+#include "ECS/components/componentTypes/componentTypes.h"
 
 typedef struct gameObject{
 	gameObjectIndex poolIndex;
