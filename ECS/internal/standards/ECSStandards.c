@@ -8,3 +8,4 @@ void* mallocCheck(size_t sizeToMalloc, const char* name) {
 	}
 	return pointer;
 }
+

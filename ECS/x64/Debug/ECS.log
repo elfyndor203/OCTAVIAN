@@ -1,37 +1,37 @@
 ﻿  hitBox2D.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\include\Errors.h(3,10): error C1083: Cannot open include file: 'errors/errorCodes.h': No such file or directory
-  (compiling source file '../ECS/internal/ECS/components/hitBox2D/hitBox2D.c')
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Core\include\CoreErrors.h(3,10): error C1083: Cannot open include file: 'errors/myerrorCodes.h': No such file or directory
+  (compiling source file 'internal/ECS/components/hitBox2D/hitBox2D.c')
   
   physics2D.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\include\Errors.h(3,10): error C1083: Cannot open include file: 'errors/errorCodes.h': No such file or directory
-  (compiling source file '../ECS/internal/ECS/components/physics2D/physics2D.c')
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Core\include\CoreErrors.h(3,10): error C1083: Cannot open include file: 'errors/myerrorCodes.h': No such file or directory
+  (compiling source file 'internal/ECS/components/physics2D/physics2D.c')
   
   position2D.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\include\Errors.h(3,10): error C1083: Cannot open include file: 'errors/errorCodes.h': No such file or directory
-  (compiling source file '../ECS/internal/ECS/components/position2D/position2D.c')
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Core\include\CoreErrors.h(3,10): error C1083: Cannot open include file: 'errors/myerrorCodes.h': No such file or directory
+  (compiling source file 'internal/ECS/components/position2D/position2D.c')
   
   transform2D.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\include\Errors.h(3,10): error C1083: Cannot open include file: 'errors/errorCodes.h': No such file or directory
-  (compiling source file '../ECS/internal/ECS/components/transform2D/transform2D.c')
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Core\include\CoreErrors.h(3,10): error C1083: Cannot open include file: 'errors/myerrorCodes.h': No such file or directory
+  (compiling source file 'internal/ECS/components/transform2D/transform2D.c')
   
   gameObject.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\include\Errors.h(3,10): error C1083: Cannot open include file: 'errors/errorCodes.h': No such file or directory
-  scene.c
-  (compiling source file '../ECS/internal/ECS/gameObject/gameObject.c')
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Core\include\CoreErrors.h(3,10): error C1083: Cannot open include file: 'errors/myerrorCodes.h': No such file or directory
+  (compiling source file 'internal/ECS/gameObject/gameObject.c')
   
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\include\Errors.h(3,10): error C1083: Cannot open include file: 'errors/errorCodes.h': No such file or directory
-  (compiling source file '../ECS/internal/ECS/scene/scene.c')
+  scene.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Core\include\CoreErrors.h(3,10): error C1083: Cannot open include file: 'errors/myerrorCodes.h': No such file or directory
+  (compiling source file 'internal/ECS/scene/scene.c')
   
   vector2D.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\include\Errors.h(3,10): error C1083: Cannot open include file: 'errors/errorCodes.h': No such file or directory
-  (compiling source file '../ECS/internal/math/vectors/vector2D/vector2D.c')
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Core\include\CoreErrors.h(3,10): error C1083: Cannot open include file: 'errors/myerrorCodes.h': No such file or directory
+  (compiling source file 'internal/math/vectors/vector2D/vector2D.c')
   
   ECSStandards.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\include\Errors.h(3,10): error C1083: Cannot open include file: 'errors/errorCodes.h': No such file or directory
-  (compiling source file '../ECS/internal/standards/ECSStandards.c')
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Core\include\CoreErrors.h(3,10): error C1083: Cannot open include file: 'errors/myerrorCodes.h': No such file or directory
+  (compiling source file 'internal/standards/ECSStandards.c')
   
   zzzTestMain.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\include\Errors.h(3,10): error C1083: Cannot open include file: 'errors/errorCodes.h': No such file or directory
-  (compiling source file '../ECS/ZZZTestRuntime/zzzTestMain.c')
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Core\include\CoreErrors.h(3,10): error C1083: Cannot open include file: 'errors/myerrorCodes.h': No such file or directory
+  (compiling source file 'ZZZTestRuntime/zzzTestMain.c')
   
   Generating Code...

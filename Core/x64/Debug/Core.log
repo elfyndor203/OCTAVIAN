@@ -1,3 +1,2 @@
-﻿  errorHandling.c
-C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\Core\internal\errors\errorHandling.c(16,1): warning C4715: 'logError': not all control paths return a value
-  Core.vcxproj -> C:\Users\Elfyndor\MyDocuments\[1] Projects\OCTAVIAN\x64\Debug\Core.lib
+﻿MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Core.exe : fatal error LNK1120: 1 unresolved externals
