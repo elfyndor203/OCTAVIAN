@@ -1,6 +1,6 @@
-#include "physics2D.h" 
+#include "physics2D_internal.h" 
 
-#include "ECS/scene/scene.h"
+#include "ECS/scene/scene_internal.h"
 
 //void updatePosition2D(gameObjectIndex parentIndex) {
 //	// sum forces

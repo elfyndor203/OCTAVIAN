@@ -1,4 +1,4 @@
-#include "ECSStandards.h"
+#include "ECSStandards_internal.h"
 
 void* mallocCheck(size_t sizeToMalloc, const char* name) {
 	void* pointer = malloc(sizeToMalloc);

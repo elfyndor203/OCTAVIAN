@@ -1,6 +1,6 @@
-#include "scene.h"
+#include "scene_internal.h"
 
-#include "ECS/components/componentTypes/componentTypes.h"
+#include "ECS/components/componentTypes/componentTypes_internal.h"
 
 scene mainScene = { 0 };
 scene* currentScene = &mainScene;
@@ -19,7 +19,7 @@ hitBox2D* hitBox2D_getPool() {
 	return currentScene->hitBox2DPool;
 }
 
-hitBox2DVertices* getHitBox2DVerticesPool() {
+hitBox2DVertices* hitBox2DVertices_getPool() {
 	return currentScene->hitBox2DVerticesPool;
 }
 ////////////////////////////////////////////////////////// get components
@@ -60,3 +60,62 @@ counter* hitBox2DVertices_getCounter() {
 	return &currentScene->hitBox2DVerticesCounter;
 }
 //////////////////////////////////////////////////////////
+
+/// API
+
+////////////////////////////////////////////////////////// pools
+gameObject* OCT_gameObject_getPool() {
+	return gameObject_getPool();
+}
+position2D* OCT_position2D_getPool() {
+	return position2D_getPool();
+}
+transform2D* OCT_transform2D_getPool() {
+	return transform2D_getPool();
+}
+hitBox2D* OCT_hitBox2D_getPool() {
+	return hitBox2D_getPool();
+}
+
+hitBox2DVertices* OCT_hitBox2DVertices_getPool() {
+	return hitBox2DVertices_getPool();
+}
+
+////////////////////////////////////////////////////////// objects and components
+gameObject* OCT_gameObject_get(gameObjectIndex objectIndex) {
+	return gameObject_get(objectIndex);
+}
+gameObject* OCT_gameObject_getParentObject(gameObjectIndex objectIndex) {
+	return gameObject_getParentObject(objectIndex);
+}
+position2D* OCT_position2D_get(gameObjectIndex objectIndex) {
+	return position2D_get(objectIndex);
+}
+transform2D* OCT_transform2D_get(gameObjectIndex objectIndex) {
+	return transform2D_get(objectIndex);
+}
+hitBox2D* OCT_hitBox2D_get(gameObjectIndex objectIndex) {
+	return hitBox2D_get(objectIndex);
+}
+
+// Subcomponent getters
+hitBox2DVertices* OCT_hitBox2DVertices_get(gameObjectIndex objectIndex) {
+	return hitBox2DVertices_get(objectIndex);
+}
+
+// Counter getters
+counter* OCT_gameObject_getCounter() {
+	return gameObject_getCounter();
+}
+counter* OCT_position2D_getCounter() {
+	return position2D_getCounter();
+}
+counter* OCT_transform2D_getCounter() {
+	return transform2D_getCounter();
+}
+counter* OCT_hitBox2D_getCounter() {
+	return hitBox2D_getCounter();
+}
+counter* OCT_hitBox2DVertices_getCounter() {
+	return hitBox2DVertices_getCounter();
+}

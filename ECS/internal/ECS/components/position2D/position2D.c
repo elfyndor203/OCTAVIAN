@@ -1,9 +1,9 @@
-#include "position2D.h"
+#include "position2D_internal.h"
 
-#include "ECS/gameObject/gameObject.h"
-#include "ECS/scene/scene.h"
+#include "ECS/gameObject/gameObject_internal.h"
+#include "ECS/scene/scene_internal.h"
 
-vector2D defaultPosition2D = { DEFAULT_POSITION2D_X, DEFAULT_POSITION2D_Y };
+vector2D defaultPosition2D = { DEFAULT_POSITION_X, DEFAULT_POSITION_Y };
 
 componentIndex position2D_addNew(gameObjectIndex parentIndex) {								// attaches a new default position2D to some gameObject
 	if (gameObject_hasComponent(parentIndex, componentPosition2D)) {
@@ -27,4 +27,8 @@ componentIndex position2D_addNew(gameObjectIndex parentIndex) {								// attach
 
 	printf("Added new position2D to object %zu \n", parentIndex);
 	return newPosition2D.poolIndex;
+}
+
+componentIndex OCT_position2D_addNew(gameObjectIndex parentIndex) {
+	return position2D_addNew(parentIndex);
 }

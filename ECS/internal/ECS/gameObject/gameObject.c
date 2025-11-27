@@ -1,8 +1,8 @@
-#include "gameObject.h"
-#include "ECS/scene/scene.h"
+#include "gameObject_internal.h"
+#include "ECS/scene/scene_internal.h"
 
-#include "ECS/components/position2D/position2D.h"		// two required components
-#include "ECS/components/transform2D/transform2D.h"
+#include "ECS/components/position2D/position2D_internal.h"		// two required components
+#include "ECS/components/transform2D/transform2D_internal.h"
 
 gameObjectIndex gameObject_createNew(gameObjectIndex parentIndex, bool is3D) {
 	gameObject* parentObject = gameObject_get(parentIndex);
@@ -37,6 +37,17 @@ bool gameObject_hasComponent(gameObjectIndex gameObject, componentTypes componen
 	}
 	printf("gameObject %zu does NOT have componentTypes component #%d\n", gameObject, component);
 	return false;
+}
+
+
+/// API
+
+gameObjectIndex OCT_gameObject_createNew(gameObjectIndex parentIndex, bool is3D) {
+	return gameObject_createNew(parentIndex, is3D);
+}
+
+bool OCT_gameObject_hasComponent(gameObjectIndex gameObject, componentTypes component) {
+	return gameObject_hasComponent(gameObject, component);
 }
 
 

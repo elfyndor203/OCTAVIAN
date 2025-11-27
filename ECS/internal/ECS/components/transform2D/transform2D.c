@@ -1,7 +1,7 @@
-#include "transform2D.h"
+#include "transform2D_internal.h"
 
-#include "ECS/gameObject/gameObject.h"
-#include "ECS/scene/scene.h"
+#include "ECS/gameObject/gameObject_internal.h"
+#include "ECS/scene/scene_internal.h"
 
 vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 
@@ -26,4 +26,8 @@ componentIndex transform2D_addNew(gameObjectIndex parentIndex) {
 
 	printf("Added new transform2D to object %zu \n", parentIndex);
 	return newTransform2D.poolIndex;
+}
+
+componentIndex OCT_transform2D_addNew(gameObjectIndex parentIndex) {
+	return transform2D_addNew(parentIndex);
 }

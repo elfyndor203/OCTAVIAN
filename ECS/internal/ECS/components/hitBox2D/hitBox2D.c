@@ -1,7 +1,7 @@
-#include "hitBox2D.h"
+#include "hitBox2D_internal.h"
 
-#include "ECS/gameObject/gameObject.h"
-#include "ECS/scene/scene.h"
+#include "ECS/gameObject/gameObject_internal.h"
+#include "ECS/scene/scene_internal.h"
 
 
 vector2D defaultHitBox2D = { DEFAULT_HITBOX_X, DEFAULT_HITBOX_Y };
@@ -36,12 +36,12 @@ subcomponentIndex hitBox2D_generateVertices(gameObjectIndex parentIndex) {
 	hitBox2D* hitBox = hitBox2D_get(parentIndex);
 	vector2D hitBoxWidth = { hitBox->size.x, 0 };
 	vector2D hitBoxHeight = { 0, hitBox->size.y };
-	vector2D totalOffset = vector2D_addV(2, hitBox->localOrigin, position2D_get(parentIndex)->globalPosition2D);
+	vector2D totalOffset = OCT_vector2D_Vector2D(OCT_OP_ADD, hitBox->localOrigin, position2D_get(parentIndex)->globalPosition2D);
 
-	point2D bottomLeft = vector2D_addV(3, totalOffset, hitBox->localOrigin, vector2D_elementWiseS(&hitBox->size, -2.0f, floats_divide));
-	point2D bottomRight = vector2D_addV(2, bottomLeft, hitBoxWidth);
-	point2D topRight = vector2D_addV(2, bottomRight, hitBoxHeight);
-	point2D topLeft = vector2D_addV(2, topRight, vector2D_elementWiseS(&hitBoxHeight, -1, floats_multiply));
+	point2D bottomLeft = OCT_vector2D_Vector2DMulti(3, OCT_OP_ADD, totalOffset, hitBox->localOrigin, OCT_vector2D_Scalar(OCT_OP_DIVIDE, hitBox->size, -2.0f));
+	point2D bottomRight = OCT_vector2D_Vector2D(OCT_OP_ADD, bottomLeft, hitBoxWidth);
+	point2D topRight = OCT_vector2D_Vector2D(OCT_OP_ADD, bottomRight, hitBoxHeight);
+	point2D topLeft = OCT_vector2D_Vector2D(OCT_OP_ADD, topRight, OCT_vector2D_Scalar(OCT_OP_MULTIPLY, hitBoxHeight, -1));
 
 	printf("Generated vertices (%f, %f), (%f, %f), (%f, %f), (%f, %f)\n", bottomLeft.x, bottomLeft.y, bottomRight.x, bottomRight.y, topRight.x, topRight.y, topLeft.x, topLeft.y);
 
@@ -58,8 +58,17 @@ subcomponentIndex hitBox2D_generateVertices(gameObjectIndex parentIndex) {
 	newHitBoxVertices.poolIndex = *hitBox2DVertices_getCounter();
 	newHitBoxVertices.hitBoxIndex = hitBox->poolIndex;									
 	hitBox->verticesIndex = newHitBoxVertices.poolIndex;					
-	getHitBox2DVerticesPool()[*hitBox2DVertices_getCounter()] = newHitBoxVertices;					
+	hitBox2DVertices_getPool()[*hitBox2DVertices_getCounter()] = newHitBoxVertices;					
 	*hitBox2DVertices_getCounter() += 1;
 	return newHitBoxVertices.poolIndex;
 }
 
+/// API
+
+componentIndex OCT_hitBox2D_addNew(gameObjectIndex parentIndex) {
+	return hitBox2D_addNew(parentIndex);
+}
+
+void OCT_hitBox2D_resize(gameObjectIndex parentIndex, float sizeX, float sizeY) {
+	return hitBox2D_resize(parentIndex, sizeX, sizeY);
+}

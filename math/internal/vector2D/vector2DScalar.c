@@ -1,25 +1,39 @@
 #include "vector2DScalar_internal.h"
 
-vector2D vector2D_Scalar(vector2D vectorA, float scalar, int operation) {
-	vector2D newVector = origin2D;
+vector2D vector2D_Scalar(OCT_basicOperations operation, vector2D vectorA, float scalar) {
+	vector2D resultantVector = origin2D;
 
 	switch(operation) {
-		case OP_ADD:
-			newVector.x = vectorA.x + scalar;
-			newVector.y = vectorA.y + scalar;
-		case OP_SUBTRACT:
-			newVector.x = vectorA.x - scalar;
-			newVector.y = vectorA.y - scalar;
-		case OP_MULTIPLY:
-			newVector.x = vectorA.x * scalar;
-			newVector.y = vectorA.y * scalar;
-		case OP_DIVIDE:
+		case OCT_OP_ADD:
+			resultantVector.x = vectorA.x + scalar;
+			resultantVector.y = vectorA.y + scalar;
+			break;
+		case OCT_OP_SUBTRACT:
+			resultantVector.x = vectorA.x - scalar;
+			resultantVector.y = vectorA.y - scalar;
+			break;
+		case OCT_OP_MULTIPLY:
+			resultantVector.x = vectorA.x * scalar;
+			resultantVector.y = vectorA.y * scalar;
+			break;
+		case OCT_OP_DIVIDE:
 			if (scalar == 0) {
 				logError(ERR_DIVIDE_BY_ZERO);
 				return vectorA;
 			}	
-			newVector.x = vectorA.x - scalar;
-			newVector.y = vectorA.y - scalar;
+			resultantVector.x = vectorA.x / scalar;
+			resultantVector.y = vectorA.y / scalar;
+			break;
+		default:
+			logError(ERR_VECTOR_FAILED);
+			return vectorA;
 	}
+
+	return resultantVector;
 }
 
+/// API
+
+vector2D OCT_vector2D_Scalar(OCT_basicOperations operation, vector2D vectorA, float scalar) {
+	return vector2D_Scalar(operation, vectorA, scalar);
+}

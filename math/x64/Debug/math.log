@@ -1,6 +1,6 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (template.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  template.c
-  vector2DScalar.c
+﻿  vector2DScalar.c
+  vector2DVector2D.c
   Generating Code...
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\template.c(1,10): error C1083: Cannot open include file: 'template.h': No such file or directory
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\vector2D\vector2DScalar.c(20,1): warning C4716: 'vector2D_Scalar': must return a value
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\vector2D\vector2DVector2D.c(42,1): warning C5082: second argument to 'va_start' is not the last named parameter
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\vector2D\vector2DVector2D.c(67,1): warning C5082: second argument to 'va_start' is not the last named parameter
+  math.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Math.lib

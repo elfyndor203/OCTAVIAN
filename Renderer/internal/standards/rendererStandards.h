@@ -5,7 +5,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "CoreErrors.h"
+#include "ErrorsErrors.h"
 
 #include "definitions/aliases.h"
 #include "definitions/defaultValues.h"

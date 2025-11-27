@@ -144,20 +144,24 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\MathVector2D.h" />
+    <ClInclude Include="include\definitions\operations.h" />
+    <ClInclude Include="include\OCT_MathVector2D.h" />
+    <ClInclude Include="include\OCT_Math.h" />
     <ClInclude Include="include\vectors\vector2DScalar.h" />
     <ClInclude Include="include\vectors\vector2DVector2D.h" />
     <ClInclude Include="include\vectors\vector2DInfo.h" />
-    <ClInclude Include="internal\definitions\operations.h" />
+    <ClInclude Include="internal\definitions\defaultValues_internal.h" />
+    <ClInclude Include="internal\definitions\operations_internal.h" />
     <ClInclude Include="internal\standards\mathStandards.h" />
-    <ClInclude Include="internal\vector2D\vector2DInfo.h" />
+    <ClInclude Include="internal\vector2D\vector2DInfo.c" />
+    <ClInclude Include="internal\vector2D\vector2DInfo_internal.h" />
     <ClInclude Include="internal\vector2D\vector2DScalar_internal.h" />
     <ClInclude Include="internal\vector2D\vector2DVector2D_internal.h" />
     <ClInclude Include="include\vectors\vectors.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\template.c" />
     <ClCompile Include="internal\vector2D\vector2DScalar.c" />
+    <ClCompile Include="internal\vector2D\vector2DVector2D.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

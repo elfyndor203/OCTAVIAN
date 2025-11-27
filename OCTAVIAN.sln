@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "template", "template\templa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Errors", "Errors\Errors.vcxproj", "{315DE0B9-7E02-4AE3-9B32-C6C485189582}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testGame1", "testGame1\testGame1.vcxproj", "{4F6983C6-6235-47C3-BA7B-A1D9BDE381FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -95,6 +97,14 @@ Global
 		{315DE0B9-7E02-4AE3-9B32-C6C485189582}.Release|x64.Build.0 = Release|x64
 		{315DE0B9-7E02-4AE3-9B32-C6C485189582}.Release|x86.ActiveCfg = Release|Win32
 		{315DE0B9-7E02-4AE3-9B32-C6C485189582}.Release|x86.Build.0 = Release|Win32
+		{4F6983C6-6235-47C3-BA7B-A1D9BDE381FB}.Debug|x64.ActiveCfg = Debug|x64
+		{4F6983C6-6235-47C3-BA7B-A1D9BDE381FB}.Debug|x64.Build.0 = Debug|x64
+		{4F6983C6-6235-47C3-BA7B-A1D9BDE381FB}.Debug|x86.ActiveCfg = Debug|Win32
+		{4F6983C6-6235-47C3-BA7B-A1D9BDE381FB}.Debug|x86.Build.0 = Debug|Win32
+		{4F6983C6-6235-47C3-BA7B-A1D9BDE381FB}.Release|x64.ActiveCfg = Release|x64
+		{4F6983C6-6235-47C3-BA7B-A1D9BDE381FB}.Release|x64.Build.0 = Release|x64
+		{4F6983C6-6235-47C3-BA7B-A1D9BDE381FB}.Release|x86.ActiveCfg = Release|Win32
+		{4F6983C6-6235-47C3-BA7B-A1D9BDE381FB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

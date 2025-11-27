@@ -1,4 +1,5 @@
 #pragma once
 #include "vectors.h"
+#include "definitions/operations.h"
 
-vector2D vector2D_Scalar(vector2D vectorA, float scalar, int operation);
+vector2D OCT_vector2D_Scalar(OCT_basicOperations operation, vector2D vectorA, float scalar);
