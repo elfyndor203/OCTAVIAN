@@ -1,5 +1,5 @@
 #pragma once
-#include "standards/myStandards.h"
+#include "standards/rendererStandards.h"
 
 unsigned int vertexShader_initialize(const char* vertexShader);
 unsigned int fragmentShader_initialize(const char* fragmentShader);

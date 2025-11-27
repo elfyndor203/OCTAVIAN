@@ -13,7 +13,7 @@
     <ClInclude Include="internal\definitions\defaultValues.h" />
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="internal\definitions\aliases.h" />
-    <ClInclude Include="ZZZTestRuntime\zzzTestMain.h" />
+    <ClInclude Include="tests\zzzTestMain.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D.h" />
     <ClInclude Include="internal\ECS\components\position2D\position2D.h" />
     <ClInclude Include="internal\ECS\components\transform2D\transform2D.h" />
@@ -24,7 +24,6 @@
     <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
-    <ClInclude Include="internal\math\vectors\vector2D\vector2D.h" />
     <ClInclude Include="include\myStandards.h" />
     <ClInclude Include="include\ECS.h" />
     <ClInclude Include="internal\ECS\components\physics2D\physics2D.h" />
@@ -32,13 +31,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\gameObject\gameObject.c" />
-    <ClCompile Include="internal\math\vectors\vector2D\vector2D.c" />
     <ClCompile Include="internal\standards\ECSStandards.c" />
     <ClCompile Include="internal\ECS\components\position2D\position2D.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
     <ClCompile Include="internal\ECS\scene\scene.c" />
-    <ClCompile Include="ZZZTestRuntime\zzzTestMain.c" />
+    <ClCompile Include="tests\zzzTestMain.c" />
     <ClCompile Include="internal\ECS\components\physics2D\physics2D.c" />
   </ItemGroup>
 </Project>

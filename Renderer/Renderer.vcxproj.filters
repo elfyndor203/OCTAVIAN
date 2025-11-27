@@ -13,7 +13,7 @@
     <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\RendererStandards.h" />
     <ClInclude Include="reference\update.h" />
-    <ClInclude Include="internal\standards\myStandards.h" />
+    <ClInclude Include="internal\standards\rendererStandards.h" />
     <ClInclude Include="internal\renderer\scene\scene.h" />
     <ClInclude Include="internal\definitions\aliases.h" />
     <ClInclude Include="internal\definitions\defaultValues.h" />

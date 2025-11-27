@@ -1,5 +1,5 @@
 #pragma once
-#include "standards/myStandards.h"
+#include "standards/rendererStandards.h"
 
 GLFWwindow* window_initialize(char* windowName);
 

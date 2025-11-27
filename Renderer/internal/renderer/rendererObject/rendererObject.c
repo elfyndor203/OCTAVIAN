@@ -84,6 +84,7 @@ rendererObjectIndex rendererObject_new(size_t engineIndex, float* vertexArray, s
 	
 }
 
-void renderObject(rendererObjectIndex rendererObject) {
+void rendererObject_update(rendererObjectIndex object) {
+	rendererObject* object = rendererObject_get(object);
 
 }

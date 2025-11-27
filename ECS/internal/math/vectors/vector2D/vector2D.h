@@ -22,7 +22,7 @@ vector2D vector2D_addS(float scalar, vector2D vectorA);
 
 float vector2D_dot(vector2D vectorA, vector2D vectorB);
 float vector2D_angle(vector2D vectorA, vector2D vectorB);
-bool vector2D_isEqual(vector2D vectorA, vector2D vectorB);
+bool OLDvector2D_isEqual(vector2D vectorA, vector2D vectorB);
 
 float vector2D_magnitude(vector2D vectorA);
 
