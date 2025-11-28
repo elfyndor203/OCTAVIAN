@@ -21,19 +21,6 @@
   <ItemGroup>
     <ClCompile Include="GLAD\src\glad.c" />
     <ClCompile Include="GLFW\GLAD\src\glad.c" />
-    <ClCompile Include="GLFW\glfw-3.4\deps\getopt.c" />
-    <ClCompile Include="GLFW\glfw-3.4\deps\tinycthread.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\boing.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\gears.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\heightmap.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\offscreen.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\particles.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\sharing.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\splitview.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\triangle-opengl.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\triangle-opengles.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\wave.c" />
-    <ClCompile Include="GLFW\glfw-3.4\examples\windows.c" />
     <ClCompile Include="GLFW\glfw-3.4\src\cocoa_time.c" />
     <ClCompile Include="GLFW\glfw-3.4\src\context.c" />
     <ClCompile Include="GLFW\glfw-3.4\src\egl_context.c" />
@@ -100,18 +87,6 @@
     <ClInclude Include="GLAD\include\glad\glad.h" />
     <ClInclude Include="GLAD\include\KHR\khrplatform.h" />
     <ClInclude Include="GLFW\GLAD\include\glad\glad.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\getopt.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\glad\gl.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\glad\gles2.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\glad\vulkan.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\linmath.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\mingw\dinput.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\mingw\xinput.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\mingw\_mingw_dxhelper.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\nuklear.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\nuklear_glfw_gl2.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\stb_image_write.h" />
-    <ClInclude Include="GLFW\glfw-3.4\deps\tinycthread.h" />
     <ClInclude Include="GLFW\glfw-3.4\include\GLFW\glfw3.h" />
     <ClInclude Include="GLFW\glfw-3.4\include\GLFW\glfw3native.h" />
     <ClInclude Include="GLFW\glfw-3.4\src\cocoa_joystick.h" />
@@ -218,9 +193,6 @@
     <None Include="GLFW\glfw-3.4\docs\html\vulkan_guide.html" />
     <None Include="GLFW\glfw-3.4\docs\html\window_8md.html" />
     <None Include="GLFW\glfw-3.4\docs\html\window_guide.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="GLFW\glfw-3.4\examples\glfw.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
