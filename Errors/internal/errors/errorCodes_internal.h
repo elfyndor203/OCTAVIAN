@@ -1,6 +1,6 @@
 #pragma once
 #include "errors/errorCodes.h"
-#include "standards/coreStandards.h"
+#include "standards/errorStandards.h"
 
 #define FATAL_THRESHOLD 9999
 #define ERROR_THRESHOLD 99999

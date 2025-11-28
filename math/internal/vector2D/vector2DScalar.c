@@ -18,14 +18,14 @@ vector2D vector2D_Scalar(OCT_basicOperations operation, vector2D vectorA, float 
 			break;
 		case OCT_OP_DIVIDE:
 			if (scalar == 0) {
-				logError(ERR_DIVIDE_BY_ZERO);
+				OCT_logError(ERR_DIVIDE_BY_ZERO);
 				return vectorA;
 			}	
 			resultantVector.x = vectorA.x / scalar;
 			resultantVector.y = vectorA.y / scalar;
 			break;
 		default:
-			logError(ERR_VECTOR_FAILED);
+			OCT_logError(ERR_VECTOR_FAILED);
 			return vectorA;
 	}
 

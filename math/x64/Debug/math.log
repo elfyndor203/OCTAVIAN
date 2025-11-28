@@ -1,6 +1,4 @@
 ﻿  vector2DScalar.c
   vector2DVector2D.c
   Generating Code...
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\vector2D\vector2DVector2D.c(42,1): warning C5082: second argument to 'va_start' is not the last named parameter
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\vector2D\vector2DVector2D.c(67,1): warning C5082: second argument to 'va_start' is not the last named parameter
   math.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Math.lib

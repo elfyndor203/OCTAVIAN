@@ -23,7 +23,7 @@ vector2D vector2D_Vector2D(OCT_basicOperations operation, vector2D vectorA, vect
 		break;
 	case OCT_OP_DIVIDE:
 		if (vectorB.x == 0 || vectorB.y == 0) {
-			logError(ERR_DIVIDE_BY_ZERO);
+			OCT_logError(ERR_DIVIDE_BY_ZERO);
 			return vectorA;
 		}
 		resultantVector.x = vectorA.x / vectorB.x;
@@ -31,13 +31,13 @@ vector2D vector2D_Vector2D(OCT_basicOperations operation, vector2D vectorA, vect
 		break;
 
 	default:
-		logError(ERR_VECTOR_FAILED);
+		OCT_logError(ERR_VECTOR_FAILED);
 		return vectorA;
 	}
 	return resultantVector;
 }
 
-vector2D vector2D_Vector2DMulti(int vectorCount, OCT_basicOperations operation, ...) { // NOTE: IF UPDATED, MUST CHANGE API FUNCTION TOO
+vector2D vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, ...) { // NOTE: IF UPDATED, MUST CHANGE API FUNCTION TOO
 	va_list arguments;
 	va_start(arguments, vectorCount);
 	vector2D resultantVector = origin2D;
@@ -62,7 +62,7 @@ vector2D OCT_vector2D_Vector2D(OCT_basicOperations operation, vector2D vectorA, 
 	return vector2D_Vector2D(operation, vectorA, vectorB);
 }
 
-vector2D OCT_vector2D_Vector2DMulti(int vectorCount, OCT_basicOperations operation, ...) {	// NOTE: IF UPDATED, MUST CHANGE INTERNAL FUNCTION TOO
+vector2D OCT_vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, ...) {	// NOTE: IF UPDATED, MUST CHANGE INTERNAL FUNCTION TOO
 	va_list arguments;
 	va_start(arguments, vectorCount);
 	vector2D resultantVector = origin2D;

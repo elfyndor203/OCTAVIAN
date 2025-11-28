@@ -10,7 +10,7 @@ gameObjectIndex gameObject_createNew(gameObjectIndex parentIndex, bool is3D) {
 	gameObject newGameObject = { 0 };	
 	
 	if (is3D) {
-		logError(EXIT_3D_NOT_SUPPORTED);										// change this later
+		OCT_logError(EXIT_3D_NOT_SUPPORTED);										// change this later
 	}
 	else {
 		newGameObject.poolIndex = *gameObject_getCounter();							// it can find itself						

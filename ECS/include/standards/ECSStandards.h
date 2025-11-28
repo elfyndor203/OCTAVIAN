@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-#include "ErrorsErrors.h"
+#include "OCT_Errors.h"
 
 #include "definitions/defaultValues.h"
 #include "definitions/aliases.h"

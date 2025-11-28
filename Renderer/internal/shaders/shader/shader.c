@@ -11,6 +11,8 @@ unsigned int vertexShader_initialize(const char* vertexShader) {
     {
         glGetShaderInfoLog(newVertexShader, 512, NULL, infoLog);
         printf("ERROR::SHADER::VERTEX::COMPILATION_FAILED: %s\n", infoLog);   //prints error log
+		OCT_logError(EXIT_VERTEX_SHADER_FAILED);
+        return 0;
     }
     else {
         return newVertexShader;
@@ -28,6 +30,8 @@ unsigned int fragmentShader_initialize(const char* fragmentShader) {
     {
         glGetShaderInfoLog(newFragmentShader, 512, NULL, infoLog);
         printf("ERROR::SHADER::FRAGMENT::COMPILATION_FAILED: %s\n", infoLog);
+        OCT_logError(EXIT_FRAGMENT_SHADER_FAILED);
+        return 0;
     }
     else {
         return newFragmentShader;
@@ -44,6 +48,8 @@ unsigned int shaderProgram_create(int vertexShader, int fragmentShader) {
     if (!success) {
         glGetProgramInfoLog(newShaderProgram, 512, NULL, infoLog);
         printf("ERROR::SHADER::PROGRAM::LINKING_FAILED %s\n", infoLog);
+        OCT_logError(EXIT_SHADER_PROGRAM_FAILED);
+        return 0;
     }
     else {
         glDeleteShader(vertexShader);

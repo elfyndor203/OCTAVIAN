@@ -1,16 +1,29 @@
 #pragma once
 
+// 4 digit: fatal error
+// 5 digit: error
+// 6 digit: warning
+
+// first two digits: category
+// last two digits: specific error
+
 typedef enum {
 	// memory
-	EXIT_FAILED_TO_ALLOCATE = 1000,
+	EXIT_FAILED_TO_ALLOCATE = 0101,
 
 	// math
-	ERR_DIVIDE_BY_ZERO = 20000,
-	ERR_VECTOR_FAILED = 20010,
+	ERR_DIVIDE_BY_ZERO = 02001,
+	ERR_VECTOR_FAILED = 02002,
 
 	// ECS
-	WARNING_COMPONENT_REPLACED = 300060,
+	WARNING_COMPONENT_REPLACED = 030060,
 
+	// Renderer
+	EXIT_WINDOW_NOT_INITIALIZED = 040001,
+	EXIT_FRAGMENT_SHADER_FAILED = 040002,
+	EXIT_VERTEX_SHADER_FAILED = 040003,
+	EXIT_SHADER_PROGRAM_FAILED = 040004,
+	
 	// unsupported
-	EXIT_3D_NOT_SUPPORTED = 5030
+	EXIT_3D_NOT_SUPPORTED = 0703
 } errorCodes;

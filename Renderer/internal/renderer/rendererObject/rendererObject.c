@@ -1,14 +1,13 @@
 #include "rendererObject_internal.h"
 
-#include "renderer/scene/scene.h"
-#include "definitions/macros.h"
+#include "renderer/scene/scene_internal.h"
 
 rendererObjectIndex rendererObject_register(size_t engineIndex, GLRequest VAORequest, GLRequest VBORequest, GLRequest EBORequest, bool is3D, bool dynamic) {	// determines whether or not to generate a new VAO
 	rendererObject newRendererObject = { 0 };
 	newRendererObject.engineLink = engineIndex;
 
 	if (VAORequest.createNewID == true || VBORequest.createNewID == true || EBORequest.createNewID == true) {
-		size_t dimensions = 3;
+		GLuint dimensions = 3;
 		if (is3D == false) {
 			dimensions = 2;
 		}
@@ -41,7 +40,6 @@ GLuint VAO_create() {
 }
 
 GLuint VBO_create(GLsizeiptr vertexCount, float* dataArray, size_t dimensions, bool dynamic) {
-
 	GLuint newVBO = 0;
 	glGenBuffers(1, &newVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, newVBO);
@@ -67,7 +65,7 @@ GLuint EBO_create(GLsizeiptr indexCount, uint* indexArray, bool dynamic) {
 	return newEBO;
 }
 
-void GLAttributes_set(GLuint VAO, GLuint VBO, size_t dimensions) {
+void GLAttributes_set(GLuint VAO, GLuint VBO, GLuint dimensions) {	// 2d vs 3d
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glVertexAttribPointer(0, dimensions, GL_FLOAT, GL_FALSE, dimensions * sizeof(float), (void*)0);
@@ -75,16 +73,23 @@ void GLAttributes_set(GLuint VAO, GLuint VBO, size_t dimensions) {
 }
 
 rendererObjectIndex rendererObject_new(size_t engineIndex, float* vertexArray, size_t vertexCount, uint* indexArray, size_t indexCount, bool is3D, bool isDynamic) {	// makes it so macros are not needed externally
-	if (indexArray != NULL) {
-		rendererObjectIndex newRendererObject = rendererObject_register(engineIndex, VAO_NEW, VBO_NEW(vertexArray, vertexCount), EBO_NEW(indexArray, indexCount), is3D, isDynamic);
+	rendererObjectIndex newRendererObject;
+	if (indexArray != OCT_ID_EBO_NONE) {
+		newRendererObject = rendererObject_register(engineIndex, VAO_NEW, VBO_NEW(vertexArray, vertexCount), EBO_NEW(indexArray, indexCount), is3D, isDynamic);
 	}
 	else {
-		rendererObjectIndex newRendererObject = rendererObject_register(engineIndex, VAO_NEW, VBO_NEW(vertexArray, vertexCount), EBO_NONE, is3D, isDynamic);
+		newRendererObject = rendererObject_register(engineIndex, VAO_NEW, VBO_NEW(vertexArray, vertexCount), EBO_NONE, is3D, isDynamic);
 	}
-	
+	return newRendererObject;
 }
 
 void rendererObject_update(rendererObjectIndex object) {
-	rendererObject* object = rendererObject_get(object);
+	rendererObject* objectToUpdate = rendererObject_get(object);
 
+}
+
+/// API 
+
+rendererObjectIndex OCT_rendererObject_new(size_t engineIndex, float* vertexArray, size_t vertexCount, uint* indexArray, size_t indexCount, bool is3D, bool isDynamic) {
+	return rendererObject_new(engineIndex, vertexArray, vertexCount, indexArray, indexCount, is3D, isDynamic);
 }

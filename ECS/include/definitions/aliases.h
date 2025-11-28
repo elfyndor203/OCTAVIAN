@@ -1,4 +1,5 @@
 #pragma once
+#include <stddef.h>
 
 struct point2D;	// alias for vector2D
 

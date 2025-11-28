@@ -38,7 +38,7 @@ subcomponentIndex hitBox2D_generateVertices(gameObjectIndex parentIndex) {
 	vector2D hitBoxHeight = { 0, hitBox->size.y };
 	vector2D totalOffset = OCT_vector2D_Vector2D(OCT_OP_ADD, hitBox->localOrigin, position2D_get(parentIndex)->globalPosition2D);
 
-	point2D bottomLeft = OCT_vector2D_Vector2DMulti(3, OCT_OP_ADD, totalOffset, hitBox->localOrigin, OCT_vector2D_Scalar(OCT_OP_DIVIDE, hitBox->size, -2.0f));
+	point2D bottomLeft = OCT_vector2D_Vector2DMulti(OCT_OP_ADD, 3, totalOffset, hitBox->localOrigin, OCT_vector2D_Scalar(OCT_OP_DIVIDE, hitBox->size, -2.0f));
 	point2D bottomRight = OCT_vector2D_Vector2D(OCT_OP_ADD, bottomLeft, hitBoxWidth);
 	point2D topRight = OCT_vector2D_Vector2D(OCT_OP_ADD, bottomRight, hitBoxHeight);
 	point2D topLeft = OCT_vector2D_Vector2D(OCT_OP_ADD, topRight, OCT_vector2D_Scalar(OCT_OP_MULTIPLY, hitBoxHeight, -1));
@@ -70,5 +70,5 @@ componentIndex OCT_hitBox2D_addNew(gameObjectIndex parentIndex) {
 }
 
 void OCT_hitBox2D_resize(gameObjectIndex parentIndex, float sizeX, float sizeY) {
-	return hitBox2D_resize(parentIndex, sizeX, sizeY);
+	hitBox2D_resize(parentIndex, sizeX, sizeY);
 }

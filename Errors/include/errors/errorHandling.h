@@ -2,4 +2,4 @@
 #include <stdbool.h>
 #include "errorCodes.h"
 
-bool logError(errorCodes errorCode);	// true if error, false if warning
+bool OCT_logError(errorCodes errorCode);	// true if error, false if warning

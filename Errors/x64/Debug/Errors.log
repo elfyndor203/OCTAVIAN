@@ -1,6 +1,4 @@
 ﻿  errorHandling.c
   testMain.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\tests\testMain.c(4,2): warning C4013: 'printf' undefined; assuming extern returning int
   Generating Code...
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\internal\errors\errorHandling.c(16,1): warning C4715: 'logError': not all control paths return a value
   Errors.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Errors.lib

@@ -1,0 +1,10 @@
+﻿Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwInit referenced in function window_initialize
+Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwTerminate referenced in function window_initialize
+Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwWindowHint referenced in function window_initialize
+Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function window_initialize
+Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwSetWindowShouldClose referenced in function TESTprocessInput
+Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwSetFramebufferSizeCallback referenced in function window_initialize
+Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwGetKey referenced in function TESTprocessInput
+Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function window_initialize
+Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwGetProcAddress referenced in function window_initialize
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\testGame2.exe : fatal error LNK1120: 9 unresolved externals

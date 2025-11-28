@@ -1,4 +1,5 @@
 #pragma once
 #include "standards/rendererStandards.h"
-#include "renderer/rendererObject/rendererObject.h"
 
+static int success;
+static char infoLog[512];

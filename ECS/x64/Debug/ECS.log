@@ -1,6 +1,5 @@
 ﻿  hitBox2D.c
   physics2D.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(73,2): warning C4098: 'OCT_hitBox2D_resize': 'void' function returning a value
   position2D.c
   transform2D.c
   gameObject.c

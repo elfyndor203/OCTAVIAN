@@ -2,12 +2,10 @@
   rendererObject.c
   scene.c
   window.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(73,27): warning C4267: 'function': conversion from 'size_t' to 'GLint', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(73,70): warning C4267: 'function': conversion from 'size_t' to 'GLsizei', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(88,18): error C2082: redefinition of formal parameter 'object'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(39,9): warning C4047: 'return': 'GLFWwindow *' differs in levels of indirection from 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
   hitBox2D_shaders.c
   shader.c
+  main.c
   Generating Code...
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader.c(18,1): warning C4715: 'vertexShader_initialize': not all control paths return a value
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader.c(35,1): warning C4715: 'fragmentShader_initialize': not all control paths return a value
+  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib

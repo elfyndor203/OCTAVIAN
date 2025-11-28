@@ -21,10 +21,7 @@
     <ClInclude Include="include\errors\errorHandling.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\standards\coreStandards.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\CoreErrors.h">
+    <ClInclude Include="internal\standards\errorStandards.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tests\testHeaders.h">
@@ -34,6 +31,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="internal\errors\errorHandling_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OCT_Errors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

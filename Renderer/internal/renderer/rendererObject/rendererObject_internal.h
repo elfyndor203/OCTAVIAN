@@ -1,5 +1,6 @@
 #pragma once
-#include "rendererObject.h"
+#include "renderer/rendererObject/rendererObject.h"
+#include "standards/rendererStandards_internal.h"
 
 #define GLOBJECT_NEW(inputDataArray, inputDataCount) ((GLRequest){.ID = -1, .dataArray = inputDataArray, .dataCount = inputDataCount, .createNewID = true})				// for simpler use of GLRequest, -1 == create new
 #define GLOBJECT_EXISTING(IDNum) ((GLRequest){.ID = (IDNum), .createNewID = false})
@@ -12,10 +13,21 @@
 #define VBO_EXISTING(IDNum) GLOBJECT_EXISTING(IDNum)
 #define EBO_EXISTING(IDNum) GLOBJECT_EXISTING(IDNum)
 
-#define ID_CREATE_NEW -1				// will never be an OpenGL ID
-#define ID_EBO_NONE 0
+#define OCT_ID_CREATE_NEW -1				// will never be an OpenGL ID
+#define OCT_ID_EBO_NONE 0
 
-typedef struct {
+typedef struct rendererObject {
+	size_t engineLink;
+	size_t poolIndex;
+
+	GLuint VBO;
+	GLuint EBO;
+	GLuint VAO;
+
+	GLuint shaderProgram;
+} rendererObject;
+
+typedef struct GLRequest{
 	int ID;
 	size_t dataCount;
 	void* dataArray;
@@ -27,4 +39,6 @@ rendererObjectIndex rendererObject_register(size_t engineIndex, GLRequest VAOReq
 GLuint VAO_create();
 GLuint VBO_create(GLsizeiptr vertexCount, float* dataArray, size_t dimensions, bool dynamic);
 GLuint EBO_create(GLsizeiptr indexCount, uint* indexArray, bool dynamic);
-void GLAttributes_set(GLuint VAO, GLuint VBO, size_t dimensions);
+void GLAttributes_set(GLuint VAO, GLuint VBO, GLuint dimensions);
+
+rendererObjectIndex rendererObject_new(size_t engineIndex, float* vertexArray, size_t vertexCount, uint* indexArray, size_t indexCount, bool is3D, bool isDynamic);

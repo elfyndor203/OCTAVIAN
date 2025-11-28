@@ -1,9 +1,10 @@
 #pragma once
-#include "standards/rendererStandards.h"
+#include "renderer/scene/scene.h"
+#include "standards/rendererStandards_internal.h"
 
-#include "renderer/rendererObject/rendererObject.h"
+#include "renderer/rendererObject/rendererObject_internal.h"
 
-typedef struct {
+typedef struct scene {
 	counter rendererObjectCounter;
 	rendererObject rendererObjectPool[MAX_RENDEREROBJECTS];
 } scene;

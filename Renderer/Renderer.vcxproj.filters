@@ -7,23 +7,29 @@
     <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
     <ClCompile Include="internal\renderer\window\window.c" />
     <ClCompile Include="internal\shaders\shader\shader.c" />
+    <ClCompile Include="test\main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="internal\shaders\hitBox2D\hitBox2D_shaders.h" />
-    <ClInclude Include="include\Renderer.h" />
-    <ClInclude Include="include\RendererStandards.h" />
+    <ClInclude Include="include\standards\rendererStandards.h" />
     <ClInclude Include="reference\update.h" />
-    <ClInclude Include="internal\standards\rendererStandards.h" />
-    <ClInclude Include="internal\renderer\scene\scene.h" />
-    <ClInclude Include="internal\definitions\aliases.h" />
-    <ClInclude Include="internal\definitions\defaultValues.h" />
-    <ClInclude Include="internal\renderer\rendererObject\rendererObject.h" />
-    <ClInclude Include="internal\renderer\window\window.h" />
+    <ClInclude Include="internal\standards\rendererStandards_internal.h" />
+    <ClInclude Include="internal\renderer\scene\scene_internal.h" />
+    <ClInclude Include="internal\definitions\aliases_internal.h" />
+    <ClInclude Include="internal\definitions\defaultValues_internal.h" />
+    <ClInclude Include="include\renderer\rendererObject\rendererObject.h" />
+    <ClInclude Include="internal\renderer\window\window_internal.h" />
     <ClInclude Include="internal\shaders\shader\shader.h" />
     <ClInclude Include="reference\Reference\verticesInput.h" />
-    <ClInclude Include="include\RendererTypes.h" />
-    <ClInclude Include="internal\definitions\macros.h" />
+    <ClInclude Include="internal\definitions\macros_internal.h" />
     <ClInclude Include="GLFW\GLAD\include\glad\glad.h" />
     <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
+    <ClInclude Include="include\definitions\aliases.h" />
+    <ClInclude Include="include\definitions\defaultValues.h" />
+    <ClInclude Include="include\definitions\macros.h" />
+    <ClInclude Include="include\renderer\window\window.h" />
+    <ClInclude Include="include\renderer\scene\scene.h" />
+    <ClInclude Include="include\OCT_Renderer.h" />
+    <ClInclude Include="test\main.h" />
   </ItemGroup>
 </Project>
