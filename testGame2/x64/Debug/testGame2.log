@@ -1,4 +1,6 @@
-﻿Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwInit referenced in function window_initialize
+﻿  main.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(6,2): warning C4013: 'window_initialize' undefined; assuming extern returning int
+Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwInit referenced in function window_initialize
 Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwTerminate referenced in function window_initialize
 Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwWindowHint referenced in function window_initialize
 Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function window_initialize

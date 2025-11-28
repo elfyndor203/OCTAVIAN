@@ -165,6 +165,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(ProjectDir)GLFW\GLAD\include;$(ProjectDir)GLFW\glfw-3.4\include;$(SolutionDir)Errors\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

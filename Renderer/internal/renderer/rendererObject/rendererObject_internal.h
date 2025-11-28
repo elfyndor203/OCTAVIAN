@@ -2,6 +2,8 @@
 #include "renderer/rendererObject/rendererObject.h"
 #include "standards/rendererStandards_internal.h"
 
+
+
 #define GLOBJECT_NEW(inputDataArray, inputDataCount) ((GLRequest){.ID = -1, .dataArray = inputDataArray, .dataCount = inputDataCount, .createNewID = true})				// for simpler use of GLRequest, -1 == create new
 #define GLOBJECT_EXISTING(IDNum) ((GLRequest){.ID = (IDNum), .createNewID = false})
 #define VAO_NEW GLOBJECT_NEW(0, 0)	// aliases
@@ -42,3 +44,5 @@ GLuint EBO_create(GLsizeiptr indexCount, uint* indexArray, bool dynamic);
 void GLAttributes_set(GLuint VAO, GLuint VBO, GLuint dimensions);
 
 rendererObjectIndex rendererObject_new(size_t engineIndex, float* vertexArray, size_t vertexCount, uint* indexArray, size_t indexCount, bool is3D, bool isDynamic);
+
+void test_function();

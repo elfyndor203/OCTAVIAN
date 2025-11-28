@@ -26,7 +26,3 @@ counter* OCT_rendererObject_getCounter() {
 rendererObject* OCT_rendererObject_get(rendererObjectIndex rendererObjectIndex) {
 		return rendererObject_get(rendererObjectIndex);
 }
-
-void test_function() {
-	printf("test function called\n");
-}

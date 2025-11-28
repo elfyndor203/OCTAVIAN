@@ -93,3 +93,9 @@ void rendererObject_update(rendererObjectIndex object) {
 rendererObjectIndex OCT_rendererObject_new(size_t engineIndex, float* vertexArray, size_t vertexCount, uint* indexArray, size_t indexCount, bool is3D, bool isDynamic) {
 	return rendererObject_new(engineIndex, vertexArray, vertexCount, indexArray, indexCount, is3D, isDynamic);
 }
+ 
+///
+
+void test_function() {
+	printf("\n\n\ntest function called\n\n\n");
+}
