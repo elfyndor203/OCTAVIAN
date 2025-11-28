@@ -1,5 +1,8 @@
 ﻿  main.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(6,2): warning C4013: 'window_initialize' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(6,24): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(6,24): warning C4024: 'OCT_window_initialize': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(6,34): warning C4047: 'function': 'size_t' differs in levels of indirection from 'char [12]'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(6,34): warning C4024: 'OCT_window_initialize': different types for formal and actual parameter 3
 Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwInit referenced in function window_initialize
 Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwTerminate referenced in function window_initialize
 Renderer.lib(window.obj) : error LNK2019: unresolved external symbol glfwWindowHint referenced in function window_initialize

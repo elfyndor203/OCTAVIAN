@@ -19,7 +19,76 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GLAD\src\glad.c" />
     <ClCompile Include="GLFW\GLAD\src\glad.c" />
+    <ClCompile Include="GLFW\glfw-3.4\deps\getopt.c" />
+    <ClCompile Include="GLFW\glfw-3.4\deps\tinycthread.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\boing.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\gears.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\heightmap.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\offscreen.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\particles.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\sharing.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\splitview.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\triangle-opengl.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\triangle-opengles.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\wave.c" />
+    <ClCompile Include="GLFW\glfw-3.4\examples\windows.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\cocoa_time.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\context.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\egl_context.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\glx_context.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\init.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\input.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\linux_joystick.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\monitor.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\null_init.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\null_joystick.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\null_monitor.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\null_window.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\osmesa_context.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\platform.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\posix_module.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\posix_poll.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\posix_thread.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\posix_time.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\vulkan.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\wgl_context.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\win32_init.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\win32_joystick.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\win32_module.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\win32_monitor.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\win32_thread.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\win32_time.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\win32_window.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\window.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\wl_init.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\wl_monitor.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\wl_window.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\x11_init.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\x11_monitor.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\x11_window.c" />
+    <ClCompile Include="GLFW\glfw-3.4\src\xkb_unicode.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\allocator.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\clipboard.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\cursor.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\empty.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\events.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\gamma.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\glfwinfo.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\icon.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\iconify.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\inputlag.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\joysticks.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\monitors.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\msaa.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\reopen.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\tearing.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\threads.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\timeout.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\title.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\triangle-vulkan.c" />
+    <ClCompile Include="GLFW\glfw-3.4\tests\window.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
     <ClCompile Include="internal\renderer\scene\scene.c" />
     <ClCompile Include="internal\renderer\window\window.c" />
@@ -28,7 +97,42 @@
     <ClCompile Include="test\main.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GLAD\include\glad\glad.h" />
+    <ClInclude Include="GLAD\include\KHR\khrplatform.h" />
     <ClInclude Include="GLFW\GLAD\include\glad\glad.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\getopt.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\glad\gl.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\glad\gles2.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\glad\vulkan.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\linmath.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\mingw\dinput.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\mingw\xinput.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\mingw\_mingw_dxhelper.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\nuklear.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\nuklear_glfw_gl2.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\stb_image_write.h" />
+    <ClInclude Include="GLFW\glfw-3.4\deps\tinycthread.h" />
+    <ClInclude Include="GLFW\glfw-3.4\include\GLFW\glfw3.h" />
+    <ClInclude Include="GLFW\glfw-3.4\include\GLFW\glfw3native.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\cocoa_joystick.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\cocoa_platform.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\cocoa_time.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\internal.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\linux_joystick.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\mappings.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\null_joystick.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\null_platform.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\platform.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\posix_poll.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\posix_thread.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\posix_time.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\win32_joystick.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\win32_platform.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\win32_thread.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\win32_time.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\wl_platform.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\x11_platform.h" />
+    <ClInclude Include="GLFW\glfw-3.4\src\xkb_unicode.h" />
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\definitions\macros.h" />
@@ -49,6 +153,74 @@
     <ClInclude Include="internal\shaders\shader\shader.h" />
     <ClInclude Include="reference\update.h" />
     <ClInclude Include="test\main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GLFW\glfw-3.4\docs\footer.html" />
+    <None Include="GLFW\glfw-3.4\docs\header.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\build_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\build_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\compat_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\compat_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\compile_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\compile_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\context_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\context_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\deprecated.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\dir_13577e2d8b9423099662de029791bd7d.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\dir_7f92719a7fe62e5b064f87d7a3c220b1.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\dir_a788ef6c2b1e5b367804e0b6ccfd6f11.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\dir_b11153cd0f4fd04a7564cc166f482635.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\files.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\glfw3native_8h.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\glfw3native_8h_source.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\glfw3_8h.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\glfw3_8h_source.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__buttons.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__context.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__errors.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__gamepad__axes.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__gamepad__buttons.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__hat__state.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__init.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__input.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__joysticks.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__keys.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__mods.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__monitor.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__native.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__shapes.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__vulkan.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\group__window.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\index.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\input_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\input_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\internals_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\internal_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\intro_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\intro_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\main_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\monitor_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\monitor_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\moving_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\moving_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\news.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\news_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\pages.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\quick_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\quick_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\struct_g_l_f_wallocator.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\struct_g_l_f_wgamepadstate.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\struct_g_l_f_wgammaramp.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\struct_g_l_f_wimage.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\struct_g_l_f_wvidmode.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\topics.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\vulkan_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\vulkan_guide.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\window_8md.html" />
+    <None Include="GLFW\glfw-3.4\docs\html\window_guide.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GLFW\glfw-3.4\examples\glfw.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -163,7 +335,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(ProjectDir)GLFW\GLAD\include;$(ProjectDir)GLFW\glfw-3.4\include;$(SolutionDir)Errors\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\glfw-3.4\include;$(SolutionDir)Errors\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>

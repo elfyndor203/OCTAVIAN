@@ -1,11 +1,96 @@
-﻿  glad.c
-  rendererObject.c
-  scene.c
-  window.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-  hitBox2D_shaders.c
-  shader.c
-  main.c
+﻿C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppBuild.targets(1139,5): warning MSB8027: Two or more files with the name of glad.c will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are GLAD\src\glad.c, GLFW\GLAD\src\glad.c.
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppBuild.targets(1139,5): warning MSB8027: Two or more files with the name of window.c will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are GLFW\glfw-3.4\src\window.c, GLFW\glfw-3.4\tests\window.c, internal\renderer\window\window.c.
+  glad.c
+  glad.c
+  getopt.c
+  tinycthread.c
+\GLFW\GLAD\src\glad.c(1,1): error C1083: Cannot open source file: 'GLFW\GLAD\src\glad.c': No such file or directory
+  (compiling source file '/GLFW/GLAD/src/glad.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\deps\tinycthread.c(582,3): error C4996: '_ftime64': This function or variable may be unsafe. Consider using _ftime64_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  boing.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\boing.c(40,10): error C1083: Cannot open include file: 'glad/gl.h': No such file or directory
+  gears.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\gears.c(35,10): error C1083: Cannot open include file: 'glad/gl.h': No such file or directory
+  heightmap.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\heightmap.c(33,10): error C1083: Cannot open include file: 'glad/gl.h': No such file or directory
+  offscreen.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\offscreen.c(27,10): error C1083: Cannot open include file: 'glad/gl.h': No such file or directory
+  particles.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\particles.c(38,10): error C1083: Cannot open include file: 'tinycthread.h': No such file or directory
+  sharing.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\sharing.c(27,10): error C1083: Cannot open include file: 'glad/gl.h': No such file or directory
+  splitview.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\splitview.c(14,10): error C1083: Cannot open include file: 'glad/gl.h': No such file or directory
+  triangle-opengl.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\triangle-opengl.c(28,10): error C1083: Cannot open include file: 'glad/gl.h': No such file or directory
+  triangle-opengles.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\triangle-opengles.c(27,10): error C1083: Cannot open include file: 'glad/gles2.h': No such file or directory
+  wave.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\wave.c(21,10): error C1083: Cannot open include file: 'glad/gl.h': No such file or directory
+  windows.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\examples\windows.c(27,10): error C1083: Cannot open include file: 'glad/gl.h': No such file or directory
+  cocoa_time.c
+  context.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\context.c(408,10): error C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  egl_context.c
+  glx_context.c
+  init.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(189,20): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(235,5): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(327,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(329,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(331,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(333,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(335,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(337,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(339,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(341,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(343,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(345,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(347,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(349,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(351,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(353,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(355,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\init.c(375,5): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   Generating Code...
-  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib
+  Compiling...
+  input.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\input.c(489,26): warning C4034: sizeof returns 0
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\input.c(528,5): error C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\input.c(529,5): error C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  linux_joystick.c
+  monitor.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\monitor.c(177,5): error C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  null_init.c
+  null_joystick.c
+  null_monitor.c
+  null_window.c
+  osmesa_context.c
+  platform.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\platform.c(63,26): warning C4034: sizeof returns 0
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLFW\glfw-3.4\src\platform.c(143,26): warning C4034: sizeof returns 0
+  posix_module.c
+  posix_poll.c
+  posix_thread.c
+  posix_time.c
+  vulkan.c
+  wgl_context.c
+  win32_init.c
+  win32_joystick.c
+  win32_module.c
+  win32_monitor.c
+  win32_thread.c
+  Generating Code...
+    CL!RaiseException()+0x8a
+    CL!RaiseException()+0x8a
+    CL!CloseTypeServerPDB()+0x11d4fb
+    CL!CloseTypeServerPDB()+0x1b1aae
+    CL!DllGetObjHandler()+0x9061b
+    CL!DllGetObjHandler()+0x9001b
+    CL!DllGetObjHandler()+0x8fc85
+    CL!InvokeCompilerPassW()+0x72
+  INTERNAL COMPILER ERROR in 'C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717\bin\HostX64\x64\CL.exe'
+      Please choose the Technical Support command on the Visual C++
+      Help menu, or open the Technical Support help file for more information
