@@ -38,6 +38,7 @@
     <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\standards\ECSStandards.h" />
     <ClInclude Include="include\OCT_ECS.h" />
+    <ClInclude Include="ECS_Renderer_Output\hitBoxData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\gameObject\gameObject.c" />

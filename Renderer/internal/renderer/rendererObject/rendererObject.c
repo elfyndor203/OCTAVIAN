@@ -1,101 +1,68 @@
 #include "rendererObject_internal.h"
-
 #include "renderer/scene/scene_internal.h"
 
-rendererObjectIndex rendererObject_register(size_t engineIndex, GLRequest VAORequest, GLRequest VBORequest, GLRequest EBORequest, bool is3D, bool dynamic) {	// determines whether or not to generate a new VAO
+OCT_rendererObjectID OCT_rendererObject_new(size_t engineIndex, vertexPackage* vertexInfo, bool dynamic) {
 	rendererObject newRendererObject = { 0 };
 	newRendererObject.engineLink = engineIndex;
 
-	if (VAORequest.createNewID == true || VBORequest.createNewID == true || EBORequest.createNewID == true) {
-		GLuint dimensions = 3;
-		if (is3D == false) {
-			dimensions = 2;
-		}
-		newRendererObject.VAO = VAO_create();
-		newRendererObject.VBO = VBO_create(VBORequest.dataCount, VBORequest.dataArray, dimensions, dynamic);
-		newRendererObject.EBO = EBO_create(EBORequest.dataCount, EBORequest.dataArray, dynamic);
-		GLAttributes_set(newRendererObject.VAO, newRendererObject.VBO, dimensions);
+	newRendererObject.VAO = VAO_create();
+	newRendererObject.VBO = VBO_create(vertexInfo, dynamic);
+	if (!vertexInfo->triangles) {
+		newRendererObject.EBO = EBO_create(vertexInfo, dynamic);
 	}
-	else {
-		newRendererObject.VAO = VAORequest.ID;
-		newRendererObject.VBO = VBORequest.ID; // use existing VBO WARNING NOTE: may cause an issue if VBO is changed, generate new always if changing
-		if (EBORequest.createNewID == true) {
-			newRendererObject.EBO = EBORequest.ID;	// is allowed to just not have an EBO
-		}
-		else {
-			newRendererObject.EBO = 0;		// only happens if a new one isn't created and an existing one isn't used
-		}
-	}
+	attributes_set(vertexInfo);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 
-	rendererObject_getPool()[*rendererObject_getCounter()] = newRendererObject;
-	*rendererObject_getCounter() += 1;
-	return newRendererObject.poolIndex;
+	counter* currentCounter = rendererObject_getCounter();
+	newRendererObject.poolIndex = *currentCounter;
+	rendererObject_getPool(*currentCounter);
+	*currentCounter += 1;
 }
 
-GLuint VAO_create() {
+static GLuint VAO_create() {
 	GLuint newVAO = 0;
 	glGenVertexArrays(1, &newVAO);    // create the array and buffers
 	glBindVertexArray(newVAO);
 	return newVAO;
 }
 
-GLuint VBO_create(GLsizeiptr vertexCount, float* dataArray, size_t dimensions, bool dynamic) {
+static GLuint VBO_create(vertexPackage* vertexInfo, bool dynamic) {
 	GLuint newVBO = 0;
 	glGenBuffers(1, &newVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, newVBO);
+
 	if (dynamic) {
-		glBufferData(GL_ARRAY_BUFFER, vertexCount * dimensions * sizeof(float), dataArray, GL_STATIC_DRAW);		// change this if i want to switch between 2d and 3d
+		glBufferData(GL_ARRAY_BUFFER, vertexInfo->vertexCount * vertexInfo->componentCount * sizeof(float), vertexInfo->vertexArray, GL_STATIC_DRAW);
 	}
 	else {
-		glBufferData(GL_ARRAY_BUFFER, vertexCount * dimensions * sizeof(float), dataArray, GL_DYNAMIC_DRAW);		// change this if i want to switch between 2d and 3d
+		glBufferData(GL_ARRAY_BUFFER, vertexInfo->vertexCount * vertexInfo->componentCount * sizeof(float), vertexInfo->vertexArray, GL_DYNAMIC_DRAW);
 	}
 	return newVBO;
 }
 
-GLuint EBO_create(GLsizeiptr indexCount, uint* indexArray, bool dynamic) {
+static GLuint EBO_create(vertexPackage* vertexInfo, bool dynamic) {
 	GLuint newEBO = 0;
 	glGenBuffers(1, &newEBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, newEBO);
 	if (dynamic) {
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexCount * sizeof(GLuint), indexArray, GL_STATIC_DRAW);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, vertexInfo->indexCount * sizeof(GLuint), vertexInfo->indexArray, GL_STATIC_DRAW);
 	}
 	else {
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexCount * sizeof(GLuint), indexArray, GL_DYNAMIC_DRAW);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, vertexInfo->indexCount * sizeof(GLuint), vertexInfo->indexArray, GL_DYNAMIC_DRAW);
 	}
 	return newEBO;
 }
 
-void GLAttributes_set(GLuint VAO, GLuint VBO, GLuint dimensions) {	// 2d vs 3d
-	glBindVertexArray(VAO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glVertexAttribPointer(0, dimensions, GL_FLOAT, GL_FALSE, dimensions * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
+static void attributes_set(vertexPackage* vertexInfo) {
+	glVertexAttribPointer(POSITION_INDEX, vertexInfo->componentCount, GL_FLOAT, GL_FALSE, vertexInfo->componentCount * vertexInfo->indexCount * sizeof(float), (void*)(POSITION_OFFSET * sizeof(float)));
 }
 
-rendererObjectIndex rendererObject_new(size_t engineIndex, float* vertexArray, size_t vertexCount, uint* indexArray, size_t indexCount, bool is3D, bool isDynamic) {	// makes it so macros are not needed externally
-	rendererObjectIndex newRendererObject;
-	if (indexArray != OCT_ID_EBO_NONE) {
-		newRendererObject = rendererObject_register(engineIndex, VAO_NEW, VBO_NEW(vertexArray, vertexCount), EBO_NEW(indexArray, indexCount), is3D, isDynamic);
-	}
-	else {
-		newRendererObject = rendererObject_register(engineIndex, VAO_NEW, VBO_NEW(vertexArray, vertexCount), EBO_NONE, is3D, isDynamic);
-	}
-	return newRendererObject;
-}
-
-void rendererObject_update(rendererObjectIndex object) {
-	rendererObject* objectToUpdate = rendererObject_get(object);
-
-}
-
-/// API 
-
-rendererObjectIndex OCT_rendererObject_new(size_t engineIndex, float* vertexArray, size_t vertexCount, uint* indexArray, size_t indexCount, bool is3D, bool isDynamic) {
-	return rendererObject_new(engineIndex, vertexArray, vertexCount, indexArray, indexCount, is3D, isDynamic);
-}
- 
-///
-
-void test_function() {
-	printf("\n\n\ntest function called\n\n\n");
+static vertexPackage packageVertices(size_t componentCount, size_t vertexCount, float* vertexArray, bool triangles, size_t indexCount, uint* indexArray) {
+	vertexPackage newVertexPackage = { 0 };
+	newVertexPackage.componentCount = (GLsizeiptr)(componentCount);
+	newVertexPackage.vertexCount = (GLsizeiptr)(vertexCount);
+	newVertexPackage.vertexArray = (GLfloat*)(vertexArray);
+	newVertexPackage.indexCount = (GLsizeiptr)(indexCount);
+	newVertexPackage.indexArray = (GLuint*)(indexArray);
 }

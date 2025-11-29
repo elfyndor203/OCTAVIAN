@@ -5,7 +5,7 @@
 
 vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 
-componentIndex transform2D_addNew(gameObjectIndex parentIndex) {
+OCT_componentID transform2D_addNew(OCT_gameObjectID parentIndex) {
 	if (gameObject_hasComponent(parentIndex, componentTransform2D)) {
 		OCT_logError(WARNING_COMPONENT_REPLACED);
 	}
@@ -28,6 +28,6 @@ componentIndex transform2D_addNew(gameObjectIndex parentIndex) {
 	return newTransform2D.poolIndex;
 }
 
-componentIndex OCT_transform2D_addNew(gameObjectIndex parentIndex) {
+OCT_componentID OCT_transform2D_addNew(OCT_gameObjectID parentIndex) {
 	return transform2D_addNew(parentIndex);
 }

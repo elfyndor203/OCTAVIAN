@@ -6,7 +6,7 @@
 
 vector2D defaultHitBox2D = { DEFAULT_HITBOX_X, DEFAULT_HITBOX_Y };
 
-componentIndex hitBox2D_addNew(gameObjectIndex parentIndex) {
+OCT_componentID hitBox2D_addNew(OCT_gameObjectID parentIndex) {
 	gameObject* parentObject = gameObject_get(parentIndex);
 
 
@@ -25,14 +25,14 @@ componentIndex hitBox2D_addNew(gameObjectIndex parentIndex) {
 	return newHitBox2D.poolIndex;
 }
 
-void hitBox2D_resize(gameObjectIndex parentIndex, float sizeX, float sizeY) {
+void hitBox2D_resize(OCT_gameObjectID parentIndex, float sizeX, float sizeY) {
 	hitBox2D_get(parentIndex)->size.x = sizeX;
 	hitBox2D_get(parentIndex)->size.y = sizeY;
 
 	hitBox2D_generateVertices(parentIndex);
 }
 
-subcomponentIndex hitBox2D_generateVertices(gameObjectIndex parentIndex) {
+OCT_subcomponentID hitBox2D_generateVertices(OCT_gameObjectID parentIndex) {
 	hitBox2D* hitBox = hitBox2D_get(parentIndex);
 	vector2D hitBoxWidth = { hitBox->size.x, 0 };
 	vector2D hitBoxHeight = { 0, hitBox->size.y };
@@ -65,10 +65,10 @@ subcomponentIndex hitBox2D_generateVertices(gameObjectIndex parentIndex) {
 
 /// API
 
-componentIndex OCT_hitBox2D_addNew(gameObjectIndex parentIndex) {
+OCT_componentID OCT_hitBox2D_addNew(OCT_gameObjectID parentIndex) {
 	return hitBox2D_addNew(parentIndex);
 }
 
-void OCT_hitBox2D_resize(gameObjectIndex parentIndex, float sizeX, float sizeY) {
+void OCT_hitBox2D_resize(OCT_gameObjectID parentIndex, float sizeX, float sizeY) {
 	hitBox2D_resize(parentIndex, sizeX, sizeY);
 }

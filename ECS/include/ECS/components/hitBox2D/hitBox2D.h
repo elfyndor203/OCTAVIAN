@@ -4,6 +4,6 @@
 typedef struct hitBox2D hitBox2D;
 typedef struct hitBox2DVertices hitBox2DVertices;
 
-componentIndex OCT_hitBox2D_addNew(gameObjectIndex parentIndex);
-void OCT_hitBox2D_resize(gameObjectIndex parentIndex, float sizeX, float sizeY);
+OCT_componentID OCT_hitBox2D_addNew(OCT_gameObjectID parentIndex);
+void OCT_hitBox2D_resize(OCT_gameObjectID parentIndex, float sizeX, float sizeY);
 

@@ -10,4 +10,4 @@ typedef struct transform2D {
 	vector2D scale;
 } transform2D;
 
-componentIndex transform2D_addNew(gameObjectIndex parentIndex);
+OCT_componentID transform2D_addNew(OCT_gameObjectID parentIndex);

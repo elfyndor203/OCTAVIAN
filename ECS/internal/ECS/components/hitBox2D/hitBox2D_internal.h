@@ -11,17 +11,17 @@
 #define DEFAULT_MAX_HITBOXES 1024
 
 typedef struct hitBox2D{
-	componentIndex poolIndex;
-	gameObjectIndex parentIndex;
-	subcomponentIndex verticesIndex;
+	OCT_componentID poolIndex;
+	OCT_gameObjectID parentIndex;
+	OCT_subcomponentID verticesIndex;
 
 	point2D localOrigin; // center
 	vector2D size;
 } hitBox2D;
 
 typedef struct hitBox2DVertices{
-	componentIndex poolIndex;
-	componentIndex hitBoxIndex;
+	OCT_componentID poolIndex;
+	OCT_componentID hitBoxIndex;
 
 	point2D localOrigin;
 	point2D bottomLeft;
@@ -30,6 +30,6 @@ typedef struct hitBox2DVertices{
 	point2D topLeft;
 } hitBox2DVertices;
 
-componentIndex hitBox2D_addNew(gameObjectIndex parentIndex);
-void hitBox2D_resize(gameObjectIndex parentIndex, float sizeX, float sizeY);
-componentIndex hitBox2D_generateVertices(gameObjectIndex parentIndex);
+OCT_componentID hitBox2D_addNew(OCT_gameObjectID parentIndex);
+void hitBox2D_resize(OCT_gameObjectID parentIndex, float sizeX, float sizeY);
+OCT_componentID hitBox2D_generateVertices(OCT_gameObjectID parentIndex);

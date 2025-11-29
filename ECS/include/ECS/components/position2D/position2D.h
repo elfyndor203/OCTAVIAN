@@ -8,4 +8,4 @@
 
 typedef struct position2D position2D;
 
-componentIndex OCT_position2D_addNew(gameObjectIndex parentIndex);
+OCT_componentID OCT_position2D_addNew(OCT_gameObjectID parentIndex);

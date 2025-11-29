@@ -4,7 +4,7 @@
   transform2D.c
   gameObject.c
   scene.c
-  ECSStandards.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\scene\scene.c(13,13): warning C4026: function declared with formal parameter list
   zzzTestMain.c
   Generating Code...
   ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.lib

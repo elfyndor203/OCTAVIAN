@@ -5,11 +5,10 @@
 
 vector2D defaultPosition2D = { DEFAULT_POSITION_X, DEFAULT_POSITION_Y };
 
-componentIndex position2D_addNew(gameObjectIndex parentIndex) {								// attaches a new default position2D to some gameObject
+OCT_componentID position2D_addNew(OCT_gameObjectID parentIndex) {								// attaches a new default position2D to some gameObject
 	if (gameObject_hasComponent(parentIndex, componentPosition2D)) {
 		OCT_logError(WARNING_COMPONENT_REPLACED);
 	}
-
 	gameObject* parentObject = gameObject_get(parentIndex);
 
 	position2D newPosition2D = { 0 };							
@@ -29,6 +28,6 @@ componentIndex position2D_addNew(gameObjectIndex parentIndex) {								// attach
 	return newPosition2D.poolIndex;
 }
 
-componentIndex OCT_position2D_addNew(gameObjectIndex parentIndex) {
+OCT_componentID OCT_position2D_addNew(OCT_gameObjectID parentIndex) {
 	return position2D_addNew(parentIndex);
 }

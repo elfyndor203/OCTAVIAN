@@ -84,7 +84,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;Errors.lib;ECS.lib;Renderer.lib;Math.lib;opengl32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;Renderer.lib;Math.lib;opengl32.lib;glfw3.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -103,7 +103,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;Errors.lib;ECS.lib;Renderer.lib;Math.lib;opengl32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;Renderer.lib;Math.lib;opengl32.lib;glfw3.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,7 +121,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;Errors.lib;ECS.lib;Renderer.lib;Math.lib;opengl32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;Renderer.lib;Math.lib;opengl32.lib;glfw3.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,7 +140,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;Errors.lib;ECS.lib;Renderer.lib;Math.lib;opengl32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;Renderer.lib;Math.lib;opengl32.lib;glfw3.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

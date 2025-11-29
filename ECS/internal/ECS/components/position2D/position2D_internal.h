@@ -10,5 +10,5 @@ typedef struct position2D{
 	vector2D localPosition2D;
 } position2D;
 
-componentIndex position2D_addNew(gameObjectIndex parentIndex);
+OCT_componentID position2D_addNew(OCT_gameObjectID parentIndex);
 

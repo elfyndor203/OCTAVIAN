@@ -10,5 +10,5 @@
 
 typedef struct transform2D transform2D;
 
-componentIndex OCT_transform2D_addNew(gameObjectIndex parentIndex);
+OCT_componentID OCT_transform2D_addNew(OCT_gameObjectID parentIndex);
 

@@ -4,10 +4,11 @@
 #include "ECS/components/position2D/position2D_internal.h"		// two required components
 #include "ECS/components/transform2D/transform2D_internal.h"
 
-gameObjectIndex gameObject_createNew(gameObjectIndex parentIndex, bool is3D) {
+OCT_gameObjectID gameObject_createNew(OCT_gameObjectID parentIndex, bool is3D) {
 	gameObject* parentObject = gameObject_get(parentIndex);
 
-	gameObject newGameObject = { 0 };	
+	gameObject newGameObject = { 0 };	//NOTE_NEW_COMPONENTS
+	newGameObject.hitBoxIndex = OCT_NO_COMPONENT;
 	
 	if (is3D) {
 		OCT_logError(EXIT_3D_NOT_SUPPORTED);										// change this later
@@ -30,7 +31,7 @@ gameObjectIndex gameObject_createNew(gameObjectIndex parentIndex, bool is3D) {
 	return newGameObject.poolIndex;
 }
 
-bool gameObject_hasComponent(gameObjectIndex gameObject, componentTypes component) {
+bool gameObject_hasComponent(OCT_gameObjectID gameObject, componentTypes component) {
 	if (gameObject_get(gameObject)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise
 		printf("gameObject %zu DOES have componentTypes component #%d\n", gameObject, component);
 		return true;
@@ -39,14 +40,22 @@ bool gameObject_hasComponent(gameObjectIndex gameObject, componentTypes componen
 	return false;
 }
 
+gameObject gameObject_generateRoot() {
+	gameObject rootObject = { 0 };
+	rootObject.hitBoxIndex = OCT_NO_COMPONENT;		// NOTE_NEW_COMPONENTS
+	rootObject.componentsMask |= (1ULL << componentParentObject);
+	rootObject.componentsMask |= (1ULL << componentPosition2D);
+	rootObject.componentsMask |= (1ULL << componentTransform2D);
+	return rootObject;
+}
 
 /// API
 
-gameObjectIndex OCT_gameObject_createNew(gameObjectIndex parentIndex, bool is3D) {
+OCT_gameObjectID OCT_gameObject_createNew(OCT_gameObjectID parentIndex, bool is3D) {
 	return gameObject_createNew(parentIndex, is3D);
 }
 
-bool OCT_gameObject_hasComponent(gameObjectIndex gameObject, componentTypes component) {
+bool OCT_gameObject_hasComponent(OCT_gameObjectID gameObject, componentTypes component) {
 	return gameObject_hasComponent(gameObject, component);
 }
 
