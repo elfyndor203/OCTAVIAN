@@ -6,6 +6,7 @@
 #include "ECS/components/position2D/position2D_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"
+#include "ECS/components/hitBox2D/hitBox2DVertices_internal.h"
 
 #define MAX_SCENE 1024
 

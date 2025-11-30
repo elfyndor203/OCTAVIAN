@@ -28,6 +28,7 @@ void window_initialize(char* windowName, size_t width, size_t height) {
     {
         printf("Failed to create GLFW window");
         glfwTerminate();
+        exit(-1);
     }
 
     glfwMakeContextCurrent(newWindow);

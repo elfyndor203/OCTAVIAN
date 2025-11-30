@@ -19,7 +19,6 @@
     <ClInclude Include="internal\ECS\components\transform2D\transform2D_internal.h" />
     <ClInclude Include="internal\ECS\gameObject\gameObject_internal.h" />
     <ClInclude Include="internal\ECS\scene\scene_internal.h" />
-    <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\colors.h" />
     <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\errors\errorCodes.h" />
@@ -38,7 +37,12 @@
     <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\standards\ECSStandards.h" />
     <ClInclude Include="include\OCT_ECS.h" />
-    <ClInclude Include="ECS_Renderer_Output\hitBoxData.h" />
+    <ClInclude Include="include\ECS_Renderer_Output\hitBoxData.h" />
+    <ClInclude Include="include\ECS\components\hitBox2D\hitBox2DVertices.h" />
+    <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2DVertices_internal.h" />
+    <ClInclude Include="internal\ECS_Renderer_Output\hitBoxData_internal.h" />
+    <ClInclude Include="include\ECS_Renderer_Output\REN_include.h" />
+    <ClInclude Include="include\definitions\aliases.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\gameObject\gameObject.c" />
@@ -49,5 +53,7 @@
     <ClCompile Include="internal\ECS\scene\scene.c" />
     <ClCompile Include="tests\zzzTestMain.c" />
     <ClCompile Include="internal\ECS\components\physics2D\physics2D.c" />
+    <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2DVertices.c" />
+    <ClCompile Include="internal\ECS_Renderer_Output\hitBoxData.c" />
   </ItemGroup>
 </Project>

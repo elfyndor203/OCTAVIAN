@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="internal\shaders\hitBox2D\hitBox2D_shaders.c" />
+    <ClCompile Include="include\shaders\hitBox2D\hitBox2D_shaders.c" />
     <ClCompile Include="internal\renderer\scene\scene.c" />
     <ClCompile Include="internal\renderer\window\window.c" />
     <ClCompile Include="internal\shaders\shader\shader.c" />
-    <ClCompile Include="test\main.c" />
     <ClCompile Include="GLAD\src\glad.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
+    <ClCompile Include="internal\ECS_Renderer_Input\typeInterpreter.c" />
+    <ClCompile Include="test\main.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="internal\shaders\hitBox2D\hitBox2D_shaders.h" />
+    <ClInclude Include="include\shaders\hitBox2D\hitBox2D_shaders.h" />
     <ClInclude Include="reference\update.h" />
     <ClInclude Include="internal\standards\rendererStandards_internal.h" />
     <ClInclude Include="internal\renderer\scene\scene_internal.h" />
     <ClInclude Include="internal\definitions\aliases_internal.h" />
     <ClInclude Include="internal\definitions\defaultValues_internal.h" />
     <ClInclude Include="internal\renderer\window\window_internal.h" />
-    <ClInclude Include="internal\shaders\shader\shader.h" />
+    <ClInclude Include="internal\shaders\shader\shader_internal.h" />
     <ClInclude Include="reference\Reference\verticesInput.h" />
     <ClInclude Include="internal\definitions\macros_internal.h" />
-    <ClInclude Include="test\main.h" />
     <ClInclude Include="GLAD\include\glad\glad.h" />
     <ClInclude Include="GLAD\include\KHR\khrplatform.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3.h" />
@@ -32,5 +32,9 @@
     <ClInclude Include="include\OCT_Renderer.h" />
     <ClInclude Include="include\renderer\rendererObject\rendererObject.h" />
     <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
+    <ClInclude Include="internal\ECS_Renderer_Input\typeInterpreter_internal.h" />
+    <ClInclude Include="include\ECS_Renderer_Input\typeInterpreter.h" />
+    <ClInclude Include="include\shaders\shader\shader.h" />
+    <ClInclude Include="test\main.h" />
   </ItemGroup>
 </Project>

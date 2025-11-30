@@ -6,6 +6,7 @@
 #include "ECS/components/position2D/position2D.h"
 #include "ECS/components/transform2D/transform2D.h"
 #include "ECS/components/hitBox2D/hitBox2D.h"
+#include "ECS/components/hitBox2D/hitbox2DVertices.h"
 
 #define OCT_SCENE_CREATE_ROOT SIZE_MAX
 #define OCT_ROOT_OBJECT 0

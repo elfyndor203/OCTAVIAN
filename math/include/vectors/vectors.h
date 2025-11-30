@@ -4,12 +4,12 @@ typedef struct {
 	float y;
 } vector2D;
 
-typedef vector2D point2D;
-static const point2D origin2D = { 0, 0 };
+typedef vector2D vertex2D;
+static const vertex2D origin2D = { 0, 0 };
 
 typedef struct {
-	point2D localOrigin;
-	point2D end;
+	vertex2D localOrigin;
+	vertex2D end;
 } line2D;
 
 typedef struct {

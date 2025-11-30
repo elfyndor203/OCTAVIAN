@@ -12,6 +12,7 @@ counter* rendererObject_getCounter() {
 }
 
 rendererObject* rendererObject_get(OCT_rendererObjectID rendererObject) {
+	printf("requesting rendererObject #%zu\n", rendererObject);
 	return &rendererObject_getPool()[rendererObject];
 }
 

@@ -1,6 +1,8 @@
-#include "shader.h"
+#include "shader_internal.h"
 
 unsigned int vertexShader_initialize(const char* vertexShader) {
+    printf("OpenGL version: %s\n", glGetString(GL_VERSION));
+
     unsigned int newVertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(newVertexShader, 1, &vertexShader, NULL);     // figures out where and what the shader is
     glCompileShader(newVertexShader);                                  // compiles the shader
@@ -57,4 +59,15 @@ unsigned int shaderProgram_create(int vertexShader, int fragmentShader) {
     }
 
     return newShaderProgram;
+}
+
+unsigned int OCT_vertexShader_initialize(const char* vertexShader) {
+    return vertexShader_initialize(vertexShader);
+}
+unsigned int OCT_fragmentShader_initialize(const char* fragmentShader) {
+    return fragmentShader_initialize(fragmentShader);
+}
+
+unsigned int OCT_shaderProgram_create(int vertexShader, int fragmentShader) {
+    return shaderProgram_create(vertexShader, fragmentShader);
 }

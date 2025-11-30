@@ -11,3 +11,5 @@ typedef enum {					// componentsTotal == the number of actual components
 
 	componentsTotal
 } componentTypes;
+
+typedef componentTypes OCT_componentTypes;

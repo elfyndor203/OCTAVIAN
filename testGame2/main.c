@@ -10,14 +10,20 @@ size_t indices[] = {
 void main() {
 	OCT_window_initialize("Test Game 2", 1920, 1080);
 
+
 	OCT_sceneID mainScene = OCT_scene_new(OCT_SCENE_CREATE_ROOT);
 	OCT_scene_setCurrent(mainScene);
 	OCT_gameObjectID testObject = OCT_gameObject_createNew(OCT_ROOT_OBJECT, false);
 	OCT_hitBox2D_addNew(testObject);
-	float* vertices = OCT_hitBox2DVertices_get;
 
-	OCT_rendererObjectID renderingObject = OCT_rendererObject_new(testObject, vertices, 4, indices, 0, false, false);
+	uint vertex = OCT_vertexShader_initialize(hitBox2D_vertexShaderSource);
+	uint fragment = OCT_fragmentShader_initialize(hitBox2D_fragmentShaderSource);
+	uint program = OCT_shaderProgram_create(vertex, fragment);
+
+	OCT_rendererObjectID renderingObject = OCT_rendererObject_new(testObject, componentHitBox2D, program, false);
+	OCT_renderObject_TEST_ONLY(renderingObject);
 
 	while (running) {
+		glfwPollEvents();
 	}
 }
