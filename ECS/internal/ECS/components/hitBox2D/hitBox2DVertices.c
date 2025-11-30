@@ -14,14 +14,17 @@ OCT_subcomponentID hitBox2D_generateVertices(OCT_gameObjectID parentIndex) {
 
 	printf("Generated vertices (%f, %f), (%f, %f), (%f, %f), (%f, %f)\n", bottomLeft.x, bottomLeft.y, bottomRight.x, bottomRight.y, topRight.x, topRight.y, topLeft.x, topLeft.y);
 
-	hitBox2DVertices newHitBoxVertices = {
-		*hitBox2D_getCounter(),
-		hitBox->poolIndex,
-		hitBox->localOrigin,
+	hitBox2DOutput newHitBoxOutput = {
 		bottomLeft,
 		bottomRight,
 		topRight,
 		topLeft
+	};
+	hitBox2DVertices newHitBoxVertices = {
+		*hitBox2DVertices_getCounter(),
+		hitBox->poolIndex,
+		hitBox->localOrigin,
+		newHitBoxOutput
 	};
 
 	newHitBoxVertices.poolIndex = *hitBox2DVertices_getCounter();
@@ -29,5 +32,6 @@ OCT_subcomponentID hitBox2D_generateVertices(OCT_gameObjectID parentIndex) {
 	hitBox->verticesIndex = newHitBoxVertices.poolIndex;
 	hitBox2DVertices_getPool()[*hitBox2DVertices_getCounter()] = newHitBoxVertices;
 	*hitBox2DVertices_getCounter() += 1;
+	printf("logged new vertices at %zu\n", newHitBoxVertices.poolIndex);
 	return newHitBoxVertices.poolIndex;
 }

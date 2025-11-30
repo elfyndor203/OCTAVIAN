@@ -37,10 +37,13 @@ static GLuint EBO_create(vertexPackage vertexInfo, bool dynamic) {
 
 static void vertexAttributes_set(vertexPackage vertexInfo) {
 	glVertexAttribPointer(POSITION_INDEX, vertexInfo.componentCount, GL_FLOAT, GL_FALSE, vertexInfo.componentCount * sizeof(float), (void*)(POSITION_OFFSET * sizeof(float)));
+	glEnableVertexAttribArray(POSITION_INDEX);
 }
 
 OCT_rendererObjectID OCT_rendererObject_new(size_t engineLink, OCT_componentTypes componentType, uint shaderProgram, bool dynamic) {
 	vertexPackage vertexInfo = packageVertices(engineLink, componentType);		// package vertex and index data depending on componentType
+	printf("vertexCount=%zu componentCount=%zu\n", vertexInfo.vertexCount, vertexInfo.componentCount);
+	printf("First float in packageVertices: %f\n", ((float*)&vertexInfo)[0]);
 	rendererObject newRendererObject = { 0 };
 	newRendererObject.engineLink = engineLink;		// link renderer object to ECS object
 
@@ -68,7 +71,7 @@ void OCT_renderObject_TEST_ONLY(OCT_rendererObjectID objectToRender) {
 	printf("got renderer object %zu", objectToRender);
 	glBindVertexArray(object->VAO);
 	glUseProgram(object->shaderProgram);
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }
 
