@@ -20,10 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\definitions\aliases.h" />
-    <ClInclude Include="include\ECS\components\hitBox2D\hitBox2DVertices.h" />
+    <ClInclude Include="include\definitions\APITypes.h" />
     <ClInclude Include="include\ECS_Renderer_Output\hitBoxData.h" />
-    <ClInclude Include="include\definitions\colors.h" />
-    <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\ECS_Renderer_Output\REN_include.h" />
     <ClInclude Include="include\OCT_ECS.h" />
     <ClInclude Include="include\ECS\components\componentTypes\componentTypes.h" />
@@ -44,8 +42,8 @@
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\ECS\scenes.h" />
+    <ClInclude Include="internal\definitions\APITypes_internal.h" />
     <ClInclude Include="internal\ECS\components\componentTypes\componentTypes_internal.h" />
-    <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2DVertices_internal.h" />
     <ClInclude Include="internal\ECS\components\physics2D\physics2D_internal.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="internal\ECS_Renderer_Output\hitBoxData_internal.h" />
@@ -58,19 +56,22 @@
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\myStandards.h" />
-    <ClInclude Include="tests\zzzTestMain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
-    <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2DVertices.c" />
+    <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D_API.c" />
     <ClCompile Include="internal\ECS\components\physics2D\physics2D.c" />
     <ClCompile Include="internal\ECS\components\position2D\position2D.c" />
+    <ClCompile Include="internal\ECS\components\position2D\position2D_API.c" />
+    <ClCompile Include="internal\ECS\components\transform2D\transform2D_API.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
     <ClCompile Include="internal\ECS\gameObject\gameObject.c" />
+    <ClCompile Include="internal\ECS\gameObject\gameObject_API.c" />
     <ClCompile Include="internal\ECS\scene\scene.c" />
+    <ClCompile Include="internal\ECS\scene\scene_API.c" />
     <ClCompile Include="internal\ECS_Renderer_Output\hitBoxData.c" />
+    <ClCompile Include="internal\ECS_Renderer_Output\hitBoxData_API.c" />
     <ClCompile Include="internal\standards\ECSStandards.c" />
-    <ClCompile Include="tests\zzzTestMain.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

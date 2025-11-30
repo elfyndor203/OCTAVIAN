@@ -10,4 +10,4 @@
 
 typedef struct iOCT_transform2D OCT_transform2D;
 
-OCT_componentID OCT_transform2D_addNew(OCT_sceneID sceneID, OCT_gameObjectID parentID);
+OCT_componentID OCT_transform2D_addNew(OCT_gameObjectHandle parentObjectHandle);

@@ -1,14 +1,14 @@
 #include "scene_internal.h"
 
-scene mainScene = { 0 }; 
-scene* currentScene = &mainScene;
+iOCT_scene mainScene = { 0 }; 
+iOCT_scene* OCT_currentScene = &mainScene;
 
 rendererObject* rendererObject_getPool() {
-	return currentScene->rendererObjectPool;
+	return OCT_currentScene->rendererObjectPool;
 }
 
 counter* rendererObject_getCounter() {
-	return &currentScene->rendererObjectCounter;
+	return &OCT_currentScene->rendererObjectCounter;
 }
 
 rendererObject* rendererObject_get(OCT_rendererObjectID rendererObject) {

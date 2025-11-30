@@ -4,6 +4,8 @@
 #include "ECS/components/position2D/position2D_internal.h"		// two required components
 #include "ECS/components/transform2D/transform2D_internal.h"
 
+size_t iOCT_MAX_GAMEOBJECTS = iOCT_DEFAULT_MAX_GAMEOBJECTS;
+
 ////////////////////////////////////////////////////////// getter functions
 iOCT_gameObject* iOCT_gameObject_get(iOCT_sceneID sceneID, iOCT_gameObjectID gameObjectID) {
 	// check if scene exists, then if object exists within that scene
@@ -35,7 +37,7 @@ iOCT_counter* iOCT_gameObject_getCounter(iOCT_sceneID sceneID) {
 ////////////////////////////////////////////////////////// getter functions
 
 iOCT_gameObjectID iOCT_gameObject_createNew(iOCT_sceneID sceneID, iOCT_gameObjectID parentID) {
-	if (iOCT_getCounter(sceneID) >= iOCT_MAX_GAMEOBJECTS - 1) {
+	if (*iOCT_gameObject_getCounter(sceneID) >= (iOCT_MAX_GAMEOBJECTS-1)) {
 		logError(ERR_GAMEOBJECTPOOL_FULL);
 		return iOCT_GAMEOBJECT_FAILED;
 	}
@@ -55,14 +57,14 @@ iOCT_gameObjectID iOCT_gameObject_createNew(iOCT_sceneID sceneID, iOCT_gameObjec
 	iOCT_gameObject_getPool(sceneID)[*iOCT_gameObject_getCounter(sceneID)] = newGameObject;	// store function before adding requirements
 	*iOCT_gameObject_getCounter(sceneID) += 1;
 
-	position2D_addNew(gameObjectID);							// add requirements to the stored object
-	transform2D_addNew(gameObjectID);
+	iOCT_position2D_addNew(sceneID, gameObjectID);							// add requirements to the stored object
+	transform2D_addNew(sceneID, gameObjectID);
 
 	printf("\nCreated new gameObject #%zu in scene #%zu as a child of object %zu \n", gameObjectID, sceneID, parentID);
 	return gameObjectID;
 }
 
-bool iOCT_gameObject_hasComponent(iOCT_sceneID sceneID, iOCT_gameObjectID gameObjectID, componentTypes component) {
+bool iOCT_gameObject_hasComponent(iOCT_sceneID sceneID, iOCT_gameObjectID gameObjectID, OCT_componentTypes component) {
 	if (iOCT_gameObject_get(sceneID, gameObjectID)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise
 		printf("gameObject %zu DOES have componentTypes component #%d\n", gameObjectID, component);
 		return true;

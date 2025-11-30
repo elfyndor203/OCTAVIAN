@@ -22,17 +22,20 @@ iOCT_sceneID iOCT_scene_new() {
 		return 0;
 	}
 
-	else {
-		newScene->sceneID = sceneCounter;
-		iOCT_gameObject blankRootObject = { 0 };
-		blankRootObject.hitBoxID = iOCT_NO_COMPONENT;		// NOTE_NEW_COMPONENTS
-		blankRootObject.componentsMask |= (1ULL << componentParentObject);
-		blankRootObject.componentsMask |= (1ULL << componentPosition2D);
-		blankRootObject.componentsMask |= (1ULL << componentTransform2D);
-		newScene->rootObject = blankRootObject;
-	}
+		// root object creation
+	newScene->sceneID = sceneCounter;
+	iOCT_gameObject blankRootObject = { 0 };
+	blankRootObject.hitBoxID = iOCT_NO_COMPONENT;		// NOTE_NEW_COMPONENTS
+	blankRootObject.componentsMask |= (1ULL << componentParentObject);
+	blankRootObject.componentsMask |= (1ULL << componentPosition2D);
+	blankRootObject.componentsMask |= (1ULL << componentTransform2D);
+	newScene->rootObject = blankRootObject;
 
 	OCT_scenePool[sceneCounter] = newScene;		// store scene
+
+	iOCT_gameObject_getPool(newScene->sceneID)[0] = blankRootObject;	// store root object in scene
+	*iOCT_gameObject_getCounter(newScene->sceneID) += 1;
+
 	iOCT_sceneID sceneID = sceneCounter;	//
 	newScene->sceneID = sceneCounter;		// log own index
 	sceneCounter += 1;						// update counter

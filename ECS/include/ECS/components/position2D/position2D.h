@@ -8,4 +8,4 @@
 
 typedef struct iOCT_position2D OCT_position2D;
 
-OCT_componentID OCT_transform2D_addNew(OCT_sceneID sceneID, OCT_gameObjectID parentID);
+OCT_componentID OCT_position2D_addNew(OCT_gameObjectHandle parentObjectHandle);

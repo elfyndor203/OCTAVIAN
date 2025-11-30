@@ -1,14 +1,11 @@
 ﻿  hitBox2D.c
-  hitBox2DVertices.c
-  physics2D.c
-  position2D.c
-  transform2D.c
-  gameObject.c
-  scene.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\scene\scene.c(13,13): warning C4026: function declared with formal parameter list
-  hitBoxData.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS_Renderer_Output\hitBoxData.c(16,2): warning C4047: 'return': 'uint32_t *' differs in levels of indirection from 'uint32_t (*)[6]'
-  ECSStandards.c
-  zzzTestMain.c
-  Generating Code...
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(10,15): warning C4047: '==': 'iOCT_scene *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(12,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(15,22): warning C4047: '==': 'iOCT_gameObject *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(18,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(23,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(31,15): warning C4047: '==': 'iOCT_scene *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(33,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(41,15): warning C4047: '==': 'iOCT_scene *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(43,9): warning C4047: 'return': 'iOCT_counter *' differs in levels of indirection from 'unsigned __int64'
   ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.lib

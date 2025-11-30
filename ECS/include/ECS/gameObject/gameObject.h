@@ -5,10 +5,6 @@
 
 typedef struct iOCT_gameObject OCT_gameObject;
 
-OCT_gameObjectID OCT_gameObject_createNew(OCT_sceneID sceneID, OCT_gameObjectID parentID) {
-	return iOCT_gameObject_createNew(sceneID, parentID);
-}
+OCT_gameObjectHandle OCT_gameObject_createNew(OCT_gameObjectHandle parentObjectHandle);
 
-bool OCT_gameObject_hasComponent(OCT_sceneID sceneID, OCT_gameObjectID gameObjectID, componentTypes component) {
-	return iOCT_gameObject_hasComponent(sceneID, gameObjectID, component);
-}
+bool OCT_gameObject_hasComponent(OCT_gameObjectHandle gameObjectHandle, OCT_componentTypes component);

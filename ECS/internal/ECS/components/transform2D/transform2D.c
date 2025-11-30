@@ -3,17 +3,30 @@
 #include "ECS/gameObject/gameObject_internal.h"
 #include "ECS/scene/scene_internal.h"
 
+size_t iOCT_MAX_TRANSFORM2D = iOCT_DEFAULT_MAX_GAMEOBJECTS;
+
 OCT_vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 
-iOCT_transform2D* iOCT_transform2D_get(iOCT_sceneID sceneID, iOCT_componentID transformID) {
+iOCT_transform2D* iOCT_transform2D_get(iOCT_sceneID sceneID, iOCT_gameObjectID parentID) {
     iOCT_scene* scene = iOCT_scene_get(sceneID);
-    if (scene == iOCT_GET_FAILED || transformID >= scene->transform2DCounter) {
+    if (scene == iOCT_GET_FAILED || parentID >= scene->gameObjectCounter) {
         OCT_logError(ERR_TRANSFORM2D_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
     }
 
-    printf("Got transform2D #%zu from scene #%zu\n", transformID, sceneID);
-    return &scene->transform2DPool[transformID];
+    iOCT_gameObject* parentObject = iOCT_gameObject_get(sceneID, parentID);
+    if (parentObject == iOCT_GET_FAILED) {
+        OCT_logError(ERR_TRANSFORM2D_DOES_NOT_EXIST);
+        return iOCT_GET_FAILED;
+    }
+
+    if (parentObject->transformID == iOCT_NO_COMPONENT) {
+        OCT_logError(ERR_TRANSFORM2D_DOES_NOT_EXIST);
+        return iOCT_GET_FAILED;
+    }
+
+    printf("Got transform2D from gameObject #%zu from scene #%zu\n", parentID, sceneID);
+    return &scene->transform2DPool[parentObject->transformID];
 }
 iOCT_transform2D* iOCT_transform2D_getPool(iOCT_sceneID sceneID) {
     iOCT_scene* scene = iOCT_scene_get(sceneID);

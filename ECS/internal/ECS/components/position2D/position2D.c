@@ -3,18 +3,32 @@
 #include "ECS/gameObject/gameObject_internal.h"
 #include "ECS/scene/scene_internal.h"
 
+size_t iOCT_MAX_POSITION2D = iOCT_DEFAULT_MAX_GAMEOBJECTS;
+
 OCT_vector2D defaultPosition2D = { DEFAULT_POSITION_X, DEFAULT_POSITION_Y };
 
-iOCT_position2D* iOCT_position2D_get(iOCT_sceneID sceneID, iOCT_componentID positionID) {
+iOCT_position2D* iOCT_position2D_get(iOCT_sceneID sceneID, iOCT_gameObjectID parentID) {
 	iOCT_scene* scene = iOCT_scene_get(sceneID);
-	if (scene == iOCT_GET_FAILED || positionID >= scene->position2DCounter) {
+	if (scene == iOCT_GET_FAILED || parentID >= scene->gameObjectCounter) {
 		OCT_logError(ERR_POSITION2D_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
 
-	printf("Got position2D #%zu from scene #%zu\n", positionID, sceneID);
-	return &scene->position2DPool[positionID];
+	iOCT_gameObject* parentObject = iOCT_gameObject_get(sceneID, parentID);
+	if (parentObject == iOCT_GET_FAILED) {
+		OCT_logError(ERR_POSITION2D_DOES_NOT_EXIST);
+		return iOCT_GET_FAILED;
+	}
+
+	if (parentObject->positionID == iOCT_NO_COMPONENT) {
+		OCT_logError(ERR_POSITION2D_DOES_NOT_EXIST);
+		return iOCT_GET_FAILED;
+	}
+
+	printf("Got position2D from gameObject #%zu from scene #%zu\n", parentID, sceneID);
+	return &scene->position2DPool[parentObject->positionID];
 }
+
 iOCT_position2D* iOCT_position2D_getPool(iOCT_sceneID sceneID) {
 	iOCT_scene* scene = iOCT_scene_get(sceneID);
 	if (scene == iOCT_GET_FAILED) {
@@ -36,7 +50,7 @@ iOCT_counter* iOCT_position2D_getCounter(iOCT_sceneID sceneID) {
 	return &scene->position2DCounter;
 }
 
-OCT_componentID position2D_addNew(iOCT_sceneID sceneID, OCT_gameObjectID parentID) {								// attaches a new default position2D to some gameObject
+iOCT_componentID iOCT_position2D_addNew(iOCT_sceneID sceneID, iOCT_gameObjectID parentID) {								// attaches a new default position2D to some gameObject
 	if (iOCT_gameObject_hasComponent(sceneID, parentID, componentPosition2D)) {
 		OCT_logError(WARNING_COMPONENT_REPLACED);
 	}
@@ -48,7 +62,7 @@ OCT_componentID position2D_addNew(iOCT_sceneID sceneID, OCT_gameObjectID parentI
 
 	iOCT_position2D newPosition2D = { 0 };
 
-	iOCT_gameObject* parentObject = gameObject_get(parentID);
+	iOCT_gameObject* parentObject = iOCT_gameObject_get(sceneID, parentID);
 	parentObject->componentsMask |= (1ULL << componentPosition2D);		// parent object knows it exists
 
 	iOCT_componentID positionID = *counter;		// setting values

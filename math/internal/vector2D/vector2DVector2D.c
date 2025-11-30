@@ -1,12 +1,12 @@
 #include "vector2DVector2D_internal.h"
 
-float vector2D_Dot(vector2D vectorA, vector2D vectorB) {
+float vector2D_Dot(OCT_vector2D vectorA, OCT_vector2D vectorB) {
 	float dotProduct = (vectorA.x * vectorB.x) + (vectorA.y * vectorB.y);
 	return dotProduct;
 }
 
-vector2D vector2D_Vector2D(OCT_basicOperations operation, vector2D vectorA, vector2D vectorB) {
-	vector2D resultantVector;
+OCT_vector2D vector2D_Vector2D(OCT_basicOperations operation, OCT_vector2D vectorA, OCT_vector2D vectorB) {
+	OCT_vector2D resultantVector;
 
 	switch (operation) {
 	case OCT_OP_ADD:
@@ -37,13 +37,13 @@ vector2D vector2D_Vector2D(OCT_basicOperations operation, vector2D vectorA, vect
 	return resultantVector;
 }
 
-vector2D vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, ...) { // NOTE: IF UPDATED, MUST CHANGE API FUNCTION TOO
+OCT_vector2D vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, ...) { // NOTE: IF UPDATED, MUST CHANGE API FUNCTION TOO
 	va_list arguments;
 	va_start(arguments, vectorCount);
-	vector2D resultantVector = origin2D;
+	OCT_vector2D resultantVector = OCT_origin2D;
 
 	for (int i = 0; i < vectorCount; i++) {
-		vector2D vectorToAdd = va_arg(arguments, vector2D);
+		OCT_vector2D vectorToAdd = va_arg(arguments, OCT_vector2D);
 
 		resultantVector = vector2D_Vector2D(operation, resultantVector, vectorToAdd);
 	}
@@ -54,21 +54,21 @@ vector2D vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, 
 
 ///API
 
-float OCT_vector2D_Dot(vector2D vectorA, vector2D vectorB) {
+float OCT_vector2D_Dot(OCT_vector2D vectorA, OCT_vector2D vectorB) {
 	return vector2D_Dot(vectorA, vectorB);
 }
 
-vector2D OCT_vector2D_Vector2D(OCT_basicOperations operation, vector2D vectorA, vector2D vectorB) {
+OCT_vector2D OCT_vector2D_Vector2D(OCT_basicOperations operation, OCT_vector2D vectorA, OCT_vector2D vectorB) {
 	return vector2D_Vector2D(operation, vectorA, vectorB);
 }
 
-vector2D OCT_vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, ...) {	// NOTE: IF UPDATED, MUST CHANGE INTERNAL FUNCTION TOO
+OCT_vector2D OCT_vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, ...) {	// NOTE: IF UPDATED, MUST CHANGE INTERNAL FUNCTION TOO
 	va_list arguments;
 	va_start(arguments, vectorCount);
-	vector2D resultantVector = origin2D;
+	OCT_vector2D resultantVector = OCT_origin2D;
 
 	for (int i = 0; i < vectorCount; i++) {
-		vector2D vectorToAdd = va_arg(arguments, vector2D);
+		OCT_vector2D vectorToAdd = va_arg(arguments, OCT_vector2D);
 
 		resultantVector = vector2D_Vector2D(operation, resultantVector, vectorToAdd);
 	}

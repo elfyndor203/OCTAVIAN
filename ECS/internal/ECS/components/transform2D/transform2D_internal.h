@@ -5,7 +5,7 @@
 
 #define iOCT_TRANSFORM2D_FAILED GENERIC_FAIL
 
-size_t iOCT_MAX_TRANSFORM2D = iOCT_DEFAULT_MAX_GAMEOBJECTS;
+extern size_t iOCT_MAX_TRANSFORM2D;
 
 typedef struct iOCT_transform2D {
 	iOCT_componentID transformID;
@@ -15,7 +15,7 @@ typedef struct iOCT_transform2D {
 	OCT_vector2D scale;
 } iOCT_transform2D;
 
-iOCT_transform2D* iOCT_transform2D_get(iOCT_sceneID sceneID, iOCT_componentID transformID);
+iOCT_transform2D* iOCT_transform2D_get(iOCT_sceneID sceneID, iOCT_gameObjectID parentID);
 iOCT_transform2D* iOCT_transform2D_getPool(iOCT_sceneID sceneID);
 iOCT_counter* iOCT_transform2D_getCounter(iOCT_sceneID sceneID);
 

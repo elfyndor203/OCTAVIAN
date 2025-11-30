@@ -9,3 +9,8 @@ OCT_sceneID OCT_scene_new() {
 void OCT_scene_setCurrent(OCT_sceneID sceneID) {
 	iOCT_scene_setCurrent(sceneID);
 }
+
+OCT_gameObjectHandle OCT_scene_getRootHandle(OCT_sceneID sceneID) {
+	OCT_gameObjectHandle rootHandle = { sceneID, 0 };
+	return rootHandle;
+}

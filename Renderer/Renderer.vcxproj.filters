@@ -8,7 +8,6 @@
     <ClCompile Include="GLAD\src\glad.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
     <ClCompile Include="internal\ECS_Renderer_Input\typeInterpreter.c" />
-    <ClCompile Include="test\main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\shaders\hitBox2D\hitBox2D_shaders.h" />
@@ -35,6 +34,5 @@
     <ClInclude Include="internal\ECS_Renderer_Input\typeInterpreter_internal.h" />
     <ClInclude Include="include\ECS_Renderer_Input\typeInterpreter.h" />
     <ClInclude Include="include\shaders\shader\shader.h" />
-    <ClInclude Include="test\main.h" />
   </ItemGroup>
 </Project>
