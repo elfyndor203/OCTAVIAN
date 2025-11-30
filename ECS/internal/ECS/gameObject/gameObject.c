@@ -4,60 +4,77 @@
 #include "ECS/components/position2D/position2D_internal.h"		// two required components
 #include "ECS/components/transform2D/transform2D_internal.h"
 
-OCT_gameObjectID gameObject_createNew(OCT_gameObjectID parentIndex, bool is3D) {
-	gameObject* parentObject = gameObject_get(parentIndex);
+size_t iOCT_MAX_GAMEOBJECTS = iOCT_DEFAULT_MAX_GAMEOBJECTS;
 
-	gameObject newGameObject = { 0 };	//NOTE_NEW_COMPONENTS
-	newGameObject.hitBoxIndex = OCT_NO_COMPONENT;
-	
-	if (is3D) {
-		OCT_logError(EXIT_3D_NOT_SUPPORTED);										// change this later
+////////////////////////////////////////////////////////// getter functions
+iOCT_gameObject* iOCT_gameObject_get(iOCT_sceneID sceneID, iOCT_gameObjectID gameObjectID) {
+	// check if scene exists, then if object exists within that scene
+	if (iOCT_scene_get(sceneID) == iOCT_GET_FAILED || gameObjectID > iOCT_scene_get(sceneID)->gameObjectCounter) {	
+		OCT_logError(ERR_GAMEOBJECT_DOES_NOT_EXIST);
+		return iOCT_GET_FAILED;
 	}
-	else {
-		newGameObject.poolIndex = *gameObject_getCounter();							// it can find itself						
-		newGameObject.parentIndex = parentIndex;								// it can find its parent
-
-		parentObject->componentsMask |= (1ULL << componentChildObject);			// parent object knows it exists
-//		parentObject->childIndex = newGameObject.poolIndex;						// parent object doesn't care where it is in the pool because there can be as many children as wanted
-	}
-
-	gameObject_getPool()[*gameObject_getCounter()] = newGameObject;
-	*gameObject_getCounter() += 1;
-
-	position2D_addNew(newGameObject.poolIndex);
-	transform2D_addNew(newGameObject.poolIndex);
-
-	printf("\nCreated new gameObject as a child of object %zu \n", parentIndex);
-	return newGameObject.poolIndex;
+	printf("Got gameObject #%zu from scene #%zu\n", gameObjectID, sceneID);
+	return &iOCT_scene_get(sceneID)->gameObjectPool[gameObjectID];	// access the scene, access the gameObject, and return its pointer
 }
 
-bool gameObject_hasComponent(OCT_gameObjectID gameObject, componentTypes component) {
-	if (gameObject_get(gameObject)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise
-		printf("gameObject %zu DOES have componentTypes component #%d\n", gameObject, component);
+iOCT_gameObject* iOCT_gameObject_getPool(iOCT_sceneID sceneID) {
+	if (iOCT_scene_get(sceneID) == iOCT_GET_FAILED) {
+		OCT_logError(ERR_GAMEOBJECTPOOL_DOES_NOT_EXIST);
+		return iOCT_GET_FAILED;
+	}
+	printf("Got gameObjectPool from scene #%zu\n", sceneID);
+	return &iOCT_scene_get(sceneID)->gameObjectPool;
+}
+
+iOCT_counter* iOCT_gameObject_getCounter(iOCT_sceneID sceneID) {
+	if (iOCT_scene_get(sceneID) == iOCT_GET_FAILED) {
+		OCT_logError(ERR_GAMEOBJECTCOUNTER_DOES_NOT_EXIST);
+		return iOCT_GET_FAILED;
+	}
+	printf("Got gameObjectCounter from scene #%zu\n", sceneID);
+	return &iOCT_scene_get(sceneID)->gameObjectCounter;
+}
+////////////////////////////////////////////////////////// getter functions
+
+iOCT_gameObjectID iOCT_gameObject_createNew(iOCT_sceneID sceneID, iOCT_gameObjectID parentID) {
+	if (*iOCT_gameObject_getCounter(sceneID) >= (iOCT_MAX_GAMEOBJECTS-1)) {
+		logError(ERR_GAMEOBJECTPOOL_FULL);
+		return iOCT_GAMEOBJECT_FAILED;
+	}
+	iOCT_gameObject newGameObject = { 0 };
+
+	iOCT_gameObject* parentObject = iOCT_gameObject_get(sceneID, parentID);	// store pointer to its parent
+	parentObject->componentsMask |= (1ULL << componentChildObject);				// parent object knows it exists
+
+	iOCT_gameObjectID gameObjectID = *iOCT_gameObject_getCounter(sceneID);	// setting default values
+	newGameObject.sceneID = sceneID;
+	newGameObject.gameObjectID = gameObjectID;								// it can find itself			
+	newGameObject.parentID = parentID;								// it can find its parent
+	newGameObject.positionID = iOCT_NO_COMPONENT;
+	newGameObject.transformID = iOCT_NO_COMPONENT;
+	newGameObject.hitBoxID = iOCT_NO_COMPONENT;							// 	
+
+	iOCT_gameObject_getPool(sceneID)[*iOCT_gameObject_getCounter(sceneID)] = newGameObject;	// store function before adding requirements
+	*iOCT_gameObject_getCounter(sceneID) += 1;
+
+	iOCT_position2D_addNew(sceneID, gameObjectID);							// add requirements to the stored object
+	transform2D_addNew(sceneID, gameObjectID);
+
+	printf("\nCreated new gameObject #%zu in scene #%zu as a child of object %zu \n", gameObjectID, sceneID, parentID);
+	return gameObjectID;
+}
+
+bool iOCT_gameObject_hasComponent(iOCT_sceneID sceneID, iOCT_gameObjectID gameObjectID, OCT_componentTypes component) {
+	if (iOCT_gameObject_get(sceneID, gameObjectID)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise
+		printf("gameObject %zu DOES have componentTypes component #%d\n", gameObjectID, component);
 		return true;
 	}
-	printf("gameObject %zu does NOT have componentTypes component #%d\n", gameObject, component);
+	printf("gameObject %zu does NOT have componentTypes component #%d\n", gameObjectID, component);
 	return false;
-}
-
-gameObject gameObject_generateRoot() {
-	gameObject rootObject = { 0 };
-	rootObject.hitBoxIndex = OCT_NO_COMPONENT;		// NOTE_NEW_COMPONENTS
-	rootObject.componentsMask |= (1ULL << componentParentObject);
-	rootObject.componentsMask |= (1ULL << componentPosition2D);
-	rootObject.componentsMask |= (1ULL << componentTransform2D);
-	return rootObject;
 }
 
 /// API
 
-OCT_gameObjectID OCT_gameObject_createNew(OCT_gameObjectID parentIndex, bool is3D) {
-	return gameObject_createNew(parentIndex, is3D);
-}
-
-bool OCT_gameObject_hasComponent(OCT_gameObjectID gameObject, componentTypes component) {
-	return gameObject_hasComponent(gameObject, component);
-}
 
 
 

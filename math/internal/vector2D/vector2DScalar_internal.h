@@ -4,4 +4,4 @@
 
 #include "definitions/operations_internal.h"
 
-vector2D vector2D_Scalar(OCT_basicOperations operation, vector2D vectorA, float scalar);
+OCT_vector2D vector2D_Scalar(OCT_basicOperations operation, OCT_vector2D vectorA, float scalar);

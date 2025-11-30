@@ -3,7 +3,7 @@
 
 #include "renderer/rendererObject/rendererObject.h"
 
-typedef struct scene scene;
+typedef struct iOCT_scene iOCT_scene;
 
 rendererObject* OCT_rendererObject_getPool();
 counter* OCT_rendererObject_getCounter();

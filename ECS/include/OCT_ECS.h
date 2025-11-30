@@ -1,7 +1,5 @@
 #pragma once
 #include "definitions/aliases.h"
-#include "definitions/colors.h"
-#include "definitions/defaultValues.h"
 
 #include "ECS/components/componentTypes/componentTypes.h"
 #include "ECS/components/hitBox2D/hitBox2D.h"

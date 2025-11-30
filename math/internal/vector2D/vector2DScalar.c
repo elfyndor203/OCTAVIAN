@@ -1,7 +1,7 @@
 #include "vector2DScalar_internal.h"
 
-vector2D vector2D_Scalar(OCT_basicOperations operation, vector2D vectorA, float scalar) {
-	vector2D resultantVector = origin2D;
+OCT_vector2D vector2D_Scalar(OCT_basicOperations operation, OCT_vector2D vectorA, float scalar) {
+	OCT_vector2D resultantVector = OCT_origin2D;
 
 	switch(operation) {
 		case OCT_OP_ADD:
@@ -34,6 +34,6 @@ vector2D vector2D_Scalar(OCT_basicOperations operation, vector2D vectorA, float 
 
 /// API
 
-vector2D OCT_vector2D_Scalar(OCT_basicOperations operation, vector2D vectorA, float scalar) {
+OCT_vector2D OCT_vector2D_Scalar(OCT_basicOperations operation, OCT_vector2D vectorA, float scalar) {
 	return vector2D_Scalar(operation, vectorA, scalar);
 }

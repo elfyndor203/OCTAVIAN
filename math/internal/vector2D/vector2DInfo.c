@@ -1,10 +1,10 @@
 #include "vector2DInfo_internal.h"
 
-float vector2D_Magnitude(vector2D vectorA) {
+float vector2D_Magnitude(OCT_vector2D vectorA) {
 	return hypotf(vectorA.x, vectorA.y);
 }
 
-bool vector2D_isEqual(vector2D vectorA, vector2D vectorB, float threshold) {
+bool vector2D_isEqual(OCT_vector2D vectorA, OCT_vector2D vectorB, float threshold) {
 	if (threshold <= 0.0f) {
 		threshold = DEFAULT_EQUAL_THRESHOLD;
 	}
@@ -17,7 +17,7 @@ bool vector2D_isEqual(vector2D vectorA, vector2D vectorB, float threshold) {
 	}
 }
 
-float vector2D_angle(vector2D vectorA, vector2D vectorB) {
+float vector2D_angle(OCT_vector2D vectorA, OCT_vector2D vectorB) {
 	float dotProduct = vector2D_Dot(vectorA, vectorB);
 	float magnitudeA = vector2D_Magnitude(vectorA);
 	float magnitudeB = vector2D_Magnitude(vectorB);
@@ -27,12 +27,12 @@ float vector2D_angle(vector2D vectorA, vector2D vectorB) {
 
 /// API
 
-float OCT_vector2D_Magnitude(vector2D vectorA) {
+float OCT_vector2D_Magnitude(OCT_vector2D vectorA) {
 	return vector2D_Magnitude(vectorA);
 }
-bool OCT_vector2D_isEqual(vector2D vectorA, vector2D vectorB, float threshold) {
+bool OCT_vector2D_isEqual(OCT_vector2D vectorA, OCT_vector2D vectorB, float threshold) {
 	return vector2D_isEqual(vectorA, vectorB, threshold);
 }
-float OCT_vector2D_angle(vector2D vectorA, vector2D vectorB) {
+float OCT_vector2D_angle(OCT_vector2D vectorA, OCT_vector2D vectorB) {
 	return vector2D_angle(vectorA, vectorB);
 }

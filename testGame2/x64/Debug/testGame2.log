@@ -1,3 +1,2 @@
 ﻿  main.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(27,3): warning C4013: 'glfwPollEvents' undefined; assuming extern returning int
-LINK : fatal error LNK1104: cannot open file 'Renderer.lib'
+  testGame2.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\testGame2.exe

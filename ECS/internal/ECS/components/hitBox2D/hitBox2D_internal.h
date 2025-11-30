@@ -4,22 +4,37 @@
 
 #include "ECS/components/componentTypes/componentTypes_internal.h"
 #include "OCT_Math.h"
+#include "ECS/gameObject/gameObject_internal.h"
+
+#define iOCT_HITBOX2D_FAILED GENERIC_FAIL
+extern size_t iOCT_MAX_HITBOX2D;
 
 #define DEFAULT_HITBOX_X 1.0f
 #define DEFAULT_HITBOX_Y 1.0f
 
-#define DEFAULT_MAX_HITBOXES 1024
+typedef struct iOCT_hitBox2DVertices {
+	OCT_vector2D origin;
+	OCT_vector2D bottomLeft;
+	OCT_vector2D bottomRight;
+	OCT_vector2D topRight;
+	OCT_vector2D topLeft;
+} iOCT_hitBox2DVertices;
 
-typedef struct hitBox2D{
-	OCT_componentID poolIndex;
-	OCT_gameObjectID parentIndex;
-	OCT_subcomponentID verticesIndex;
+typedef struct iOCT_hitBox2D{
+	iOCT_componentID hitBoxID;			// own spot
+	iOCT_gameObjectID parentID;		// object spot
 
-	vertex2D localOrigin; // center
-	vector2D size;
-} hitBox2D;
+	OCT_vertex2D localOrigin;	// center
+	OCT_vector2D size;			// width, height
 
+	iOCT_hitBox2DVertices boxVertices;
+} iOCT_hitBox2D;
 
+iOCT_counter* iOCT_hitBox2D_getCounter(iOCT_sceneID sceneID);
+iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_sceneID sceneID);
+iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_sceneID sceneID, iOCT_componentID hitBoxID);
 
-OCT_componentID hitBox2D_addNew(OCT_gameObjectID parentIndex);
-void hitBox2D_resize(OCT_gameObjectID parentIndex, float sizeX, float sizeY);
+iOCT_componentID iOCT_hitBox2D_addNew(iOCT_sceneID sceneID, iOCT_gameObjectID parentID);
+void iOCT_hitBox2D_resize(iOCT_sceneID sceneID, iOCT_gameObjectID parentID, float sizeX, float sizeY);
+
+void iOCT_hitBox2D_generateVertices(sceneID, parentID);
