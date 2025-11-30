@@ -1,9 +1,4 @@
-#pragma once
-#include "standards/ECSStandards.h"
-
-#include "ECS/components/componentTypes/componentTypes.h"
-
-typedef struct iOCT_gameObject OCT_gameObject;
+#include "gameObject_internal.h"
 
 OCT_gameObjectID OCT_gameObject_createNew(OCT_sceneID sceneID, OCT_gameObjectID parentID) {
 	return iOCT_gameObject_createNew(sceneID, parentID);

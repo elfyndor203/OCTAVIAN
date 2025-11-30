@@ -7,17 +7,17 @@
 #include "OCT_Math.h"
 
 typedef struct hitBox2DOutput {
-	vertex2D bottomLeft;
-	vertex2D bottomRight;
-	vertex2D topRight;
-	vertex2D topLeft;
+	OCT_vertex2D bottomLeft;
+	OCT_vertex2D bottomRight;
+	OCT_vertex2D topRight;
+	OCT_vertex2D topLeft;
 } hitBox2DOutput;
 
 typedef struct hitBox2DVertices {
 	OCT_componentID poolIndex;
 	OCT_componentID hitBoxIndex;
 
-	vertex2D localOrigin;
+	OCT_vertex2D localOrigin;
 	hitBox2DOutput corners;
 } hitBox2DVertices;
 

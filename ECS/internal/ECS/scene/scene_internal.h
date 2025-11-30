@@ -8,60 +8,34 @@
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"
 #include "ECS/components/hitBox2D/hitBox2DVertices_internal.h"
 
-#define MAX_SCENE 1024
+#define iOCT_MAX_SCENES 1024
 
 // a scene contains one instance of every pool
-typedef struct scene{
-	OCT_sceneID sceneID;
-	gameObject rootObject;
+// it is tied to its root object, from which all other objects branch from
+typedef struct iOCT_scene{
+	iOCT_sceneID sceneID;
+	iOCT_gameObject rootObject;
 
-	OCT_counter gameObjectCounter;
-	gameObject gameObjectPool[OCT_MAX_GAMEOBJECT];
+	iOCT_counter gameObjectCounter;
+	iOCT_gameObject gameObjectPool[iOCT_DEFAULT_MAX_GAMEOBJECTS];
 
 	////////////////////////////////////////////////////////// 1 to 1 components
-	OCT_counter position2DCounter;
-	position2D position2DPool[OCT_MAX_GAMEOBJECT]; 
-	OCT_counter transform2DCounter;
-	transform2D transform2DPool[OCT_MAX_GAMEOBJECT];
-	OCT_counter hitBox2DCounter;
-	hitBox2D hitBox2DPool[OCT_MAX_GAMEOBJECT];
+	iOCT_counter position2DCounter;
+	iOCT_position2D position2DPool[iOCT_DEFAULT_MAX_GAMEOBJECTS]; 
+	iOCT_counter transform2DCounter;
+	iOCT_transform2D transform2DPool[iOCT_DEFAULT_MAX_GAMEOBJECTS];
 
-	////////////////////////////////////////////////////////// 1 to 1 subcomponents
-	OCT_counter hitBox2DVerticesCounter;
-	hitBox2DVertices hitBox2DVerticesPool[OCT_MAX_GAMEOBJECT];
+	////////////////////////////////////////////////////////// many to 1 components
+	iOCT_counter hitBox2DCounter;
+	iOCT_hitBox2D hitBox2DPool[iOCT_DEFAULT_MAX_GAMEOBJECTS];
 	//////////////////////////////////////////////////////////
-} scene;
+} iOCT_scene;
 
 ////////////////////////////////////////////////////////// scene
-scene* scenePointerPool[MAX_SCENE];
+iOCT_scene* OCT_scenePool[iOCT_MAX_SCENES]; /// pointers
 
-scene* scene_get(sceneID);
-OCT_sceneID scene_new(OCT_gameObjectID rootObject);
-void scene_setCurrent(OCT_sceneID sceneID);
+iOCT_scene* iOCT_scene_get(iOCT_sceneID sceneID);
+iOCT_sceneID iOCT_scene_new();
+void iOCT_scene_setCurrent(iOCT_sceneID sceneID);
+void iOCT_scene_initialize();
 
-
-////////////////////////////////////////////////////////// pools
-gameObject* gameObject_getPool();
-position2D* position2D_getPool();
-transform2D* transform2D_getPool();
-hitBox2D* hitBox2D_getPool();
-
-hitBox2DVertices* hitBox2DVertices_getPool();
-
-////////////////////////////////////////////////////////// objects and components
-gameObject* gameObject_get(OCT_gameObjectID objectIndex);
-gameObject* gameObject_getParentObject(OCT_gameObjectID objectIndex);
-position2D* position2D_get(OCT_gameObjectID objectIndex);
-transform2D* transform2D_get(OCT_gameObjectID objectIndex);
-hitBox2D* hitBox2D_get(OCT_gameObjectID objectIndex);
-
-// subcomponents													
-hitBox2DVertices* hitBox2DVertices_get(OCT_gameObjectID objectIndex);
-
-////////////////////////////////////////////////////////// counters
-OCT_counter* gameObject_getCounter();
-OCT_counter* position2D_getCounter();
-OCT_counter* transform2D_getCounter();
-OCT_counter* hitBox2D_getCounter();
-
-OCT_counter* hitBox2DVertices_getCounter();

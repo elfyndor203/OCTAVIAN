@@ -7,7 +7,7 @@
 #define OCT_MAX_GAMEOBJECT 1024
 #define OCT_NO_COMPONENT SIZE_MAX //unless you somehow end up with that many objects
 
-typedef struct gameObject{
+typedef struct iOCT_gameObject{
 	OCT_gameObjectID poolIndex;
 
 	bool is3D;					// in case of the rare 3d position usage
@@ -20,9 +20,9 @@ typedef struct gameObject{
 	OCT_componentID hitBoxIndex;
 	///
 	uint64_t componentsMask;	// tracks if the object has each component
-} gameObject;
+} iOCT_gameObject;
 
 OCT_gameObjectID gameObject_createNew(OCT_gameObjectID parentIndex, bool is3D);
-bool gameObject_hasComponent(OCT_gameObjectID gameObject, componentTypes component);
+bool gameObject_hasComponent(OCT_gameObjectID iOCT_gameObject, componentTypes component);
 
-gameObject gameObject_generateRoot();
+iOCT_gameObject gameObject_generateRoot();

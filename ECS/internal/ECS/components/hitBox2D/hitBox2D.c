@@ -5,12 +5,8 @@
 
 #include "ECS/components/hitBox2D/hitBox2DVertices_internal.h"
 
-
-vector2D defaultHitBox2D = { DEFAULT_HITBOX_X, DEFAULT_HITBOX_Y };
-
 OCT_componentID hitBox2D_addNew(OCT_gameObjectID parentIndex) {
 	gameObject* parentObject = gameObject_get(parentIndex);
-
 
 	hitBox2D newHitBox2D = { 0 };											// create blank object
 	hitBox2D_getPool()[*hitBox2D_getCounter()] = newHitBox2D;					// copy into pool

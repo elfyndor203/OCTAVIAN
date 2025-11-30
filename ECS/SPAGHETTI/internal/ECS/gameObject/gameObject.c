@@ -5,9 +5,9 @@
 #include "ECS/components/transform2D/transform2D_internal.h"
 
 OCT_gameObjectID gameObject_createNew(OCT_gameObjectID parentIndex, bool is3D) {
-	gameObject* parentObject = gameObject_get(parentIndex);
+	iOCT_gameObject* parentObject = gameObject_get(parentIndex);
 
-	gameObject newGameObject = { 0 };	//NOTE_NEW_COMPONENTS
+	iOCT_gameObject newGameObject = { 0 };	//NOTE_NEW_COMPONENTS
 	newGameObject.hitBoxIndex = OCT_NO_COMPONENT;
 	
 	if (is3D) {
@@ -31,17 +31,17 @@ OCT_gameObjectID gameObject_createNew(OCT_gameObjectID parentIndex, bool is3D) {
 	return newGameObject.poolIndex;
 }
 
-bool gameObject_hasComponent(OCT_gameObjectID gameObject, componentTypes component) {
-	if (gameObject_get(gameObject)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise
-		printf("gameObject %zu DOES have componentTypes component #%d\n", gameObject, component);
+bool gameObject_hasComponent(OCT_gameObjectID iOCT_gameObject, componentTypes component) {
+	if (gameObject_get(iOCT_gameObject)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise
+		printf("gameObject %zu DOES have componentTypes component #%d\n", iOCT_gameObject, component);
 		return true;
 	}
-	printf("gameObject %zu does NOT have componentTypes component #%d\n", gameObject, component);
+	printf("gameObject %zu does NOT have componentTypes component #%d\n", iOCT_gameObject, component);
 	return false;
 }
 
-gameObject gameObject_generateRoot() {
-	gameObject rootObject = { 0 };
+iOCT_gameObject gameObject_generateRoot() {
+	iOCT_gameObject rootObject = { 0 };
 	rootObject.hitBoxIndex = OCT_NO_COMPONENT;		// NOTE_NEW_COMPONENTS
 	rootObject.componentsMask |= (1ULL << componentParentObject);
 	rootObject.componentsMask |= (1ULL << componentPosition2D);
@@ -55,8 +55,8 @@ OCT_gameObjectID OCT_gameObject_createNew(OCT_gameObjectID parentIndex, bool is3
 	return gameObject_createNew(parentIndex, is3D);
 }
 
-bool OCT_gameObject_hasComponent(OCT_gameObjectID gameObject, componentTypes component) {
-	return gameObject_hasComponent(gameObject, component);
+bool OCT_gameObject_hasComponent(OCT_gameObjectID iOCT_gameObject, componentTypes component) {
+	return gameObject_hasComponent(iOCT_gameObject, component);
 }
 
 

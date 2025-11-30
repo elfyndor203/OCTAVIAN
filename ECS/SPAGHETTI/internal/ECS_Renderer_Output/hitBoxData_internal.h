@@ -7,9 +7,9 @@
 #include "ECS/components/hitBox2D/hitBox2DVertices_internal.h"
 
 typedef struct hitBox2DOutputVertexArray {
-	vertex2D bottomLeft;
-	vertex2D bottomRight;
-	vertex2D topRight;
-	vertex2D topLeft;
+	OCT_vertex2D bottomLeft;
+	OCT_vertex2D bottomRight;
+	OCT_vertex2D topRight;
+	OCT_vertex2D topLeft;
 } hitBox2DOutputVertexArray;
 

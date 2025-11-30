@@ -3,15 +3,15 @@
 #include "ECS/gameObject/gameObject_internal.h"
 #include "ECS/scene/scene_internal.h"
 
-vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
+OCT_vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 
 OCT_componentID transform2D_addNew(OCT_gameObjectID parentIndex) {
 	if (gameObject_hasComponent(parentIndex, componentTransform2D)) {
 		OCT_logError(WARNING_COMPONENT_REPLACED);
 	}
-	gameObject* parentObject = gameObject_get(parentIndex);
+	iOCT_gameObject* parentObject = gameObject_get(parentIndex);
 
-	transform2D newTransform2D = { 0 };
+	iOCT_transform2D newTransform2D = { 0 };
 	newTransform2D.poolIndex = *transform2D_getCounter();
 	newTransform2D.parentIndex = parentIndex;
 

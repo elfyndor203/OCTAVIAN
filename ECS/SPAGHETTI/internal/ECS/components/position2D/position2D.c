@@ -3,15 +3,15 @@
 #include "ECS/gameObject/gameObject_internal.h"
 #include "ECS/scene/scene_internal.h"
 
-vector2D defaultPosition2D = { DEFAULT_POSITION_X, DEFAULT_POSITION_Y };
+OCT_vector2D defaultPosition2D = { DEFAULT_POSITION_X, DEFAULT_POSITION_Y };
 
 OCT_componentID position2D_addNew(OCT_gameObjectID parentIndex) {								// attaches a new default position2D to some gameObject
 	if (gameObject_hasComponent(parentIndex, componentPosition2D)) {
 		OCT_logError(WARNING_COMPONENT_REPLACED);
 	}
-	gameObject* parentObject = gameObject_get(parentIndex);
+	iOCT_gameObject* parentObject = gameObject_get(parentIndex);
 
-	position2D newPosition2D = { 0 };							
+	iOCT_position2D newPosition2D = { 0 };							
 	newPosition2D.poolIndex = *position2D_getCounter();						// it can find itself
 	newPosition2D.parentIndex = parentIndex;								// it can find its parent object
 

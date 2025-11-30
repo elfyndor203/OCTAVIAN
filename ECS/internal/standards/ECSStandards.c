@@ -3,7 +3,7 @@
 void* mallocCheck(size_t sizeToMalloc, const char* name) {
 	void* pointer = malloc(sizeToMalloc);
 	if (pointer == NULL) {
-		fprintf(stderr, "Failed to allocate memory for %s", name);
+		printf("Failed to allocate memory for %s", name);
 		OCT_logError(EXIT_FAILED_TO_ALLOCATE);
 	}
 	return pointer;

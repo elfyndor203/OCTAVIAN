@@ -1,28 +1,34 @@
 #pragma once
 #include "ECS/gameObject/gameObject.h"
 #include "standards/ECSStandards_internal.h"
-
 #include "ECS/components/componentTypes/componentTypes_internal.h"
 
-#define OCT_MAX_GAMEOBJECT 1024
-#define OCT_NO_COMPONENT SIZE_MAX //unless you somehow end up with that many objects
+#define iOCT_DEFAULT_MAX_GAMEOBJECTS 1024
 
-typedef struct gameObject{
-	OCT_gameObjectID poolIndex;
+#define iOCT_NO_COMPONENT GENERIC_FAIL //unless you somehow end up with that many objects
+#define iOCT_GAMEOBJECT_FAILED GENERIC_FAIL
+
+size_t iOCT_MAX_GAMEOBJECTS = iOCT_DEFAULT_MAX_GAMEOBJECTS;
+
+typedef struct iOCT_gameObject{
+	iOCT_sceneID sceneID;
+	iOCT_gameObjectID gameObjectID;
+	iOCT_gameObjectID parentID;		// single index in pools of components it can physically only have one of
 
 	bool is3D;					// in case of the rare 3d position usage
-	OCT_gameObjectID parentIndex;		// single index in pools of components it can physically only have one of
 
-	OCT_componentID positionIndex;		
-	OCT_componentID transformIndex;
+	OCT_componentID positionID;		
+	OCT_componentID transformID;
 
 	/// optional
-	OCT_componentID hitBoxIndex;
+	OCT_componentID hitBoxID;	// main hitbox out of possibly many
 	///
 	uint64_t componentsMask;	// tracks if the object has each component
-} gameObject;
+} iOCT_gameObject;
 
-OCT_gameObjectID gameObject_createNew(OCT_gameObjectID parentIndex, bool is3D);
-bool gameObject_hasComponent(OCT_gameObjectID gameObject, componentTypes component);
+iOCT_gameObject* iOCT_gameObject_get(iOCT_sceneID sceneID, iOCT_gameObjectID gameObjectID);
+iOCT_gameObject* iOCT_gameObject_getPool(iOCT_sceneID sceneID);
+iOCT_counter* iOCT_gameObject_getCounter(iOCT_sceneID sceneID);
 
-gameObject gameObject_generateRoot();
+iOCT_gameObjectID iOCT_gameObject_createNew(iOCT_sceneID sceneID, iOCT_gameObjectID parentID);
+bool iOCT_gameObject_hasComponent(iOCT_sceneID sceneID, iOCT_gameObjectID gameObjectID, componentTypes component);

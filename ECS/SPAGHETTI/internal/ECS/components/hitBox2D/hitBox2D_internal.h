@@ -10,14 +10,14 @@
 
 #define DEFAULT_MAX_HITBOXES 1024
 
-typedef struct hitBox2D{
+typedef struct iOCT_hitBox2D{
 	OCT_componentID poolIndex;
 	OCT_gameObjectID parentIndex;
 	OCT_subcomponentID verticesIndex;
 
-	vertex2D localOrigin; // center
-	vector2D size;
-} hitBox2D;
+	OCT_vertex2D localOrigin; // center
+	OCT_vector2D size;
+} iOCT_hitBox2D;
 
 
 

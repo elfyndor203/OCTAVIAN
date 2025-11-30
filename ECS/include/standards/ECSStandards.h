@@ -7,5 +7,4 @@
 
 #include "OCT_Errors.h"
 
-#include "definitions/defaultValues.h"
 #include "definitions/aliases.h"
