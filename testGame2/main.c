@@ -30,10 +30,10 @@ void main() {
 	OCT_gameObjectHandle WAH = OCT_gameObject_createNew(otherRoot);
 	OCT_hitBox2D_addNew(WAH);
 
-	//uint vertex = OCT_vertexShader_initialize(hitBox2D_vertexShaderSource);
-	//uint fragment = OCT_fragmentShader_initialize(hitBox2D_fragmentShaderSource);
-	//uint program = OCT_shaderProgram_create(vertex, fragment);
+	uint vertex = OCT_vertexShader_initialize(hitBox2D_vertexShaderSource);
+	uint fragment = OCT_fragmentShader_initialize(hitBox2D_fragmentShaderSource);
+	uint program = OCT_shaderProgram_create(vertex, fragment);
 
-	// OCT_rendererObjectID renderingObject = OCT_rendererObject_new(testObject, componentHitBox2D, program, false);
-	// OCT_renderObject_TEST_ONLY(renderingObject);
+	OCT_rendererObjectID renderingObject = OCT_rendererObject_new(WAH, componentHitBox2D, program, false);
+	OCT_renderObject_TEST_ONLY(renderingObject);
 }

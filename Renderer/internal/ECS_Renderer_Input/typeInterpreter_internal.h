@@ -11,4 +11,4 @@ typedef struct vertexPackage {
 	bool triangles;
 } vertexPackage;
 
-vertexPackage packageVertices(OCT_componentID engineLink, OCT_componentTypes componentType);
+vertexPackage packageVertices(OCT_gameObjectHandle gameObjectHandle, OCT_componentTypes componentType);

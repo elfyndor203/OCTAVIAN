@@ -8,8 +8,8 @@
 #define POSITION_OFFSET 0
 
 typedef struct rendererObject {
-	size_t engineLink;
-	size_t poolIndex;
+	OCT_gameObjectHandle gameObjectHandle;
+	OCT_rendererObjectID rendererObjectID;
 
 	GLuint VBO;
 	GLuint EBO;
@@ -17,4 +17,3 @@ typedef struct rendererObject {
 
 	GLuint shaderProgram;
 } rendererObject;
-

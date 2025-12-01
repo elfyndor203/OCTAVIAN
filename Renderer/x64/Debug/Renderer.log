@@ -1,13 +1,7 @@
 ﻿  typeInterpreter.c
   rendererObject.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\ECS_Renderer_Input\typeInterpreter.c(3,52): warning C4028: formal parameter 1 different from declaration
+  scene.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(39,50): warning C4267: 'function': conversion from 'size_t' to 'GLint', possible loss of data
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(39,113): warning C4267: 'function': conversion from 'size_t' to 'GLsizei', possible loss of data
-  scene.c
-  window.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(31,9): warning C4013: 'exit' undefined; assuming extern returning int
-  shader.c
   Generating Code...
   Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib

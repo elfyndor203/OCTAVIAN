@@ -8,7 +8,7 @@
 typedef struct rendererObject rendererObject;
 typedef struct vertexPackage vertexPackage;
 
-OCT_rendererObjectID OCT_rendererObject_new(size_t engineLink, OCT_componentTypes componentType, uint shaderProgram, bool dynamic);
+OCT_rendererObjectID OCT_rendererObject_new(OCT_gameObjectHandle gameObjectHandle, OCT_componentTypes componentType, uint shaderProgram, bool dynamic);
 
 void OCT_renderObject_TEST_ONLY(OCT_rendererObjectID objectToRender);
 
