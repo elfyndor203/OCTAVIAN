@@ -10,7 +10,6 @@ size_t indices[] = {
 void main() {
 	OCT_window_initialize("Test Game 2", 1920, 1080);
 
-
 	OCT_sceneID mainScene = OCT_scene_new();
 	OCT_scene_setCurrent(mainScene);
 	OCT_gameObjectHandle mainRoot = OCT_scene_getRootHandle(mainScene);
@@ -30,10 +29,13 @@ void main() {
 	OCT_gameObjectHandle WAH = OCT_gameObject_createNew(otherRoot);
 	OCT_hitBox2D_addNew(WAH);
 
-	uint vertex = OCT_vertexShader_initialize(hitBox2D_vertexShaderSource);
-	uint fragment = OCT_fragmentShader_initialize(hitBox2D_fragmentShaderSource);
-	uint program = OCT_shaderProgram_create(vertex, fragment);
+	OCT_gameObjectHandle wahchild = OCT_gameObject_createNew(WAH);
+	
 
-	OCT_rendererObjectID renderingObject = OCT_rendererObject_new(WAH, componentHitBox2D, program, false);
-	OCT_renderObject_TEST_ONLY(renderingObject);
+	
+	//uint fragment = OCT_fragmentShader_initialize(hitBox2D_fragmentShaderSource);
+	//uint program = OCT_shaderProgram_create(vertex, fragment);
+
+	//OCT_rendererObjectID renderingObject = OCT_rendererObject_new(WAH, componentHitBox2D, program, false);
+	//OCT_renderObject_TEST_ONLY(renderingObject);
 }

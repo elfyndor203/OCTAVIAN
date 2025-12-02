@@ -1,7 +1,2 @@
-﻿  typeInterpreter.c
-  rendererObject.c
-  scene.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(39,50): warning C4267: 'function': conversion from 'size_t' to 'GLint', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(39,113): warning C4267: 'function': conversion from 'size_t' to 'GLsizei', possible loss of data
-  Generating Code...
-  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib
+﻿  shader_API.c
+  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.exe

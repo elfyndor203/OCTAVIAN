@@ -8,24 +8,33 @@ size_t indices[] = {
 };
 
 void main() {
-	OCT_window_initialize("Test Game 2", 1920, 1080);
+	OCT_window_initialize("Test Game Renderer", 1920, 1080);
 
-
-	OCT_sceneID mainScene = OCT_scene_new(OCT_SCENE_CREATE_ROOT);
+	OCT_sceneID mainScene = OCT_scene_new();
 	OCT_scene_setCurrent(mainScene);
-	OCT_gameObjectID testObject = OCT_gameObject_createNew(OCT_ROOT_OBJECT, false);
+	OCT_gameObjectHandle mainRoot = OCT_scene_getRootHandle(mainScene);
+
+	OCT_gameObjectHandle testObject = OCT_gameObject_createNew(mainRoot);
 	OCT_hitBox2D_addNew(testObject);
 
-	uint vertex = OCT_vertexShader_initialize(hitBox2D_vertexShaderSource);
-	uint fragment = OCT_fragmentShader_initialize(hitBox2D_fragmentShaderSource);
-	uint program = OCT_shaderProgram_create(vertex, fragment);
+	OCT_gameObjectHandle childOfTest = OCT_gameObject_createNew(testObject);
+	OCT_hitBox2D_addNew(childOfTest);
 
-	OCT_rendererObjectID renderingObject = OCT_rendererObject_new(testObject, componentHitBox2D, program, false);
-	OCT_renderObject_TEST_ONLY(renderingObject);
+	OCT_gameObjectHandle otherMainObject = OCT_gameObject_createNew(mainRoot);
+	OCT_hitBox2D_addNew(otherMainObject);
 
-	while (running) {
-		glfwPollEvents();
-	}
+	OCT_sceneID otherSceneLmao = OCT_scene_new();
+	OCT_gameObjectHandle otherRoot = OCT_scene_getRootHandle(otherSceneLmao);
+
+	OCT_gameObjectHandle WAH = OCT_gameObject_createNew(otherRoot);
+	OCT_hitBox2D_addNew(WAH);
+
+	OCT_gameObjectHandle wahchild = OCT_gameObject_createNew(WAH);
+
+
+	unsigned int hitBoxShader = OCT_initializeShaders(componentHitBox2D);
+	
+	OCT_renderObject_TEST_ONLY()
 }
 
 //#include <glad/glad.h>

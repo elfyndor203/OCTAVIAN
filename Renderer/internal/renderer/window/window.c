@@ -39,6 +39,8 @@ void window_initialize(char* windowName, size_t width, size_t height) {
         printf("Failed to initialize GLAD");
         OCT_logError(EXIT_WINDOW_NOT_INITIALIZED);
     }
+    printf("GL VERSION AFTER INIT: %s\n", glGetString(GL_VERSION));
+
 }
 
 /// API
