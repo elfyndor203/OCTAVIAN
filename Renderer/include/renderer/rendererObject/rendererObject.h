@@ -1,15 +1,7 @@
 #pragma once
 #include "standards/rendererStandards.h"
-#include "ECS_Renderer_Input/typeInterpreter.h"
 
-#define MAX_RENDEREROBJECTS 1024
-#define OCT_ID_EBO_NONE 0
-
-typedef struct rendererObject rendererObject;
-typedef struct vertexPackage vertexPackage;
-
-OCT_rendererObjectID OCT_rendererObject_new(OCT_gameObjectHandle gameObjectHandle, OCT_componentTypes componentType, uint shaderProgram, bool dynamic);
-
-void OCT_renderObject_TEST_ONLY(OCT_rendererObjectID objectToRender);
-
+typedef size_t OCT_layerID;
+// void OCT_renderObject(OCT_entityHandle entityHandle);
+void OCT_render_debug(OCT_entityHandle entity, OCT_layerID layer);
  

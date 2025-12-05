@@ -13,8 +13,8 @@ size_t* iREN_hitBox2DIndices_getCount() {
 }
 
 // extracts only the corner vertices needed for the renderer from the struct within the hitbox
-float* iREN_hitBox2DVertices_get(iOCT_sceneID sceneID, iOCT_componentID engineLink) {	//	NOTE_POINT2D_IF_CHANGED
-	iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(sceneID, engineLink);
+float* iREN_hitBox2DVertices_get(iOCT_entitySetID entitySetID, iOCT_componentID engineLink) {	//	NOTE_POINT2D_IF_CHANGED
+	iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(entitySetID, engineLink);
 	iOCT_hitBox2DVertices* vertices = &hitBox->boxVertices;
 
 	hitBox2DVertexBuffer[0] = vertices->bottomLeft.x;

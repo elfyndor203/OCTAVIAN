@@ -21,8 +21,10 @@
   <ItemGroup>
     <ClCompile Include="GLAD\src\glad.c" />
     <ClCompile Include="internal\ECS_Renderer_Input\typeInterpreter.c" />
+    <ClCompile Include="internal\renderer\layer\layer_API.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
-    <ClCompile Include="internal\renderer\scene\scene.c" />
+    <ClCompile Include="internal\renderer\layer\layer.c" />
+    <ClCompile Include="internal\renderer\rendererObject\rendererObject_API.c" />
     <ClCompile Include="internal\renderer\window\window.c" />
     <ClCompile Include="internal\shaders\hitBox2D\hitBox2D_shaders.c" />
     <ClCompile Include="internal\shaders\shader\shader.c" />
@@ -34,10 +36,8 @@
     <ClInclude Include="GLAD\include\KHR\khrplatform.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3native.h" />
-    <ClInclude Include="include\definitions\aliases.h" />
-    <ClInclude Include="include\ECS_Renderer_Input\typeInterpreter.h" />
+    <ClInclude Include="include\renderer\layer\layer.h" />
     <ClInclude Include="include\OCT_Renderer.h" />
-    <ClInclude Include="include\renderer\scene\scene.h" />
     <ClInclude Include="include\renderer\window\window.h" />
     <ClInclude Include="include\shaders\shader\shader.h" />
     <ClInclude Include="include\standards\rendererStandards.h" />
@@ -49,7 +49,7 @@
     <ClInclude Include="internal\definitions\macros_internal.h" />
     <ClInclude Include="internal\standards\rendererStandards_internal.h" />
     <ClInclude Include="reference\Reference\verticesInput.h" />
-    <ClInclude Include="internal\renderer\scene\scene_internal.h" />
+    <ClInclude Include="internal\renderer\layer\layer_internal.h" />
     <ClInclude Include="internal\renderer\window\window_internal.h" />
     <ClInclude Include="internal\shaders\hitBox2D\hitBox2D_shaders.h" />
     <ClInclude Include="internal\shaders\shader\shader_internal.h" />

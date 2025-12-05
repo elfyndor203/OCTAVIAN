@@ -10,31 +10,33 @@ size_t indices[] = {
 void main() {
 	OCT_window_initialize("Test Game Renderer", 1920, 1080);
 
-	OCT_sceneID mainScene = OCT_scene_new();
-	OCT_scene_setCurrent(mainScene);
-	OCT_gameObjectHandle mainRoot = OCT_scene_getRootHandle(mainScene);
+	OCT_entitySetID mainSet = OCT_entitySet_new();
+	OCT_entityHandle mainRoot = OCT_entitySet_getRootHandle(mainSet);
 
-	OCT_gameObjectHandle testObject = OCT_gameObject_createNew(mainRoot);
+	OCT_entityHandle testObject = OCT_entity_new(mainRoot);
 	OCT_hitBox2D_addNew(testObject);
 
-	OCT_gameObjectHandle childOfTest = OCT_gameObject_createNew(testObject);
+	OCT_entityHandle childOfTest = OCT_entity_new(testObject);
 	OCT_hitBox2D_addNew(childOfTest);
 
-	OCT_gameObjectHandle otherMainObject = OCT_gameObject_createNew(mainRoot);
+	OCT_entityHandle otherMainObject = OCT_entity_new(mainRoot);
 	OCT_hitBox2D_addNew(otherMainObject);
 
-	OCT_sceneID otherSceneLmao = OCT_scene_new();
-	OCT_gameObjectHandle otherRoot = OCT_scene_getRootHandle(otherSceneLmao);
+	OCT_entitySetID otherSetLmao = OCT_entitySet_new();
+	OCT_entityHandle otherRoot = OCT_entitySet_getRootHandle(otherSetLmao);
 
-	OCT_gameObjectHandle WAH = OCT_gameObject_createNew(otherRoot);
+	OCT_entityHandle WAH = OCT_entity_new(otherRoot);
 	OCT_hitBox2D_addNew(WAH);
 
-	OCT_gameObjectHandle wahchild = OCT_gameObject_createNew(WAH);
+	OCT_entityHandle wahchild = OCT_entity_new(WAH);
 
 
-	unsigned int hitBoxShader = OCT_initializeShaders(componentHitBox2D);
-	
-	OCT_renderObject_TEST_ONLY()
+	OCT_layerID newRenderingLayer = OCT_layer_new();
+	OCT_initializeShaders();
+	OCT_render_debug(testObject, newRenderingLayer);
+
+	while (running) {
+	}
 }
 
 //#include <glad/glad.h>

@@ -1,14 +1,15 @@
 #pragma once
-#include "ECS_Renderer_Input/typeInterpreter.h"
 #include "standards/rendererStandards_internal.h"
+#include "OCT_ECS.h"
+#include "ECS_Renderer_Output/REN_include.h"
 
 typedef struct vertexPackage {
 	size_t componentCount;
 	size_t vertexCount;
 	float* vertexArray;
 	size_t indexCount;
-	uint* indexArray;
+	unsigned int* indexArray;
 	bool triangles;
 } vertexPackage;
 
-vertexPackage packageVertices(OCT_gameObjectHandle gameObjectHandle, OCT_componentTypes componentType);
+vertexPackage packageVertices(OCT_entityHandle gameObjectHandle, OCT_componentTypes componentType);

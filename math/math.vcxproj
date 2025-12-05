@@ -148,6 +148,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\operations.h" />
     <ClInclude Include="include\OCT_MathVector2D.h" />
     <ClInclude Include="include\OCT_Math.h" />

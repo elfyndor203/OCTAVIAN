@@ -1,7 +1,9 @@
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLAD\src\glad.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\glad.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\ECS_Renderer_Input\typeInterpreter.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\typeInterpreter.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\layer_API.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\rendererObject.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\scene\scene.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\scene.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\layer.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\rendererObject_API.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\window.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\hitBox2D\hitBox2D_shaders.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\hitBox2D_shaders.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\shader.obj

@@ -6,7 +6,7 @@
 #include "ECS/components/physics2D/physics2D.h"
 #include "ECS/components/position2D/position2D.h"
 #include "ECS/components/transform2D/transform2D.h"
-#include "ECS/gameObject/gameObject.h"
-#include "ECS/scene/scene.h"
+#include "ECS/entity/entity.h"
+#include "ECS/entitySet/entitySet.h"
 
 #include "standards/ECSStandards.h"

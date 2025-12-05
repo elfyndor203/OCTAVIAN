@@ -1,6 +1,6 @@
 #include "ECS_Renderer_Input/typeInterpreter_internal.h"
 
-vertexPackage packageVertices(OCT_gameObjectHandle gameObjectHandle, OCT_componentTypes componentType) {
+vertexPackage packageVertices(OCT_entityHandle gameObjectHandle, OCT_componentTypes componentType) {
 	vertexPackage newVertexPackage = { 0 };
 	switch (componentType) {
 		case componentHitBox2D:

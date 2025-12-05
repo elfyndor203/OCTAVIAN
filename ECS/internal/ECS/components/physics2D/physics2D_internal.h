@@ -11,4 +11,4 @@ typedef struct {
 	OCT_vector2D forceNet;
 } physics2D;
 
-//void position2D_update(gameObjectIndex parentIndex);
+//void position2D_update(entityIndex parentIndex);

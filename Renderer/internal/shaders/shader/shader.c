@@ -1,6 +1,8 @@
 #include "shader_internal.h"
 
-GLuint vertexShader_initialize(const char* vertexShader) {
+#include "shaders/hitBox2D/hitBox2D_shaders.h"
+
+static GLuint iOCT_vertexShader_initialize(const char* vertexShader) {
     printf("OpenGL version: %s\n", glGetString(GL_VERSION));
     printf("glCreateShader ptr = %p\n", glCreateShader);
     unsigned int newVertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -21,7 +23,7 @@ GLuint vertexShader_initialize(const char* vertexShader) {
     }
 }
 
-GLuint fragmentShader_initialize(const char* fragmentShader) {
+static GLuint iOCT_fragmentShader_initialize(const char* fragmentShader) {
     unsigned int newFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(newFragmentShader, 1, &fragmentShader, NULL);
     glCompileShader(newFragmentShader);
@@ -40,7 +42,7 @@ GLuint fragmentShader_initialize(const char* fragmentShader) {
     }
 }
 
-GLuint shaderProgram_create(GLuint vertexShader, GLuint fragmentShader) {
+static GLuint iOCT_shaderProgram_create(GLuint vertexShader, GLuint fragmentShader) {
     unsigned int newShaderProgram = glCreateProgram();
     glAttachShader(newShaderProgram, vertexShader);    // attach both
     glAttachShader(newShaderProgram, fragmentShader);
@@ -59,4 +61,9 @@ GLuint shaderProgram_create(GLuint vertexShader, GLuint fragmentShader) {
     }
 
     return newShaderProgram;
+}
+
+GLuint* iOCT_initializeShaders() {   // NOTE_DANGEROUS_NO_CHECKS
+    iOCT_shaderProgramList[shader_hitBox2D] = iOCT_shaderProgram_create(iOCT_vertexShader_initialize(hitBox2D_vertexShaderSource), iOCT_fragmentShader_initialize(hitBox2D_fragmentShaderSource));
+    return iOCT_shaderProgramList;
 }

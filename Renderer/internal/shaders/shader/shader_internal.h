@@ -1,7 +1,12 @@
 #pragma once
 #include "standards/rendererStandards_internal.h"
 
-GLuint vertexShader_initialize(const char* vertexShader);
-GLuint fragmentShader_initialize(const char* fragmentShader);
+typedef enum iOCT_shaderTypes {
+	shader_hitBox2D
+};
 
-GLuint shaderProgram_create(int vertexShader, int fragmentShader);
+#define iOCT_SHADER_DEFAULT_MAX 64
+
+GLuint iOCT_shaderProgramList[iOCT_SHADER_DEFAULT_MAX];
+
+GLuint* iOCT_initializeShaders();

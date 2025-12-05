@@ -15,5 +15,5 @@ int hitBox2DIndexBuffer[HITBOX2D_OUTPUT_INDEX_COUNT];
 size_t* iREN_hitBox2DVertices_getCount();
 size_t* iREN_hitBox2DIndices_getCount();
 
-float* iREN_hitBox2DVertices_get(iOCT_sceneID sceneID, iOCT_componentID engineLink);
+float* iREN_hitBox2DVertices_get(iOCT_entitySetID entitySetID, iOCT_componentID engineLink);
 unsigned int* iREN_hitBox2DIndices_get();

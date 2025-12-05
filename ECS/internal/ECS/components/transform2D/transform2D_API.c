@@ -1,7 +1,7 @@
 #include "ECS/components/transform2D/transform2D_internal.h"
 
-OCT_componentID OCT_transform2D_addNew(OCT_gameObjectHandle parentObjectHandle) {
-    iOCT_sceneID sceneID = parentObjectHandle.sceneID;
-    iOCT_gameObjectID parentID = parentObjectHandle.gameObjectID;
-    return (OCT_componentID)transform2D_addNew(sceneID, parentID);
+void OCT_transform2D_addNew(OCT_entityHandle parentHandle) {
+    iOCT_entitySetID entitySetID = parentHandle.entitySetID;
+    iOCT_entityID parentID = parentHandle.entityID;
+    transform2D_addNew(entitySetID, parentID);
 }

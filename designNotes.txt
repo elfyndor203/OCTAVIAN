@@ -1,0 +1,44 @@
+Dependencies
+Error: none
+Math: Errors
+ECS: Math, Errors
+Renderer: ECS, Math, Errors
+
+Header Organization: (below = includes)
+Public module header
+	module_internal header
+		module.c
+		module_API.c
+
+Code Organization:
+Public header:
+	#include standards
+
+	#include other public headers
+Internal header:
+	#include public header
+	#include standards_internal
+
+	#include other internal headers
+module.c:
+	#include internal header
+	
+	#include other internal headers
+module_API.c:
+	#include public header
+	#include internal header
+	
+
+ECS
+
+1. A scene is simply a collection of layers and nothing more. 
+2. Layers have globally unique identifiers. 
+3. gameObjects and components have layer-specific IDs, which are their index in the layer pool.
+4. Each gameObject can have at most one of each component type. To create multiple e.g. hitBox2D, create a child object and apply that component.
+5. gameObjects are passed around using gameObjectHandles, which are also globally unique and correspond to a layer-gameObject pair. 
+
+Renderer
+
+1. Layers work in the same way, but are distinct from ECS layers.
+2. rendererObjects are linked to gameObjects by gameObjectHandle
+3. Each time a renderable component is added to ECS componentTypes, the renderer system must handle it explicitly to request vertex data. 

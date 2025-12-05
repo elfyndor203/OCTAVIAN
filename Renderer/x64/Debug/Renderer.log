@@ -1,2 +1,21 @@
-﻿  shader_API.c
+﻿  layer.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(10,3): warning C4047: 'return': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
+  layer_API.c
+  rendererObject.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
+  (compiling source file 'internal/renderer/rendererObject/rendererObject.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(39,50): warning C4267: 'function': conversion from 'size_t' to 'GLint', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(39,113): warning C4267: 'function': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(46,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(48,3): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(56,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(58,3): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(61,2): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'iOCT_rendererObject (*)[1024]'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(65,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(67,3): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(116,59): warning C4047: '==': 'iOCT_rendererObjectID [1024]' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(116,138): warning C4047: '==': 'iOCT_rendererObjectID [1024]' differs in levels of indirection from 'unsigned __int64'
+  rendererObject_API.c
+  Generating Code...
   Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.exe

@@ -5,10 +5,10 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\posi
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\position2D_API.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\transform2D_API.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\transform2D.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\gameObject\gameObject.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\gameObject.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\gameObject\gameObject_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\gameObject_API.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\scene\scene.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\scene.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\scene\scene_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\scene_API.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entity.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entity_API.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entitySet.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entitySet_API.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS_Renderer_Output\hitBoxData.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\hitBoxData.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS_Renderer_Output\hitBoxData_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\hitBoxData_API.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\standards\ECSStandards.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\ECSStandards.obj

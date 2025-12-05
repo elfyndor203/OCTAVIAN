@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\APITypes.h" />
     <ClInclude Include="include\ECS_Renderer_Output\hitBoxData.h" />
     <ClInclude Include="include\ECS_Renderer_Output\REN_include.h" />
@@ -29,13 +28,12 @@
     <ClInclude Include="include\ECS\components\physics2D\physics2D.h" />
     <ClInclude Include="include\ECS\components\position2D\position2D.h" />
     <ClInclude Include="include\ECS\components\transform2D\transform2D.h" />
-    <ClInclude Include="include\ECS\gameObject\gameObject.h" />
-    <ClInclude Include="include\ECS\scene\scene.h" />
+    <ClInclude Include="include\ECS\entity\entity.h" />
+    <ClInclude Include="include\ECS\entitySet\entitySet.h" />
     <ClInclude Include="include\standards\ECSStandards.h" />
     <ClInclude Include="internal\definitions\aliases_internal.h" />
     <ClInclude Include="internal\definitions\colors_internal.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
-    <ClInclude Include="internal\definitions\defaultValues_internal.h" />
     <ClInclude Include="include\ECS\components\hitBox2D.h" />
     <ClInclude Include="include\ECS\components\position2D.h" />
     <ClInclude Include="include\ECS\components\transform2D.h" />
@@ -51,8 +49,8 @@
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="internal\ECS\components\position2D\position2D_internal.h" />
     <ClInclude Include="internal\ECS\components\transform2D\transform2D_internal.h" />
-    <ClInclude Include="internal\ECS\gameObject\gameObject_internal.h" />
-    <ClInclude Include="internal\ECS\scene\scene_internal.h" />
+    <ClInclude Include="internal\ECS\entity\entity_internal.h" />
+    <ClInclude Include="internal\ECS\entitySet\entitySet_internal.h" />
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\myStandards.h" />
@@ -65,10 +63,10 @@
     <ClCompile Include="internal\ECS\components\position2D\position2D_API.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D_API.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
-    <ClCompile Include="internal\ECS\gameObject\gameObject.c" />
-    <ClCompile Include="internal\ECS\gameObject\gameObject_API.c" />
-    <ClCompile Include="internal\ECS\scene\scene.c" />
-    <ClCompile Include="internal\ECS\scene\scene_API.c" />
+    <ClCompile Include="internal\ECS\entity\entity.c" />
+    <ClCompile Include="internal\ECS\entity\entity_API.c" />
+    <ClCompile Include="internal\ECS\entitySet\entitySet.c" />
+    <ClCompile Include="internal\ECS\entitySet\entitySet_API.c" />
     <ClCompile Include="internal\ECS_Renderer_Output\hitBoxData.c" />
     <ClCompile Include="internal\ECS_Renderer_Output\hitBoxData_API.c" />
     <ClCompile Include="internal\standards\ECSStandards.c" />
