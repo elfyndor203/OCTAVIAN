@@ -1,4 +1,5 @@
 #pragma once
+#include "hitBox2D_internal.h"
 #include "standards/ECSStandards_internal.h"
 
 #include "OCT_Math.h"
@@ -10,22 +11,13 @@
 #define DEFAULT_HITBOX_X 1.0f
 #define DEFAULT_HITBOX_Y 1.0f
 
-typedef struct iOCT_hitBox2DVertices {
-	OCT_vector2D origin;
-	OCT_vector2D bottomLeft;
-	OCT_vector2D bottomRight;
-	OCT_vector2D topRight;
-	OCT_vector2D topLeft;
-} iOCT_hitBox2DVertices;
-
 typedef struct iOCT_hitBox2D{
-	iOCT_componentID hitBoxID;			// own spot
-	iOCT_entityID parentID;		// object spot
+	iOCT_componentID hitBoxID;	// own spot
+	iOCT_entityID parentID;		// entity spot
 
 	OCT_vertex2D localOrigin;	// center
 	OCT_vector2D size;			// width, height
-
-	iOCT_hitBox2DVertices boxVertices;
+	float rotation;			// relative to the entity
 } iOCT_hitBox2D;
 
 iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
@@ -34,5 +26,5 @@ OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entitySetID entitySetID);
 
 iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
 void iOCT_hitBox2D_resize(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY);
-
-void iOCT_hitBox2D_generateVertices(entitySetID, parentID);
+void iOCT_hitBox2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float rotation);
+OCT_box2D iOCT_hitBox2D_generateVertices(iOCT_entitySetID entitySetID, iOCT_entityID parentID);

@@ -1,4 +1,6 @@
-﻿  vector2DScalar.c
+﻿  box2D.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\shapes\box2D.c(22,5): warning C4013: 'printf' undefined; assuming extern returning int
+  vector2DScalar.c
   vector2DVector2D.c
   Generating Code...
   math.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Math.lib

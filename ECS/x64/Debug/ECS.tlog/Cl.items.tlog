@@ -9,6 +9,6 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entity_API.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entitySet.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entitySet_API.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS_Renderer_Output\hitBoxData.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\hitBoxData.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS_Renderer_Output\hitBoxData_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\hitBoxData_API.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS_Renderer_Output\vertexData.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\vertexData.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS_Renderer_Output\vertexData_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\vertexData_API.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\standards\ECSStandards.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\ECSStandards.obj

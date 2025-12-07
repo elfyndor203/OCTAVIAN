@@ -29,16 +29,22 @@ module_API.c:
 	#include internal header
 	
 
+Scope
+
+1. ECS and Renderer are opaque to each other except for specified getter functions and entityHandles
+2. Math types are known to all for ease of use
+3. Aside from Math, everything is defined using iOCT_ types, and exposed using OCT_ types
+
 ECS
 
-1. A scene is simply a collection of layers and nothing more. 
-2. Layers have globally unique identifiers. 
-3. gameObjects and components have layer-specific IDs, which are their index in the layer pool.
-4. Each gameObject can have at most one of each component type. To create multiple e.g. hitBox2D, create a child object and apply that component.
-5. gameObjects are passed around using gameObjectHandles, which are also globally unique and correspond to a layer-gameObject pair. 
+1. A scene is simply a collection of entitySets
+2. entitSets have globally unique identifiers. 
+3. entites and components have set-specific IDs, which are their index in the layer pool.
+4. Each entity can have at most one of each component type. To create multiple e.g. hitBox2D, create a child entity and apply that component.
+5. entites are passed between modules using entityHandles, which are also globally unique and correspond to a entitySet/entity pair. 
 
 Renderer
 
-1. Layers work in the same way, but are distinct from ECS layers.
-2. rendererObjects are linked to gameObjects by gameObjectHandle
+1. Layers work in the same way as entitySets, but are distinct.
+2. rendererObjects are linked to entities by entityHandle
 3. Each time a renderable component is added to ECS componentTypes, the renderer system must handle it explicitly to request vertex data. 

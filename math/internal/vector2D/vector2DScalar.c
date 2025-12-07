@@ -1,6 +1,6 @@
 #include "vector2DScalar_internal.h"
 
-OCT_vector2D vector2D_Scalar(OCT_basicOperations operation, OCT_vector2D vectorA, float scalar) {
+OCT_vector2D OCT_vector2D_scalar(OCT_basicOperations operation, OCT_vector2D vectorA, float scalar) {
 	OCT_vector2D resultantVector = OCT_origin2D;
 
 	switch(operation) {
@@ -32,8 +32,13 @@ OCT_vector2D vector2D_Scalar(OCT_basicOperations operation, OCT_vector2D vectorA
 	return resultantVector;
 }
 
-/// API
+OCT_vector2D OCT_vector2D_rotate(OCT_vector2D vectorA, float angle) {
+	OCT_vector2D resultantVector = OCT_origin2D;
+	float cosTheta = cosf(angle);
+	float sinTheta = sinf(angle);
 
-OCT_vector2D OCT_vector2D_Scalar(OCT_basicOperations operation, OCT_vector2D vectorA, float scalar) {
-	return vector2D_Scalar(operation, vectorA, scalar);
+	resultantVector.x = vectorA.x * cosTheta - vectorA.y * sinTheta;
+	resultantVector.y = vectorA.x * sinTheta + vectorA.y * cosTheta;
+
+	return resultantVector;
 }

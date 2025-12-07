@@ -7,7 +7,7 @@
     <ClCompile Include="internal\shaders\shader\shader.c" />
     <ClCompile Include="GLAD\src\glad.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
-    <ClCompile Include="internal\ECS_Renderer_Input\typeInterpreter.c" />
+    <ClCompile Include="internal\ECS_Renderer_Input\vertexPackager.c" />
     <ClCompile Include="test\main.c" />
     <ClCompile Include="internal\shaders\shader\shader_API.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject_API.c" />
@@ -33,9 +33,10 @@
     <ClInclude Include="include\OCT_Renderer.h" />
     <ClInclude Include="include\renderer\rendererObject\rendererObject.h" />
     <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
-    <ClInclude Include="internal\ECS_Renderer_Input\typeInterpreter_internal.h" />
+    <ClInclude Include="internal\ECS_Renderer_Input\vertexPackager_internal.h" />
     <ClInclude Include="include\shaders\shader\shader.h" />
     <ClInclude Include="test\main.h" />
     <ClInclude Include="include\renderer\layer\layer.h" />
+    <ClInclude Include="internal\mesh\box2D_internal.h" />
   </ItemGroup>
 </Project>

@@ -1,11 +1,11 @@
 #include "vector2DVector2D_internal.h"
 
-float vector2D_Dot(OCT_vector2D vectorA, OCT_vector2D vectorB) {
+float OCT_vector2D_Dot(OCT_vector2D vectorA, OCT_vector2D vectorB) {
 	float dotProduct = (vectorA.x * vectorB.x) + (vectorA.y * vectorB.y);
 	return dotProduct;
 }
 
-OCT_vector2D vector2D_Vector2D(OCT_basicOperations operation, OCT_vector2D vectorA, OCT_vector2D vectorB) {
+OCT_vector2D OCT_vector2D_vector2D(OCT_basicOperations operation, OCT_vector2D vectorA, OCT_vector2D vectorB) {
 	OCT_vector2D resultantVector;
 
 	switch (operation) {
@@ -37,43 +37,12 @@ OCT_vector2D vector2D_Vector2D(OCT_basicOperations operation, OCT_vector2D vecto
 	return resultantVector;
 }
 
-OCT_vector2D vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, ...) { // NOTE: IF UPDATED, MUST CHANGE API FUNCTION TOO
-	va_list arguments;
-	va_start(arguments, vectorCount);
-	OCT_vector2D resultantVector = OCT_origin2D;
-
-	for (int i = 0; i < vectorCount; i++) {
-		OCT_vector2D vectorToAdd = va_arg(arguments, OCT_vector2D);
-
-		resultantVector = vector2D_Vector2D(operation, resultantVector, vectorToAdd);
+OCT_vector2D OCT_vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, OCT_vector2D* vectorArray) {
+	OCT_vector2D resultantVector = vectorArray[0];
+	// operates on the first vector using the rest
+	for (int i = 1; i < vectorCount; i++) {
+		resultantVector = OCT_vector2D_vector2D(operation, resultantVector, vectorArray[i]);
 	}
-
-	va_end(arguments);
-	return resultantVector;
-}
-
-///API
-
-float OCT_vector2D_Dot(OCT_vector2D vectorA, OCT_vector2D vectorB) {
-	return vector2D_Dot(vectorA, vectorB);
-}
-
-OCT_vector2D OCT_vector2D_Vector2D(OCT_basicOperations operation, OCT_vector2D vectorA, OCT_vector2D vectorB) {
-	return vector2D_Vector2D(operation, vectorA, vectorB);
-}
-
-OCT_vector2D OCT_vector2D_Vector2DMulti(OCT_basicOperations operation, int vectorCount, ...) {	// NOTE: IF UPDATED, MUST CHANGE INTERNAL FUNCTION TOO
-	va_list arguments;
-	va_start(arguments, vectorCount);
-	OCT_vector2D resultantVector = OCT_origin2D;
-
-	for (int i = 0; i < vectorCount; i++) {
-		OCT_vector2D vectorToAdd = va_arg(arguments, OCT_vector2D);
-
-		resultantVector = vector2D_Vector2D(operation, resultantVector, vectorToAdd);
-	}
-
-	va_end(arguments);
 	return resultantVector;
 }
 

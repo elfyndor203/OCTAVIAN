@@ -1,5 +1,7 @@
 #pragma once
-#include "ECS/components/componentTypes/componentTypes.h"
-#include "definitions/APITypes.h"
 #include "standards/ECSStandards.h"
-#include "hitBoxData.h"
+
+#include "OCT_Math.h"
+#include "definitions/APITypes.h"
+
+OCT_box2D REN_hitBox2DVertices_get(OCT_entityHandle entityHandle);

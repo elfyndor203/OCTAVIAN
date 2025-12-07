@@ -152,19 +152,23 @@
     <ClInclude Include="include\definitions\operations.h" />
     <ClInclude Include="include\OCT_MathVector2D.h" />
     <ClInclude Include="include\OCT_Math.h" />
-    <ClInclude Include="include\vectors\vector2DScalar.h" />
-    <ClInclude Include="include\vectors\vector2DVector2D.h" />
-    <ClInclude Include="include\vectors\vector2DInfo.h" />
+    <ClInclude Include="include\shapes\box2D.h" />
+    <ClInclude Include="include\vector2D\vector2DScalar.h" />
+    <ClInclude Include="include\vector2D\vector2DVector2D.h" />
+    <ClInclude Include="include\vector2D\vector2DInfo.h" />
+    <ClInclude Include="include\vector3D\vector3D.h" />
     <ClInclude Include="internal\definitions\defaultValues_internal.h" />
     <ClInclude Include="internal\definitions\operations_internal.h" />
-    <ClInclude Include="internal\standards\mathStandards.h" />
+    <ClInclude Include="internal\shapes\box2D_internal.h" />
+    <ClInclude Include="internal\standards\mathStandards_internal.h" />
     <ClInclude Include="internal\vector2D\vector2DInfo.c" />
     <ClInclude Include="internal\vector2D\vector2DInfo_internal.h" />
     <ClInclude Include="internal\vector2D\vector2DScalar_internal.h" />
     <ClInclude Include="internal\vector2D\vector2DVector2D_internal.h" />
-    <ClInclude Include="include\vectors\vectors.h" />
+    <ClInclude Include="include\vector2D\vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="internal\shapes\box2D.c" />
     <ClCompile Include="internal\vector2D\vector2DScalar.c" />
     <ClCompile Include="internal\vector2D\vector2DVector2D.c" />
   </ItemGroup>

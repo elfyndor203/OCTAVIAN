@@ -1,5 +1,4 @@
 #pragma once
-#include <stdint.h>
 
 typedef enum {					// componentsTotal == the number of actual components
 	componentParentObject,		// 1 to 1s

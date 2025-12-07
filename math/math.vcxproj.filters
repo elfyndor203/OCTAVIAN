@@ -18,16 +18,16 @@
     <ClInclude Include="include\OCT_MathVector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vectors\vector2DScalar.h">
+    <ClInclude Include="include\vector2D\vector2DScalar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vectors\vector2DVector2D.h">
+    <ClInclude Include="include\vector2D\vector2DVector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="internal\definitions\operations_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\standards\mathStandards.h">
+    <ClInclude Include="internal\standards\mathStandards_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="internal\vector2D\vector2DScalar_internal.h">
@@ -36,10 +36,10 @@
     <ClInclude Include="internal\vector2D\vector2DVector2D_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vectors\vectors.h">
+    <ClInclude Include="include\vector2D\vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vectors\vector2DInfo.h">
+    <ClInclude Include="include\vector2D\vector2DInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="internal\vector2D\vector2DInfo.c">
@@ -60,12 +60,24 @@
     <ClInclude Include="include\definitions\aliases.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\shapes\box2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vector3D\vector3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\shapes\box2D_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\vector2D\vector2DScalar.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\vector2D\vector2DVector2D.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\shapes\box2D.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

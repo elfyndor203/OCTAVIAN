@@ -86,33 +86,24 @@ iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityI
 }
 
 
-void iOCT_hitBox2D_resize(iOCT_entitySetID entitySetID, iOCT_entityID parentIndex, float sizeX, float sizeY) {
+void iOCT_hitBox2D_resize(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY) {
     printf("Resizing hitbox...\n");
-	iOCT_hitBox2D_get(entitySetID, parentIndex)->size.x = sizeX;
-	iOCT_hitBox2D_get(entitySetID, parentIndex)->size.y = sizeY;
-
-	iOCT_hitBox2D_generateVertices(entitySetID, parentIndex);
+	iOCT_hitBox2D_get(entitySetID, parentID)->size.x = sizeX;
+	iOCT_hitBox2D_get(entitySetID, parentID)->size.y = sizeY;
 }
 
-void iOCT_hitBox2D_generateVertices(entitySetID, parentID) {
+void iOCT_hitBox2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float rotation) {
+    printf("Rotating hitbox...\n");
+    iOCT_hitBox2D_get(entitySetID, parentID)->rotation += rotation;
+}
+
+OCT_box2D iOCT_hitBox2D_generateVertices(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
     iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(entitySetID, parentID);
-    OCT_vector2D hitBoxWidth = { hitBox->size.x, 0 };
-    OCT_vector2D hitBoxHeight = { 0, hitBox->size.y };
-    OCT_vector2D totalOffset = OCT_vector2D_Vector2D(OCT_OP_ADD, hitBox->localOrigin, iOCT_position2D_get(entitySetID, parentID)->globalPosition2D);
 
-    OCT_vertex2D bottomLeft = OCT_vector2D_Vector2DMulti(OCT_OP_ADD, 3, totalOffset, hitBox->localOrigin, OCT_vector2D_Scalar(OCT_OP_DIVIDE, hitBox->size, -2.0f));
-    OCT_vertex2D bottomRight = OCT_vector2D_Vector2D(OCT_OP_ADD, bottomLeft, hitBoxWidth);
-    OCT_vertex2D topRight = OCT_vector2D_Vector2D(OCT_OP_ADD, bottomRight, hitBoxHeight);
-    OCT_vertex2D topLeft = OCT_vector2D_Vector2D(OCT_OP_ADD, topRight, OCT_vector2D_Scalar(OCT_OP_MULTIPLY, hitBoxHeight, -1));
-    printf("Generated vertices (%f, %f), (%f, %f), (%f, %f), (%f, %f)\n", bottomLeft.x, bottomLeft.y, bottomRight.x, bottomRight.y, topRight.x, topRight.y, topLeft.x, topLeft.y);
+    OCT_vertex2D globalCenter = OCT_vector2D_vector2D(OCT_OP_ADD, iOCT_position2D_get(entitySetID, parentID)->globalPosition2D, hitBox->localOrigin); // get absolute values NOTE_DOES_NOT_ACCOUNT_FOR_SCALE
+    float globalRotation = iOCT_transform2D_get(entitySetID, parentID)->rotation + hitBox->rotation;
+    OCT_vector2D globalSize = OCT_vector2D_vector2D(OCT_OP_MULTIPLY, hitBox->size, iOCT_transform2D_get(entitySetID, parentID)->scale);
 
-    iOCT_hitBox2DVertices newVertices = {
-        hitBox->localOrigin,
-        bottomLeft,
-        bottomRight,
-        topRight,
-        topLeft
-    };
-
-    hitBox->boxVertices = newVertices;
+    OCT_box2D newBox = OCT_box2D_generate(globalCenter, iOCT_hitBox2D_get(entitySetID, parentID)->size, globalRotation);
+    return newBox;
 }

@@ -1,7 +1,20 @@
-﻿  layer.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(10,3): warning C4047: 'return': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
+﻿  glad.c
+  typeInterpreter.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\ECS_Renderer_Input\typeInterpreter.c(7,38): error C2065: 'REN_HITBOX2D_COMPONENTCOUNT': undeclared identifier
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\ECS_Renderer_Input\typeInterpreter.c(8,35): error C2065: 'REN_HITBOX2D_VERTEXCOUNT': undeclared identifier
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\ECS_Renderer_Input\typeInterpreter.c(9,33): error C2440: '=': cannot convert from 'OCT_box2D' to 'float *'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\ECS_Renderer_Input\typeInterpreter.c(10,34): warning C4013: 'REN_hitBox2DIndices_get' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\ECS_Renderer_Input\typeInterpreter.c(10,32): warning C4047: '=': 'unsigned int *' differs in levels of indirection from 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\ECS_Renderer_Input\typeInterpreter.c(11,34): error C2065: 'REN_HITBOX2D_INDEXCOUNT': undeclared identifier
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\ECS_Renderer_Input\typeInterpreter.c(12,33): error C2065: 'REN_TRIANGES': undeclared identifier
   layer_API.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject_internal.h(20,19): error C2079: 'gameObjectHandle' uses undefined struct 'iOCT_entityHandle'
+  (compiling source file 'internal/renderer/layer/layer_API.c')
+  
   rendererObject.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject_internal.h(20,19): error C2079: 'gameObjectHandle' uses undefined struct 'iOCT_entityHandle'
+  (compiling source file 'internal/renderer/rendererObject/rendererObject.c')
+  
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
   (compiling source file 'internal/renderer/rendererObject/rendererObject.c')
   
@@ -14,8 +27,67 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rende
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(61,2): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'iOCT_rendererObject (*)[1024]'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(65,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(67,3): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(116,59): warning C4047: '==': 'iOCT_rendererObjectID [1024]' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(116,138): warning C4047: '==': 'iOCT_rendererObjectID [1024]' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(80,37): error C2440: '=': cannot convert from 'OCT_entityHandle' to 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(109,19): error C2037: left of 'entitySetID' specifies undefined struct/union 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(109,49): error C2037: left of 'entityID' specifies undefined struct/union 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(116,39): error C2037: left of 'entitySetID' specifies undefined struct/union 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(116,121): error C2037: left of 'entityID' specifies undefined struct/union 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(121,76): error C2037: left of 'entitySetID' specifies undefined struct/union 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(121,96): error C2037: left of 'entityID' specifies undefined struct/union 'iOCT_entityHandle'
+  layer.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject_internal.h(20,19): error C2079: 'gameObjectHandle' uses undefined struct 'iOCT_entityHandle'
+  (compiling source file 'internal/renderer/layer/layer.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(10,3): warning C4047: 'return': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
   rendererObject_API.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject_internal.h(20,19): error C2079: 'gameObjectHandle' uses undefined struct 'iOCT_entityHandle'
+  (compiling source file 'internal/renderer/rendererObject/rendererObject_API.c')
+  
+  window.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+  hitBox2D_shaders.c
+  shader.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
+  (compiling source file 'internal/shaders/shader/shader.c')
+  
+  shader_API.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
+  (compiling source file 'internal/shaders/shader/shader_API.c')
+  
+  main.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(14,19): error C2079: 'mainRoot' uses undefined struct 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(16,19): error C2079: 'testObject' uses undefined struct 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(16,47): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(16,47): warning C4024: 'OCT_entity_new': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(17,22): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(17,22): warning C4024: 'OCT_hitBox2D_addNew': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(19,19): error C2079: 'childOfTest' uses undefined struct 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(19,48): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(19,48): warning C4024: 'OCT_entity_new': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(20,22): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(20,22): warning C4024: 'OCT_hitBox2D_addNew': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(22,19): error C2079: 'otherMainObject' uses undefined struct 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(22,52): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(22,52): warning C4024: 'OCT_entity_new': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(23,22): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(23,22): warning C4024: 'OCT_hitBox2D_addNew': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(26,19): error C2079: 'otherRoot' uses undefined struct 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(28,19): error C2079: 'WAH' uses undefined struct 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(28,40): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(28,40): warning C4024: 'OCT_entity_new': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(29,22): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(29,22): warning C4024: 'OCT_hitBox2D_addNew': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(31,19): error C2079: 'wahchild' uses undefined struct 'iOCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(31,45): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(31,45): warning C4024: 'OCT_entity_new': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(36,19): error C2440: 'function': cannot convert from 'int' to 'OCT_entityHandle'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(36,19): warning C4024: 'OCT_render_debug': different types for formal and actual parameter 1
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(14,19): error C2440: 'initializing': cannot convert from 'OCT_entityHandle' to 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(16,19): error C2440: 'initializing': cannot convert from 'OCT_entityHandle' to 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(19,19): error C2440: 'initializing': cannot convert from 'OCT_entityHandle' to 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(22,19): error C2440: 'initializing': cannot convert from 'OCT_entityHandle' to 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(26,19): error C2440: 'initializing': cannot convert from 'OCT_entityHandle' to 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(28,19): error C2440: 'initializing': cannot convert from 'OCT_entityHandle' to 'int'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(31,19): error C2440: 'initializing': cannot convert from 'OCT_entityHandle' to 'int'
   Generating Code...
-  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.exe

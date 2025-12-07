@@ -9,8 +9,9 @@
 
 #define OCT_ROOT_OBJECT 0
 
-typedef struct iOCT_entitySet OCT_ECSEntitySet;
+typedef struct iOCT_entitySet OCT_entitySet;
+typedef size_t OCT_entitySetID;
 
-OCT_ECSEntitySet* OCT_entitySet_get(OCT_entitySetID entitySetID);
+//OCT_entitySet* OCT_entitySet_get(OCT_entitySetID entitySetID);
 OCT_entitySetID OCT_entitySet_new();
 OCT_entityHandle OCT_entitySet_getRootHandle(OCT_entitySetID entitySetID);
