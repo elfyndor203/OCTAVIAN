@@ -11,7 +11,6 @@
     <ClInclude Include="internal\standards\ECSStandards_internal.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
     <ClInclude Include="include\ECS\scenes.h" />
-    <ClInclude Include="internal\definitions\aliases_internal.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="internal\ECS\components\position2D\position2D_internal.h" />
     <ClInclude Include="internal\ECS\components\transform2D\transform2D_internal.h" />
@@ -31,10 +30,7 @@
     <ClInclude Include="include\ECS\entitySet\entitySet.h" />
     <ClInclude Include="include\standards\ECSStandards.h" />
     <ClInclude Include="include\OCT_ECS.h" />
-    <ClInclude Include="include\definitions\APITypes.h" />
-    <ClInclude Include="internal\definitions\APITypes_internal.h" />
-    <ClInclude Include="include\ECS_Renderer_Output\REN_include.h" />
-    <ClInclude Include="internal\ECS_Renderer_Output\vertexData_internal.h" />
+    <ClInclude Include="include\Runtime\updates.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />
@@ -49,7 +45,5 @@
     <ClCompile Include="internal\ECS\components\transform2D\transform2D_API.c" />
     <ClCompile Include="internal\ECS\entitySet\entitySet_API.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D_API.c" />
-    <ClCompile Include="internal\ECS_Renderer_Output\vertexData.c" />
-    <ClCompile Include="internal\ECS_Renderer_Output\vertexData_API.c" />
   </ItemGroup>
 </Project>

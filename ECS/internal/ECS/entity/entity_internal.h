@@ -1,6 +1,7 @@
 #pragma once
 #include "standards/ECSStandards_internal.h"
 
+#include "OCT_Math.h"
 #include "ECS/components/componentTypes/componentTypes_internal.h"
 
 #define iOCT_NO_COMPONENT GENERIC_FAIL //unless you somehow end up with that many objects
@@ -27,7 +28,7 @@ typedef struct iOCT_entity{
 
 iOCT_entity* iOCT_entity_get(iOCT_entitySetID entitySetID, iOCT_entityID entityID);
 iOCT_entity* iOCT_entity_getPool(iOCT_entitySetID entitySetID);
-OCT_counter* iOCT_entity_getCounter(iOCT_entitySetID entitySetID);
+OCT_counter*  iOCT_entity_getCounter(iOCT_entitySetID entitySetID);
 
 iOCT_entityID iOCT_entity_createNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
 bool iOCT_entity_hasComponent(iOCT_entitySetID entitySetID, iOCT_entityID entityID, OCT_componentTypes component);

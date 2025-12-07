@@ -2,8 +2,6 @@
 
 #include "OCT_Math.h"
 
-OCT_box2D REN_hitBox2DVertices_get(OCT_entityHandle entityHandle) {
-	iOCT_entitySetID entitySetID = entityHandle.entitySetID;
-	iOCT_entityID entityID = entityHandle.entityID;
-	return iREN_hitBox2DVertices_get(entitySetID, entityID);
+OCT_rectangle2D REN_vertices_get(OCT_entityHandle entityHandle, OCT_componentTypes componentType) {
+	return iREN_vertices_get(entityHandle.entitySetID, entityHandle.entityID, componentType);
 }

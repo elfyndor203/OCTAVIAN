@@ -1,7 +1,5 @@
 ﻿  hitBox2D.c
-  hitBox2D_API.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(10,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-  physics2D.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(12,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(15,16): warning C4047: '==': 'iOCT_entity *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(18,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
@@ -11,6 +9,8 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitB
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(42,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(44,9): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(105,18): warning C4101: 'globalSize': unreferenced local variable
+  hitBox2D_API.c
+  physics2D.c
   position2D.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(12,16): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(14,3): warning C4047: 'return': 'iOCT_position2D *' differs in levels of indirection from 'unsigned __int64'
@@ -42,14 +42,14 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(26,2): warning C4047: 'return': 'iOCT_entity *' differs in levels of indirection from 'iOCT_entity (*)[1024]'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(30,38): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(32,3): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
-  entity_API.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(41,3): warning C4013: 'logError' undefined; assuming extern returning int
+  entity_API.c
   entitySet.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c(12,3): warning C4047: 'return': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c(49,2): warning C4013: 'memset' undefined; assuming extern returning int
   entitySet_API.c
   vertexData.c
   vertexData_API.c
-  ECSStandards.c
   Generating Code...
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS_Renderer_Output\vertexData.c(15,1): warning C4715: 'iREN_vertices_get': not all control paths return a value
   ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.lib

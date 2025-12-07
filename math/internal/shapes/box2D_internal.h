@@ -1,5 +1,5 @@
 #pragma once
-#include "shapes/box2D.h"
+#include "shapes/rectangle2D.h"
 #include "standards/mathStandards_internal.h"
 
 #include "vector2D/vector2DVector2D.h"

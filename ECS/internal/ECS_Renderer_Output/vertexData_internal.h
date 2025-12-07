@@ -5,4 +5,4 @@
 #include "ECS/entity/entity_internal.h"
 #include "ECS/entitySet/entitySet_internal.h"
 
-OCT_box2D iREN_hitBox2DVertices_get(iOCT_entitySetID entitySetID, iOCT_entityID entityID);
+OCT_rectangle2D iREN_vertices_get(iOCT_entitySetID entitySetID, iOCT_entityID entityID, OCT_componentTypes componentType);

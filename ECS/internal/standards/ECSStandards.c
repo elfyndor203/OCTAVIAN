@@ -1,7 +1,5 @@
 #include "ECSStandards_internal.h"
 	#include "standards/ECSStandards.h"
-	#include "definitions/aliases_internal.h"
-	#include "definitions/APITypes_internal.h"
 
 void* mallocCheck(size_t sizeToMalloc, const char* name) {
 	void* pointer = malloc(sizeToMalloc);

@@ -6,6 +6,4 @@
 #include <stdint.h>
 
 #include "OCT_Errors.h"
-
-#include "definitions/aliases.h"
-#include "definitions/APITypes.h"
+#include "OCT_Messaging.h"

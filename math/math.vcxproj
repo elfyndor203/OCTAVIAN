@@ -150,9 +150,11 @@
   <ItemGroup>
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\operations.h" />
-    <ClInclude Include="include\OCT_MathVector2D.h" />
+    <ClInclude Include="include\shapes\OCT_MathShapes.h" />
+    <ClInclude Include="include\vector2D\OCT_MathVector2D.h" />
     <ClInclude Include="include\OCT_Math.h" />
-    <ClInclude Include="include\shapes\box2D.h" />
+    <ClInclude Include="include\shapes\rectangle2D.h" />
+    <ClInclude Include="include\shapes\shapes.h" />
     <ClInclude Include="include\vector2D\vector2DScalar.h" />
     <ClInclude Include="include\vector2D\vector2DVector2D.h" />
     <ClInclude Include="include\vector2D\vector2DInfo.h" />

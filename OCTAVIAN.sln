@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		designNotes.txt = designNotes.txt
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Messaging", "Messaging\Messaging.vcxproj", "{958EAE1D-799C-4029-8057-791886BE38BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -92,6 +94,14 @@ Global
 		{F2683222-5BA5-47D6-83E6-2D44FE96E25D}.Release|x64.Build.0 = Release|x64
 		{F2683222-5BA5-47D6-83E6-2D44FE96E25D}.Release|x86.ActiveCfg = Release|Win32
 		{F2683222-5BA5-47D6-83E6-2D44FE96E25D}.Release|x86.Build.0 = Release|Win32
+		{958EAE1D-799C-4029-8057-791886BE38BF}.Debug|x64.ActiveCfg = Debug|x64
+		{958EAE1D-799C-4029-8057-791886BE38BF}.Debug|x64.Build.0 = Debug|x64
+		{958EAE1D-799C-4029-8057-791886BE38BF}.Debug|x86.ActiveCfg = Debug|Win32
+		{958EAE1D-799C-4029-8057-791886BE38BF}.Debug|x86.Build.0 = Debug|Win32
+		{958EAE1D-799C-4029-8057-791886BE38BF}.Release|x64.ActiveCfg = Release|x64
+		{958EAE1D-799C-4029-8057-791886BE38BF}.Release|x64.Build.0 = Release|x64
+		{958EAE1D-799C-4029-8057-791886BE38BF}.Release|x86.ActiveCfg = Release|Win32
+		{958EAE1D-799C-4029-8057-791886BE38BF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

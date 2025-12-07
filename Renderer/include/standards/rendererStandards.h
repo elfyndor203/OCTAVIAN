@@ -4,5 +4,4 @@
 #include <stdint.h>
 
 #include "OCT_Errors.h"
-
-#include "definitions/APITypes.h"
+#include "OCT_Messaging.h"

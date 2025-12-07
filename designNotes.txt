@@ -35,6 +35,13 @@ Scope
 2. Math types are known to all for ease of use
 3. Aside from Math, everything is defined using iOCT_ types, and exposed using OCT_ types
 
+Naming
+
+1. API usable: OCT_
+2. Internal to one module: iOCT_
+3. used by multiple modules: _OCT_MOD_MOD_
+4. Scheme: SCOPE_typeName_descriptionText
+
 ECS
 
 1. A scene is simply a collection of entitySets

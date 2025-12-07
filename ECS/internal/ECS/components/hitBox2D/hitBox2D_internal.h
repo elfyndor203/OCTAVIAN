@@ -27,4 +27,4 @@ OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entitySetID entitySetID);
 iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
 void iOCT_hitBox2D_resize(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY);
 void iOCT_hitBox2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float rotation);
-OCT_box2D iOCT_hitBox2D_generateVertices(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
+OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entitySetID entitySetID, iOCT_entityID parentID);

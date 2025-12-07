@@ -97,13 +97,13 @@ void iOCT_hitBox2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, 
     iOCT_hitBox2D_get(entitySetID, parentID)->rotation += rotation;
 }
 
-OCT_box2D iOCT_hitBox2D_generateVertices(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
+OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
     iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(entitySetID, parentID);
 
     OCT_vertex2D globalCenter = OCT_vector2D_vector2D(OCT_OP_ADD, iOCT_position2D_get(entitySetID, parentID)->globalPosition2D, hitBox->localOrigin); // get absolute values NOTE_DOES_NOT_ACCOUNT_FOR_SCALE
     float globalRotation = iOCT_transform2D_get(entitySetID, parentID)->rotation + hitBox->rotation;
     OCT_vector2D globalSize = OCT_vector2D_vector2D(OCT_OP_MULTIPLY, hitBox->size, iOCT_transform2D_get(entitySetID, parentID)->scale);
 
-    OCT_box2D newBox = OCT_box2D_generate(globalCenter, iOCT_hitBox2D_get(entitySetID, parentID)->size, globalRotation);
+    OCT_rectangle2D newBox = OCT_rectangle2D_generate(globalCenter, iOCT_hitBox2D_get(entitySetID, parentID)->size, globalRotation);
     return newBox;
 }

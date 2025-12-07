@@ -1,6 +1,4 @@
 #pragma once
-#include "definitions/aliases.h"
-
 #include "ECS/components/componentTypes/componentTypes.h"
 #include "ECS/components/hitBox2D/hitBox2D.h"
 #include "ECS/components/physics2D/physics2D.h"

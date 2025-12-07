@@ -2,6 +2,5 @@
 #include "standards/ECSStandards.h"
 
 #include "OCT_Math.h"
-#include "definitions/APITypes.h"
 
-OCT_box2D REN_hitBox2DVertices_get(OCT_entityHandle entityHandle);
+OCT_rectangle2D REN_vertices_get(OCT_entityHandle entityHandle, OCT_componentTypes componentType);

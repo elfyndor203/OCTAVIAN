@@ -3,7 +3,6 @@
 
 #include "OCT_ECS.h"
 #include "ECS_Renderer_Output/REN_include.h"
-#include "ECS_Renderer_Input/typeInterpreter_internal.h"
 
 #define iOCT_MAX_RENDEREROBJECTS 1024
 
