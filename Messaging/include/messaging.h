@@ -30,8 +30,8 @@ typedef size_t OCT_rendererObjectID;
 typedef struct {
 	OCT_entitySetID entitySetID;
 	OCT_entityID entityID;
-	OCT_layerID layerID;
-	OCT_rendererObjectID rendererObjectID;
+	//OCT_layerID layerID;
+	//OCT_rendererObjectID rendererObjectID;	// NOTE_DONT_LIKE_THIS since each entity might have a sprite rendererobject, hitbox rendererobject, instead store multiple rendererobjects by 1-1 type
 } OCT_entityHandle;
 
 typedef struct {
