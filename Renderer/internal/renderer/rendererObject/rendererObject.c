@@ -1,6 +1,7 @@
 #include "rendererObject_internal.h"
 #include "renderer/layer/layer_internal.h"
 #include "shaders/shader/shader_internal.h"
+#include "_REN_Input/bufferGeneration_internal.h"
 
 iOCT_rendererObject* iOCT_rendererObject_get(iOCT_rendererObjectID rendererObjectID, iOCT_layerID layerID) {
 	if (iOCT_layer_get(layerID) == iOCT_GET_FAILED || layerID > iOCT_layer_get(layerID)->rendererObjectCounter) {
@@ -48,14 +49,18 @@ iOCT_rendererObjectID iOCT_rendererObject_new(OCT_entityHandle gameObjectHandle,
 }
 
 void iOCT_render_debug(OCT_entityHandle entity, iOCT_layerID layer) {
-	if (entity.rendererObjectID)
-	iOCT_rendererObject_new(entity, layer, shader_debug, true);
-	printf("NO RENDEREROBJECT, CREATING NEW\n");
+	iOCT_rendererObject* rendererObject;
+	if (iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID) == iOCT_GET_FAILED) {	//NOTE_MESSY??
+		printf("NO RENDEREROBJECT, CREATING NEW\n");
+		rendererObject = iOCT_rendererObject_get(iOCT_rendererObject_new(entity, layer, iOCT_shaderProgramList[shader_debug], true), layer); //NOTE_CHANGE_LATER TO SUPPORT OTHER SHADERS
+		iOCT_generateBuffers_debug(entity);
+	}
+	else {
+		rendererObject = iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID);
+		// NOTE_WRITE_UPDATE_HERE
+	}
 
-	iOCT_rendererObjectID rendererObjectID = iOCT_layer_get(layer)->entityMap[entity.entitySetID][entity.entityID];
-	iOCT_rendererObject* objectToRender = iOCT_rendererObject_get(rendererObjectID, layer);
-	printf("got renderer object %zu", rendererObjectID);
-	glBindVertexArray(objectToRender->debug_VAO);
+	glBindVertexArray(rendererObject->debug_VAO);
 	glUseProgram(iOCT_shaderProgramList[shader_debug]);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);

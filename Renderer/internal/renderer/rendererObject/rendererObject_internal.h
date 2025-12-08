@@ -30,8 +30,6 @@ typedef struct iOCT_rendererObject {
 	GLuint shaderProgram;
 } iOCT_rendererObject;
 
-
-
 iOCT_rendererObject* iOCT_rendererObject_get(iOCT_rendererObjectID rendererObjectID, iOCT_layerID layerID);
 iOCT_rendererObject* iOCT_rendererObject_getPool(iOCT_layerID layerID);
 OCT_counter* iOCT_rendererObject_getCounter(iOCT_layerID layerID);

@@ -33,7 +33,7 @@ void main() {
 
 	OCT_layerID newRenderingLayer = OCT_layer_new();
 	OCT_initializeShaders();
-	OCT_render_debug(testObject, newRenderingLayer);
+	OCT_render_debug(testObject);
 
 	while (running) {
 	}

@@ -23,6 +23,7 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\posi
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(46,3): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(59,3): warning C4013: 'logError' undefined; assuming extern returning int
   position2D_API.c
+  transform2D_API.c
   transform2D.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(12,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(14,9): warning C4047: 'return': 'iOCT_transform2D *' differs in levels of indirection from 'unsigned __int64'
@@ -33,11 +34,6 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\tran
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(35,9): warning C4047: 'return': 'iOCT_transform2D *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(43,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(45,9): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
-  transform2D_API.c
-  entitySet.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c(12,3): warning C4047: 'return': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c(49,2): warning C4013: 'memset' undefined; assuming extern returning int
-  entitySet_API.c
   entity.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(12,38): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(14,3): warning C4047: 'return': 'iOCT_entity *' differs in levels of indirection from 'unsigned __int64'
@@ -48,7 +44,11 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(32,3): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(41,3): warning C4013: 'logError' undefined; assuming extern returning int
   entity_API.c
-  vertexData.c
+  entitySet.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c(12,3): warning C4047: 'return': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c(49,2): warning C4013: 'memset' undefined; assuming extern returning int
+  entitySet_API.c
   ECSStandards.c
+  vertexData.c
   Generating Code...
   ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.lib

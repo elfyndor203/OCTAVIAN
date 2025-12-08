@@ -56,6 +56,7 @@ ECS
 3. entites and components have set-specific IDs, which are their index in the layer pool.
 4. Each entity can have at most one of each component type. To create multiple e.g. hitBox2D, create a child entity and apply that component for memory simplicity.
 5. entites are passed between modules using entityHandles, which are also globally unique and correspond to a entitySet/entity pair. 
+6. Entity sets must always be tightly packed, if an entity is deleted, move the last one to its spot and update all references and counters
 
 Renderer
 

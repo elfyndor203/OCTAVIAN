@@ -16,7 +16,7 @@ void iOCT_handleMessages(void) {
 		switch(message) {
 		case _OCT_add_debug:
 			;
-			iOCT_glInfo glInfo = iOCT_generateBuffers_debug(entity, entity.layerID);
+			iOCT_glInfo glInfo = iOCT_generateBuffers_debug(entity);
 			rendererObject->debug_VAO = glInfo.VAO;
 			rendererObject->debug_VBO = glInfo.VBO;
 			rendererObject->debug_EBO = glInfo.EBO;

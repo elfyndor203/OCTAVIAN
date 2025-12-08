@@ -1,5 +1,5 @@
 #include "bufferGeneration_internal.h"
-#include "_REN_include.h"
+#include "_ECS_Output/_REN_include.h"
 
 #include "mesh/prototypes.h"
 #include "shaders/shader/shader_internal.h"
@@ -8,7 +8,7 @@
 
 const GLsizei debugStride = 0;
 
-iOCT_glInfo iOCT_generateBuffers_debug(OCT_entityHandle entity, iOCT_layerID layer) {	// generates buffers for a new rendererObject
+iOCT_glInfo iOCT_generateBuffers_debug(OCT_entityHandle entity) {	// generates buffers for a new rendererObject
 	OCT_rectangle2D hitBox = _REN_vertices_getDebug(entity);
 
 	float vertices[OCT_RECTANGLE2D_VERTEXCOUNT * 2] = {
