@@ -2,7 +2,7 @@
 #include "standards/rendererStandards_internal.h"
 
 typedef enum iOCT_shaderTypes {
-	shader_hitBox2D
+	shader_debug
 };
 
 #define iOCT_SHADER_DEFAULT_MAX 64

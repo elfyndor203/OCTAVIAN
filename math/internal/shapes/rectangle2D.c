@@ -1,4 +1,4 @@
-#include "shapes/box2D_internal.h"
+#include "shapes/rectangle2D_internal.h"
 
 OCT_rectangle2D OCT_rectangle2D_generate(OCT_vertex2D center, OCT_vector2D dimensions, float rotation) {
     OCT_vector2D halfDimensions = { dimensions.x / 2.0f, dimensions.y / 2.0f };

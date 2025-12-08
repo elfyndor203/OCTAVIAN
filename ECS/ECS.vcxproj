@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\_ECS_Output\_REN_include.h" />
     <ClInclude Include="include\OCT_ECS.h" />
     <ClInclude Include="include\ECS\components\componentTypes\componentTypes.h" />
     <ClInclude Include="include\ECS\components\hitBox2D\hitBox2D.h" />
@@ -29,6 +30,7 @@
     <ClInclude Include="include\ECS\entitySet\entitySet.h" />
     <ClInclude Include="include\Runtime\updates.h" />
     <ClInclude Include="include\standards\ECSStandards.h" />
+    <ClInclude Include="include\_ECS_Output\vertexData.h" />
     <ClInclude Include="internal\definitions\colors_internal.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
     <ClInclude Include="include\ECS\components\hitBox2D.h" />
@@ -63,6 +65,7 @@
     <ClCompile Include="internal\ECS\entitySet\entitySet.c" />
     <ClCompile Include="internal\ECS\entitySet\entitySet_API.c" />
     <ClCompile Include="internal\standards\ECSStandards.c" />
+    <ClCompile Include="internal\_ECS_Output\vertexData.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

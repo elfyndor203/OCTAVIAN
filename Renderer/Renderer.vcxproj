@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -20,15 +20,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLAD\src\glad.c" />
-    <ClCompile Include="internal\ECS_Renderer_Input\vertexPackager.c" />
+    <ClCompile Include="internal\_REN_Input\bufferGeneration.c" />
     <ClCompile Include="internal\renderer\layer\layer_API.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
     <ClCompile Include="internal\renderer\layer\layer.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject_API.c" />
     <ClCompile Include="internal\renderer\window\window.c" />
-    <ClCompile Include="internal\shaders\hitBox2D\hitBox2D_shaders.c" />
+    <ClCompile Include="internal\shaders\debug\debugShaders.c" />
     <ClCompile Include="internal\shaders\shader\shader.c" />
     <ClCompile Include="internal\shaders\shader\shader_API.c" />
+    <ClCompile Include="internal\_REN_Input\messageHandling.c" />
     <ClCompile Include="test\main.c" />
   </ItemGroup>
   <ItemGroup>
@@ -42,17 +43,18 @@
     <ClInclude Include="include\shaders\shader\shader.h" />
     <ClInclude Include="include\standards\rendererStandards.h" />
     <ClInclude Include="include\renderer\rendererObject\rendererObject.h" />
-    <ClInclude Include="internal\ECS_Renderer_Input\vertexPackager_internal.h" />
-    <ClInclude Include="internal\mesh\box2D_internal.h" />
+    <ClInclude Include="internal\_REN_Input\bufferGeneration_internal.h" />
+    <ClInclude Include="internal\mesh\prototypes.h" />
     <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
     <ClInclude Include="internal\definitions\aliases_internal.h" />
     <ClInclude Include="internal\definitions\defaultValues_internal.h" />
     <ClInclude Include="internal\definitions\macros_internal.h" />
     <ClInclude Include="internal\standards\rendererStandards_internal.h" />
+    <ClInclude Include="internal\_REN_Input\messageHandling_internal.h" />
     <ClInclude Include="reference\Reference\verticesInput.h" />
     <ClInclude Include="internal\renderer\layer\layer_internal.h" />
     <ClInclude Include="internal\renderer\window\window_internal.h" />
-    <ClInclude Include="internal\shaders\hitBox2D\hitBox2D_shaders.h" />
+    <ClInclude Include="internal\shaders\debug\debugShaders.h" />
     <ClInclude Include="internal\shaders\shader\shader_internal.h" />
     <ClInclude Include="reference\update.h" />
     <ClInclude Include="test\main.h" />
@@ -132,7 +134,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include\;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include\_ECS_Output;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -153,7 +155,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include\;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include\_ECS_Output;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -172,7 +174,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include\;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include\_ECS_Output;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
@@ -194,7 +196,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include\;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include\_ECS_Output;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>

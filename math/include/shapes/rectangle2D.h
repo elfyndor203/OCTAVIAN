@@ -1,6 +1,8 @@
 #pragma once
 #include "vector2D/vector2D.h"
 
+#define OCT_RECTANGLE2D_VERTEXCOUNT 4
+
 /// Listed counterclockwise from the bottom left
 typedef struct {
 	OCT_vertex2D origin;

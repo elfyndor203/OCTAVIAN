@@ -1,8 +1,7 @@
 #pragma once
 #include "standards/rendererStandards_internal.h"
 
-#include "OCT_ECS.h"
-#include "ECS_Renderer_Output/REN_include.h"
+#include "OCT_Math.h"
 
 #define iOCT_MAX_RENDEREROBJECTS 1024
 

@@ -66,7 +66,7 @@
     <ClInclude Include="include\vector3D\vector3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\shapes\box2D_internal.h">
+    <ClInclude Include="internal\shapes\rectangle2D_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\shapes\shapes.h">
@@ -83,7 +83,7 @@
     <ClCompile Include="internal\vector2D\vector2DVector2D.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="internal\shapes\box2D.c">
+    <ClCompile Include="internal\shapes\rectangle2D.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

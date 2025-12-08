@@ -31,6 +31,8 @@
     <ClInclude Include="include\standards\ECSStandards.h" />
     <ClInclude Include="include\OCT_ECS.h" />
     <ClInclude Include="include\Runtime\updates.h" />
+    <ClInclude Include="include\_ECS_Output\_REN_include.h" />
+    <ClInclude Include="include\_ECS_Output\vertexData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />
@@ -45,5 +47,6 @@
     <ClCompile Include="internal\ECS\components\transform2D\transform2D_API.c" />
     <ClCompile Include="internal\ECS\entitySet\entitySet_API.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D_API.c" />
+    <ClCompile Include="internal\_ECS_Output\vertexData.c" />
   </ItemGroup>
 </Project>

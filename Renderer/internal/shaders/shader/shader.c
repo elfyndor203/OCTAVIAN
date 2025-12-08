@@ -1,6 +1,6 @@
 #include "shader_internal.h"
 
-#include "shaders/hitBox2D/hitBox2D_shaders.h"
+#include "shaders/debug/debugShaders.h"
 
 static GLuint iOCT_vertexShader_initialize(const char* vertexShader) {
     printf("OpenGL version: %s\n", glGetString(GL_VERSION));
@@ -64,6 +64,6 @@ static GLuint iOCT_shaderProgram_create(GLuint vertexShader, GLuint fragmentShad
 }
 
 GLuint* iOCT_initializeShaders() {   // NOTE_DANGEROUS_NO_CHECKS
-    iOCT_shaderProgramList[shader_hitBox2D] = iOCT_shaderProgram_create(iOCT_vertexShader_initialize(hitBox2D_vertexShaderSource), iOCT_fragmentShader_initialize(hitBox2D_fragmentShaderSource));
+    iOCT_shaderProgramList[shader_debug] = iOCT_shaderProgram_create(iOCT_vertexShader_initialize(debug_vertexShaderSource), iOCT_fragmentShader_initialize(debug_fragmentShaderSource));
     return iOCT_shaderProgramList;
 }

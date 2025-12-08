@@ -131,12 +131,9 @@
     <ClInclude Include="include\messaging.h" />
     <ClInclude Include="include\OCT_Messaging.h" />
     <ClInclude Include="internal\messaging_internal.h" />
-    <ClInclude Include="refinclude\meshData.h" />
-    <ClInclude Include="refinternal\indexPrototyes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\messaging.c" />
-    <ClCompile Include="refinternal\meshData.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
