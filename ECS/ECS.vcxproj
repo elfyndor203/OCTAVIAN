@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\ECS\components\sprite2D\sprite2D.h" />
     <ClInclude Include="include\_ECS_Output\_REN_include.h" />
     <ClInclude Include="include\OCT_ECS.h" />
     <ClInclude Include="include\ECS\components\componentTypes\componentTypes.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="internal\ECS\components\componentTypes\componentTypes_internal.h" />
     <ClInclude Include="internal\ECS\components\physics2D\physics2D_internal.h" />
     <ClInclude Include="include\math\vectors.h" />
+    <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
     <ClInclude Include="internal\standards\ECSStandards_internal.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="internal\ECS\components\position2D\position2D_internal.h" />

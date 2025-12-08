@@ -8,9 +8,9 @@
 typedef size_t iOCT_messageCounter;
 
 typedef enum {
-	_OCT_entity_add,
-	_OCT_entity_update,
-	_OCT_entity_delete,
+	_OCT_sprite_add,
+	_OCT_sprite_update,
+	_OCT_sprite_delete,
 
 	_OCT_hitBox2D_add,
 	_OCT_hitBox2D_update,

@@ -70,6 +70,11 @@ Pipeline
 2. ECS sends messages to Renderer
 3. Renderer queries vertex data based on message
 
+Messaging
+
+1. Handles are used to communicate and locate the target only
+2. Take entity handles in the API, decompose as soon as possible
+
 Memory
 
 1. As much as possible is preallocated

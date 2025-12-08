@@ -6,7 +6,7 @@ typedef enum {					// componentsTotal == the number of actual components
 	componentTransform2D,
 	componentHitBox2D,
 
-	componentHitBox2DVertices, // subcomponents
+	componentSprite2D,
 
 	componentChildObject,		// multiple to 1s
 
