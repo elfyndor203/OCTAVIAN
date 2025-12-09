@@ -78,3 +78,11 @@ iOCT_componentID iOCT_position2D_addNew(iOCT_entitySetID entitySetID, iOCT_entit
 	printf("Added new position2D to object #%zu in entitySet #%zu\n", parentID, entitySetID);
 	return positionID;
 }
+
+void iOCT_position2D_move(iOCT_entitySetID entitySetID, iOCT_entityID parentID, OCT_vector2D distance) {
+	iOCT_position2D* position = iOCT_position2D_get(entitySetID, parentID);
+	position->globalPosition2D.x += distance.x;
+	position->globalPosition2D.y += distance.y;
+	position->localPosition2D.x += distance.x;
+	position->localPosition2D.y += distance.y;
+}

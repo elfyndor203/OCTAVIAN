@@ -14,12 +14,15 @@ void iOCT_handleMessages(void) {
 		iOCT_layerID layer = (iOCT_layerID)newMessage.parameter;
 		newMessage = _OCT_queryMessage(_OCT_Renderer);
 		//iOCT_rendererObject* rendererObject = iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID); //	NOTE_FIX
-		switch(instruction) {
+		switch (instruction) {
 		case _OCT_hitBox2D_add:
-			;
-			printf("Adding hitbox rendererObject\n\n");
 			iOCT_rendererObject_new(entity, layer, componentHitBox2D, iOCT_shaderProgramList[shader_debug], true);
 			printf("Handled hitbox2D creation\n");
+			break;
+		case _OCT_hitBox2D_update:
+			iOCT_updateVertexBuffer(entity, componentHitBox2D);
+			printf("Handled hitbox2D update\n");
+			break;
 		}
 	}
 	//printf("Cleared messages\n");

@@ -1,6 +1,2 @@
-﻿  rectangle2D.c
-  vector2DScalar.c
-  vector2DVector2D.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\shapes\rectangle2D.c(21,5): warning C4013: 'printf' undefined; assuming extern returning int
-  Generating Code...
+﻿  constants.c
   math.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Math.lib

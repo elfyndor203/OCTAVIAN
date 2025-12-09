@@ -151,6 +151,9 @@
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\operations.h" />
     <ClInclude Include="include\shapes\OCT_MathShapes.h" />
+    <ClInclude Include="include\units\constants.h" />
+    <ClInclude Include="include\units\conversions.h" />
+    <ClInclude Include="include\units\OCT_MathUnits.h" />
     <ClInclude Include="include\vector2D\OCT_MathVector2D.h" />
     <ClInclude Include="include\OCT_Math.h" />
     <ClInclude Include="include\shapes\rectangle2D.h" />
@@ -171,6 +174,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\shapes\rectangle2D.c" />
+    <ClCompile Include="internal\units\constants.c" />
+    <ClCompile Include="internal\units\conversions.c" />
     <ClCompile Include="internal\vector2D\vector2DScalar.c" />
     <ClCompile Include="internal\vector2D\vector2DVector2D.c" />
   </ItemGroup>

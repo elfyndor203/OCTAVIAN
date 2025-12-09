@@ -1,4 +1,43 @@
-﻿  debugShaders.c
+﻿  glad.c
+  prototypes.c
+  layer.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
+  (compiling source file 'internal/renderer/layer/layer.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
+      'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(13,3): warning C4047: 'return': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(36,2): warning C4013: 'memset' undefined; assuming extern returning int
+  layer_API.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
+  (compiling source file 'internal/renderer/layer/layer_API.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
+      'GLFW_STATIC' previously declared on the command line
+  
+  rendererObject.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
+  (compiling source file 'internal/renderer/rendererObject/rendererObject.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
+      'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
+  (compiling source file 'internal/renderer/rendererObject/rendererObject.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(7,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(9,3): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(18,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(20,3): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(23,2): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'iOCT_rendererObject (*)[1024]'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(27,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(29,3): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(75,37): warning C4267: 'function': conversion from 'size_t' to 'GLsizei', possible loss of data
+  rendererObject_API.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
+  (compiling source file 'internal/renderer/rendererObject/rendererObject_API.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
+      'GLFW_STATIC' previously declared on the command line
+  
+  debugShaders.c
   shader.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
   (compiling source file 'internal/shaders/shader/shader.c')
@@ -8,5 +47,44 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
   (compiling source file 'internal/shaders/shader/shader.c')
   
+  shader_API.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
+  (compiling source file 'internal/shaders/shader/shader_API.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
+      'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
+  (compiling source file 'internal/shaders/shader/shader_API.c')
+  
+  window.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
+  (compiling source file 'internal/renderer/window/window.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
+      'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(27,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(27,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(32,9): warning C4013: 'exit' undefined; assuming extern returning int
+  bufferGeneration.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
+  (compiling source file 'internal/_REN_Input/bufferGeneration.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
+      'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
+  (compiling source file 'internal/_REN_Input/bufferGeneration.c')
+  
+  messageHandling.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
+  (compiling source file 'internal/_REN_Input/messageHandling.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
+      'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
+  (compiling source file 'internal/_REN_Input/messageHandling.c')
+  
+  messageHandling_API.c
+  main.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(36,11): warning C4305: '+=': truncation from 'double' to 'float'
   Generating Code...
   Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib

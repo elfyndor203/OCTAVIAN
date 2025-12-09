@@ -22,3 +22,5 @@ iOCT_position2D* iOCT_position2D_getPool(iOCT_entitySetID entitySetID);
 OCT_counter* iOCT_position2D_getCounter(iOCT_entitySetID entitySetID);
 iOCT_componentID iOCT_position2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
 
+void iOCT_position2D_move(iOCT_entitySetID entitySetID, iOCT_entityID parentID, OCT_vector2D distance);
+

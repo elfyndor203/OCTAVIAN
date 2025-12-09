@@ -90,3 +90,7 @@ iOCT_componentID transform2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID 
     return transformID;
 }
 
+void iOCT_transform2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float degrees) {
+    iOCT_transform2D_get(entitySetID, parentID)->rotation += OCT_deg2rad(degrees);
+}
+

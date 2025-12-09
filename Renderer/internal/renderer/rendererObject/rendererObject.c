@@ -65,6 +65,7 @@ void iOCT_render(iOCT_rendererObjectID rendererObjectID, iOCT_layerID layerID) {
 	iOCT_rendererObject* object = iOCT_rendererObject_get(rendererObjectID, layerID);
 	//printf("Rendering rendererObject #%zu\n", rendererObjectID);
 
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glClearColor(0.1f, 0.2f, 0.8f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 

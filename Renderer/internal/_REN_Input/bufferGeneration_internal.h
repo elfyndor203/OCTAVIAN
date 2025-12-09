@@ -11,3 +11,4 @@ typedef struct {
 } iOCT_glInfo;
 
 iOCT_glInfo iOCT_generateBuffers(OCT_entityHandle entity, OCT_componentTypes componentType);
+void iOCT_updateVertexBuffer(OCT_entityHandle entity, OCT_componentTypes componentType);

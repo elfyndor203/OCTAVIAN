@@ -22,12 +22,14 @@ int main() {
 
 
 	float size = 1;
-	while (true) {
+	while (running) {
+		OCT_position2D_move(testObject, 0.000001, 0.00002);
+		OCT_transform2D_rotate(testObject, 1);
 		OCT_handleMessages();
 		OCT_render(testObject, componentHitBox2D);
-		size += 0.05;
 		OCT_hitBox2D_resize(testObject, size, size);
 		OCT_window_update();
+		OCT_window_handleInputs();
 	}
 	return 0;
 }

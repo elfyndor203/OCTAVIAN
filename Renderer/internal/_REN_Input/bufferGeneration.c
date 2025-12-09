@@ -56,6 +56,26 @@ iOCT_glInfo iOCT_generateBuffers(OCT_entityHandle entity, OCT_componentTypes com
 	return info;
 }
 
+void iOCT_updateVertexBuffer(OCT_entityHandle entity, OCT_componentTypes componentType) {
+	iOCT_rendererObjectHandle handle = iOCT_rendererObject_locate(entity, componentType);
+	iOCT_rendererObject* rendererObject = iOCT_rendererObject_get(handle.rendererObjectID, handle.layerID);
+	glBindBuffer(GL_ARRAY_BUFFER, rendererObject->VBO);
+
+	switch (componentType) {
+	case componentHitBox2D: {
+		OCT_rectangle2D hitBox = _REN_rectVertices_get(entity, componentType);
+		float hitBoxVertices[OCT_RECTANGLE2D_VERTEXCOUNT * 2] = {
+			hitBox.bottomLeft.x, hitBox.bottomLeft.y,
+			hitBox.bottomRight.x, hitBox.bottomRight.y,
+			hitBox.topRight.x, hitBox.topRight.y,
+			hitBox.topLeft.x, hitBox.topLeft.y
+		};
+		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(hitBoxVertices), hitBoxVertices);
+	}
+	}
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
 
 
 

@@ -58,5 +58,9 @@ void OCT_window_update() {
     glfwSwapBuffers(currentWindow);
 }
 
+void OCT_window_handleInputs() {
+    glfwPollEvents();
+}
+
 
 
