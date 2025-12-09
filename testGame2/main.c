@@ -25,9 +25,11 @@ int main() {
 	OCT_entityHandle childObject = OCT_entity_new(testObject);
 	OCT_hitBox2D_addNew(childObject, newLayer);
 
-
+	test_entitySetActive(childObject);
 	float size = 1;
 	while (running) {
+		OCT_handleRendererMessages();
+		OCT_handleECSMessages();
 		//OCT_transform2D_rotate(mainRoot, 1);		//NOTE_TRANSFORM_PROPAGATION
 
 		OCT_position2D_move(testObject, 0.0001, 0.002);
@@ -35,7 +37,8 @@ int main() {
 		OCT_transform2D_rotate(otherObject, 3);
 		OCT_transform2D_rotate(childObject, -1);
 
-		OCT_handleMessages();
+
+
 		OCT_render(testObject, componentHitBox2D);
 		OCT_render(otherObject, componentHitBox2D);
 		OCT_render(childObject, componentHitBox2D);

@@ -1,3 +1,3 @@
 #pragma once
 
-void OCT_handleMessages(void);
+void OCT_handleRendererMessages(void);

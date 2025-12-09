@@ -4,6 +4,7 @@ c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\main.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\messagehandling_api.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\messagehandling.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\buffergeneration.obj
+c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\window.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\shader_api.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\shader.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\debugshaders.obj
@@ -12,8 +13,8 @@ c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\rendererobjec
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\layer_api.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\layer.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\prototypes.obj
+c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\testcallback.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\glad.obj
-c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\window.obj
 c:\users\elfyndor\mydocuments\projects\octavian\x64\debug\renderer.lib
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\cl.command.1.tlog
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\cl.items.tlog

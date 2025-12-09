@@ -33,6 +33,9 @@
     <ClInclude Include="include\_ECS_Output\vertexData.h" />
     <ClInclude Include="include\ECS\components\sprite2D\sprite2D.h" />
     <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
+    <ClInclude Include="include\_ECS_Input\messageHandling.h" />
+    <ClInclude Include="internal\_ECS_Input\messageHandling.h" />
+    <ClInclude Include="internal\_ECS_Input\messageHandling_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />
@@ -48,5 +51,7 @@
     <ClCompile Include="internal\ECS\entitySet\entitySet_API.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D_API.c" />
     <ClCompile Include="internal\_ECS_Output\vertexData.c" />
+    <ClCompile Include="internal\_ECS_Input\messageHandling.c" />
+    <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
   </ItemGroup>
 </Project>

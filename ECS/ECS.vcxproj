@@ -51,6 +51,9 @@
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\myStandards.h" />
+    <ClInclude Include="include\_ECS_Input\messageHandling.h" />
+    <ClInclude Include="internal\_ECS_Input\messageHandling.h" />
+    <ClInclude Include="internal\_ECS_Input\messageHandling_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
@@ -65,6 +68,8 @@
     <ClCompile Include="internal\ECS\entitySet\entitySet.c" />
     <ClCompile Include="internal\ECS\entitySet\entitySet_API.c" />
     <ClCompile Include="internal\standards\ECSStandards.c" />
+    <ClCompile Include="internal\_ECS_Input\messageHandling.c" />
+    <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
     <ClCompile Include="internal\_ECS_Output\vertexData.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

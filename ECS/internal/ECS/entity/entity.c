@@ -5,6 +5,7 @@
 #include "ECS/components/transform2D/transform2D_internal.h"
 
 size_t iOCT_entity_max = iOCT_ENTITY_DEFAULT_MAX;
+OCT_entityHandle testActiveEntity;
 
 ////////////////////////////////////////////////////////// getter functions
 iOCT_entity* iOCT_entity_get(iOCT_entitySetID entitySetID, iOCT_entityID entityID) {

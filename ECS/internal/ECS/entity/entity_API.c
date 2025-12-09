@@ -14,3 +14,7 @@ bool OCT_entity_hasComponent(OCT_entityHandle entityHandle, OCT_componentTypes c
 	iOCT_entityID entityID = entityHandle.entityID;
 	return iOCT_entity_hasComponent(entitySetID, entityID, component);
 }
+
+void test_entitySetActive(OCT_entityHandle entity) {
+	testActiveEntity = entity;
+}

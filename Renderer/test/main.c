@@ -31,7 +31,7 @@ int main() {
 	
 	float size = 1;
 	while (true) {
-		OCT_handleMessages();
+		OCT_handleRendererMessages();
 		OCT_render(testObject, componentHitBox2D);
 		size += 0.05;
 		OCT_hitBox2D_resize(testObject, size, size);

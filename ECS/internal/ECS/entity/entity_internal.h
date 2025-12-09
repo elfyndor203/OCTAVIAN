@@ -26,6 +26,8 @@ typedef struct iOCT_entity{
 	uint64_t componentsMask;	// tracks if the object has each component
 } iOCT_entity;
 
+extern OCT_entityHandle testActiveEntity;
+
 iOCT_entity* iOCT_entity_get(iOCT_entitySetID entitySetID, iOCT_entityID entityID);
 iOCT_entity* iOCT_entity_getPool(iOCT_entitySetID entitySetID);
 OCT_counter*  iOCT_entity_getCounter(iOCT_entitySetID entitySetID);

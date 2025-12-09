@@ -25,11 +25,12 @@ typedef enum {
 typedef struct {
 	OCT_entityHandle entity;
 	_OCT_messageTypes instruction;
-	uint64_t parameter;
+	float parameter1;
+	float parameter2;
 } _OCT_message;
 
 extern _OCT_message _OCT_messageQueue_empty;
 
 _OCT_message _OCT_queryMessage(_OCT_subsystemList subsystem);
 
-bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_entityHandle entity, _OCT_messageTypes instruction, uint64_t parameter);
+bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_entityHandle entity, _OCT_messageTypes instruction, float parameter1, float parameter2);

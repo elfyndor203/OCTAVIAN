@@ -6,12 +6,12 @@
 #include "renderer/rendererObject/rendererObject_internal.h"
 #include "shaders/shader/shader_internal.h"
 
-void iOCT_handleMessages(void) {
+void iOCT_handleRendererMessages(void) {
 	_OCT_message newMessage = _OCT_queryMessage(_OCT_Renderer);
 	while (newMessage.instruction != _OCT_messageQueue_empty.instruction) {
 		OCT_entityHandle entity = newMessage.entity;
 		_OCT_messageTypes instruction = newMessage.instruction;
-		iOCT_layerID layer = (iOCT_layerID)newMessage.parameter;
+		iOCT_layerID layer = (iOCT_layerID)newMessage.parameter1;
 		newMessage = _OCT_queryMessage(_OCT_Renderer);
 		//iOCT_rendererObject* rendererObject = iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID); //	NOTE_FIX
 		switch (instruction) {
