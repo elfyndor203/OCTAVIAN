@@ -1,5 +1,5 @@
 #include "main.h"
-#include "standards/rendererStandards_internal.h" // NOTE_TEMP
+//#include "standards/rendererStandards_internal.h" // NOTE_TEMP
 
 running = true;
 
@@ -28,9 +28,6 @@ int main() {
 	OCT_hitBox2D_addNew(testObject, newLayer);
 	//OCT_hitBox2D_resize(testObject, 15.0, 15.0);
 
-	GLuint testVAO = 0;
-	GLuint testVBO = 0;
-	GLuint testEBO = 0;
 	
 	float size = 1;
 	while (true) {
@@ -39,7 +36,6 @@ int main() {
 		size += 0.05;
 		OCT_hitBox2D_resize(testObject, size, size);
 		OCT_window_update();
-		glfwPollEvents();
 	}
 	return 0;
 }

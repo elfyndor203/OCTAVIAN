@@ -7,35 +7,27 @@ size_t indices[] = {
 	2, 3, 0   // second triangle (bottom-right, bottom-left, top-left)
 };
 
-void main() {
-	OCT_window_initialize("Test Game 2", 1920, 1080);
+int main() {
+	OCT_window_initialize("Test Game Renderer", 1080, 1080);
+	OCT_initializeShaders();
 
-	OCT_sceneID mainScene = OCT_scene_new();
-	OCT_scene_setCurrent(mainScene);
-	OCT_gameObjectHandle mainRoot = OCT_scene_getRootHandle(mainScene);
+	OCT_entitySetID mainSet = OCT_entitySet_new();
+	OCT_layerID newLayer = OCT_layer_new();
 
-	OCT_gameObjectHandle testObject = OCT_gameObject_createNew(mainRoot);
-	OCT_hitBox2D_addNew(testObject);
+	OCT_entityHandle mainRoot = OCT_entitySet_root(mainSet);
 
-	OCT_gameObjectHandle childOfTest = OCT_gameObject_createNew(testObject);
-	OCT_hitBox2D_addNew(childOfTest);
+	OCT_entityHandle testObject = OCT_entity_new(mainRoot);
+	OCT_hitBox2D_addNew(testObject, newLayer);
+	//OCT_hitBox2D_resize(testObject, 15.0, 15.0);
 
-	OCT_gameObjectHandle otherMainObject = OCT_gameObject_createNew(mainRoot);
-	OCT_hitBox2D_addNew(otherMainObject);
 
-	OCT_sceneID otherSceneLmao = OCT_scene_new();
-	OCT_gameObjectHandle otherRoot = OCT_scene_getRootHandle(otherSceneLmao);
-	
-	OCT_gameObjectHandle WAH = OCT_gameObject_createNew(otherRoot);
-	OCT_hitBox2D_addNew(WAH);
-
-	OCT_gameObjectHandle wahchild = OCT_gameObject_createNew(WAH);
-	
-
-	
-	//uint fragment = OCT_fragmentShader_initialize(hitBox2D_fragmentShaderSource);
-	//uint program = OCT_shaderProgram_create(vertex, fragment);
-
-	//OCT_rendererObjectID renderingObject = OCT_rendererObject_new(WAH, componentHitBox2D, program, false);
-	//OCT_renderObject_TEST_ONLY(renderingObject);
+	float size = 1;
+	while (true) {
+		OCT_handleMessages();
+		OCT_render(testObject, componentHitBox2D);
+		size += 0.05;
+		OCT_hitBox2D_resize(testObject, size, size);
+		OCT_window_update();
+	}
+	return 0;
 }

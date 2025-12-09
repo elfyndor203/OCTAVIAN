@@ -1,8 +1,12 @@
-﻿  window.c
-  main.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\window\window.c(28,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\window\window.c(28,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\window\window.c(33,9): warning C4013: 'exit' undefined; assuming extern returning int
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(39,11): warning C4305: '+=': truncation from 'double' to 'float'
+﻿  debugShaders.c
+  shader.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
+  (compiling source file 'internal/shaders/shader/shader.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
+      'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
+  (compiling source file 'internal/shaders/shader/shader.c')
+  
   Generating Code...
-  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.exe
+  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib

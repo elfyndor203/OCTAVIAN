@@ -1,4 +1,1 @@
-﻿  main.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\include\standards\ECSStandards.h(9,10): error C1083: Cannot open include file: 'OCT_EngineStructure.h': No such file or directory
-  (compiling source file 'main.c')
-  
+﻿  testGame2.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\testGame2.exe

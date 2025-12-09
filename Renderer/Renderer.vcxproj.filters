@@ -12,7 +12,7 @@
     <ClCompile Include="internal\_REN_Input\messageHandling.c" />
     <ClCompile Include="internal\renderer\layer\layer.c" />
     <ClCompile Include="internal\renderer\layer\layer_API.c" />
-    <ClCompile Include="internal\window\window.c" />
+    <ClCompile Include="internal\renderer\window\window.c" />
     <ClCompile Include="internal\_REN_Input\messageHandling_API.c" />
     <ClCompile Include="internal\mesh\prototypes.c" />
   </ItemGroup>
@@ -37,7 +37,7 @@
     <ClInclude Include="include\renderer\window\window.h" />
     <ClInclude Include="include\OCT_Renderer.h" />
     <ClInclude Include="include\shaders\shader\shader.h" />
-    <ClInclude Include="internal\window\window_internal.h" />
+    <ClInclude Include="internal\renderer\window\window_internal.h" />
     <ClInclude Include="include\_REN_Input\messageHandling.h" />
     <ClInclude Include="internal\mesh\prototypes.h" />
   </ItemGroup>

@@ -2,6 +2,7 @@
 #include "standards/rendererStandards.h"
 
 #include <glad/glad.h>
+#define GLFW_STATIC
 #include <GLFW/glfw3.h>
 
 #define GENERIC_FAIL SIZE_MAX

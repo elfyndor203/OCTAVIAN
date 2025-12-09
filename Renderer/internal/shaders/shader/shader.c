@@ -1,6 +1,7 @@
 #include "shader_internal.h"
 
 #include "shaders/debug/debugShaders.h"
+#include "renderer/window/window_internal.h"
 
 static GLuint iOCT_vertexShader_initialize(const char* vertexShader) {
     printf("OpenGL version: %s\n", glGetString(GL_VERSION));
@@ -24,6 +25,7 @@ static GLuint iOCT_vertexShader_initialize(const char* vertexShader) {
 }
 
 static GLuint iOCT_fragmentShader_initialize(const char* fragmentShader) {
+    printf("Test");
     unsigned int newFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(newFragmentShader, 1, &fragmentShader, NULL);
     glCompileShader(newFragmentShader);

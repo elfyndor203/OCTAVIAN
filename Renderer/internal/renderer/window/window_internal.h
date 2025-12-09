@@ -11,6 +11,8 @@ typedef struct rendererWindow {
 	size_t height;
 } rendererWindow;
 
+GLFWwindow* currentWindow;
+
 void window_initialize(char* windowName, size_t width, size_t height);
 
 void framebufferSizeCallback(GLFWwindow* window, int width, int height);

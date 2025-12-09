@@ -1,5 +1,5 @@
-c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\vc143.pdb
-c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\vc143.idb
+c:\users\elfyndor\mydocuments\projects\octavian\x64\debug\renderer.pdb
+c:\users\elfyndor\mydocuments\projects\octavian\x64\debug\renderer.idb
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\main.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\messagehandling_api.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\messagehandling.obj
@@ -14,14 +14,11 @@ c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\layer_api.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\layer.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\prototypes.obj
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\glad.obj
-c:\users\elfyndor\mydocuments\projects\octavian\x64\debug\renderer.exe
-c:\users\elfyndor\mydocuments\projects\octavian\x64\debug\renderer.pdb
-c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.ilk
+c:\users\elfyndor\mydocuments\projects\octavian\x64\debug\renderer.lib
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\cl.command.1.tlog
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\cl.items.tlog
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\cl.read.1.tlog
 c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\cl.write.1.tlog
-c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\link.command.1.tlog
-c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\link.read.1.tlog
-c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\link.secondary.1.tlog
-c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\link.write.1.tlog
+c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\lib.command.1.tlog
+c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\lib.read.1.tlog
+c:\users\elfyndor\mydocuments\projects\octavian\renderer\x64\debug\renderer.tlog\lib.write.1.tlog
