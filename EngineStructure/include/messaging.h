@@ -17,6 +17,8 @@ typedef enum {
 	_OCT_hitBox2D_add,
 	_OCT_hitBox2D_update,
 
+	_OCT_position2D_move,
+	_OCT_position2D_stop,
 	_OCT_empty = SIZE_MAX
 } _OCT_messageTypes;
 

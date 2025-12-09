@@ -138,6 +138,7 @@
     <ClInclude Include="internal\messaging_internal.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="internal\engineLayout.c" />
     <ClCompile Include="internal\messaging.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

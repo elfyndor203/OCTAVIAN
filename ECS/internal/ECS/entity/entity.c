@@ -66,7 +66,7 @@ iOCT_entityID iOCT_entity_createNew(iOCT_entitySetID entitySetID, iOCT_entityID 
 
 bool iOCT_entity_hasComponent(iOCT_entitySetID entitySetID, iOCT_entityID entityID, OCT_componentTypes component) {
 	if (iOCT_entity_get(entitySetID, entityID)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise
-		printf("entity %zu DOES have componentTypes component #%d\n", entityID, component);
+		//printf("entity %zu DOES have componentTypes component #%d\n", entityID, component);
 		return true;
 	}
 	printf("entity %zu does NOT have componentTypes component #%d\n", entityID, component);

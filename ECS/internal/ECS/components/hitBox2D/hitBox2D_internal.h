@@ -7,8 +7,8 @@
 
 #define iOCT_HITBOX2D_FAILED GENERIC_FAIL
 
-#define DEFAULT_HITBOX_X 1.0f
-#define DEFAULT_HITBOX_Y 1.0f
+#define DEFAULT_HITBOX_X 0.25f
+#define DEFAULT_HITBOX_Y 0.25f
 
 typedef struct iOCT_hitBox2D{
 	iOCT_componentID hitBoxID;	// own spot

@@ -8,7 +8,7 @@ size_t indices[] = {
 };
 
 int main() {
-	OCT_window_initialize("Test Game Renderer", 1080, 1080);
+	OCT_window_initialize("Test Game Module", 1080, 1080);
 	OCT_initializeShaders();
 
 	OCT_entitySetID mainSet = OCT_entitySet_new();
@@ -19,15 +19,28 @@ int main() {
 	OCT_entityHandle testObject = OCT_entity_new(mainRoot);
 	OCT_hitBox2D_addNew(testObject, newLayer);
 	//OCT_hitBox2D_resize(testObject, 15.0, 15.0);
+	OCT_entityHandle otherObject = OCT_entity_new(mainRoot);
+	OCT_position2D_move(otherObject, 0.2, -0.3);
+	OCT_hitBox2D_addNew(otherObject, newLayer);
+	OCT_entityHandle childObject = OCT_entity_new(testObject);
+	OCT_hitBox2D_addNew(childObject, newLayer);
 
 
 	float size = 1;
 	while (running) {
-		OCT_position2D_move(testObject, 0.000001, 0.00002);
+		//OCT_transform2D_rotate(mainRoot, 1);		//NOTE_TRANSFORM_PROPAGATION
+
+		OCT_position2D_move(testObject, 0.0001, 0.002);
 		OCT_transform2D_rotate(testObject, 1);
+		OCT_transform2D_rotate(otherObject, 3);
+		OCT_transform2D_rotate(childObject, -1);
+
 		OCT_handleMessages();
 		OCT_render(testObject, componentHitBox2D);
+		OCT_render(otherObject, componentHitBox2D);
+		OCT_render(childObject, componentHitBox2D);
 		OCT_hitBox2D_resize(testObject, size, size);
+
 		OCT_window_update();
 		OCT_window_handleInputs();
 	}

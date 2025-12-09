@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLAD\src\glad.c" />
+    <ClCompile Include="internal\input\testCallback.c" />
     <ClCompile Include="internal\mesh\prototypes.c" />
     <ClCompile Include="internal\renderer\layer\layer.c" />
     <ClCompile Include="internal\renderer\layer\layer_API.c" />
@@ -46,6 +47,7 @@
     <ClInclude Include="include\shaders\shader\shader.h" />
     <ClInclude Include="include\standards\rendererStandards.h" />
     <ClInclude Include="include\_REN_Input\messageHandling.h" />
+    <ClInclude Include="internal\input\testCallback_internal.h" />
     <ClInclude Include="internal\mesh\prototypes.h" />
     <ClInclude Include="internal\renderer\layer\layer_internal.h" />
     <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />

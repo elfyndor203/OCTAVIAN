@@ -5,8 +5,13 @@
 #include <stdint.h>
 #include "OCT_Errors.h"
 
+_OCT_message iOCT_REN_messageQueue[iOCT_MAX_MESSAGES] = { 0 };
 iOCT_messageCounter iOCT_REN_head = 0;
 iOCT_messageCounter iOCT_REN_tail = 0;
+
+_OCT_message iOCT_ECS_messageQueue[iOCT_MAX_MESSAGES];
+iOCT_messageCounter iOCT_ECS_head = 0;
+iOCT_messageCounter iOCT_ECS_tail = 0;
 
 _OCT_message _OCT_messageQueue_empty = { SIZE_MAX, _OCT_empty, 0 };
 
@@ -28,11 +33,21 @@ bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_entityHandle entity, _OC
 			return false;
 		}
 		iOCT_REN_messageQueue[iOCT_REN_head] = messageToSend;
-		iOCT_REN_head = (iOCT_REN_head + 1) % iOCT_MAX_MESSAGES;	// if at MAX, reset to 0, otherwise add 1
+		iOCT_REN_head = (iOCT_REN_head + 1) % iOCT_MAX_MESSAGES;	// if at MAX, loop back around to 0, otherwise add 1
 
-		printf("Sent message to renderer\n");
+		//printf("Sent message to renderer\n");
 		return true;
 		break;
+	case _OCT_ECS:
+		if (iOCT_queueFull(iOCT_ECS_head, iOCT_ECS_tail)) {
+			OCT_logError(EXIT_ECS_MESSAGES_OVERLOADED);
+			return false;
+		}
+		iOCT_ECS_messageQueue[iOCT_ECS_head] = messageToSend;
+		iOCT_ECS_head = (iOCT_ECS_head + 1) & iOCT_MAX_MESSAGES;
+
+		printf("Sent message to ECS\n");
+		return true;
 	default:
 		OCT_logError(EXIT_NOT_YET_IMPLEMENTED);
 		return false;
@@ -46,7 +61,7 @@ _OCT_message _OCT_queryMessage(_OCT_subsystemList subsystem) {
 		if (iOCT_queueEmpty(iOCT_REN_head, iOCT_REN_tail)) {
 			return _OCT_messageQueue_empty;
 		}
-		printf("Message available\n");
+		//printf("Message available\n");
 		messageToHandle = iOCT_REN_messageQueue[iOCT_REN_tail];
 		iOCT_REN_tail = (iOCT_REN_tail + 1) % iOCT_MAX_MESSAGES;	// wraparound
 		break;

@@ -15,6 +15,7 @@
     <ClCompile Include="internal\renderer\window\window.c" />
     <ClCompile Include="internal\_REN_Input\messageHandling_API.c" />
     <ClCompile Include="internal\mesh\prototypes.c" />
+    <ClCompile Include="internal\input\testCallback.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="reference\update.h" />
@@ -40,5 +41,6 @@
     <ClInclude Include="internal\renderer\window\window_internal.h" />
     <ClInclude Include="include\_REN_Input\messageHandling.h" />
     <ClInclude Include="internal\mesh\prototypes.h" />
+    <ClInclude Include="internal\input\testCallback_internal.h" />
   </ItemGroup>
 </Project>

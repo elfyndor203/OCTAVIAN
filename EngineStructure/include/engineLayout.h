@@ -23,3 +23,4 @@ typedef struct {
 	size_t entityID;
 } OCT_entityHandle;
 
+extern OCT_entityHandle _OCT_ACTIVE;

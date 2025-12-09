@@ -25,7 +25,7 @@ iOCT_position2D* iOCT_position2D_get(iOCT_entitySetID entitySetID, iOCT_entityID
 		return iOCT_GET_FAILED;
 	}
 
-	printf("Got position2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
+	//printf("Got position2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
 	return &entitySet->position2DPool[parent->positionID];
 }
 

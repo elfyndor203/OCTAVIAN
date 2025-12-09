@@ -17,11 +17,11 @@ void iOCT_handleMessages(void) {
 		switch (instruction) {
 		case _OCT_hitBox2D_add:
 			iOCT_rendererObject_new(entity, layer, componentHitBox2D, iOCT_shaderProgramList[shader_debug], true);
-			printf("Handled hitbox2D creation\n");
+			//printf("Handled hitbox2D creation\n");
 			break;
 		case _OCT_hitBox2D_update:
 			iOCT_updateVertexBuffer(entity, componentHitBox2D);
-			printf("Handled hitbox2D update\n");
+			//printf("Handled hitbox2D update\n");
 			break;
 		}
 	}

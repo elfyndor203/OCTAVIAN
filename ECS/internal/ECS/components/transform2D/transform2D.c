@@ -25,7 +25,7 @@ iOCT_transform2D* iOCT_transform2D_get(iOCT_entitySetID entitySetID, iOCT_entity
         return iOCT_GET_FAILED;
     }
 
-    printf("Got transform2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
+    //printf("Got transform2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
     return &entitySet->transform2DPool[parent->transformID];
 }
 iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entitySetID entitySetID) {
@@ -91,6 +91,6 @@ iOCT_componentID transform2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID 
 }
 
 void iOCT_transform2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float degrees) {
-    iOCT_transform2D_get(entitySetID, parentID)->rotation += OCT_deg2rad(degrees);
+    iOCT_transform2D_get(entitySetID, parentID)->rotation -= OCT_deg2rad(degrees);  //NOTE_FOR_CCW_UNSURE_WHY
 }
 

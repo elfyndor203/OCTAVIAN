@@ -1,5 +1,7 @@
 #include "window_internal.h"
 
+#include "input/testCallback_internal.h"
+
 GLFWwindow* currentWindow;
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
@@ -34,6 +36,7 @@ void window_initialize(char* windowName, size_t width, size_t height) {
 
     glfwMakeContextCurrent(newWindow);
     glfwSetFramebufferSizeCallback(newWindow, framebufferSizeCallback);
+    glfwSetKeyCallback(newWindow, testKeyCallback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -56,6 +59,9 @@ void OCT_window_initialize(char* windowName, size_t width, size_t height) {
 
 void OCT_window_update() {
     glfwSwapBuffers(currentWindow);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glClearColor(0.1f, 0.2f, 0.8f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void OCT_window_handleInputs() {

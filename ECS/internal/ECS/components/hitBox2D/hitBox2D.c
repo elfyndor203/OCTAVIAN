@@ -86,7 +86,7 @@ iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityI
 
 
 void iOCT_hitBox2D_resize(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY) {
-    printf("Resizing hitbox...\n");
+    //printf("Resizing hitbox...\n");
 	iOCT_hitBox2D_get(entitySetID, parentID)->size.x = sizeX;
 	iOCT_hitBox2D_get(entitySetID, parentID)->size.y = sizeY;
 }
