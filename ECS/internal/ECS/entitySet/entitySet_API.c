@@ -8,7 +8,7 @@ OCT_entitySetID OCT_entitySet_new() {
 	return iOCT_entitySet_new();
 }
 
-OCT_entityHandle OCT_entitySet_getRootHandle(OCT_entitySetID entitySetID) {
+OCT_entityHandle OCT_entitySet_root(OCT_entitySetID entitySetID) {
 	OCT_entityHandle rootHandle = { entitySetID, 0 };
 	return rootHandle;
 }

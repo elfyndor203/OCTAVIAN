@@ -23,7 +23,7 @@ iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entitySetID entitySetID, iOCT_entityID par
         return iOCT_GET_FAILED;
     }
 
-    printf("Got hitBox2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
+    //("Got hitBox2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
     return &entitySet->hitBox2DPool[parent->hitBoxID];
 }
 
@@ -34,7 +34,7 @@ iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_entitySetID entitySetID) {
         return iOCT_GET_FAILED;
     }
 
-    printf("Got hitBox2D pool from entitySet #%zu\n", entitySetID);
+    //printf("Got hitBox2D pool from entitySet #%zu\n", entitySetID);
     return entitySet->hitBox2DPool; // array decays to pointer
 }
 OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entitySetID entitySetID) {
@@ -44,7 +44,7 @@ OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entitySetID entitySetID) {
         return iOCT_GET_FAILED;
     }
 
-    printf("Got hitBox2D counter from entitySet #%zu\n", entitySetID);
+    //printf("Got hitBox2D counter from entitySet #%zu\n", entitySetID);
     return &entitySet->hitBox2DCounter;
 }
 
@@ -78,7 +78,6 @@ iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityI
 
     iOCT_hitBox2D_resize(entitySetID, parentID, DEFAULT_HITBOX_X, DEFAULT_HITBOX_Y);
 
-    // Increment the counter
     *counter += 1;
 
     printf("Added new hitBox2D to object #%zu in entitySet #%zu\n", parentID, entitySetID);

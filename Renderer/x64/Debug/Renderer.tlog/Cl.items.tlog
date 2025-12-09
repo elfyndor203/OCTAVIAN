@@ -1,0 +1,14 @@
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\GLAD\src\glad.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\glad.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\mesh\prototypes.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\prototypes.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\layer.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\layer_API.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\rendererObject.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\rendererObject_API.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\debug\debugShaders.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\debugShaders.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\shader.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\shader_API.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\window\window.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\window.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\_REN_Input\bufferGeneration.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\bufferGeneration.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\_REN_Input\messageHandling.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\messageHandling.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\_REN_Input\messageHandling_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\messageHandling_API.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\x64\Debug\main.obj

@@ -7,8 +7,6 @@
 #include "ECS/components/transform2D/transform2D_internal.h"
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"
 
-#define iOCT_ENTITYSET_DEFAULT_MAX 64
-
 typedef size_t iOCT_entitySetID;
 
 /// For each group of interactable objects, there is an OCT_entitySet that contains pools of each entity and each component type in it, along with counters
@@ -30,7 +28,7 @@ typedef struct iOCT_entitySet{
 	iOCT_hitBox2D hitBox2DPool[iOCT_ENTITY_DEFAULT_MAX];
 } iOCT_entitySet;
 
-iOCT_entitySet* iOCT_entitySetPool[iOCT_ENTITYSET_DEFAULT_MAX]; /// pointers
+iOCT_entitySet* iOCT_entitySetPool[_OCT_ENTITYSET_DEFAULT_MAX]; /// pointers
 
 iOCT_entitySet* iOCT_entitySet_get(iOCT_entitySetID entitySetID);
 iOCT_entitySetID iOCT_entitySet_new();

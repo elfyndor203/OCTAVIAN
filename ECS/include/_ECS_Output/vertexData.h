@@ -1,5 +1,6 @@
 #pragma once
-#include "OCT_Math.h"
-#include "OCT_Messaging.h"
+#include "standards/ECSStandards.h"
 
-OCT_rectangle2D _REN_vertices_getDebug(OCT_entityHandle entity);
+#include "OCT_Math.h"
+
+OCT_rectangle2D _REN_rectVertices_get(OCT_entityHandle entityHandle, OCT_componentTypes componentType);

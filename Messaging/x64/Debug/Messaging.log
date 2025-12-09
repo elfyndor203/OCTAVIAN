@@ -1,3 +1,0 @@
-﻿  messaging.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Messaging\internal\messaging.c(33,3): warning C4013: 'printf' undefined; assuming extern returning int
-  Messaging.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Messaging.lib

@@ -10,5 +10,6 @@ typedef struct sprite2D {
 	iOCT_componentID spriteID;
 	iOCT_entityID parentID;
 
+	OCT_vector2D size;
 	OCT_assetID assetID; 
 };

@@ -1,43 +1,8 @@
-﻿  glad.c
-  bufferGeneration.c
-  layer_API.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
-  (compiling source file '../Renderer/internal/_REN_Input/bufferGeneration.c')
-  
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\_REN_Input\bufferGeneration.c(33,57): warning C4022: 'glad_glBufferData': pointer mismatch for actual parameter 3
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\_REN_Input\bufferGeneration.c(20,6): warning C4047: 'initializing': 'int' differs in levels of indirection from 'const int *'
-  rendererObject.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
-  (compiling source file '../Renderer/internal/renderer/rendererObject/rendererObject.c')
-  
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(7,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(9,3): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(17,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(19,3): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(22,2): warning C4047: 'return': 'iOCT_rendererObject *' differs in levels of indirection from 'iOCT_rendererObject (*)[1024]'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(26,30): warning C4047: '==': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(28,3): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\rendererObject\rendererObject.c(53,71): warning C4047: '==': 'iOCT_rendererObject *' differs in levels of indirection from 'unsigned __int64'
-  layer.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(10,3): warning C4047: 'return': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(18,25): warning C4013: 'calloc' undefined; assuming extern returning int
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(18,14): warning C4047: 'initializing': 'iOCT_layer *' differs in levels of indirection from 'int'
-  rendererObject_API.c
-  window.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(26,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(31,9): warning C4013: 'exit' undefined; assuming extern returning int
-  debugShaders.c
-  shader.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
-  (compiling source file '../Renderer/internal/shaders/shader/shader.c')
-  
-  shader_API.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
-  (compiling source file '../Renderer/internal/shaders/shader/shader_API.c')
-  
-  messageHandling.c
+﻿  window.c
   main.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(31,19): warning C4101: 'wahchild': unreferenced local variable
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\window\window.c(28,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\window\window.c(28,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\window\window.c(33,9): warning C4013: 'exit' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(39,11): warning C4305: '+=': truncation from 'double' to 'float'
   Generating Code...
-LINK : fatal error LNK1104: cannot open file 'ECS.lib'
+  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.exe

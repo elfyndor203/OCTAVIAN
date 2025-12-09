@@ -1,27 +1,26 @@
 #include "_REN_input/messageHandling_internal.h"
 
 #include <stdio.h>
-#include "OCT_Messaging.h"
+#include "OCT_EngineStructure.h"
 #include "bufferGeneration_internal.h"
 #include "renderer/rendererObject/rendererObject_internal.h"
+#include "shaders/shader/shader_internal.h"
 
 void iOCT_handleMessages(void) {
-	while (_OCT_queryMessage(_OCT_Renderer).message != _OCT_empty) {
-		_OCT_message newMessage = _OCT_queryMessage(_OCT_Renderer);
+	_OCT_message newMessage = _OCT_queryMessage(_OCT_Renderer);
+	while (newMessage.instruction != _OCT_messageQueue_empty.instruction) {
 		OCT_entityHandle entity = newMessage.entity;
-		_OCT_messageTypes message = newMessage.message;
-
-		iOCT_rendererObject* rendererObject = iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID); //	NOTE_FIX
-
-		switch(message) {
+		_OCT_messageTypes instruction = newMessage.instruction;
+		iOCT_layerID layer = (iOCT_layerID)newMessage.parameter;
+		newMessage = _OCT_queryMessage(_OCT_Renderer);
+		//iOCT_rendererObject* rendererObject = iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID); //	NOTE_FIX
+		switch(instruction) {
 		case _OCT_hitBox2D_add:
 			;
-			//iOCT_rendererObject* rendererObject = iOCT_rendererObject_get(iOCT_rendererObject_new())// WHAT LAYER DOES IT GO ON
-			//iOCT_glInfo glInfo = iOCT_generateBuffers_debug(entity);
-			//rendererObject->debug_VAO = glInfo.VAO;
-			//rendererObject->debug_VBO = glInfo.VBO;
-			//rendererObject->debug_EBO = glInfo.EBO;
-			//printf("Handled debug add");
+			printf("Adding hitbox rendererObject\n\n");
+			iOCT_rendererObject_new(entity, layer, componentHitBox2D, iOCT_shaderProgramList[shader_debug], true);
+			printf("Handled hitbox2D creation\n");
 		}
 	}
+	//printf("Cleared messages\n");
 }

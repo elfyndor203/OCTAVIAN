@@ -36,7 +36,7 @@ iOCT_position2D* iOCT_position2D_getPool(iOCT_entitySetID entitySetID) {
 		return iOCT_GET_FAILED;
 	}
 
-	printf("Got position2D pool from entitySet #%zu\n", entitySetID);
+	//printf("Got position2D pool from entitySet #%zu\n", entitySetID);
 	return entitySet->position2DPool; // array decay to pointer
 }
 OCT_counter* iOCT_position2D_getCounter(iOCT_entitySetID entitySetID) {
@@ -46,7 +46,7 @@ OCT_counter* iOCT_position2D_getCounter(iOCT_entitySetID entitySetID) {
 		return iOCT_GET_FAILED;
 	}
 
-	printf("Got position2D counter from entitySet #%zu\n", entitySetID);
+	//printf("Got position2D counter from entitySet #%zu\n", entitySetID);
 	return &entitySet->position2DCounter;
 }
 

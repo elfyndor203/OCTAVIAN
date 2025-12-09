@@ -1,44 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="internal\shaders\debug\debugShaders.c" />
-    <ClCompile Include="internal\renderer\layer\layer.c" />
-    <ClCompile Include="internal\renderer\window\window.c" />
-    <ClCompile Include="internal\shaders\shader\shader.c" />
     <ClCompile Include="GLAD\src\glad.c" />
-    <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
     <ClCompile Include="test\main.c" />
-    <ClCompile Include="internal\shaders\shader\shader_API.c" />
+    <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject_API.c" />
-    <ClCompile Include="internal\renderer\layer\layer_API.c" />
+    <ClCompile Include="internal\shaders\debug\debugShaders.c" />
+    <ClCompile Include="internal\shaders\shader\shader.c" />
+    <ClCompile Include="internal\shaders\shader\shader_API.c" />
     <ClCompile Include="internal\_REN_Input\bufferGeneration.c" />
     <ClCompile Include="internal\_REN_Input\messageHandling.c" />
+    <ClCompile Include="internal\renderer\layer\layer.c" />
+    <ClCompile Include="internal\renderer\layer\layer_API.c" />
+    <ClCompile Include="internal\window\window.c" />
+    <ClCompile Include="internal\_REN_Input\messageHandling_API.c" />
+    <ClCompile Include="internal\mesh\prototypes.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="internal\shaders\debug\debugShaders.h" />
     <ClInclude Include="reference\update.h" />
-    <ClInclude Include="internal\standards\rendererStandards_internal.h" />
-    <ClInclude Include="internal\renderer\layer\layer_internal.h" />
-    <ClInclude Include="internal\definitions\aliases_internal.h" />
-    <ClInclude Include="internal\definitions\defaultValues_internal.h" />
-    <ClInclude Include="internal\renderer\window\window_internal.h" />
-    <ClInclude Include="internal\shaders\shader\shader_internal.h" />
     <ClInclude Include="reference\Reference\verticesInput.h" />
-    <ClInclude Include="internal\definitions\macros_internal.h" />
     <ClInclude Include="GLAD\include\glad\glad.h" />
     <ClInclude Include="GLAD\include\KHR\khrplatform.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3native.h" />
-    <ClInclude Include="include\renderer\window\window.h" />
-    <ClInclude Include="include\standards\rendererStandards.h" />
-    <ClInclude Include="include\OCT_Renderer.h" />
-    <ClInclude Include="include\renderer\rendererObject\rendererObject.h" />
-    <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
-    <ClInclude Include="include\shaders\shader\shader.h" />
     <ClInclude Include="test\main.h" />
-    <ClInclude Include="include\renderer\layer\layer.h" />
-    <ClInclude Include="internal\mesh\prototypes.h" />
+    <ClInclude Include="internal\standards\rendererStandards_internal.h" />
+    <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
+    <ClInclude Include="include\standards\rendererStandards.h" />
+    <ClInclude Include="internal\shaders\debug\debugShaders.h" />
+    <ClInclude Include="internal\shaders\shader\shader_internal.h" />
     <ClInclude Include="internal\_REN_Input\bufferGeneration_internal.h" />
     <ClInclude Include="internal\_REN_Input\messageHandling_internal.h" />
+    <ClInclude Include="internal\renderer\layer\layer_internal.h" />
+    <ClInclude Include="include\renderer\layer\layer.h" />
+    <ClInclude Include="include\renderer\rendererObject\rendererObject.h" />
+    <ClInclude Include="include\renderer\window\window.h" />
+    <ClInclude Include="include\OCT_Renderer.h" />
+    <ClInclude Include="include\shaders\shader\shader.h" />
+    <ClInclude Include="internal\window\window_internal.h" />
+    <ClInclude Include="include\_REN_Input\messageHandling.h" />
+    <ClInclude Include="internal\mesh\prototypes.h" />
   </ItemGroup>
 </Project>

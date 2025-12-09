@@ -9,16 +9,17 @@ iOCT_rendererObject* iOCT_rendererObject_get(iOCT_rendererObjectID rendererObjec
 		return iOCT_GET_FAILED;
 	}
 
-	printf("Got rendererObject #%zu from layer #%zu\n", rendererObjectID, layerID);
+	//printf("Got rendererObject #%zu from layer #%zu\n", rendererObjectID, layerID);
 	return &iOCT_layer_get(layerID)->rendererObjectPool[rendererObjectID];	// access the layer, access the rendererObject, and return its pointer
 }
+
 
 iOCT_rendererObject* iOCT_rendererObject_getPool(iOCT_layerID layerID) {
 	if (iOCT_layer_get(layerID) == iOCT_GET_FAILED) {
 		OCT_logError(ERR_RENDEREROBJECTPOOL_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
-	printf("Got rendererObjectPool from layer #%zu\n", layerID);
+	//printf("Got rendererObjectPool from layer #%zu\n", layerID);
 	return &iOCT_layer_get(layerID)->rendererObjectPool;
 }
 
@@ -27,42 +28,50 @@ OCT_counter* iOCT_rendererObject_getCounter(iOCT_layerID layerID) {
 		OCT_logError(ERR_RENDEREROBJECTCOUNTER_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
-	printf("Got rendererObjectCounter from layer #%zu\n", layerID);
+	//printf("Got rendererObjectCounter from layer #%zu\n", layerID);
 	return &iOCT_layer_get(layerID)->rendererObjectCounter;
 }
 
-iOCT_rendererObjectID iOCT_rendererObject_new(OCT_entityHandle gameObjectHandle, iOCT_layerID layerID, GLuint shaderProgram, bool dynamic) {
-	
+iOCT_rendererObjectID iOCT_rendererObject_new(OCT_entityHandle entityHandle, iOCT_layerID layerID, OCT_componentTypes componentType, GLuint shaderProgram, bool dynamic) {
 	iOCT_rendererObject newRendererObject = { 0 };
-	newRendererObject.gameObjectHandle = gameObjectHandle;		// link renderer object to ECS object
+	iOCT_glInfo buffers = iOCT_generateBuffers(entityHandle, componentType);
+	newRendererObject.entityHandle = entityHandle;		// link renderer object to ECS object
+	newRendererObject.componentType = componentType;
+	// newRendererObject.rendererObjectID stored during registration
+	newRendererObject.layerID = layerID;
+	newRendererObject.VAO = buffers.VAO;
+	newRendererObject.VBO = buffers.VBO;
+	newRendererObject.EBO = buffers.EBO;
+	newRendererObject.vertexCount = buffers.vertexCount;
+	newRendererObject.indexCount = buffers.indexCount;
+	printf("INDEX COUNT SET HERE TO %zu", newRendererObject.indexCount);
 
-	iOCT_layer* layer = iOCT_layer_get(layerID);
 	newRendererObject.shaderProgram = shaderProgram;
 
-	OCT_counter* currentCounter = iOCT_rendererObject_getCounter(layerID);	// log new rendererObject
+	iOCT_layer* layer = iOCT_layer_get(layerID);								// register new rendererObject in layer
+	OCT_counter* currentCounter = iOCT_rendererObject_getCounter(layerID);	
 	newRendererObject.rendererObjectID = *currentCounter;
-	iOCT_rendererObject_getPool(*currentCounter);
+	iOCT_rendererObject_getPool(layerID)[*currentCounter] = newRendererObject;
 	*currentCounter += 1;
 
-	printf("registered object %zu\n", newRendererObject.rendererObjectID);
+	iOCT_rendererObjectHandle handle = { newRendererObject.rendererObjectID, newRendererObject.layerID };	// store in map
+	iOCT_rendererObjectMap[entityHandle.entitySetID][entityHandle.entityID][componentType] = handle;
+
+	printf("registered renderer object %zu\n", newRendererObject.rendererObjectID);
 	return newRendererObject.rendererObjectID;
 }
 
-void iOCT_render_debug(OCT_entityHandle entity, iOCT_layerID layer) {
-	iOCT_rendererObject* rendererObject;
-	if (iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID) == iOCT_GET_FAILED) {	//NOTE_MESSY??
-		printf("NO RENDEREROBJECT, CREATING NEW\n");
-		rendererObject = iOCT_rendererObject_get(iOCT_rendererObject_new(entity, layer, iOCT_shaderProgramList[shader_debug], true), layer); //NOTE_CHANGE_LATER TO SUPPORT OTHER SHADERS
-		iOCT_generateBuffers_debug(entity);
-	}
-	else {
-		rendererObject = iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID);
-		// NOTE_WRITE_UPDATE_HERE
-	}
+void iOCT_render(iOCT_rendererObjectID rendererObjectID, iOCT_layerID layerID) {
+	iOCT_rendererObject* object = iOCT_rendererObject_get(rendererObjectID, layerID);
+	//printf("Rendering rendererObject #%zu\n", rendererObjectID);
 
-	glBindVertexArray(rendererObject->debug_VAO);
-	glUseProgram(iOCT_shaderProgramList[shader_debug]);
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	glClearColor(0.1f, 0.2f, 0.8f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glBindVertexArray(object->VAO);
+	glUseProgram(object->shaderProgram);
+	printf("Index count = %zu\n", object->indexCount);
+	glDrawElements(GL_TRIANGLES, object->indexCount, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }
 

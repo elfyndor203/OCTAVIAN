@@ -8,7 +8,7 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitB
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(34,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(42,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(44,9): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(105,18): warning C4101: 'globalSize': unreferenced local variable
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(104,18): warning C4101: 'globalSize': unreferenced local variable
   hitBox2D_API.c
   physics2D.c
   position2D.c
@@ -51,4 +51,5 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entit
   ECSStandards.c
   vertexData.c
   Generating Code...
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\_ECS_Output\vertexData.c(12,1): warning C4715: '_REN_rectVertices_get': not all control paths return a value
   ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.lib

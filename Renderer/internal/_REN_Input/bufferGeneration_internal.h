@@ -6,6 +6,8 @@ typedef struct {
 	GLuint VAO;
 	GLuint VBO;
 	GLuint EBO;
+	size_t vertexCount;
+	size_t indexCount;
 } iOCT_glInfo;
 
-iOCT_glInfo iOCT_generateBuffers_debug(OCT_entityHandle entity);
+iOCT_glInfo iOCT_generateBuffers(OCT_entityHandle entity, OCT_componentTypes componentType);

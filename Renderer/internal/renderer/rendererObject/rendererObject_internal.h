@@ -15,7 +15,9 @@ typedef size_t iOCT_layerID;
 typedef size_t iOCT_rendererObjectID;
 
 typedef struct iOCT_rendererObject {
-	OCT_entityHandle gameObjectHandle;
+	OCT_entityHandle entityHandle;
+	OCT_componentTypes componentType;
+
 	iOCT_rendererObjectID rendererObjectID;
 	iOCT_layerID layerID;
 	
@@ -23,10 +25,8 @@ typedef struct iOCT_rendererObject {
 	GLuint VBO;
 	GLuint EBO;
 
-	GLuint debug_VAO;
-	GLuint debug_VBO;
-	GLuint debug_EBO;
-
+	size_t vertexCount;
+	size_t indexCount;
 	GLuint shaderProgram;
 } iOCT_rendererObject;
 
@@ -34,5 +34,5 @@ iOCT_rendererObject* iOCT_rendererObject_get(iOCT_rendererObjectID rendererObjec
 iOCT_rendererObject* iOCT_rendererObject_getPool(iOCT_layerID layerID);
 OCT_counter* iOCT_rendererObject_getCounter(iOCT_layerID layerID);
 
-iOCT_rendererObjectID iOCT_rendererObject_new(OCT_entityHandle gameObjectHandle, iOCT_layerID layerID, GLuint shaderProgram, bool dynamic);
-void iOCT_render_debug(OCT_entityHandle entity, iOCT_layerID layer);
+iOCT_rendererObjectID iOCT_rendererObject_new(OCT_entityHandle entityHandle, iOCT_layerID layerID, OCT_componentTypes componentType, GLuint shaderProgram, bool dynamic);
+void iOCT_render(iOCT_rendererObjectID rendererObjectID, iOCT_layerID layerID);

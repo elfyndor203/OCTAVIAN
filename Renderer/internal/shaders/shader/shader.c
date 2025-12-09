@@ -51,7 +51,7 @@ static GLuint iOCT_shaderProgram_create(GLuint vertexShader, GLuint fragmentShad
     glGetProgramiv(newShaderProgram, GL_LINK_STATUS, &success);
     if (!success) {
         glGetProgramInfoLog(newShaderProgram, 512, NULL, infoLog);
-        printf("ERROR::SHADER::PROGRAM::LINKING_FAILED %s\n", infoLog);
+        printf("ERR_SHADER_LINKING_FAILED %s\n", infoLog);
         OCT_logError(EXIT_SHADER_PROGRAM_FAILED);
         return 0;
     }

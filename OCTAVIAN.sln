@@ -36,7 +36,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		designNotes.txt = designNotes.txt
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Messaging", "Messaging\Messaging.vcxproj", "{958EAE1D-799C-4029-8057-791886BE38BF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineStructure", "EngineStructure\EngineStructure.vcxproj", "{958EAE1D-799C-4029-8057-791886BE38BF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RendererNew", "RendererNew\RendererNew.vcxproj", "{FBF24F20-F18F-4499-85F0-171D261747B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +104,14 @@ Global
 		{958EAE1D-799C-4029-8057-791886BE38BF}.Release|x64.Build.0 = Release|x64
 		{958EAE1D-799C-4029-8057-791886BE38BF}.Release|x86.ActiveCfg = Release|Win32
 		{958EAE1D-799C-4029-8057-791886BE38BF}.Release|x86.Build.0 = Release|Win32
+		{FBF24F20-F18F-4499-85F0-171D261747B4}.Debug|x64.ActiveCfg = Debug|x64
+		{FBF24F20-F18F-4499-85F0-171D261747B4}.Debug|x64.Build.0 = Debug|x64
+		{FBF24F20-F18F-4499-85F0-171D261747B4}.Debug|x86.ActiveCfg = Debug|Win32
+		{FBF24F20-F18F-4499-85F0-171D261747B4}.Debug|x86.Build.0 = Debug|Win32
+		{FBF24F20-F18F-4499-85F0-171D261747B4}.Release|x64.ActiveCfg = Release|x64
+		{FBF24F20-F18F-4499-85F0-171D261747B4}.Release|x64.Build.0 = Release|x64
+		{FBF24F20-F18F-4499-85F0-171D261747B4}.Release|x86.ActiveCfg = Release|Win32
+		{FBF24F20-F18F-4499-85F0-171D261747B4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

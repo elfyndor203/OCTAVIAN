@@ -13,7 +13,7 @@ iOCT_entity* iOCT_entity_get(iOCT_entitySetID entitySetID, iOCT_entityID entityI
 		OCT_logError(ERR_ENTITY_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
-	printf("Got entity #%zu from entitySet #%zu\n", entityID, entitySetID);
+	//printf("Got entity #%zu from entitySet #%zu\n", entityID, entitySetID);
 	return &iOCT_entitySet_get(entitySetID)->entityPool[entityID];	// access the entitySet, access the entity, and return its pointer
 }
 
@@ -22,7 +22,7 @@ iOCT_entity* iOCT_entity_getPool(iOCT_entitySetID entitySetID) {
 		OCT_logError(ERR_ENTITYPOOL_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
-	printf("Got entityPool from entitySet #%zu\n", entitySetID);
+	//printf("Got entityPool from entitySet #%zu\n", entitySetID);
 	return &iOCT_entitySet_get(entitySetID)->entityPool;
 }
 
@@ -31,7 +31,7 @@ OCT_counter* iOCT_entity_getCounter(iOCT_entitySetID entitySetID) {
 		OCT_logError(ERR_ENTITYCOUNTER_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
-	printf("Got entityCounter from entitySet #%zu\n", entitySetID);
+	//printf("Got entityCounter from entitySet #%zu\n", entitySetID);
 	return &iOCT_entitySet_get(entitySetID)->entityCounter;
 }
 ////////////////////////////////////////////////////////// getter functions

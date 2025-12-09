@@ -1,4 +1,5 @@
 #include "main.h"
+#include "standards/rendererStandards_internal.h" // NOTE_TEMP
 
 running = true;
 
@@ -7,36 +8,40 @@ size_t indices[] = {
 	2, 3, 0   // second triangle (bottom-right, bottom-left, top-left)
 };
 
-void main() {
-	OCT_window_initialize("Test Game Renderer", 1920, 1080);
+float testIndices[8] = {
+	-0.5, -0.5,
+	0.5, -0.5,
+	0.5, 0.5,
+	-0.5, 0.5
+};
+
+int main() {
+	OCT_window_initialize("Test Game Renderer", 1080, 1080);
+	OCT_initializeShaders();
 
 	OCT_entitySetID mainSet = OCT_entitySet_new();
-	OCT_entityHandle mainRoot = OCT_entitySet_getRootHandle(mainSet);
+	OCT_layerID newLayer = OCT_layer_new();
+
+	OCT_entityHandle mainRoot = OCT_entitySet_root(mainSet);
 
 	OCT_entityHandle testObject = OCT_entity_new(mainRoot);
-	OCT_hitBox2D_addNew(testObject);
+	OCT_hitBox2D_addNew(testObject, newLayer);
+	//OCT_hitBox2D_resize(testObject, 15.0, 15.0);
 
-	OCT_entityHandle childOfTest = OCT_entity_new(testObject);
-	OCT_hitBox2D_addNew(childOfTest);
-
-	OCT_entityHandle otherMainObject = OCT_entity_new(mainRoot);
-	OCT_hitBox2D_addNew(otherMainObject);
-
-	OCT_entitySetID otherSetLmao = OCT_entitySet_new();
-	OCT_entityHandle otherRoot = OCT_entitySet_getRootHandle(otherSetLmao);
-
-	OCT_entityHandle WAH = OCT_entity_new(otherRoot);
-	OCT_hitBox2D_addNew(WAH);
-
-	OCT_entityHandle wahchild = OCT_entity_new(WAH);
-
-
-	OCT_layerID newRenderingLayer = OCT_layer_new();
-	OCT_initializeShaders();
-	OCT_render_debug(testObject);
-
-	while (running) {
+	GLuint testVAO = 0;
+	GLuint testVBO = 0;
+	GLuint testEBO = 0;
+	
+	float size = 1;
+	while (true) {
+		OCT_handleMessages();
+		OCT_render(testObject, componentHitBox2D);
+		size += 0.05;
+		OCT_hitBox2D_resize(testObject, size, size);
+		OCT_window_update();
+		glfwPollEvents();
 	}
+	return 0;
 }
 
 //#include <glad/glad.h>

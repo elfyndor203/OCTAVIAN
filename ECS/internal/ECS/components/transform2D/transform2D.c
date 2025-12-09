@@ -35,7 +35,7 @@ iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entitySetID entitySetID) {
         return iOCT_GET_FAILED;
     }
 
-    printf("Got transform2D pool from entitySet #%zu\n", entitySetID);
+    //printf("Got transform2D pool from entitySet #%zu\n", entitySetID);
     return entitySet->transform2DPool;
 }
 OCT_counter* iOCT_transform2D_getCounter(iOCT_entitySetID entitySetID) {
@@ -45,7 +45,7 @@ OCT_counter* iOCT_transform2D_getCounter(iOCT_entitySetID entitySetID) {
         return iOCT_GET_FAILED;
     }
 
-    printf("Got transform2D counter from entitySet #%zu\n", entitySetID);
+   // printf("Got transform2D counter from entitySet #%zu\n", entitySetID);
     return &entitySet->transform2DCounter;
 }
 

@@ -2,7 +2,7 @@
 
 #include "ECS/components/componentTypes/componentTypes_internal.h"
 
-size_t iOCT_entitySet_max = iOCT_ENTITYSET_DEFAULT_MAX;
+size_t iOCT_entitySet_max = _OCT_ENTITYSET_DEFAULT_MAX;
 
 OCT_counter iOCT_entitySetCounter = 0;
 
@@ -11,7 +11,7 @@ iOCT_entitySet* iOCT_entitySet_get(iOCT_entitySetID entitySetID) {
 		OCT_logError(ERR_ENTITYSET_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
-	printf("Got entitySet #%zu\n", entitySetID);
+	//printf("Got entitySet #%zu\n", entitySetID);
 	return iOCT_entitySetPool[entitySetID];
 }
 

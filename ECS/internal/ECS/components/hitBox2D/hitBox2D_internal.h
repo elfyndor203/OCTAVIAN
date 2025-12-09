@@ -3,7 +3,6 @@
 #include "standards/ECSStandards_internal.h"
 
 #include "OCT_Math.h"
-#include "ECS/components/componentTypes/componentTypes_internal.h"
 #include "ECS/entity/entity_internal.h"
 
 #define iOCT_HITBOX2D_FAILED GENERIC_FAIL
@@ -27,4 +26,5 @@ OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entitySetID entitySetID);
 iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
 void iOCT_hitBox2D_resize(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY);
 void iOCT_hitBox2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float rotation);
+
 OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entitySetID entitySetID, iOCT_entityID parentID);

@@ -20,16 +20,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLAD\src\glad.c" />
-    <ClCompile Include="internal\_REN_Input\bufferGeneration.c" />
+    <ClCompile Include="internal\mesh\prototypes.c" />
+    <ClCompile Include="internal\renderer\layer\layer.c" />
     <ClCompile Include="internal\renderer\layer\layer_API.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
-    <ClCompile Include="internal\renderer\layer\layer.c" />
     <ClCompile Include="internal\renderer\rendererObject\rendererObject_API.c" />
-    <ClCompile Include="internal\renderer\window\window.c" />
     <ClCompile Include="internal\shaders\debug\debugShaders.c" />
     <ClCompile Include="internal\shaders\shader\shader.c" />
     <ClCompile Include="internal\shaders\shader\shader_API.c" />
+    <ClCompile Include="internal\window\window.c" />
+    <ClCompile Include="internal\_REN_Input\bufferGeneration.c" />
     <ClCompile Include="internal\_REN_Input\messageHandling.c" />
+    <ClCompile Include="internal\_REN_Input\messageHandling_API.c" />
     <ClCompile Include="test\main.c" />
   </ItemGroup>
   <ItemGroup>
@@ -37,25 +39,23 @@
     <ClInclude Include="GLAD\include\KHR\khrplatform.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3native.h" />
-    <ClInclude Include="include\renderer\layer\layer.h" />
     <ClInclude Include="include\OCT_Renderer.h" />
+    <ClInclude Include="include\renderer\layer\layer.h" />
+    <ClInclude Include="include\renderer\rendererObject\rendererObject.h" />
     <ClInclude Include="include\renderer\window\window.h" />
     <ClInclude Include="include\shaders\shader\shader.h" />
     <ClInclude Include="include\standards\rendererStandards.h" />
-    <ClInclude Include="include\renderer\rendererObject\rendererObject.h" />
-    <ClInclude Include="internal\_REN_Input\bufferGeneration_internal.h" />
+    <ClInclude Include="include\_REN_Input\messageHandling.h" />
     <ClInclude Include="internal\mesh\prototypes.h" />
-    <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
-    <ClInclude Include="internal\definitions\aliases_internal.h" />
-    <ClInclude Include="internal\definitions\defaultValues_internal.h" />
-    <ClInclude Include="internal\definitions\macros_internal.h" />
-    <ClInclude Include="internal\standards\rendererStandards_internal.h" />
-    <ClInclude Include="internal\_REN_Input\messageHandling_internal.h" />
-    <ClInclude Include="reference\Reference\verticesInput.h" />
     <ClInclude Include="internal\renderer\layer\layer_internal.h" />
-    <ClInclude Include="internal\renderer\window\window_internal.h" />
+    <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
     <ClInclude Include="internal\shaders\debug\debugShaders.h" />
     <ClInclude Include="internal\shaders\shader\shader_internal.h" />
+    <ClInclude Include="internal\standards\rendererStandards_internal.h" />
+    <ClInclude Include="internal\window\window_internal.h" />
+    <ClInclude Include="internal\_REN_Input\bufferGeneration_internal.h" />
+    <ClInclude Include="internal\_REN_Input\messageHandling_internal.h" />
+    <ClInclude Include="reference\Reference\verticesInput.h" />
     <ClInclude Include="reference\update.h" />
     <ClInclude Include="test\main.h" />
   </ItemGroup>
@@ -134,13 +134,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;Errors.lib;ECS.lib;Math.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;opengl32.lib;glfw3.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug</AdditionalLibraryDirectories>
     </Link>
     <Lib>
@@ -155,13 +155,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;Errors.lib;ECS.lib;Math.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;opengl32.lib;glfw3.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug</AdditionalLibraryDirectories>
     </Link>
     <Lib>
@@ -174,14 +174,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;Errors.lib;ECS.lib;Math.lib;Errors.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;opengl32.lib;glfw3.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug</AdditionalLibraryDirectories>
     </Link>
     <Lib>
@@ -196,13 +196,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)Messaging\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;Errors.lib;ECS.lib;Math.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;opengl32.lib;glfw3.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug</AdditionalLibraryDirectories>
     </Link>
     <Lib>
