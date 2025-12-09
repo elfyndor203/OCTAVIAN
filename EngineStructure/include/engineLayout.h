@@ -1,8 +1,8 @@
 #pragma once
 
 typedef enum {
-	_OCT_ECS,
-	_OCT_Renderer
+	_OCT_ECS = 1000,
+	_OCT_Renderer = 2000
 } _OCT_subsystemList;
 
 typedef enum {					// componentsTotal == the number of actual components

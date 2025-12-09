@@ -13,7 +13,7 @@ _OCT_message iOCT_ECS_messageQueue[iOCT_MAX_MESSAGES] = { 0 };
 iOCT_messageCounter iOCT_ECS_head = 0;
 iOCT_messageCounter iOCT_ECS_tail = 0;
 
-_OCT_message _OCT_messageQueue_empty = { SIZE_MAX, _OCT_empty, 0 };
+_OCT_message _OCT_messageQueue_empty = { SIZE_MAX, _OCT_empty, 0.0, 0.0 };
 
 static bool iOCT_queueEmpty(iOCT_messageCounter head, iOCT_messageCounter tail) {
 	return head == tail; // next write == next read, caught up
@@ -48,7 +48,7 @@ bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_entityHandle entity, _OC
 		}
 
 		iOCT_ECS_messageQueue[iOCT_ECS_head] = messageToSend;
-		iOCT_ECS_head = (iOCT_ECS_head + 1) & iOCT_MAX_MESSAGES;
+		iOCT_ECS_head = (iOCT_ECS_head + 1) % iOCT_MAX_MESSAGES;
 		printf("Sent message to ECS\n");
 		return true;
 		break;
@@ -69,14 +69,15 @@ _OCT_message _OCT_queryMessage(_OCT_subsystemList subsystem) {
 		messageToHandle = iOCT_REN_messageQueue[iOCT_REN_tail];
 		iOCT_REN_tail = (iOCT_REN_tail + 1) % iOCT_MAX_MESSAGES;	// wraparound
 		break;
-	case _OCT_ECS:
+	case (_OCT_ECS):
 		if (iOCT_queueEmpty(iOCT_ECS_head, iOCT_ECS_tail)) {
+			//printf("empty");
 			return _OCT_messageQueue_empty;
-			printf("empty");
 		}
 		printf("Message available\n");
 		messageToHandle = iOCT_ECS_messageQueue[iOCT_ECS_tail];
 		iOCT_ECS_tail = (iOCT_ECS_tail + 1) % iOCT_MAX_MESSAGES;	// wraparound
+		break;
 	default:
 		OCT_logError(EXIT_NOT_YET_IMPLEMENTED);
 	}

@@ -7,8 +7,9 @@ bool activeMoving = false;
 
 void iOCT_handleECSMessages(void) {
 	_OCT_message newMessage = _OCT_queryMessage(_OCT_ECS);
+
+	//printf("DO: %d", newMessage.instruction);
 	while (newMessage.instruction != _OCT_messageQueue_empty.instruction) {
-		printf("Got message!\n");
 		_OCT_messageTypes instruction = newMessage.instruction;
 		float value1 = newMessage.parameter1;
 		float value2 = newMessage.parameter2;
@@ -26,5 +27,5 @@ void iOCT_handleECSMessages(void) {
 		}
 
 	}
-	printf("Cleared messages\n");
+	//printf("Cleared messages\n");
 }
