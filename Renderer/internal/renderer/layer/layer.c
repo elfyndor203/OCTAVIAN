@@ -9,7 +9,7 @@ iOCT_rendererObjectHandle iOCT_rendererObjectMap[64][1024][componentsTotal]; //N
 
 iOCT_layer* iOCT_layer_get(iOCT_layerID layerID) {
 	if (layerID > iOCT_LAYER_MAX || iOCT_layerPool[layerID] == 0) {
-		OCT_logError(ERR_ENTITYSET_DOES_NOT_EXIST);
+		OCT_logError(ERR_LAYER_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
 	//printf("Got layer #%zu\n", layerID);
@@ -34,7 +34,7 @@ iOCT_layerID iOCT_layer_new() {
 
 void iOCT_layer_initialize() {
 	memset(iOCT_layerPool, iOCT_NO_RENDEREROBJECT, sizeof(iOCT_layerPool));
-	printf("Layer pool zeroed out\n");
+	printf("Layer pool initialized\n");
 }
 
 iOCT_rendererObjectHandle iOCT_rendererObject_locate(OCT_entityHandle entity, OCT_componentTypes componentType) {

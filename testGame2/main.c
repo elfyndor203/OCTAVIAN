@@ -34,11 +34,6 @@
 
 running = true;
 
-size_t indices[] = {
-	0, 1, 2,  // first triangle (top-left, top-right, bottom-right)
-	2, 3, 0   // second triangle (bottom-right, bottom-left, top-left)
-};
-
 int main() {
 	OCT_window_initialize("Test Game Module", 1080, 1080);
 	OCT_initializeShaders();

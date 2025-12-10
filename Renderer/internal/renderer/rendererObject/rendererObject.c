@@ -4,7 +4,7 @@
 #include "_REN_Input/bufferGeneration_internal.h"
 
 iOCT_rendererObject* iOCT_rendererObject_get(iOCT_rendererObjectID rendererObjectID, iOCT_layerID layerID) {
-	if (iOCT_layer_get(layerID) == iOCT_GET_FAILED || layerID > iOCT_layer_get(layerID)->rendererObjectCounter) {
+	if (iOCT_layer_get(layerID) == iOCT_GET_FAILED || rendererObjectID > iOCT_layer_get(layerID)->rendererObjectCounter) {
 		OCT_logError(ERR_RENDEREROBJECT_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
