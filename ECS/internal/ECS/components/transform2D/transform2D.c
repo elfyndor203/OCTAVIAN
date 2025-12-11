@@ -53,7 +53,7 @@ OCT_counter* iOCT_transform2D_getCounter(iOCT_entitySetID entitySetID) {
 
 iOCT_componentID transform2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
     // Check if parent already has a transform component
-    if (iOCT_entity_hasComponent(entitySetID, parentID, componentTransform2D)) {
+    if (iOCT_entity_hasComponent(entitySetID, parentID, OCT_componentTransform2D)) {
         OCT_logError(WARNING_COMPONENT_REPLACED);
     }
 
@@ -68,7 +68,7 @@ iOCT_componentID transform2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID 
 
     // Get parent object and mark it as having this component
     iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);
-    parent->componentsMask |= (1ULL << componentTransform2D);
+    parent->componentsMask |= (1ULL << OCT_componentTransform2D);
 
     // Set IDs
     iOCT_componentID transformID = *counter;

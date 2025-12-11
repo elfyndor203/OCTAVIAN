@@ -50,7 +50,7 @@ OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entitySetID entitySetID) {
 
 iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
     // Check if parent already has a hitBox2D component
-    if (iOCT_entity_hasComponent(entitySetID, parentID, componentHitBox2D)) {
+    if (iOCT_entity_hasComponent(entitySetID, parentID, OCT_componentHitBox2D)) {
         OCT_logError(WARNING_COMPONENT_REPLACED);
     }
 
@@ -65,7 +65,7 @@ iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityI
 
     // Get parent object and mark it as having this component
     iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);
-    parent->componentsMask |= (1ULL << componentHitBox2D);
+    parent->componentsMask |= (1ULL << OCT_componentHitBox2D);
 
     // Set bookkeeping values
     iOCT_componentID hitBoxID = *counter;

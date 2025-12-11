@@ -71,7 +71,7 @@ int main() {
 		OCT_transform2D_rotate(childObject, -1);
 
 		for (int i = 0; i < entityCount; i++) {
-			OCT_render(entityList[i], componentHitBox2D);
+			OCT_render(entityList[i], OCT_componentHitBox2D);
 		}
 
 		OCT_window_update();

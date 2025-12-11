@@ -2,7 +2,7 @@
 #include "standards/ECSStandards_internal.h"
 
 #include "OCT_Math.h"
-#include "ECS/components/componentTypes/componentTypes_internal.h"
+#include "ECS/entitySet/typeTable_internal.h"
 
 #define iOCT_NO_COMPONENT GENERIC_FAIL //unless you somehow end up with that many objects
 #define iOCT_GAMEOBJECT_FAILED GENERIC_FAIL
@@ -19,18 +19,20 @@ typedef struct iOCT_entity{
 	bool is3D;					// in case of the rare 3d position usage
 
 	iOCT_entityID parentID;		// each entity can have at most one of each component type
-	iOCT_componentID positionID;		
-	iOCT_componentID transformID;
-	iOCT_componentID hitBoxID;	// if more hitboxes are needed, add more child objects
+	OCT_componentID positionID;		
+	OCT_componentID transformID;
+	OCT_componentID hitBoxID;	// if more hitboxes are needed, add more child objects
 	///
 	uint64_t componentsMask;	// tracks if the object has each component
 } iOCT_entity;
 
 extern OCT_entityHandle testActiveEntity;
 
+extern iOCT_VTable iOCT_entity_VTable;
 iOCT_entity* iOCT_entity_get(iOCT_entitySetID entitySetID, iOCT_entityID entityID);
 iOCT_entity* iOCT_entity_getPool(iOCT_entitySetID entitySetID);
 OCT_counter*  iOCT_entity_getCounter(iOCT_entitySetID entitySetID);
 
 iOCT_entityID iOCT_entity_createNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
 bool iOCT_entity_hasComponent(iOCT_entitySetID entitySetID, iOCT_entityID entityID, OCT_componentTypes component);
+

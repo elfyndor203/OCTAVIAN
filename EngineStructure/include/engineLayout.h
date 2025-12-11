@@ -6,17 +6,16 @@ typedef enum {
 } _OCT_subsystemList;
 
 typedef enum {					// componentsTotal == the number of actual components
-	componentParentObject,		// 1 to 1s
-	componentPosition2D,
-	componentTransform2D,
-	componentHitBox2D,
+	OCT_componentEntity,		// not a component, but useful as it behaves similarly
 
-	componentSprite2D,
+	OCT_componentPosition2D,	// 1 to 1s
+	OCT_componentTransform2D,
+	OCT_componentHitBox2D,
+	OCT_componentSprite2D,
 
-	componentChildObject,		// multiple to 1s
-
-	componentsTotal
+	OCT_componentsTotal
 } OCT_componentTypes;
+typedef size_t OCT_componentID;
 
 typedef struct {
 	size_t entitySetID;

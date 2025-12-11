@@ -51,7 +51,7 @@ OCT_counter* iOCT_position2D_getCounter(iOCT_entitySetID entitySetID) {
 }
 
 iOCT_componentID iOCT_position2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {								// attaches a new default position2D to some entity
-	if (iOCT_entity_hasComponent(entitySetID, parentID, componentPosition2D)) {
+	if (iOCT_entity_hasComponent(entitySetID, parentID, OCTcomponentPosition2D)) {
 		OCT_logError(WARNING_COMPONENT_REPLACED);
 	}
 	OCT_counter* counter = iOCT_transform2D_getCounter(entitySetID);
@@ -63,7 +63,7 @@ iOCT_componentID iOCT_position2D_addNew(iOCT_entitySetID entitySetID, iOCT_entit
 	iOCT_position2D newPosition2D = { 0 };
 
 	iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);
-	parent->componentsMask |= (1ULL << componentPosition2D);		// parent object knows it exists
+	parent->componentsMask |= (1ULL << OCTcomponentPosition2D);		// parent object knows it exists
 
 	iOCT_componentID positionID = *counter;		// setting values
 	newPosition2D.positionID = positionID;									// it can find itself

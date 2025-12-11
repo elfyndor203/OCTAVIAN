@@ -8,7 +8,7 @@ void OCT_hitBox2D_addNew(OCT_entityHandle parentHandle, size_t layer) { // NOTE_
 }
 
 void OCT_hitBox2D_resize(OCT_entityHandle parentHandle, float sizeX, float sizeY) {
-    if (iOCT_entity_hasComponent(parentHandle.entitySetID, parentHandle.entityID, componentHitBox2D) == false) {
+    if (iOCT_entity_hasComponent(parentHandle.entitySetID, parentHandle.entityID, OCT_componentHitBox2D) == false) {
         OCT_logError(ERR_HITBOX2D_DOES_NOT_EXIST);
         return;
     }

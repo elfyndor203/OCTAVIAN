@@ -45,7 +45,7 @@ iOCT_entityID iOCT_entity_createNew(iOCT_entitySetID entitySetID, iOCT_entityID 
 	iOCT_entity newEntity = { 0 };
 
 	iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);	// store pointer to its parent
-	parent->componentsMask |= (1ULL << componentChildObject);				// parent object knows it exists
+	parent->componentsMask |= (1ULL << OCT_componentChildObject);				// parent object knows it exists
 
 	iOCT_entityID entityID = *iOCT_entity_getCounter(entitySetID);	// setting default values
 	newEntity.entitySetID = entitySetID;

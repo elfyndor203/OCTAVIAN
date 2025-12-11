@@ -24,7 +24,7 @@ iOCT_glInfo iOCT_generateBuffers(OCT_entityHandle entity, OCT_componentTypes com
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, newEBO);
 
 	switch (componentType) {
-	case componentHitBox2D: {															// get vertex data
+	case OCT_componentHitBox2D: {															// get vertex data
 		printf("Requesting hitBox2D data from entity %zu\n", entity.entityID);
 		OCT_rectangle2D hitBox = _REN_rectVertices_get(entity, componentType);
 		float hitBoxVertices[OCT_RECTANGLE2D_VERTEXCOUNT * 2] = {
@@ -62,7 +62,7 @@ void iOCT_updateVertexBuffer(OCT_entityHandle entity, OCT_componentTypes compone
 	glBindBuffer(GL_ARRAY_BUFFER, rendererObject->VBO);
 
 	switch (componentType) {
-	case componentHitBox2D: {
+	case OCT_componentHitBox2D: {
 		OCT_rectangle2D hitBox = _REN_rectVertices_get(entity, componentType);
 		float hitBoxVertices[OCT_RECTANGLE2D_VERTEXCOUNT * 2] = {
 			hitBox.bottomLeft.x, hitBox.bottomLeft.y,

@@ -2,35 +2,46 @@
 #include "ECS/entitySet/entitySet.h"
 #include "standards/ECSStandards_internal.h"
 
-#include "ECS/entity/entity_internal.h"
-#include "ECS/components/position2D/position2D_internal.h"
-#include "ECS/components/transform2D/transform2D_internal.h"
-#include "ECS/components/hitBox2D/hitBox2D_internal.h"
+#include "OCT_Math.h"
+
+#define iOCT_ENTITYSET_DEFAULT_MAX 8
+#define iOCT_POOLCOUNT_DEFAULT_MAX iOCT_ENTITYSET_DEFAULT_MAX * OCT_componentsTotal
+#define iOCT_POOLSIZE_DEFAULT 64
 
 typedef size_t iOCT_entitySetID;
+typedef size_t iOCT_poolID;
 
-/// For each group of interactable objects, there is an OCT_entitySet that contains pools of each entity and each component type in it, along with counters
-/// For these pools, the data is stored directly
-/// A scene is tied to its root object. To make a child of the root, use OCT_ROOT_OBJECT
-/// For the pool of entitySets, pointers are stored
+/// <summary>
+/// entitySets define which pools interact with each other. Each group of interactable entities and their components are managed by the same entitySet. 
+/// </summary>
 typedef struct iOCT_entitySet{
 	iOCT_entitySetID entitySetID;
-	iOCT_entity rootObject;
+	iOCT_poolID pools[OCT_componentsTotal];
 
-	OCT_counter entityCounter;
-	iOCT_entity entityPool[iOCT_ENTITY_DEFAULT_MAX];
-
-	OCT_counter position2DCounter;
-	iOCT_position2D position2DPool[iOCT_ENTITY_DEFAULT_MAX];
-	OCT_counter transform2DCounter;
-	iOCT_transform2D transform2DPool[iOCT_ENTITY_DEFAULT_MAX];
-	OCT_counter hitBox2DCounter;
-	iOCT_hitBox2D hitBox2DPool[iOCT_ENTITY_DEFAULT_MAX];
 } iOCT_entitySet;
 
-iOCT_entitySet* iOCT_entitySetPool[_OCT_ENTITYSET_DEFAULT_MAX]; /// pointers
+/// <summary>
+/// Pools manage the contiguous arrays of information
+/// </summary>
+typedef struct iOCT_pool {
+	iOCT_entitySetID entitySetID;
+	iOCT_poolID poolID;
+	OCT_componentTypes componentType;
+
+	OCT_counter counter;
+	void* pool;
+} iOCT_pool;
+
+extern iOCT_entitySet iOCT_entitySetList[iOCT_ENTITYSET_DEFAULT_MAX];
+extern OCT_counter iOCT_entitySetCounter;
+extern iOCT_pool iOCT_poolList[iOCT_POOLCOUNT_DEFAULT_MAX];
+extern OCT_counter iOCT_poolCounter;
+
+void iOCT_entitySetList_initialize();
 
 iOCT_entitySet* iOCT_entitySet_get(iOCT_entitySetID entitySetID);
 iOCT_entitySetID iOCT_entitySet_new();
-void iOCT_entitySet_initialize();
+
+iOCT_pool* iOCT_pool_get(iOCT_entitySetID entitySetID, OCT_componentTypes componentType);
+OCT_counter* iOCT_counter_get(iOCT_entitySetID entitySetID, OCT_componentTypes componentType);
 

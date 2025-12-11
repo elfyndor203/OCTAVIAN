@@ -5,7 +5,7 @@
 iOCT_layer* iOCT_layerPool[iOCT_LAYER_MAX]; /// pointers
 OCT_counter iOCT_layerCounter = 0;
 
-iOCT_rendererObjectHandle iOCT_rendererObjectMap[64][1024][componentsTotal]; //NOTE_URGENT_HARDCODED
+iOCT_rendererObjectHandle iOCT_rendererObjectMap[64][1024][OCT_componentsTotal]; //NOTE_URGENT_HARDCODED
 
 iOCT_layer* iOCT_layer_get(iOCT_layerID layerID) {
 	if (layerID > iOCT_LAYER_MAX || iOCT_layerPool[layerID] == 0) {

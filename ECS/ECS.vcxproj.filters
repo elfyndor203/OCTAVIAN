@@ -19,7 +19,6 @@
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\myStandards.h" />
     <ClInclude Include="internal\ECS\components\physics2D\physics2D_internal.h" />
-    <ClInclude Include="internal\ECS\components\componentTypes\componentTypes_internal.h" />
     <ClInclude Include="include\ECS\components\hitBox2D\hitBox2D.h" />
     <ClInclude Include="include\ECS\components\physics2D\physics2D.h" />
     <ClInclude Include="include\ECS\components\position2D\position2D.h" />
@@ -36,6 +35,8 @@
     <ClInclude Include="include\_ECS_Input\messageHandling.h" />
     <ClInclude Include="internal\_ECS_Input\messageHandling.h" />
     <ClInclude Include="internal\_ECS_Input\messageHandling_internal.h" />
+    <ClInclude Include="internal\ECS\entitySet\typeMap.h" />
+    <ClInclude Include="internal\ECS\entitySet\typeTable_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />
@@ -53,5 +54,6 @@
     <ClCompile Include="internal\_ECS_Output\vertexData.c" />
     <ClCompile Include="internal\_ECS_Input\messageHandling.c" />
     <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
+    <ClCompile Include="internal\ECS\entitySet\typeTable.c" />
   </ItemGroup>
 </Project>
