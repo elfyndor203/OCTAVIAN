@@ -1,4 +1,5 @@
 #include "entitySet_internal.h"
+#include <string.h>
 
 #include "OCT_EngineStructure.h"
 #include "ECS/entity/entity_internal.h"
@@ -16,63 +17,75 @@ static size_t iOCT_componentSizeList[OCT_componentsTotal] = { sizeof(iOCT_entity
 iOCT_entitySet* iOCT_entitySet_get(iOCT_entitySetID entitySetID) {				// valid as long as the entitySet exists
 	if (entitySetID >= iOCT_ENTITYSET_DEFAULT_MAX || entitySetID >= iOCT_poolCounter) {
 		OCT_logError(ERR_ENTITYSET_DOES_NOT_EXIST);
-		return GENERIC_FAIL;
+		return NULL;
 	}
 	return &iOCT_entitySetList[entitySetID];
 }
 
-static iOCT_poolID iOCT_pool_new(iOCT_entitySetID entitySetID, OCT_componentTypes componentType) {
+static iOCT_poolID iOCT_pool_new(iOCT_entitySet* entitySet, OCT_componentTypes componentType) {
 	iOCT_pool newPool = { 0 };											// create and set values
 
-	newPool.entitySetID = entitySetID;
+	newPool.entitySetID = entitySet->entitySetID;
 	newPool.poolID = iOCT_poolCounter;
 	newPool.componentType = componentType;
 	newPool.counter = 0;
-	newPool.pool = calloc(1, iOCT_componentSizeList[componentType]);
-	if (!newPool.pool) {
+	newPool.array = calloc(iOCT_POOLSIZE_DEFAULT, iOCT_componentSizeList[componentType]);
+	if (!newPool.array) {
 		OCT_logError(EXIT_FAILED_TO_ALLOCATE);
-		return GENERIC_FAIL;
+		return OCT_GENERIC_FAIL;
 	}
 
-	iOCT_poolList[newPool.poolID] = newPool;							// log pool
+	entitySet->pools[componentType] = newPool.poolID;	// log pool
+	iOCT_poolList[newPool.poolID] = newPool;							
 	iOCT_poolCounter += 1;
 	return newPool.poolID;
 }
 
-OCT_entityHandle iOCT_entitySet_new() {
-	iOCT_entitySet* newEntitySet = { 0 };		// create and log a new entitySet
+static iOCT_entityID iOCT_rootEntity_new(iOCT_entitySet* entitySet) {
+	iOCT_entity newRoot = { 0 };
 
-	for (int component = 0; component < OCT_componentsTotal; component++) {			// create and log each pool type
-		newEntitySet->pools[component] = iOCT_pool_new(newEntitySet, component);
-	}
+	iOCT_pool* pool = &iOCT_poolList[entitySet->pools[OCT_componentEntity]];
+	iOCT_entity* poolArray = (iOCT_entity*)pool->array;
+	iOCT_entitySetID entitySetID = entitySet->entitySetID;
 
-	newEntitySet->entitySetID = iOCT_entitySetCounter;
-	iOCT_entitySetCounter += 1;
+	iOCT_entityID entityID = iOCT_ROOT_DEFAULT;
 
-	// root object creation
-	iOCT_entity blankRootObject = { 0 };
-	blankRootObject.hitBoxID = iOCT_NO_COMPONENT;		// NOTE_NEW_COMPONENTS
-	blankRootObject.positionID = iOCT_position2D_addNew(newEntitySet->entitySetID, )
-	blankRootObject.componentsMask |= (1ULL << OCT_componentEntity);
-	blankRootObject.componentsMask |= (1ULL << OCT_componentPosition2D);
-	blankRootObject.componentsMask |= (1ULL << OCT_componentTransform2D);
-	newEntitySet->rootEntity = blankRootObject;
+	newRoot.entitySetID = entitySetID;
+	newRoot.entityID = entityID;
+	newRoot.is3D = false;
+	newRoot.parentID = OCT_GENERIC_NONE;
+	newRoot.positionID = iOCT_position2D_addNew(entitySetID, entityID);
+	newRoot.transformID = iOCT_transform2D_addNew(entitySetID, entityID);
+	newRoot.hitBoxID = OCT_GENERIC_NONE;
 
-	iOCT_entitySetList[iOCT_entitySetCounter] = newEntitySet;		// store entitySet
-
-	iOCT_entity_getPool(newEntitySet->entitySetID)[0] = blankRootObject;	// store root object in entitySet
-	*iOCT_entity_getCounter(newEntitySet->entitySetID) += 1;
-
-	iOCT_entitySetID entitySetID = iOCT_entitySetCounter;	//
-
-
-	printf("Created entitySet with entitySetID %zu\n", entitySetID);
-	return entitySetID;
+	poolArray[iOCT_ROOT_DEFAULT] = newRoot;
+	pool->counter += 1;
+	entitySet->rootEntityID = entityID;
+	return entityID;
 }
 
-void iOCT_entitySetList_initialize() {
+OCT_entityHandle iOCT_entitySet_new() {
+	iOCT_entitySet newEntitySet = { 0 };					// create and log a new entitySet
+	iOCT_entitySetID entitySetID = iOCT_entitySetCounter;
+	iOCT_entitySetCounter += 1;
+	newEntitySet.entitySetID = entitySetID;					// set first to ensure the rootEntity gets the correct info
+
+	for (int component = 0; component < OCT_componentsTotal; component++) {			// create and log each pool type
+		iOCT_pool_new(&newEntitySet, component);
+	}
+	iOCT_rootEntity_new(&newEntitySet);
+
+	iOCT_entitySetList[entitySetID] = newEntitySet;		// store entitySet
+	printf("Created entitySet with entitySetID %zu\n", entitySetID);
+
+	OCT_entityHandle rootHandle = { newEntitySet.rootEntityID, entitySetID };
+	return rootHandle;
+}
+
+void iOCT_globalLists_initialize() {
 	memset(iOCT_entitySetList, 0, sizeof(iOCT_entitySetList));
-	printf("EntitySet pool zeroed out\n");
+	memset(iOCT_poolList, 0, sizeof(iOCT_poolList));
+	printf("EntitySet and pool lists zeroed out\n");
 }
 
 iOCT_pool* iOCT_pool_get(iOCT_entitySetID entitySetID, OCT_componentTypes componentType) {	// If the set exists, get the poolID from it. If the pool exists, return it. 
@@ -82,11 +95,11 @@ iOCT_pool* iOCT_pool_get(iOCT_entitySetID entitySetID, OCT_componentTypes compon
 	}
 	
 	iOCT_poolID poolID = entitySet->pools[componentType];
-	if (poolID >= iOCT_POOLCOUNT_DEFAULT_MAX || poolID >= iOCT_poolCounter) {
+	if (poolID >= iOCT_ENTITYSET_DEFAULT_MAX * OCT_componentsTotal || poolID >= iOCT_poolCounter) {
+		OCT_logError(ERR_POOL_DOES_NOT_EXIST);
 		return NULL;
 	} 
-
-	return iOCT_poolList[poolID];
+	return &iOCT_poolList[poolID];
 }
 
 OCT_counter* iOCT_counter_get(iOCT_entitySetID entitySetID, OCT_componentTypes componentType) {

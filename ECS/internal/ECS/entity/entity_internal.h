@@ -4,13 +4,14 @@
 #include "OCT_Math.h"
 #include "ECS/entitySet/typeTable_internal.h"
 
-#define iOCT_NO_COMPONENT GENERIC_NONE //unless you somehow end up with that many objects
-#define iOCT_GAMEOBJECT_FAILED GENERIC_FAIL
+#define iOCT_NO_COMPONENT OCT_GENERIC_NONE //unless you somehow end up with that many objects
+#define iOCT_GAMEOBJECT_FAILED OCT_GENERIC_FAIL
 
 #define iOCT_ENTITY_DEFAULT_MAX 1024
 
 typedef size_t iOCT_entitySetID;	// redeclare to ensure everything else knows this ID
 typedef size_t iOCT_entityID;
+typedef size_t iOCT_componentID;
 
 typedef struct iOCT_entity{
 	iOCT_entitySetID entitySetID;

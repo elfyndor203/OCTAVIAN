@@ -1,5 +1,8 @@
 #pragma once
 
+#define OCT_GENERIC_NONE SIZE_MAX
+#define OCT_GENERIC_FAIL (SIZE_MAX - 1)
+
 // 4 digit: fatal error
 // 5 digit: error
 // 6 digit: warning
@@ -20,6 +23,7 @@ typedef enum {
 
 	EXIT_ENTITYSET_FAILED = 0310,
 	ERR_ENTITYSET_DOES_NOT_EXIST = 13010,
+	ERR_POOL_DOES_NOT_EXIST = 13011,
 
 	ERR_ENTITY_DOES_NOT_EXIST = 13020,
 	ERR_ENTITYPOOL_DOES_NOT_EXIST = 13021,

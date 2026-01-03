@@ -59,7 +59,7 @@ iOCT_entityID iOCT_entity_new(iOCT_entitySetID entitySetID, iOCT_entityID parent
 	*iOCT_entity_getCounter(entitySetID) += 1;
 
 	iOCT_position2D_addNew(entitySetID, entityID);							// add requirements to the stored object
-	transform2D_addNew(entitySetID, entityID);
+	iOCT_transform2D_addNew(entitySetID, entityID);
 
 	printf("\nCreated new entity #%zu in entitySet #%zu as a child of object %zu \n", entityID, entitySetID, parentID);
 	return entityID;

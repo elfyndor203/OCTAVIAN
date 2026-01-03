@@ -4,7 +4,7 @@
 #include "OCT_Math.h"
 #include "ECS/entity/entity_internal.h"
 
-#define iOCT_POSITION2D_FAILED GENERIC_FAIL
+#define iOCT_POSITION2D_FAILED OCT_GENERIC_FAIL
 
 #define DEFAULT_POSITION_X 0
 #define DEFAULT_POSITION_Y 0

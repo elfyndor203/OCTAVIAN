@@ -7,7 +7,6 @@
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\math\vectors.h" />
-    <ClInclude Include="internal\standards\ECSStandards_internal.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
@@ -39,7 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />
-    <ClCompile Include="internal\standards\ECSStandards.c" />
     <ClCompile Include="internal\ECS\components\position2D\position2D.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />

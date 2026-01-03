@@ -1,11 +1,11 @@
 #pragma once
 #include "ECS/components/transform2D/transform2D.h"
 #include "standards/ECSStandards_internal.h"
-#include "ECS/entity/entity_internal.h"
 
 #include "OCT_Math.h"
+#include "ECS/entity/entity_internal.h"
 
-#define iOCT_TRANSFORM2D_FAILED GENERIC_FAIL
+#define iOCT_TRANSFORM2D_FAILED OCT_GENERIC_FAIL
 
 #define DEFAULT_ROTATION 0.0f
 #define DEFAULT_SCALE_X 1.0f
@@ -25,6 +25,6 @@ iOCT_transform2D* iOCT_transform2D_get(iOCT_entitySetID entitySetID, iOCT_entity
 iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entitySetID entitySetID);
 OCT_counter* iOCT_transform2D_getCounter(iOCT_entitySetID entitySetID);
 
-iOCT_componentID transform2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
+iOCT_componentID iOCT_transform2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
 void iOCT_transform2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float degrees);
 

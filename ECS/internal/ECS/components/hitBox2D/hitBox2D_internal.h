@@ -5,7 +5,7 @@
 #include "OCT_Math.h"
 #include "ECS/entity/entity_internal.h"
 
-#define iOCT_HITBOX2D_FAILED GENERIC_FAIL
+#define iOCT_HITBOX2D_FAILED OCT_GENERIC_FAIL
 
 #define DEFAULT_HITBOX_X 0.25f
 #define DEFAULT_HITBOX_Y 0.25f
