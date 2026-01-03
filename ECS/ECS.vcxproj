@@ -42,7 +42,6 @@
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
     <ClInclude Include="internal\ECS\entitySet\typeMap.h" />
-    <ClInclude Include="internal\ECS\entitySet\typeTable_internal.h" />
     <ClInclude Include="internal\standards\ECSStandards_internal.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="internal\ECS\components\position2D\position2D_internal.h" />
@@ -64,7 +63,6 @@
     <ClCompile Include="internal\ECS\components\position2D\position2D_API.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D_API.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
-    <ClCompile Include="internal\ECS\entitySet\typeTable.c" />
     <ClCompile Include="internal\ECS\entity\entity.c" />
     <ClCompile Include="internal\ECS\entity\entity_API.c" />
     <ClCompile Include="internal\ECS\entitySet\entitySet.c" />

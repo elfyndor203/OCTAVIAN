@@ -11,7 +11,6 @@ typedef enum {					// componentsTotal == the number of actual components
 	OCT_componentPosition2D,	// 1 to 1s
 	OCT_componentTransform2D,
 	OCT_componentHitBox2D,
-	OCT_componentSprite2D,
 
 	OCT_componentsTotal
 } OCT_componentTypes;
@@ -22,4 +21,5 @@ typedef struct {
 	size_t entityID;
 } OCT_entityHandle;
 
-extern OCT_entityHandle _OCT_ACTIVE;
+extern OCT_entityHandle _OCT_active;
+extern OCT_entityHandle _OCT_errorHandle;

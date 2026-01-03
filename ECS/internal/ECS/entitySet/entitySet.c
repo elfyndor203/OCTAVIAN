@@ -8,8 +8,10 @@
 
 iOCT_entitySet iOCT_entitySetList[iOCT_ENTITYSET_DEFAULT_MAX];
 OCT_counter iOCT_entitySetCounter = 0;
-iOCT_pool iOCT_poolList[iOCT_POOLCOUNT_DEFAULT_MAX];
+iOCT_pool iOCT_poolList[iOCT_ENTITYSET_DEFAULT_MAX * OCT_componentsTotal];
 OCT_counter iOCT_poolCounter = 0;
+
+static size_t iOCT_componentSizeList[OCT_componentsTotal] = { sizeof(iOCT_entity), sizeof(iOCT_position2D), sizeof(iOCT_transform2D), sizeof(iOCT_hitBox2D) };	//NOTE __MUST__ MATCH COMPONENTTYPES
 
 iOCT_entitySet* iOCT_entitySet_get(iOCT_entitySetID entitySetID) {				// valid as long as the entitySet exists
 	if (entitySetID >= iOCT_ENTITYSET_DEFAULT_MAX || entitySetID >= iOCT_poolCounter) {
@@ -19,55 +21,38 @@ iOCT_entitySet* iOCT_entitySet_get(iOCT_entitySetID entitySetID) {				// valid a
 	return &iOCT_entitySetList[entitySetID];
 }
 
-iOCT_poolID iOCT_pool_new(iOCT_entitySetID entitySetID, OCT_componentTypes componentType) {
-	iOCT_pool newPool = { 0 };
-	iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+static iOCT_poolID iOCT_pool_new(iOCT_entitySetID entitySetID, OCT_componentTypes componentType) {
+	iOCT_pool newPool = { 0 };											// create and set values
 
+	newPool.entitySetID = entitySetID;
 	newPool.poolID = iOCT_poolCounter;
 	newPool.componentType = componentType;
 	newPool.counter = 0;
-	newPool.entitySetID = iOCT_entitySet_get(entitySetID)->entitySetID;
-	iOCT_poolList[newPool.poolID] = newPool;
-	iOCT_poolCounter += 1;
+	newPool.pool = calloc(1, iOCT_componentSizeList[componentType]);
+	if (!newPool.pool) {
+		OCT_logError(EXIT_FAILED_TO_ALLOCATE);
+		return GENERIC_FAIL;
+	}
 
-	entitySet->pools[componentType] = newPool.poolID;
+	iOCT_poolList[newPool.poolID] = newPool;							// log pool
+	iOCT_poolCounter += 1;
 	return newPool.poolID;
 }
 
-iOCT_entitySetID iOCT_entitySet_new() {
-	iOCT_entitySet* newEntitySet = calloc(1, sizeof(iOCT_entitySet));		// create and log a new entitySet
-	if (!newEntitySet) {
-		OCT_logError(EXIT_ENTITYSET_FAILED);				//NOTE: 2 EXITS
-		OCT_logError(EXIT_FAILED_TO_ALLOCATE);
-		return 0;
+OCT_entityHandle iOCT_entitySet_new() {
+	iOCT_entitySet* newEntitySet = { 0 };		// create and log a new entitySet
+
+	for (int component = 0; component < OCT_componentsTotal; component++) {			// create and log each pool type
+		newEntitySet->pools[component] = iOCT_pool_new(newEntitySet, component);
 	}
+
 	newEntitySet->entitySetID = iOCT_entitySetCounter;
 	iOCT_entitySetCounter += 1;
 
-	for (int component = 0; component < OCT_componentsTotal; component++) {	// create and log each pool type
-		iOCT_pool* newPool = calloc(1, sizeof(iOCT_entitySet));
-		if (!newPool) {
-			OCT_logError(EXIT_ENTITYSET_FAILED);
-			return 0;
-		}
-		newPool->poolID = iOCT_poolCounter;
-		newPool->componentType = component;
-		newPool->counter = 0;
-		newPool->entitySetID = newEntitySet->entitySetID;
-
-		newEntitySet->pools[component] = newPool->poolID;
-	}
-	iOCT_entity* entityPool[iOCT_POOLSIZE_DEFAULT] = calloc(1, sizeof(iOCT_entity));
-	iOCT_position2D position2DPool[iOCT_POOLSIZE_DEFAULT] = calloc(1, sizeof(iOCT_position2D));
-	iOCT_transform2D transform2DPool[iOCT_POOLSIZE_DEFAULT] = calloc(1, sizeof(iOCT_transform2D));
-	iOCT_hitBox2D hitBox2DPool []
-
-
-
-		// root object creation
-	newEntitySet->entitySetID = iOCT_entitySetCounter;
+	// root object creation
 	iOCT_entity blankRootObject = { 0 };
 	blankRootObject.hitBoxID = iOCT_NO_COMPONENT;		// NOTE_NEW_COMPONENTS
+	blankRootObject.positionID = iOCT_position2D_addNew(newEntitySet->entitySetID, )
 	blankRootObject.componentsMask |= (1ULL << OCT_componentEntity);
 	blankRootObject.componentsMask |= (1ULL << OCT_componentPosition2D);
 	blankRootObject.componentsMask |= (1ULL << OCT_componentTransform2D);
@@ -79,9 +64,8 @@ iOCT_entitySetID iOCT_entitySet_new() {
 	*iOCT_entity_getCounter(newEntitySet->entitySetID) += 1;
 
 	iOCT_entitySetID entitySetID = iOCT_entitySetCounter;	//
-	newEntitySet->entitySetID = iOCT_entitySetCounter;		// log own index
-	iOCT_entitySetCounter += 1;						// update counter
-	
+
+
 	printf("Created entitySet with entitySetID %zu\n", entitySetID);
 	return entitySetID;
 }

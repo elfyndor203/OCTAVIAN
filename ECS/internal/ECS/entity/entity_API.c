@@ -4,7 +4,7 @@
 OCT_entityHandle OCT_entity_new(OCT_entityHandle parentHandle) {
 	iOCT_entitySetID entitySetID = parentHandle.entitySetID;
 	iOCT_entityID parentID = parentHandle.entityID;
-	iOCT_entityID newEntityID =  iOCT_entity_createNew(entitySetID, parentID);
+	iOCT_entityID newEntityID =  iOCT_entity_new(entitySetID, parentID);
 	OCT_entityHandle newHandle = { entitySetID, newEntityID };
 	return newHandle;
 }

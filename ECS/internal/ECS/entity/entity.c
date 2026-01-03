@@ -37,8 +37,8 @@ OCT_counter* iOCT_entity_getCounter(iOCT_entitySetID entitySetID) {
 }
 ////////////////////////////////////////////////////////// getter functions
 
-iOCT_entityID iOCT_entity_createNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
-	if (*iOCT_entity_getCounter(entitySetID) >= (iOCT_entity_max-1)) {
+iOCT_entityID iOCT_entity_new(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
+	if (*iOCT_entity_getCounter(entitySetID) >= (iOCT_entity_max-1)) {	// checks if pool is full
 		logError(ERR_ENTITYPOOL_FULL);
 		return iOCT_GAMEOBJECT_FAILED;
 	}

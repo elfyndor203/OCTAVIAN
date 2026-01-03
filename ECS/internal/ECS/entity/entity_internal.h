@@ -4,7 +4,7 @@
 #include "OCT_Math.h"
 #include "ECS/entitySet/typeTable_internal.h"
 
-#define iOCT_NO_COMPONENT GENERIC_FAIL //unless you somehow end up with that many objects
+#define iOCT_NO_COMPONENT GENERIC_NONE //unless you somehow end up with that many objects
 #define iOCT_GAMEOBJECT_FAILED GENERIC_FAIL
 
 #define iOCT_ENTITY_DEFAULT_MAX 1024
@@ -33,6 +33,6 @@ iOCT_entity* iOCT_entity_get(iOCT_entitySetID entitySetID, iOCT_entityID entityI
 iOCT_entity* iOCT_entity_getPool(iOCT_entitySetID entitySetID);
 OCT_counter*  iOCT_entity_getCounter(iOCT_entitySetID entitySetID);
 
-iOCT_entityID iOCT_entity_createNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
+iOCT_entityID iOCT_entity_new(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
 bool iOCT_entity_hasComponent(iOCT_entitySetID entitySetID, iOCT_entityID entityID, OCT_componentTypes component);
 
