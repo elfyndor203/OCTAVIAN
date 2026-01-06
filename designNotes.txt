@@ -58,6 +58,13 @@ ECS
 5. entites are passed between modules using entityHandles, which are also globally unique and correspond to a entitySet/entity pair. 
 6. Entity sets must always be tightly packed, if an entity is deleted, move the last one to its spot and update all references and counters
 
+ID system
+
+1. When a pointer to something within a pool is needed, an ID to anything can be provided.
+2. The location within the pool is found through the map
+3. The ID is the index within the map that holds information that gives that location
+4. IDs never change, they can only be created, destroyed, and recycled
+
 Renderer
 
 1. Layers work similarly the same way as entitySets, but are distinct.
@@ -77,5 +84,8 @@ Messaging
 
 Memory
 
-1. As much as possible is preallocated
-2. The ONLY things that can be dynamically allocated are new entitySets or new layers, which preallocate all the memory for all entities and components unless expanded, and layers in the same way
+1. The only things that are dynamically allocated are ones that need the ability to expand e.g.:
+	a. pool arrays
+	b. map arrays
+	c. the global entitySet array
+	d. the global entitySet map

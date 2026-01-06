@@ -35,6 +35,7 @@
     <ClInclude Include="internal\_ECS_Input\messageHandling.h" />
     <ClInclude Include="internal\_ECS_Input\messageHandling_internal.h" />
     <ClInclude Include="internal\ECS\entitySet\typeMap.h" />
+    <ClInclude Include="internal\standards\ECSStandards_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />

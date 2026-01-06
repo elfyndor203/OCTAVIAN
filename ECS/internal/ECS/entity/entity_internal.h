@@ -9,9 +9,10 @@
 
 #define iOCT_ENTITY_DEFAULT_MAX 1024
 
-typedef size_t iOCT_entitySetID;	// redeclare to ensure everything else knows this ID
-typedef size_t iOCT_entityID;
-typedef size_t iOCT_componentID;
+typedef size_t iOCT_IDType;
+typedef iOCT_IDType iOCT_entitySetID;	// redeclare to ensure everything else knows this ID
+typedef iOCT_IDType iOCT_entityID;
+typedef iOCT_IDType iOCT_componentID;
 
 typedef struct iOCT_entity{
 	iOCT_entitySetID entitySetID;
