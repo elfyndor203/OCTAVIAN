@@ -8,7 +8,7 @@ size_t iOCT_entity_max = iOCT_ENTITY_DEFAULT_MAX;
 OCT_entityHandle testActiveEntity;
 
 ////////////////////////////////////////////////////////// getter functions
-iOCT_entity* iOCT_entity_get(iOCT_entitySetID entitySetID, iOCT_entityID entityID) {
+iOCT_entity* iOCT_entity_get(iOCT_entityContextID entitySetID, iOCT_entityID entityID) {
 	// check if entitySet exists, then if object exists within that entitySet
 	if (iOCT_entitySet_get(entitySetID) == iOCT_GET_FAILED || entityID > iOCT_entitySet_get(entitySetID)->entityCounter) {	
 		OCT_logError(ERR_ENTITY_DOES_NOT_EXIST);
@@ -18,7 +18,7 @@ iOCT_entity* iOCT_entity_get(iOCT_entitySetID entitySetID, iOCT_entityID entityI
 	return &iOCT_entitySet_get(entitySetID)->entityPool[entityID];	// access the entitySet, access the entity, and return its pointer
 }
 
-iOCT_entity* iOCT_entity_getPool(iOCT_entitySetID entitySetID) {
+iOCT_entity* iOCT_entity_getPool(iOCT_entityContextID entitySetID) {
 	if (iOCT_entitySet_get(entitySetID) == iOCT_GET_FAILED) {
 		OCT_logError(ERR_ENTITYPOOL_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
@@ -27,7 +27,7 @@ iOCT_entity* iOCT_entity_getPool(iOCT_entitySetID entitySetID) {
 	return &iOCT_entitySet_get(entitySetID)->entityPool;
 }
 
-OCT_counter* iOCT_entity_getCounter(iOCT_entitySetID entitySetID) {
+OCT_counter* iOCT_entity_getCounter(iOCT_entityContextID entitySetID) {
 	if (iOCT_entitySet_get(entitySetID) == iOCT_GET_FAILED) {
 		OCT_logError(ERR_ENTITYCOUNTER_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
@@ -37,7 +37,7 @@ OCT_counter* iOCT_entity_getCounter(iOCT_entitySetID entitySetID) {
 }
 ////////////////////////////////////////////////////////// getter functions
 
-iOCT_entityID iOCT_entity_new(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
+iOCT_entityID iOCT_entity_new(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
 	if (*iOCT_entity_getCounter(entitySetID) >= (iOCT_entity_max-1)) {	// checks if pool is full
 		logError(ERR_ENTITYPOOL_FULL);
 		return iOCT_GAMEOBJECT_FAILED;
@@ -65,7 +65,7 @@ iOCT_entityID iOCT_entity_new(iOCT_entitySetID entitySetID, iOCT_entityID parent
 	return entityID;
 }
 
-bool iOCT_entity_hasComponent(iOCT_entitySetID entitySetID, iOCT_entityID entityID, OCT_componentTypes component) {
+bool iOCT_entity_hasComponent(iOCT_entityContextID entitySetID, iOCT_entityID entityID, OCT_componentTypes component) {
 	if (iOCT_entity_get(entitySetID, entityID)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise
 		//printf("entity %zu DOES have componentTypes component #%d\n", entityID, component);
 		return true;

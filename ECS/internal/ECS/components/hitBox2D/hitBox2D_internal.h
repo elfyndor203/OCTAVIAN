@@ -19,12 +19,12 @@ typedef struct iOCT_hitBox2D{
 	float rotation;			// relative to the entity
 } iOCT_hitBox2D;
 
-iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
-iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_entitySetID entitySetID);
-OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entitySetID entitySetID);
+iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID);
+iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_entityContextID entitySetID);
+OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entityContextID entitySetID);
 
-iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
-void iOCT_hitBox2D_resize(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY);
-void iOCT_hitBox2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float rotation);
+iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entityContextID entitySetID, iOCT_entityID parentID);
+void iOCT_hitBox2D_resize(iOCT_entityContextID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY);
+void iOCT_hitBox2D_rotate(iOCT_entityContextID entitySetID, iOCT_entityID parentID, float rotation);
 
-OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
+OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entityContextID entitySetID, iOCT_entityID parentID);

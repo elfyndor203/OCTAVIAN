@@ -10,12 +10,12 @@
 #define iOCT_ENTITY_DEFAULT_MAX 1024
 
 typedef size_t iOCT_IDType;
-typedef iOCT_IDType iOCT_entitySetID;	// redeclare to ensure everything else knows this ID
+typedef iOCT_IDType iOCT_entityContextID;	// redeclare to ensure everything else knows this ID
 typedef iOCT_IDType iOCT_entityID;
 typedef iOCT_IDType iOCT_componentID;
 
 typedef struct iOCT_entity{
-	iOCT_entitySetID entitySetID;
+	iOCT_entityContextID entitySetID;
 	iOCT_entityID entityID;
 
 	bool is3D;					// in case of the rare 3d position usage
@@ -31,10 +31,10 @@ typedef struct iOCT_entity{
 extern OCT_entityHandle testActiveEntity;
 
 extern iOCT_VTable iOCT_entity_VTable;
-iOCT_entity* iOCT_entity_get(iOCT_entitySetID entitySetID, iOCT_entityID entityID);
-iOCT_entity* iOCT_entity_getPool(iOCT_entitySetID entitySetID);
-OCT_counter*  iOCT_entity_getCounter(iOCT_entitySetID entitySetID);
+iOCT_entity* iOCT_entity_get(iOCT_entityContextID entitySetID, iOCT_entityID entityID);
+iOCT_entity* iOCT_entity_getPool(iOCT_entityContextID entitySetID);
+OCT_counter*  iOCT_entity_getCounter(iOCT_entityContextID entitySetID);
 
-iOCT_entityID iOCT_entity_new(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
-bool iOCT_entity_hasComponent(iOCT_entitySetID entitySetID, iOCT_entityID entityID, OCT_componentTypes component);
+iOCT_entityID iOCT_entity_new(iOCT_entityContextID entitySetID, iOCT_entityID parentID);
+bool iOCT_entity_hasComponent(iOCT_entityContextID entitySetID, iOCT_entityID entityID, OCT_componentTypes component);
 

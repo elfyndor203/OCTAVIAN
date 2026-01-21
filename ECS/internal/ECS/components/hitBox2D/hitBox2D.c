@@ -5,8 +5,8 @@
 
 size_t iOCT_hitBox2D_max = iOCT_ENTITY_DEFAULT_MAX;
 
-iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
-    iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
+    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED || parentID >= entitySet->entityCounter) {
         OCT_logError(ERR_HITBOX2D_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -27,8 +27,8 @@ iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entitySetID entitySetID, iOCT_entityID par
     return &entitySet->hitBox2DPool[parent->hitBoxID];
 }
 
-iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_entitySetID entitySetID) {
-    iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_entityContextID entitySetID) {
+    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED) {
         OCT_logError(ERR_HITBOX2DPOOL_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -37,8 +37,8 @@ iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_entitySetID entitySetID) {
     //printf("Got hitBox2D pool from entitySet #%zu\n", entitySetID);
     return entitySet->hitBox2DPool; // array decays to pointer
 }
-OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entitySetID entitySetID) {
-    iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entityContextID entitySetID) {
+    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED) {
         OCT_logError(ERR_HITBOX2DCOUNTER_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -48,7 +48,7 @@ OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entitySetID entitySetID) {
     return &entitySet->hitBox2DCounter;
 }
 
-iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
+iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
     // Check if parent already has a hitBox2D component
     if (iOCT_entity_hasComponent(entitySetID, parentID, OCT_componentHitBox2D)) {
         OCT_logError(WARNING_COMPONENT_REPLACED);
@@ -85,18 +85,18 @@ iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityI
 }
 
 
-void iOCT_hitBox2D_resize(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY) {
+void iOCT_hitBox2D_resize(iOCT_entityContextID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY) {
     //printf("Resizing hitbox...\n");
 	iOCT_hitBox2D_get(entitySetID, parentID)->size.x = sizeX;
 	iOCT_hitBox2D_get(entitySetID, parentID)->size.y = sizeY;
 }
 
-void iOCT_hitBox2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float rotation) {
+void iOCT_hitBox2D_rotate(iOCT_entityContextID entitySetID, iOCT_entityID parentID, float rotation) {
     printf("Rotating hitbox...\n");
     iOCT_hitBox2D_get(entitySetID, parentID)->rotation += rotation;
 }
 
-OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
+OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
     iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(entitySetID, parentID);
 
     OCT_vertex2D globalCenter = OCT_vector2D_vector2D(OCT_OP_ADD, iOCT_position2D_get(entitySetID, parentID)->globalPosition2D, hitBox->localOrigin); // get absolute values NOTE_DOES_NOT_ACCOUNT_FOR_SCALE

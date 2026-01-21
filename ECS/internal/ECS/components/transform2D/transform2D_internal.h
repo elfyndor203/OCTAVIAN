@@ -21,10 +21,10 @@ typedef struct iOCT_transform2D {
 	OCT_vector2D scale;
 } iOCT_transform2D;
 
-iOCT_transform2D* iOCT_transform2D_get(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
-iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entitySetID entitySetID);
-OCT_counter* iOCT_transform2D_getCounter(iOCT_entitySetID entitySetID);
+iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID);
+iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entityContextID entitySetID);
+OCT_counter* iOCT_transform2D_getCounter(iOCT_entityContextID entitySetID);
 
-iOCT_componentID iOCT_transform2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID);
-void iOCT_transform2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float degrees);
+iOCT_componentID iOCT_transform2D_addNew(iOCT_entityContextID entitySetID, iOCT_entityID parentID);
+void iOCT_transform2D_rotate(iOCT_entityContextID entitySetID, iOCT_entityID parentID, float degrees);
 

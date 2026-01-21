@@ -7,8 +7,8 @@ size_t iOCT_MAX_TRANSFORM2D = iOCT_ENTITY_DEFAULT_MAX;
 
 OCT_vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 
-iOCT_transform2D* iOCT_transform2D_get(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
-    iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
+    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED || parentID >= entitySet->entityCounter) {
         OCT_logError(ERR_TRANSFORM2D_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -28,8 +28,8 @@ iOCT_transform2D* iOCT_transform2D_get(iOCT_entitySetID entitySetID, iOCT_entity
     //printf("Got transform2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
     return &entitySet->transform2DPool[parent->transformID];
 }
-iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entitySetID entitySetID) {
-    iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entityContextID entitySetID) {
+    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED) {
         OCT_logError(ERR_TRANSFORM2DPOOL_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -38,8 +38,8 @@ iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entitySetID entitySetID) {
     //printf("Got transform2D pool from entitySet #%zu\n", entitySetID);
     return entitySet->transform2DPool;
 }
-OCT_counter* iOCT_transform2D_getCounter(iOCT_entitySetID entitySetID) {
-    iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+OCT_counter* iOCT_transform2D_getCounter(iOCT_entityContextID entitySetID) {
+    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED) {
         OCT_logError(ERR_TRANSFORM2DCOUNTER_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -51,7 +51,7 @@ OCT_counter* iOCT_transform2D_getCounter(iOCT_entitySetID entitySetID) {
 
 
 
-iOCT_componentID iOCT_transform2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
+iOCT_componentID iOCT_transform2D_addNew(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
     // Check if parent already has a transform component
     if (iOCT_entity_hasComponent(entitySetID, parentID, OCT_componentTransform2D)) {
         OCT_logError(WARNING_COMPONENT_REPLACED);
@@ -90,7 +90,7 @@ iOCT_componentID iOCT_transform2D_addNew(iOCT_entitySetID entitySetID, iOCT_enti
     return transformID;
 }
 
-void iOCT_transform2D_rotate(iOCT_entitySetID entitySetID, iOCT_entityID parentID, float degrees) {
+void iOCT_transform2D_rotate(iOCT_entityContextID entitySetID, iOCT_entityID parentID, float degrees) {
     iOCT_transform2D_get(entitySetID, parentID)->rotation -= OCT_deg2rad(degrees);  //NOTE_FOR_CCW_UNSURE_WHY
 }
 
