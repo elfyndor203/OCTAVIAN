@@ -9,5 +9,8 @@
 typedef struct iOCT_IDMap {
 	iOCT_ID entityContextID;
 	OCT_counter counter;
-	OCT_index array;				// array of indices
+	OCT_index* array;				// array of indices
 } iOCT_IDMap;
+
+iOCT_IDMap* iOCT_IDMap_get(iOCT_ID entityContextID);
+bool iOCT_IDMap_allocate(iOCT_ID entityContextID);

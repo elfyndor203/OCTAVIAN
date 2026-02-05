@@ -10,7 +10,8 @@
 
 
 iOCT_entityContext* iOCT_entityContext_get(iOCT_ID entityContextID) {				// valid as long as the entitySet exists
-	return &iOCT_GAME_ECS.iOCT_entitySetPool[location];
+	OCT_index index = iOCT_ECS_active->iOCT_entityContextMap[entityContextID];
+	return &iOCT_ECS_active->iOCT_entityContextPool[index];
 }
 
 static iOCT_entityID iOCT_rootEntity_new(iOCT_entityContext* entitySet) {
@@ -38,7 +39,6 @@ static iOCT_entityID iOCT_rootEntity_new(iOCT_entityContext* entitySet) {
 }
 
 
-
 /// <summary>
 /// Generates a new fresh entitySet. Allocates pool and ID arrays, then returns the root entity handle for use. 
 /// </summary>
@@ -61,16 +61,12 @@ OCT_entityHandle iOCT_entityContext_open() {
 	return rootHandle;
 }
 
-void iOCT_globalLists_initialize() {
-	memset(iOCT_entitySetPool_default, 0, sizeof(iOCT_entitySetPool_default));
-	printf("EntitySet zeroed out\n");
+void* iOCT_getByID(iOCT_ID entityContextID, OCT_componentTypes componentType, iOCT_ID ID) {
+	iOCT_pool* pool = iOCT_pool_get(entityContextID, componentType);
+	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
+	OCT_index index = map->array[ID];
+	return &pool[index];
 }
-
-
-
-
-
-
 
 
 

@@ -1,6 +1,6 @@
 #include "entity_internal.h"
 
-#include "ECS/entitySet/entitySet_internal.h"
+#include "ECS/entityContext/entityContext_internal.h"
 #include "ECS/components/position2D/position2D_internal.h"		// two required components
 #include "ECS/components/transform2D/transform2D_internal.h"
 

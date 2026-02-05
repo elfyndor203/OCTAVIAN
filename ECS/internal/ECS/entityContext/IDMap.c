@@ -3,11 +3,11 @@
 
 static iOCT_IDMap failedMap = { OCT_GENERIC_FAIL, OCT_GENERIC_FAIL, NULL };
 
-iOCT_IDMap* iOCT_IDMap_get(iOCT_entityContextID entityContextID) {
+iOCT_IDMap* iOCT_IDMap_get(iOCT_ID entityContextID) {
 	return &iOCT_entityContext_get(entityContextID)->IDmap;
 }
 
-bool iOCT_IDMap_allocate(iOCT_entityContextID entityContextID) {
+bool iOCT_IDMap_allocate(iOCT_ID entityContextID) {
 	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
 
 	map->entityContextID = entityContextID;

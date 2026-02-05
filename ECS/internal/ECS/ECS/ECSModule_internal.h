@@ -9,3 +9,5 @@ typedef struct iOCT_game_ECS {
 	OCT_index* iOCT_entityContextMap;
 	OCT_counter* iOCT_entityContextCounter;
 } iOCT_game_ECS;
+
+iOCT_game_ECS* iOCT_ECS_active;	// Current running ECS

@@ -8,9 +8,8 @@
 
 #define iOCT_ENTITYCONTEXT_DEFAULT_MAX 64
 
-
 /// <summary>
-/// entitySets define which pools interact with each other. Each holds a rootEntity, which is by default the first in the entity pool.
+/// Opening an entityContext allows you to create entities that interact with each other. Each context manages its own pools and IDmap.
 /// </summary>
 typedef struct entityContext{
 	iOCT_ID entityContextID;
@@ -20,8 +19,8 @@ typedef struct entityContext{
 	iOCT_pool pools[OCT_componentsTotal];
 } iOCT_entityContext;
 
-void iOCT_globalLists_initialize();
-
 iOCT_entityContext* iOCT_entityContext_get(iOCT_ID entityContextID);
 OCT_entityHandle iOCT_entityContext_open();
+void iOCT_entityContext_close();
+void* iOCT_getByID(iOCT_ID entityContextID, OCT_componentTypes componentType, iOCT_ID ID);
 
