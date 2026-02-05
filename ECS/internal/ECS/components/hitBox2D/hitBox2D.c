@@ -6,7 +6,7 @@
 size_t iOCT_hitBox2D_max = iOCT_ENTITY_DEFAULT_MAX;
 
 iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
-    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
+    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED || parentID >= entitySet->entityCounter) {
         OCT_logError(ERR_HITBOX2D_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -28,7 +28,7 @@ iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entityContextID entitySetID, iOCT_entityID
 }
 
 iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_entityContextID entitySetID) {
-    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
+    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED) {
         OCT_logError(ERR_HITBOX2DPOOL_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -38,7 +38,7 @@ iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_entityContextID entitySetID) {
     return entitySet->hitBox2DPool; // array decays to pointer
 }
 OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entityContextID entitySetID) {
-    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
+    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED) {
         OCT_logError(ERR_HITBOX2DCOUNTER_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;

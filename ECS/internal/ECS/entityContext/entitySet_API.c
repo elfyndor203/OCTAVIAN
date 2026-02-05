@@ -2,7 +2,7 @@
 
 
 iOCT_entityContext* OCT_entitySet_get(OCT_entitySetID entitySetID) {
-	return iOCT_entitySet_get(entitySetID);
+	return iOCT_entityContext_get(entitySetID);
 }
 OCT_entitySetID OCT_entitySet_new() {
 	return iOCT_entityContext_open();

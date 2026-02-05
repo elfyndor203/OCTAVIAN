@@ -10,30 +10,30 @@ OCT_entityHandle testActiveEntity;
 ////////////////////////////////////////////////////////// getter functions
 iOCT_entity* iOCT_entity_get(iOCT_entityContextID entitySetID, iOCT_entityID entityID) {
 	// check if entitySet exists, then if object exists within that entitySet
-	if (iOCT_entitySet_get(entitySetID) == iOCT_GET_FAILED || entityID > iOCT_entitySet_get(entitySetID)->entityCounter) {	
+	if (iOCT_entityContext_get(entitySetID) == iOCT_GET_FAILED || entityID > iOCT_entityContext_get(entitySetID)->entityCounter) {	
 		OCT_logError(ERR_ENTITY_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
 	//printf("Got entity #%zu from entitySet #%zu\n", entityID, entitySetID);
-	return &iOCT_entitySet_get(entitySetID)->entityPool[entityID];	// access the entitySet, access the entity, and return its pointer
+	return &iOCT_entityContext_get(entitySetID)->entityPool[entityID];	// access the entitySet, access the entity, and return its pointer
 }
 
 iOCT_entity* iOCT_entity_getPool(iOCT_entityContextID entitySetID) {
-	if (iOCT_entitySet_get(entitySetID) == iOCT_GET_FAILED) {
+	if (iOCT_entityContext_get(entitySetID) == iOCT_GET_FAILED) {
 		OCT_logError(ERR_ENTITYPOOL_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
 	//printf("Got entityPool from entitySet #%zu\n", entitySetID);
-	return &iOCT_entitySet_get(entitySetID)->entityPool;
+	return &iOCT_entityContext_get(entitySetID)->entityPool;
 }
 
 OCT_counter* iOCT_entity_getCounter(iOCT_entityContextID entitySetID) {
-	if (iOCT_entitySet_get(entitySetID) == iOCT_GET_FAILED) {
+	if (iOCT_entityContext_get(entitySetID) == iOCT_GET_FAILED) {
 		OCT_logError(ERR_ENTITYCOUNTER_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
 	}
 	//printf("Got entityCounter from entitySet #%zu\n", entitySetID);
-	return &iOCT_entitySet_get(entitySetID)->entityCounter;
+	return &iOCT_entityContext_get(entitySetID)->entityCounter;
 }
 ////////////////////////////////////////////////////////// getter functions
 

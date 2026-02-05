@@ -8,7 +8,7 @@ size_t iOCT_MAX_TRANSFORM2D = iOCT_ENTITY_DEFAULT_MAX;
 OCT_vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
 
 iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
-    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
+    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED || parentID >= entitySet->entityCounter) {
         OCT_logError(ERR_TRANSFORM2D_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -29,7 +29,7 @@ iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContextID entitySetID, iOCT_en
     return &entitySet->transform2DPool[parent->transformID];
 }
 iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entityContextID entitySetID) {
-    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
+    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED) {
         OCT_logError(ERR_TRANSFORM2DPOOL_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;
@@ -39,7 +39,7 @@ iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entityContextID entitySetID) {
     return entitySet->transform2DPool;
 }
 OCT_counter* iOCT_transform2D_getCounter(iOCT_entityContextID entitySetID) {
-    iOCT_entityContext* entitySet = iOCT_entitySet_get(entitySetID);
+    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
     if (entitySet == iOCT_GET_FAILED) {
         OCT_logError(ERR_TRANSFORM2DCOUNTER_DOES_NOT_EXIST);
         return iOCT_GET_FAILED;

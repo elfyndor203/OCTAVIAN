@@ -19,3 +19,4 @@ OCT_index iOCT_pool_nextIndex(iOCT_entityContext* entityCtx, OCT_componentTypes 
 	entityCtx->pools[componentType].counter += 1;
 	return index;
 }
+

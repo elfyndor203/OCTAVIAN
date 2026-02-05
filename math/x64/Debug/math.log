@@ -1,6 +1,4 @@
 ﻿  rectangle2D.c
-  constants.c
-  conversions.c
   vector2DScalar.c
   vector2DVector2D.c
   Generating Code...

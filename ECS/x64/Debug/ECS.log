@@ -1,64 +1,121 @@
 ﻿  hitBox2D.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/ECS/components/hitBox2D/hitBox2D.c')
+  
   hitBox2D_API.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(10,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(12,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(15,16): warning C4047: '==': 'iOCT_entity *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(18,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(23,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(32,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(34,9): warning C4047: 'return': 'iOCT_hitBox2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(42,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(44,9): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(104,18): warning C4101: 'globalSize': unreferenced local variable
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D_API.c(7,84): warning C4305: 'function': truncation from 'unsigned __int64' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D_API.c(18,73): warning C4305: 'function': truncation from 'unsigned __int64' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D_API.c(18,87): warning C4305: 'function': truncation from 'unsigned __int64' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/ECS/components/hitBox2D/hitBox2D_API.c')
+  
   physics2D.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\physics2D\physics2D.c(3,10): error C1083: Cannot open include file: 'ECS/entitySet/entitySet_internal.h': No such file or directory
   position2D.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(12,16): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(14,3): warning C4047: 'return': 'iOCT_position2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(18,13): warning C4047: '==': 'iOCT_entity *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(20,3): warning C4047: 'return': 'iOCT_position2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(25,3): warning C4047: 'return': 'iOCT_position2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(34,16): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(36,3): warning C4047: 'return': 'iOCT_position2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(44,16): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(46,3): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D.c(59,3): warning C4013: 'logError' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/ECS/components/position2D/position2D.c')
+  
   position2D_API.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D_API.c(13,77): warning C4305: 'function': truncation from 'unsigned __int64' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\position2D\position2D_API.c(13,91): warning C4305: 'function': truncation from 'unsigned __int64' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/ECS/components/position2D/position2D_API.c')
+  
   transform2D_API.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D_API.c(12,77): warning C4305: 'function': truncation from 'unsigned __int64' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D_API.c(12,91): warning C4305: 'function': truncation from 'unsigned __int64' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/ECS/components/transform2D/transform2D_API.c')
+  
   transform2D.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(12,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(14,9): warning C4047: 'return': 'iOCT_transform2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(18,16): warning C4047: '==': 'iOCT_entity *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(20,9): warning C4047: 'return': 'iOCT_transform2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(25,9): warning C4047: 'return': 'iOCT_transform2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(33,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(35,9): warning C4047: 'return': 'iOCT_transform2D *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(43,19): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(45,9): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/ECS/components/transform2D/transform2D.c')
+  
+  IDMap.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\IDMap_internal.h(11,2): error C2061: syntax error: identifier 'iOCT_counter'
+  (compiling source file 'internal/ECS/entitySet/IDMap.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\IDMap_internal.h(13,1): error C2059: syntax error: '}'
+  (compiling source file 'internal/ECS/entitySet/IDMap.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\IDMap.c(2,10): error C1083: Cannot open include file: 'entitySet_internal.h': No such file or directory
+  pools.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\pools.c(2,10): error C1083: Cannot open include file: 'entitySet_internal.h': No such file or directory
+  poolUtils.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\poolUtils.c(1,10): error C1083: Cannot open include file: 'entitySet_internal.h': No such file or directory
   entity.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(13,38): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(15,3): warning C4047: 'return': 'iOCT_entity *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(22,38): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(24,3): warning C4047: 'return': 'iOCT_entity *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(27,2): warning C4047: 'return': 'iOCT_entity *' differs in levels of indirection from 'iOCT_entity (*)[1024]'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(31,38): warning C4047: '==': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(33,3): warning C4047: 'return': 'OCT_counter *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(42,3): warning C4013: 'logError' undefined; assuming extern returning int
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/ECS/entity/entity.c')
+  
   entity_API.c
-  entitySet.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c(12,3): warning C4047: 'return': 'iOCT_entitySet *' differs in levels of indirection from 'unsigned __int64'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entitySet.c(49,2): warning C4013: 'memset' undefined; assuming extern returning int
-  entitySet_API.c
-  ECSStandards.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/ECS/entity/entity_API.c')
+  
+  entityContext.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(15,2): error C2061: syntax error: identifier 'iOCT_entityContext'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(17,1): error C2059: syntax error: '}'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(26,2): error C2061: syntax error: identifier 'iOCT_IDMap'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(27,12): error C2061: syntax error: identifier 'pools'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(27,12): error C2059: syntax error: ';'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(27,17): error C2059: syntax error: '['
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(28,1): error C2059: syntax error: '}'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(32,19): error C2143: syntax error: missing '{' before '*'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(35,10): error C2143: syntax error: missing '{' before '*'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(36,39): error C2143: syntax error: missing ')' before '*'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(36,39): error C2143: syntax error: missing '{' before '*'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(36,52): error C2370: 'OCT_componentTypes': redefinition; different storage class
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\EngineStructure\include\engineLayout.h(16,3):
+      see declaration of 'OCT_componentTypes'
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(36,71): error C2146: syntax error: missing ';' before identifier 'componentType'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(36,84): error C2059: syntax error: ')'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(39,39): error C2143: syntax error: missing ')' before '*'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(39,39): error C2143: syntax error: missing '{' before '*'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(39,52): error C2371: 'OCT_index': redefinition; different basic types
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Math\include\definitions\aliases.h(5,16):
+      see declaration of 'OCT_index'
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(39,62): error C2146: syntax error: missing ';' before identifier 'index'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entitySet\entityContext_internal.h(39,67): error C2059: syntax error: ')'
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/ECS/entitySet/entityContext.c')
+  
   messageHandling.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/_ECS_Input/messageHandling.c')
+  
   messageHandling_API.c
   vertexData.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity_internal.h(5,10): error C1083: Cannot open include file: 'ECS/entitySet/typeTable_internal.h': No such file or directory
+  (compiling source file 'internal/_ECS_Output/vertexData.c')
+  
   Generating Code...
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\_ECS_Output\vertexData.c(12,1): warning C4715: '_REN_rectVertices_get': not all control paths return a value
-  ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.lib
