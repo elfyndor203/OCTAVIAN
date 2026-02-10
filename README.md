@@ -5,3 +5,6 @@ A simple modular entity-component structure game engine written in C
 - OpenGL 3.3
 - GLAD
 - GLFW
+
+## Structure
+### ECS (Engine) Module
