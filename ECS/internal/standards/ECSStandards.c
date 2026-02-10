@@ -1,12 +1,3 @@
 #include "ECSStandards_internal.h"
-	#include "standards/ECSStandards.h"
-
-void* mallocCheck(size_t sizeToMalloc, const char* name) {
-	void* pointer = malloc(sizeToMalloc);
-	if (pointer == NULL) {
-		printf("Failed to allocate memory for %s", name);
-		OCT_logError(EXIT_FAILED_TO_ALLOCATE);
-	}
-	return pointer;
-}
+#include "standards/ECSStandards.h"
 

@@ -7,8 +7,8 @@ size_t iOCT_MAX_POSITION2D = iOCT_ENTITY_DEFAULT_MAX;
 
 OCT_vector2D defaultPosition2D = { DEFAULT_POSITION_X, DEFAULT_POSITION_Y };
 
-iOCT_position2D* iOCT_position2D_get(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {
-	iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+iOCT_position2D* iOCT_position2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
+	iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
 	if (entitySet == iOCT_GET_FAILED || parentID >= entitySet->entityCounter) {
 		OCT_logError(ERR_POSITION2D_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
@@ -29,8 +29,8 @@ iOCT_position2D* iOCT_position2D_get(iOCT_entitySetID entitySetID, iOCT_entityID
 	return &entitySet->position2DPool[parent->positionID];
 }
 
-iOCT_position2D* iOCT_position2D_getPool(iOCT_entitySetID entitySetID) {
-	iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+iOCT_position2D* iOCT_position2D_getPool(iOCT_entityContextID entitySetID) {
+	iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
 	if (entitySet == iOCT_GET_FAILED) {
 		OCT_logError(ERR_POSITION2DPOOL_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
@@ -39,8 +39,8 @@ iOCT_position2D* iOCT_position2D_getPool(iOCT_entitySetID entitySetID) {
 	//printf("Got position2D pool from entitySet #%zu\n", entitySetID);
 	return entitySet->position2DPool; // array decay to pointer
 }
-OCT_counter* iOCT_position2D_getCounter(iOCT_entitySetID entitySetID) {
-	iOCT_entitySet* entitySet = iOCT_entitySet_get(entitySetID);
+OCT_counter* iOCT_position2D_getCounter(iOCT_entityContextID entitySetID) {
+	iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
 	if (entitySet == iOCT_GET_FAILED) {
 		OCT_logError(ERR_POSITION2DCOUNTER_DOES_NOT_EXIST);
 		return iOCT_GET_FAILED;
@@ -50,11 +50,11 @@ OCT_counter* iOCT_position2D_getCounter(iOCT_entitySetID entitySetID) {
 	return &entitySet->position2DCounter;
 }
 
-iOCT_componentID iOCT_position2D_addNew(iOCT_entitySetID entitySetID, iOCT_entityID parentID) {								// attaches a new default position2D to some entity
-	if (iOCT_entity_hasComponent(entitySetID, parentID, componentPosition2D)) {
+iOCT_componentID iOCT_position2D_addNew(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {								// attaches a new default position2D to some entity
+	if (iOCT_entity_hasComponent(entitySetID, parentID, OCT_componentPosition2D)) {
 		OCT_logError(WARNING_COMPONENT_REPLACED);
 	}
-	OCT_counter* counter = iOCT_transform2D_getCounter(entitySetID);
+	OCT_counter* counter = iOCT_position2D_getCounter(entitySetID);
 	if (*counter >= iOCT_MAX_POSITION2D) {
 		logError(ERR_POSITION2DPOOL_FULL);
 		return iOCT_POSITION2D_FAILED;
@@ -63,7 +63,7 @@ iOCT_componentID iOCT_position2D_addNew(iOCT_entitySetID entitySetID, iOCT_entit
 	iOCT_position2D newPosition2D = { 0 };
 
 	iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);
-	parent->componentsMask |= (1ULL << componentPosition2D);		// parent object knows it exists
+	parent->componentsMask |= (1ULL << OCTcomponentPosition2D);		// parent object knows it exists
 
 	iOCT_componentID positionID = *counter;		// setting values
 	newPosition2D.positionID = positionID;									// it can find itself
@@ -79,7 +79,23 @@ iOCT_componentID iOCT_position2D_addNew(iOCT_entitySetID entitySetID, iOCT_entit
 	return positionID;
 }
 
-void iOCT_position2D_move(iOCT_entitySetID entitySetID, iOCT_entityID parentID, OCT_vector2D distance) {
+iOCT_componentID iOCT_position2D_new(iOCT_entityContext* entityCtx, iOCT_entity* parent) {
+	if (iOCT_entity_hasComponent(entityCtx, parent, OCT_componentPosition2D)) {
+		OCT_logError(WARNING_COMPONENT_REPLACED);
+	}
+	if (iOCT_pool_full(entityCtx, OCT_componentPosition2D)) {
+		// expand
+	}
+
+	parent->componentsMask |= (1ULL << OCT_componentPosition2D);
+
+	iOCT_position2D newPosition2D = { 0 };
+	newPosition2D.positionID = iOCT_ID_new(entityCtx, )
+
+}
+
+
+void iOCT_position2D_move(iOCT_entityContextID entitySetID, iOCT_entityID parentID, OCT_vector2D distance) {
 	iOCT_position2D* position = iOCT_position2D_get(entitySetID, parentID);
 	position->globalPosition2D.x += distance.x;
 	position->globalPosition2D.y += distance.y;

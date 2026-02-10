@@ -7,19 +7,17 @@
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\math\vectors.h" />
-    <ClInclude Include="internal\standards\ECSStandards_internal.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="internal\ECS\components\position2D\position2D_internal.h" />
     <ClInclude Include="internal\ECS\components\transform2D\transform2D_internal.h" />
     <ClInclude Include="internal\ECS\entity\entity_internal.h" />
-    <ClInclude Include="internal\ECS\entitySet\entitySet_internal.h" />
+    <ClInclude Include="internal\ECS\entityContext\entityContext_internal.h" />
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\myStandards.h" />
     <ClInclude Include="internal\ECS\components\physics2D\physics2D_internal.h" />
-    <ClInclude Include="internal\ECS\components\componentTypes\componentTypes_internal.h" />
     <ClInclude Include="include\ECS\components\hitBox2D\hitBox2D.h" />
     <ClInclude Include="include\ECS\components\physics2D\physics2D.h" />
     <ClInclude Include="include\ECS\components\position2D\position2D.h" />
@@ -33,20 +31,32 @@
     <ClInclude Include="include\_ECS_Output\vertexData.h" />
     <ClInclude Include="include\ECS\components\sprite2D\sprite2D.h" />
     <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
+    <ClInclude Include="include\_ECS_Input\messageHandling.h" />
+    <ClInclude Include="internal\_ECS_Input\messageHandling.h" />
+    <ClInclude Include="internal\_ECS_Input\messageHandling_internal.h" />
+    <ClInclude Include="internal\ECS\entitySet\typeMap.h" />
+    <ClInclude Include="internal\standards\ECSStandards_internal.h" />
+    <ClInclude Include="internal\ECS\components\utilities\utilities_internal.h" />
+    <ClInclude Include="internal\ECS\entityContext\pools_internal.h" />
+    <ClInclude Include="internal\ECS\entityContext\IDMap_internal.h" />
+    <ClInclude Include="internal\ECS\ECS\ECSModule_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />
-    <ClCompile Include="internal\standards\ECSStandards.c" />
     <ClCompile Include="internal\ECS\components\position2D\position2D.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
-    <ClCompile Include="internal\ECS\entitySet\entitySet.c" />
+    <ClCompile Include="internal\ECS\entityContext\entityContext.c" />
     <ClCompile Include="internal\ECS\components\physics2D\physics2D.c" />
     <ClCompile Include="internal\ECS\entity\entity_API.c" />
     <ClCompile Include="internal\ECS\components\position2D\position2D_API.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D_API.c" />
-    <ClCompile Include="internal\ECS\entitySet\entitySet_API.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D_API.c" />
     <ClCompile Include="internal\_ECS_Output\vertexData.c" />
+    <ClCompile Include="internal\_ECS_Input\messageHandling.c" />
+    <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
+    <ClCompile Include="internal\ECS\entityContext\pools.c" />
+    <ClCompile Include="internal\ECS\entityContext\IDMap.c" />
+    <ClCompile Include="internal\ECS\ECS\ECSModule.c" />
   </ItemGroup>
 </Project>

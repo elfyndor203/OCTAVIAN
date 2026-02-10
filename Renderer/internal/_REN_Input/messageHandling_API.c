@@ -1,5 +1,5 @@
 #include "messageHandling_internal.h"
 
-void OCT_handleMessages(void) {
-	iOCT_handleMessages();
+void OCT_handleRendererMessages(void) {
+	iOCT_handleRendererMessages();
 }

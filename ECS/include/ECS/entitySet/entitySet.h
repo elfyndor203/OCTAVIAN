@@ -5,9 +5,9 @@
 #include "ECS/components/position2D/position2D.h"
 #include "ECS/components/transform2D/transform2D.h"
 #include "ECS/components/hitBox2D/hitBox2D.h"
+#include "OCT_EngineStructure.h"
 
 #define OCT_ROOT_OBJECT 0
-#define _OCT_ENTITYSET_DEFAULT_MAX 64
 
 typedef size_t OCT_entitySetID;
 

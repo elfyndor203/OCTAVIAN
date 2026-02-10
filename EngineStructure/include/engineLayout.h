@@ -1,26 +1,25 @@
 #pragma once
 
 typedef enum {
-	_OCT_ECS,
-	_OCT_Renderer
+	_OCT_ECS = 1000,
+	_OCT_Renderer = 2000
 } _OCT_subsystemList;
 
 typedef enum {					// componentsTotal == the number of actual components
-	componentParentObject,		// 1 to 1s
-	componentPosition2D,
-	componentTransform2D,
-	componentHitBox2D,
+	OCT_componentEntity,		// not a component, but useful as it behaves similarly
 
-	componentSprite2D,
+	OCT_componentPosition2D,	// 1 to 1s
+	OCT_componentTransform2D,
+	OCT_componentHitBox2D,
 
-	componentChildObject,		// multiple to 1s
-
-	componentsTotal
+	OCT_componentsTotal
 } OCT_componentTypes;
+typedef size_t OCT_componentID;
 
 typedef struct {
 	size_t entitySetID;
 	size_t entityID;
 } OCT_entityHandle;
 
-extern OCT_entityHandle _OCT_ACTIVE;
+extern OCT_entityHandle _OCT_active;
+extern OCT_entityHandle _OCT_errorHandle;

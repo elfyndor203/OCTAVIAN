@@ -4,6 +4,11 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
   
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/_REN_Input/bufferGeneration.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
+  
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
   (compiling source file 'internal/_REN_Input/bufferGeneration.c')
   
@@ -12,6 +17,11 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
   (compiling source file 'internal/_REN_Input/messageHandling.c')
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/_REN_Input/messageHandling.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
   
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
   (compiling source file 'internal/_REN_Input/messageHandling.c')
@@ -22,12 +32,21 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
   
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\input\testCallback.c(9,66): warning C4244: 'function': conversion from 'double' to 'uint64_t', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/input/testCallback.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
+  
   layer.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
   (compiling source file 'internal/renderer/layer/layer.c')
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/renderer/layer/layer.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
   
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(13,3): warning C4047: 'return': 'iOCT_layer *' differs in levels of indirection from 'unsigned __int64'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(36,2): warning C4013: 'memset' undefined; assuming extern returning int
@@ -37,11 +56,21 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
   
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/renderer/layer/layer_API.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
+  
   rendererObject.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
   (compiling source file 'internal/renderer/rendererObject/rendererObject.c')
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/renderer/rendererObject/rendererObject.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
   
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
   (compiling source file 'internal/renderer/rendererObject/rendererObject.c')
@@ -60,11 +89,21 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
   
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/renderer/rendererObject/rendererObject_API.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
+  
   window.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
   (compiling source file 'internal/renderer/window/window.c')
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/renderer/window/window.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
   
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(29,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\window\window.c(29,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
@@ -75,6 +114,11 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
   
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/shaders/shader/shader.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
+  
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
   (compiling source file 'internal/shaders/shader/shader.c')
   
@@ -83,6 +127,11 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
   (compiling source file 'internal/shaders/shader/shader_API.c')
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
       'GLFW_STATIC' previously declared on the command line
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(8,9): warning C4005: 'OCT_GENERIC_FAIL': macro redefinition
+  (compiling source file 'internal/shaders/shader/shader_API.c')
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
+      see previous definition of 'OCT_GENERIC_FAIL'
   
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
   (compiling source file 'internal/shaders/shader/shader_API.c')

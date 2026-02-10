@@ -1,4 +1,4 @@
 #pragma once
 #include <stdbool.h>
 
-void iOCT_handleMessages(void);
+void iOCT_handleRendererMessages(void);

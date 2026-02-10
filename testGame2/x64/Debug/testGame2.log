@@ -1,6 +1,4 @@
 ﻿  main.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(23,35): warning C4305: 'function': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(23,40): warning C4305: 'function': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(33,35): warning C4305: 'function': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(33,43): warning C4305: 'function': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(50,35): warning C4305: 'function': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\testGame2\main.c(50,40): warning C4305: 'function': truncation from 'double' to 'float'
   testGame2.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\testGame2.exe
