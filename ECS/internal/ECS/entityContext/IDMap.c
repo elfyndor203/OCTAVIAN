@@ -1,5 +1,6 @@
 #include "IDMap_internal.h"
 #include "entityContext_internal.h"
+#include "pools_internal.h"
 
 static iOCT_IDMap failedMap = { OCT_GENERIC_FAIL, OCT_GENERIC_FAIL, NULL };
 
@@ -7,25 +8,37 @@ iOCT_IDMap* iOCT_IDMap_get(iOCT_ID entityContextID) {
 	return &iOCT_entityContext_get(entityContextID)->IDmap;
 }
 
+// Allocates initial memory for a single entityContext.
 bool iOCT_IDMap_allocate(iOCT_ID entityContextID) {
 	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
 
 	map->entityContextID = entityContextID;
 	map->counter = 0;
-	map->array = calloc(iOCT_POOLSIZE_DEFAULT * OCT_componentsTotal, sizeof(OCT_index));
+	map->array = calloc(iOCT_POOLSIZE_DEFAULT * OCT_componentsTotal, sizeof(iOCT_uniqueIndex));
 	if (!map->array) {
 		return false;
 	}
 	return true;
 }
 
-/// <summary>
-/// Generates an available ID for the entitySet. Entities and components must register an ID to be found later.
-/// </summary>
-//iOCT_ID iOCT_ID_new(iOCT_entityContext* entitySet, OCT_index index) {
-//	iOCT_IDMap* map = &entitySet->IDmap;
-//
-//	OCT_counter newID = entitySet->IDmap.counter;
-//	map->array[newID] = index;
-//	map->counter += 1;
-//}
+// Registers the next available ID with the provided pool index for any new entity or component
+iOCT_ID iOCT_IDMap_registerID(iOCT_ID entityContextID, OCT_componentTypes componentType) {
+	iOCT_ID newID;
+	OCT_index newIndex;
+
+	iOCT_IDMap* IDMap = iOCT_IDMap_get(entityContextID);
+	iOCT_pool* pool = iOCT_pool_get(entityContextID, componentType);
+
+	newID = IDMap->counter;		// Grabs the next available ID
+	IDMap->counter += 1;
+	newIndex = pool->counter;
+	pool->counter += 1;
+
+	iOCT_uniqueIndex uniqueIndex = {		// index stays with the map
+		.componentType = componentType,
+		.index = newIndex
+	};
+
+	IDMap->array[newID] = uniqueIndex;		// Registers the index with the ID
+	return newID;							// only ID gets returned
+}

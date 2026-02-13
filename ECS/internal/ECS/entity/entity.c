@@ -7,37 +7,7 @@
 size_t iOCT_entity_max = iOCT_ENTITY_DEFAULT_MAX;
 OCT_entityHandle testActiveEntity;
 
-////////////////////////////////////////////////////////// getter functions
-iOCT_entity* iOCT_entity_get(iOCT_entityContextID entitySetID, iOCT_entityID entityID) {
-	// check if entitySet exists, then if object exists within that entitySet
-	if (iOCT_entityContext_get(entitySetID) == iOCT_GET_FAILED || entityID > iOCT_entityContext_get(entitySetID)->entityCounter) {	
-		OCT_logError(ERR_ENTITY_DOES_NOT_EXIST);
-		return iOCT_GET_FAILED;
-	}
-	//printf("Got entity #%zu from entitySet #%zu\n", entityID, entitySetID);
-	return &iOCT_entityContext_get(entitySetID)->entityPool[entityID];	// access the entitySet, access the entity, and return its pointer
-}
-
-iOCT_entity* iOCT_entity_getPool(iOCT_entityContextID entitySetID) {
-	if (iOCT_entityContext_get(entitySetID) == iOCT_GET_FAILED) {
-		OCT_logError(ERR_ENTITYPOOL_DOES_NOT_EXIST);
-		return iOCT_GET_FAILED;
-	}
-	//printf("Got entityPool from entitySet #%zu\n", entitySetID);
-	return &iOCT_entityContext_get(entitySetID)->entityPool;
-}
-
-OCT_counter* iOCT_entity_getCounter(iOCT_entityContextID entitySetID) {
-	if (iOCT_entityContext_get(entitySetID) == iOCT_GET_FAILED) {
-		OCT_logError(ERR_ENTITYCOUNTER_DOES_NOT_EXIST);
-		return iOCT_GET_FAILED;
-	}
-	//printf("Got entityCounter from entitySet #%zu\n", entitySetID);
-	return &iOCT_entityContext_get(entitySetID)->entityCounter;
-}
-////////////////////////////////////////////////////////// getter functions
-
-iOCT_entityID iOCT_entity_new(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
+iOCT_entityID iOCT_entity_Addnew(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
 	if (*iOCT_entity_getCounter(entitySetID) >= (iOCT_entity_max-1)) {	// checks if pool is full
 		logError(ERR_ENTITYPOOL_FULL);
 		return iOCT_GAMEOBJECT_FAILED;
@@ -64,6 +34,18 @@ iOCT_entityID iOCT_entity_new(iOCT_entityContextID entitySetID, iOCT_entityID pa
 	printf("\nCreated new entity #%zu in entitySet #%zu as a child of object %zu \n", entityID, entitySetID, parentID);
 	return entityID;
 }
+
+// Registers a new entity with the IDMap, then fills in required components
+iOCT_ID iOCT_entity_new(iOCT_ID entityContextID, iOCT_ID parentID) {
+	iOCT_ID newID;
+	iOCT_entity* newEntity;
+
+	newID = iOCT_IDMap_registerID(entityContextID, OCT_componentEntity);
+	newEntity = iOCT_getByID(entityContextID, OCT_componentEntity, newID);
+	
+}
+
+static void iOCT_entity_updateMask(iOCT_en)
 
 bool iOCT_entity_hasComponent(iOCT_entityContextID entitySetID, iOCT_entityID entityID, OCT_componentTypes component) {
 	if (iOCT_entity_get(entitySetID, entityID)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise

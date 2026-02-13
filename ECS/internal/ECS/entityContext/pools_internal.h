@@ -13,8 +13,10 @@ typedef struct iOCT_pool {
 
 	OCT_counter counter;
 	OCT_counter capacity;
+
+	size_t componentSize;
 	void* array;
 } iOCT_pool;
 
-iOCT_pool* iOCT_pool_get(iOCT_entityContextID entityContextID, OCT_componentTypes componentType);
-bool iOCT_pool_allocate(iOCT_entityContextID entityContextID, OCT_componentTypes componentType);
+iOCT_pool* iOCT_pool_get(iOCT_ID entityContextID, OCT_componentTypes componentType);
+bool iOCT_pool_allocate(iOCT_ID entityContextID, OCT_componentTypes componentType);

@@ -38,9 +38,7 @@
     <ClInclude Include="include\ECS\componentTypes.h" />
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\ECS\scenes.h" />
-    <ClInclude Include="internal\ECS\components\physics2D\physics2D_internal.h" />
     <ClInclude Include="include\math\vectors.h" />
-    <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
     <ClInclude Include="internal\ECS\ECS\ECSModule_internal.h" />
     <ClInclude Include="internal\ECS\entityContext\IDMap_internal.h" />
     <ClInclude Include="internal\ECS\entityContext\pools_internal.h" />
@@ -62,7 +60,6 @@
   <ItemGroup>
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D_API.c" />
-    <ClCompile Include="internal\ECS\components\physics2D\physics2D.c" />
     <ClCompile Include="internal\ECS\components\position2D\position2D.c" />
     <ClCompile Include="internal\ECS\components\position2D\position2D_API.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D_API.c" />

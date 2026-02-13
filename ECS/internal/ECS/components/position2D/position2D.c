@@ -7,49 +7,6 @@ size_t iOCT_MAX_POSITION2D = iOCT_ENTITY_DEFAULT_MAX;
 
 OCT_vector2D defaultPosition2D = { DEFAULT_POSITION_X, DEFAULT_POSITION_Y };
 
-iOCT_position2D* iOCT_position2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
-	iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
-	if (entitySet == iOCT_GET_FAILED || parentID >= entitySet->entityCounter) {
-		OCT_logError(ERR_POSITION2D_DOES_NOT_EXIST);
-		return iOCT_GET_FAILED;
-	}
-
-	iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);
-	if (parent == iOCT_GET_FAILED) {
-		OCT_logError(ERR_POSITION2D_DOES_NOT_EXIST);
-		return iOCT_GET_FAILED;
-	}
-
-	if (parent->positionID == iOCT_NO_COMPONENT) {
-		OCT_logError(ERR_POSITION2D_DOES_NOT_EXIST);
-		return iOCT_GET_FAILED;
-	}
-
-	//printf("Got position2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
-	return &entitySet->position2DPool[parent->positionID];
-}
-
-iOCT_position2D* iOCT_position2D_getPool(iOCT_entityContextID entitySetID) {
-	iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
-	if (entitySet == iOCT_GET_FAILED) {
-		OCT_logError(ERR_POSITION2DPOOL_DOES_NOT_EXIST);
-		return iOCT_GET_FAILED;
-	}
-
-	//printf("Got position2D pool from entitySet #%zu\n", entitySetID);
-	return entitySet->position2DPool; // array decay to pointer
-}
-OCT_counter* iOCT_position2D_getCounter(iOCT_entityContextID entitySetID) {
-	iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
-	if (entitySet == iOCT_GET_FAILED) {
-		OCT_logError(ERR_POSITION2DCOUNTER_DOES_NOT_EXIST);
-		return iOCT_GET_FAILED;
-	}
-
-	//printf("Got position2D counter from entitySet #%zu\n", entitySetID);
-	return &entitySet->position2DCounter;
-}
-
 iOCT_componentID iOCT_position2D_addNew(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {								// attaches a new default position2D to some entity
 	if (iOCT_entity_hasComponent(entitySetID, parentID, OCT_componentPosition2D)) {
 		OCT_logError(WARNING_COMPONENT_REPLACED);

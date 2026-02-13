@@ -8,7 +8,6 @@ typedef enum {
 typedef enum {					// componentsTotal == the number of actual components
 	OCT_componentEntity,		// not a component, but useful as it behaves similarly
 
-	OCT_componentPosition2D,	// 1 to 1s
 	OCT_componentTransform2D,
 	OCT_componentHitBox2D,
 

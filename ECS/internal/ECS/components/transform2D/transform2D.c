@@ -1,55 +1,11 @@
 #include "transform2D_internal.h"
 
 #include "ECS/entity/entity_internal.h"
-#include "ECS/entitySet/entitySet_internal.h"
+#include "ECS/entityContext/entityContext_internal.h"
 
 size_t iOCT_MAX_TRANSFORM2D = iOCT_ENTITY_DEFAULT_MAX;
 
 OCT_vector2D defaultScale = { DEFAULT_SCALE_X, DEFAULT_SCALE_Y };
-
-iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
-    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
-    if (entitySet == iOCT_GET_FAILED || parentID >= entitySet->entityCounter) {
-        OCT_logError(ERR_TRANSFORM2D_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
-    }
-
-    iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);
-    if (parent == iOCT_GET_FAILED) {
-        OCT_logError(ERR_TRANSFORM2D_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
-    }
-
-    if (parent->transformID == iOCT_NO_COMPONENT) {
-        OCT_logError(ERR_TRANSFORM2D_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
-    }
-
-    //printf("Got transform2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
-    return &entitySet->transform2DPool[parent->transformID];
-}
-iOCT_transform2D* iOCT_transform2D_getPool(iOCT_entityContextID entitySetID) {
-    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
-    if (entitySet == iOCT_GET_FAILED) {
-        OCT_logError(ERR_TRANSFORM2DPOOL_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
-    }
-
-    //printf("Got transform2D pool from entitySet #%zu\n", entitySetID);
-    return entitySet->transform2DPool;
-}
-OCT_counter* iOCT_transform2D_getCounter(iOCT_entityContextID entitySetID) {
-    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
-    if (entitySet == iOCT_GET_FAILED) {
-        OCT_logError(ERR_TRANSFORM2DCOUNTER_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
-    }
-
-   // printf("Got transform2D counter from entitySet #%zu\n", entitySetID);
-    return &entitySet->transform2DCounter;
-}
-
-
 
 iOCT_componentID iOCT_transform2D_addNew(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
     // Check if parent already has a transform component

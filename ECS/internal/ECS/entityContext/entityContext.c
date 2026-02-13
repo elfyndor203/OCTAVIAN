@@ -61,11 +61,14 @@ OCT_entityHandle iOCT_entityContext_open() {
 	return rootHandle;
 }
 
-void* iOCT_getByID(iOCT_ID entityContextID, OCT_componentTypes componentType, iOCT_ID ID) {
-	iOCT_pool* pool = iOCT_pool_get(entityContextID, componentType);
+void* iOCT_getByID(iOCT_ID entityContextID, iOCT_ID ID) {
 	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
-	OCT_index index = map->array[ID];
-	return &pool[index];
+
+	OCT_componentTypes componentType = map->array[ID].componentType;
+	OCT_index index = map->array[ID].index;
+
+	iOCT_pool* pool = iOCT_pool_get(entityContextID, componentType);
+	return &pool->array[index];
 }
 
 
