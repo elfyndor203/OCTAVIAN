@@ -1,6 +1,5 @@
 #pragma once
 #include "hitBox2D_internal.h"
-#include "standards/ECSStandards_internal.h"
 
 #include "OCT_Math.h"
 #include "ECS/entity/entity_internal.h"

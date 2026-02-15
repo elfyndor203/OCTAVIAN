@@ -1,26 +1,28 @@
 #pragma once
-#include "ECS/entitySet/entitySet.h"
 #include "pools_internal.h"
 #include "IDMap_internal.h"
 
-#include "standards/ECSStandards_internal.h"
 #include "OCT_Math.h"
+#include "OCT_EngineStructure.h"
+#include "OCT_Errors.h"
 
 #define iOCT_ENTITYCONTEXT_DEFAULT_MAX 64
+#define iOCT_ROOT_ID 0
+#define iOCT_NO_ENTITYCONTEXT OCT_GENERIC_NONE
 
 /// <summary>
 /// Opening an entityContext allows you to create entities that interact with each other. Each context manages its own pools and IDmap.
 /// </summary>
 typedef struct entityContext{
-	iOCT_ID entityContextID;
-	iOCT_ID rootEntityID;
+	OCT_ID entityContextID;
+	OCT_ID rootEntityID;
 
-	iOCT_IDMap IDmap;
-	iOCT_pool pools[OCT_componentsTotal];
+	iOCT_IDMap IDMap;
+	iOCT_pool pools[OCT_typesTotal];
 } iOCT_entityContext;
 
-iOCT_entityContext* iOCT_entityContext_get(iOCT_ID entityContextID);
+iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityContextID);
 OCT_entityHandle iOCT_entityContext_open();
-void iOCT_entityContext_close();
-void* iOCT_getByID(iOCT_ID entityContextID, OCT_componentTypes componentType, iOCT_ID ID);
+void iOCT_entityContext_close(OCT_ID closedContextID);
+void* iOCT_getByID(OCT_ID entityContextID, OCT_ID ID, OCT_types componentType);
 

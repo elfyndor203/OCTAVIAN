@@ -1,4 +1,5 @@
 #include "entity_internal.h"
+#include <string.h>
 
 #include "ECS/entityContext/entityContext_internal.h"
 #include "ECS/components/position2D/position2D_internal.h"		// two required components
@@ -7,47 +8,35 @@
 size_t iOCT_entity_max = iOCT_ENTITY_DEFAULT_MAX;
 OCT_entityHandle testActiveEntity;
 
-iOCT_entityID iOCT_entity_Addnew(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
-	if (*iOCT_entity_getCounter(entitySetID) >= (iOCT_entity_max-1)) {	// checks if pool is full
-		logError(ERR_ENTITYPOOL_FULL);
-		return iOCT_GAMEOBJECT_FAILED;
-	}
-	iOCT_entity newEntity = { 0 };
-
-	iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);	// store pointer to its parent
-	parent->componentsMask |= (1ULL << OCT_componentChildObject);				// parent object knows it exists
-
-	iOCT_entityID entityID = *iOCT_entity_getCounter(entitySetID);	// setting default values
-	newEntity.entitySetID = entitySetID;
-	newEntity.entityID = entityID;								// it can find itself			
-	newEntity.parentID = parentID;								// it can find its parent
-	newEntity.positionID = iOCT_NO_COMPONENT;
-	newEntity.transformID = iOCT_NO_COMPONENT;
-	newEntity.hitBoxID = iOCT_NO_COMPONENT;							// 	
-
-	iOCT_entity_getPool(entitySetID)[*iOCT_entity_getCounter(entitySetID)] = newEntity;	// store function before adding requirements
-	*iOCT_entity_getCounter(entitySetID) += 1;
-
-	iOCT_position2D_addNew(entitySetID, entityID);							// add requirements to the stored object
-	iOCT_transform2D_addNew(entitySetID, entityID);
-
-	printf("\nCreated new entity #%zu in entitySet #%zu as a child of object %zu \n", entityID, entitySetID, parentID);
-	return entityID;
-}
-
 // Registers a new entity with the IDMap, then fills in required components
-iOCT_ID iOCT_entity_new(iOCT_ID entityContextID, iOCT_ID parentID) {
-	iOCT_ID newID;
+OCT_ID iOCT_entity_new(OCT_ID entityContextID, OCT_ID parentID) {
+	OCT_ID newID;
 	iOCT_entity* newEntity;
-
-	newID = iOCT_IDMap_registerID(entityContextID, OCT_componentEntity);
-	newEntity = iOCT_getByID(entityContextID, OCT_componentEntity, newID);
 	
+	newID = iOCT_IDMap_registerID(entityContextID, OCT_typeEntity);		// Register an ID first to enable other functions
+	newEntity = iOCT_getByID(entityContextID, OCT_typeEntity, newID);	// Get the empty pool slot
+	memset(newEntity, 0, sizeof(iOCT_entity));							// Make sure the slot is empty
+
+	newEntity->entityContextID = entityContextID;
+	newEntity->entityID = newID;
+	newEntity->parentID = parentID;
+	newEntity->transformID = iOCT_transform2D_new(entityContextID, newID);
+	newEntity->hitBoxID = iOCT_NO_COMPONENT;
+	
+	if (parentID != iOCT_NOPARENT) {
+		iOCT_entity_updateMask(entityContextID, parentID, OCT_typeEntity);	// Notify parent that it now has a child
+	}
+
+	printf("\nCreated new entity #%zu in entityContext #%zu as a child of entity %zu \n", newID, entityContextID, parentID);
+	return newID;
 }
 
-static void iOCT_entity_updateMask(iOCT_en)
+void iOCT_entity_updateMask(OCT_ID entityContextID, OCT_ID entityID, OCT_types componentType) {
+	iOCT_entity* entity = iOCT_getByID(entityContextID, componentType, entityID);
+	entity->componentsMask |= (1ULL << componentType);
+}
 
-bool iOCT_entity_hasComponent(iOCT_entityContextID entitySetID, iOCT_entityID entityID, OCT_componentTypes component) {
+bool iOCT_entity_hasComponent(iOCT_entityContextID entitySetID, iOCT_entityID entityID, OCT_types component) {
 	if (iOCT_entity_get(entitySetID, entityID)->componentsMask & (1ULL << component)) {// creates a new uint_64 with a 1 at the component # bit and compares bitwise
 		//printf("entity %zu DOES have componentTypes component #%d\n", entityID, component);
 		return true;

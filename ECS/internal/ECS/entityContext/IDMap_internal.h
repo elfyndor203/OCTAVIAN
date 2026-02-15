@@ -6,7 +6,7 @@
 // Unique location within an entityContext
 typedef struct iOCT_indexPair {
 	OCT_index index;
-	OCT_componentTypes componentType;
+	OCT_types componentType;
 } iOCT_uniqueIndex;
 
 /// <summary>
@@ -20,4 +20,4 @@ typedef struct iOCT_IDMap {
 
 iOCT_IDMap* iOCT_IDMap_get(iOCT_ID entityContextID);
 bool iOCT_IDMap_allocate(iOCT_ID entityContextID);
-iOCT_ID iOCT_IDMap_registerID(iOCT_ID entityContextID, OCT_componentTypes componentType);
+iOCT_ID iOCT_IDMap_registerID(iOCT_ID entityContextID, OCT_types componentType);

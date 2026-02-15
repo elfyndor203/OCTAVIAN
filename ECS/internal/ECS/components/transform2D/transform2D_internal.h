@@ -22,6 +22,6 @@ typedef struct iOCT_transform2D {
 	OCT_vector2D scale;
 } iOCT_transform2D;
 
-iOCT_componentID iOCT_transform2D_addNew(iOCT_entityContextID entitySetID, iOCT_entityID parentID);
+iOCT_ID iOCT_transform2D_new(iOCT_ID entityContextID, iOCT_ID parentID);
 void iOCT_transform2D_rotate(iOCT_entityContextID entitySetID, iOCT_entityID parentID, float degrees);
 

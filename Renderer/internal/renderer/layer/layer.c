@@ -5,7 +5,7 @@
 iOCT_layer* iOCT_layerPool[iOCT_LAYER_MAX]; /// pointers
 OCT_counter iOCT_layerCounter = 0;
 
-iOCT_rendererObjectHandle iOCT_rendererObjectMap[64][1024][OCT_componentsTotal]; //NOTE_URGENT_HARDCODED
+iOCT_rendererObjectHandle iOCT_rendererObjectMap[64][1024][OCT_typesTotal]; //NOTE_URGENT_HARDCODED
 
 iOCT_layer* iOCT_layer_get(iOCT_layerID layerID) {
 	if (layerID > iOCT_LAYER_MAX || iOCT_layerPool[layerID] == 0) {
@@ -37,6 +37,6 @@ void iOCT_layer_initialize() {
 	printf("Layer pool initialized\n");
 }
 
-iOCT_rendererObjectHandle iOCT_rendererObject_locate(OCT_entityHandle entity, OCT_componentTypes componentType) {
+iOCT_rendererObjectHandle iOCT_rendererObject_locate(OCT_entityHandle entity, OCT_types componentType) {
 	return iOCT_rendererObjectMap[entity.entitySetID][entity.entityID][componentType];
 }

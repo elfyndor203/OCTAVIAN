@@ -9,7 +9,7 @@ void OCT_position2D_addNew(OCT_entityHandle parentHandle) {
 void OCT_position2D_move(OCT_entityHandle parentHandle, float x, float y) {
     OCT_vector2D distance = { x, y };
     iOCT_position2D_move(parentHandle.entitySetID, parentHandle.entityID, distance);
-    if (iOCT_entity_hasComponent(parentHandle.entitySetID, parentHandle.entityID, OCT_componentHitBox2D)) {
+    if (iOCT_entity_hasComponent(parentHandle.entitySetID, parentHandle.entityID, OCT_typeComponentHitBox2D)) {
         _OCT_sendMessage(_OCT_Renderer, parentHandle, _OCT_hitBox2D_update, OCT_GENERIC_NONE, OCT_GENERIC_NONE);
     }
 }

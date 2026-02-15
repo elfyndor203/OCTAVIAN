@@ -16,11 +16,11 @@ void iOCT_handleRendererMessages(void) {
 		//iOCT_rendererObject* rendererObject = iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID); //	NOTE_FIX
 		switch (instruction) {
 		case _OCT_hitBox2D_add:
-			iOCT_rendererObject_new(entity, layer, OCT_componentHitBox2D, iOCT_shaderProgramList[shader_debug], true);
+			iOCT_rendererObject_new(entity, layer, OCT_typeComponentHitBox2D, iOCT_shaderProgramList[shader_debug], true);
 			//printf("Handled hitbox2D creation\n");
 			break;
 		case _OCT_hitBox2D_update:
-			iOCT_updateVertexBuffer(entity, OCT_componentHitBox2D);
+			iOCT_updateVertexBuffer(entity, OCT_typeComponentHitBox2D);
 			//printf("Handled hitbox2D update\n");
 			break;
 		}

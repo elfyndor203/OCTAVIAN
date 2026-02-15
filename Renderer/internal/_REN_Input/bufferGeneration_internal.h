@@ -10,5 +10,5 @@ typedef struct {
 	size_t indexCount;
 } iOCT_glInfo;
 
-iOCT_glInfo iOCT_generateBuffers(OCT_entityHandle entity, OCT_componentTypes componentType);
-void iOCT_updateVertexBuffer(OCT_entityHandle entity, OCT_componentTypes componentType);
+iOCT_glInfo iOCT_generateBuffers(OCT_entityHandle entity, OCT_types componentType);
+void iOCT_updateVertexBuffer(OCT_entityHandle entity, OCT_types componentType);

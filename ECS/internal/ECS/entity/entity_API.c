@@ -9,7 +9,7 @@ OCT_entityHandle OCT_entity_new(OCT_entityHandle parentHandle) {
 	return newHandle;
 }
 
-bool OCT_entity_hasComponent(OCT_entityHandle entityHandle, OCT_componentTypes component) {
+bool OCT_entity_hasComponent(OCT_entityHandle entityHandle, OCT_types component) {
 	iOCT_entityContextID entitySetID = entityHandle.entitySetID;
 	iOCT_entityID entityID = entityHandle.entityID;
 	return iOCT_entity_hasComponent(entitySetID, entityID, component);
