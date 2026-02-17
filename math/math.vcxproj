@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\operations.h" />
+    <ClInclude Include="include\matrix2D\matrix2D.h" />
     <ClInclude Include="include\shapes\OCT_MathShapes.h" />
     <ClInclude Include="include\units\constants.h" />
     <ClInclude Include="include\units\conversions.h" />
@@ -161,21 +162,19 @@
     <ClInclude Include="include\vector2D\vector2DScalar.h" />
     <ClInclude Include="include\vector2D\vector2DVector2D.h" />
     <ClInclude Include="include\vector2D\vector2DInfo.h" />
-    <ClInclude Include="include\vector3D\vector3D.h" />
     <ClInclude Include="internal\definitions\defaultValues_internal.h" />
     <ClInclude Include="internal\definitions\operations_internal.h" />
+    <ClInclude Include="internal\matrix2D\matrix2D.c" />
     <ClInclude Include="internal\shapes\rectangle2D_internal.h" />
     <ClInclude Include="internal\standards\mathStandards_internal.h" />
     <ClInclude Include="internal\vector2D\vector2DInfo.c" />
-    <ClInclude Include="internal\vector2D\vector2DInfo_internal.h" />
-    <ClInclude Include="internal\vector2D\vector2DScalar_internal.h" />
-    <ClInclude Include="internal\vector2D\vector2DVector2D_internal.h" />
     <ClInclude Include="include\vector2D\vector2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\shapes\rectangle2D.c" />
     <ClCompile Include="internal\units\constants.c" />
     <ClCompile Include="internal\units\conversions.c" />
+    <ClCompile Include="internal\vector2D\vector2D.c" />
     <ClCompile Include="internal\vector2D\vector2DScalar.c" />
     <ClCompile Include="internal\vector2D\vector2DVector2D.c" />
   </ItemGroup>

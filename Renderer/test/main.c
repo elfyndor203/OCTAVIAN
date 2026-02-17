@@ -34,7 +34,7 @@ int main() {
 		OCT_handleRendererMessages();
 		OCT_render(testObject, OCT_typeComponentHitBox2D);
 		size += 0.05;
-		OCT_hitBox2D_resize(testObject, size, size);
+		OCT_hitBox2D_resizeTo(testObject, size, size);
 		OCT_window_update();
 	}
 	return 0;

@@ -1,5 +1,4 @@
 #include "ECSModule_internal.h"
-
 #include "ECS/entityContext/entityContext_internal.h"
 
 iOCT_game_ECS* iOCT_startModule_ECS() {
@@ -12,8 +11,9 @@ iOCT_game_ECS* iOCT_startModule_ECS() {
 }
 
 void iOCT_freeModule_ECS(iOCT_game_ECS* ECSModule) {
-	for (int i = 0; i < ECSModule->entityContextCounter; i++) {
-		iOCT_entityContext_close();
+	for (int index = 0; index < ECSModule->entityContextCounter; index++) {
+		OCT_ID contextID = ECSModule->entityContextPool[index].entityContextID;
+		iOCT_entityContext_close(contextID);
 	}
 	free(ECSModule);
 }

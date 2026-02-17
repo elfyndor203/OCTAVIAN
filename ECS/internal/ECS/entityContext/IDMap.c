@@ -5,7 +5,7 @@
 static iOCT_IDMap failedMap = { OCT_GENERIC_FAIL, OCT_GENERIC_FAIL, NULL };
 
 iOCT_IDMap* iOCT_IDMap_get(OCT_ID entityContextID) {
-	return &iOCT_entityContext_get(entityContextID)->IDmap;
+	return &iOCT_entityContext_get(entityContextID)->IDMap;
 }
 
 // Allocates initial memory for a single entityContext.

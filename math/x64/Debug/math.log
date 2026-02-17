@@ -1,4 +1,10 @@
 ﻿  rectangle2D.c
+  constants.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\units\constants.c(4,27): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  conversions.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\units\conversions.c(5,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\units\conversions.c(9,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  vector2D.c
   vector2DScalar.c
   vector2DVector2D.c
   Generating Code...

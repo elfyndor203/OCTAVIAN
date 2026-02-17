@@ -3,11 +3,10 @@
 
 #include "ECS/entityContext/IDMap_internal.h"
 #include "ECS/entity/entity_internal.h"
-#include "ECS/components/position2D/position2D_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"
 
-static size_t iOCT_componentSizeList[OCT_typesTotal] = { sizeof(iOCT_entity), sizeof(iOCT_transform2D), sizeof(iOCT_hitBox2D) };	//NOTE __MUST__ MATCH COMPONENTTYPES
+static size_t iOCT_componentSizeList[OCT_typesTotal] = { sizeof(iOCT_entity), sizeof(iOCT_transform2D), sizeof(iOCT_hitBox2D)};	//NOTE __MUST__ MATCH COMPONENTTYPES
 //static iOCT_pool failedPool = { OCT_GENERIC_FAIL, OCT_GENERIC_FAIL, NULL };
 
 iOCT_pool* iOCT_pool_get(OCT_ID entityContextID, OCT_types componentType) {

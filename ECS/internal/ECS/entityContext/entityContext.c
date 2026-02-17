@@ -5,7 +5,6 @@
 #include "OCT_EngineStructure.h"
 #include "ECS/ECS/ECSModule_internal.h"
 #include "ECS/entity/entity_internal.h"
-#include "ECS/components/position2D/position2D_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"
 
@@ -16,8 +15,13 @@ iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityContextID) {				// valid
 }
 
 /// <summary>
-/// Opens and initializes a new entityContext. Allocates pool and ID arrays, then returns the root entity handle for use. 
+/// Opens a new entity context in the current ECS instance. Allocates initial needed memory and returns the root handle for use.
 /// </summary>
+/// <returns></returns>
+OCT_entityHandle OCT_entityContext_open() {
+	return iOCT_entityContext_open();
+}
+
 OCT_entityHandle iOCT_entityContext_open() {
 	iOCT_game_ECS* game = iOCT_ECS_active;
 	OCT_ID entityContextID = (OCT_ID)game->entityContextCounter;	// Count will always be the next available slot
@@ -43,6 +47,9 @@ OCT_entityHandle iOCT_entityContext_open() {
 /// Frees all memory used by the entityContext. Handles bookkeeping by swap replacing with the last entityContext if necessary. 
 /// </summary>
 /// <param name="closedContextID"></param>
+void OCT_entityContext_close(OCT_ID closedContextID) {
+	iOCT_entityContext_close(closedContextID);
+}
 void iOCT_entityContext_close(OCT_ID closedContextID) {
 	iOCT_game_ECS* game = iOCT_ECS_active;
 	iOCT_entityContext* closedContext = iOCT_entityContext_get(closedContextID);
@@ -68,17 +75,28 @@ void iOCT_entityContext_close(OCT_ID closedContextID) {
 	game->entityContextMap[closedContextID] = iOCT_NO_ENTITYCONTEXT;
 }
 
-void* iOCT_getByID(OCT_ID entityContextID, OCT_ID ID, OCT_types componentType) {
+/// <summary>
+/// Gets a generic pointer to any entity or component in an entityContext. Works as long as the ID is registered, regardless of the state of the entity or component.
+/// </summary>
+/// <param name="entityContextID"></param>
+/// <param name="ID"></param>
+/// <param name="type"></param>
+/// <returns></returns>
+void* iOCT_getByID(OCT_ID entityContextID, OCT_ID ID, OCT_types type) {
+	if (ID == iOCT_NOPARENT) {
+		return NULL;
+	}
+
 	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
 
-	if (componentType != map->array[ID].componentType) {
+	if (type != map->array[ID].componentType) {
 		OCT_logError(EXIT_GENERIC_REPLACELATER);
 		return NULL;
 	}
 
 	OCT_index index = map->array[ID].index;
 
-	iOCT_pool* pool = iOCT_pool_get(entityContextID, componentType);
+	iOCT_pool* pool = iOCT_pool_get(entityContextID, type);
 	return (char*)pool->array + (index * pool->componentSize);
 }
 

@@ -1,5 +1,10 @@
 #include "units/constants.h"
+#include <math.h>
 
 float OCT_deg2rad(float degrees) {
-	return OCT_PI * (degrees / 360.0f);
+	return degrees * (M_PI / 180.0f);
+}
+
+float OCT_rad2deg(float radians) {
+	return radians * (180.0f / M_PI);
 }

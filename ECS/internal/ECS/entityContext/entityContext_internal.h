@@ -1,4 +1,5 @@
 #pragma once
+#include "ECS/entityContext/entityContext.h"
 #include "pools_internal.h"
 #include "IDMap_internal.h"
 

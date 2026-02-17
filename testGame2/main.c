@@ -53,7 +53,7 @@ int main() {
 	OCT_hitBox2D_addNew(childObject, newLayer);
 
 	OCT_entityHandle noHitBox = OCT_entity_new(childObject);
-	OCT_hitBox2D_resize(noHitBox, 3, 2);
+	OCT_hitBox2D_resizeTo(noHitBox, 3, 2);
 
 	test_entitySetActive(childObject);
 	float size = 1;

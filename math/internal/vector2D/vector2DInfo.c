@@ -1,4 +1,6 @@
-#include "vector2DInfo_internal.h"
+#include "vector2D/vector2DInfo.h"
+#include "standards/mathStandards_internal.h"
+#include "vector2D/vector2DVector2D.h"
 
 float OCT_vector2D_Magnitude(OCT_vector2D vectorA) {
 	return hypotf(vectorA.x, vectorA.y);
@@ -18,7 +20,7 @@ bool OCT_vector2D_isEqual(OCT_vector2D vectorA, OCT_vector2D vectorB, float thre
 }
 
 float OCT_vector2D_angle(OCT_vector2D vectorA, OCT_vector2D vectorB) {
-	float dotProduct = OCT_vector2D_Dot(vectorA, vectorB);
+	float dotProduct = OCT_vec2_dot(vectorA, vectorB);
 	float magnitudeA = OCT_vector2D_Magnitude(vectorA);
 	float magnitudeB = OCT_vector2D_Magnitude(vectorB);
 	float angle = acos(dotProduct / (magnitudeA * magnitudeB));

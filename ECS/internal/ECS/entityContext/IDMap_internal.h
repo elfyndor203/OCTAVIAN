@@ -1,7 +1,6 @@
 #pragma once
-#include "standards/ECSStandards_internal.h"
-
 #include "OCT_Math.h"
+#include "OCT_ECS.h"
 
 // Unique location within an entityContext
 typedef struct iOCT_indexPair {
@@ -13,11 +12,11 @@ typedef struct iOCT_indexPair {
 /// Maps hold lists of pool array locations, indexed by ID
 /// </summary>
 typedef struct iOCT_IDMap {
-	iOCT_ID entityContextID;	// Context that owns this map
+	OCT_ID entityContextID;	// Context that owns this map
 	OCT_counter counter;
 	iOCT_uniqueIndex* array;				// array of unique indices
 } iOCT_IDMap;
 
-iOCT_IDMap* iOCT_IDMap_get(iOCT_ID entityContextID);
-bool iOCT_IDMap_allocate(iOCT_ID entityContextID);
-iOCT_ID iOCT_IDMap_registerID(iOCT_ID entityContextID, OCT_types componentType);
+iOCT_IDMap* iOCT_IDMap_get(OCT_ID entityContextID);
+bool iOCT_IDMap_allocate(OCT_ID entityContextID);
+OCT_ID iOCT_IDMap_registerID(OCT_ID entityContextID, OCT_types componentType);
