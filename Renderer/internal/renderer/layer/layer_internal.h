@@ -23,13 +23,13 @@ typedef struct {
 	iOCT_layerID layerID;
 } iOCT_rendererObjectHandle;
 
-extern iOCT_rendererObjectHandle iOCT_rendererObjectMap[64][1024][OCT_componentsTotal];
+extern iOCT_rendererObjectHandle iOCT_rendererObjectMap[64][1024][OCT_typesTotal];
 
 iOCT_layer* iOCT_layer_get(iOCT_layerID layerID);
 iOCT_layerID iOCT_layer_new();
 void iOCT_layer_initialize();
 
-iOCT_rendererObjectHandle iOCT_rendererObject_locate(OCT_entityHandle entity, OCT_componentTypes componentType);
+iOCT_rendererObjectHandle iOCT_rendererObject_locate(OCT_entityHandle entity, OCT_types componentType);
 
 
 

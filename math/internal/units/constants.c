@@ -1,2 +1,4 @@
-#pragma once
-const float OCT_PI = 3.1415927f;
+#include "units/constants.h"
+#include <math.h>
+
+const float OCT_2PI_f = 2 * M_PI;

@@ -16,7 +16,7 @@ typedef size_t iOCT_rendererObjectID;
 
 typedef struct iOCT_rendererObject {
 	OCT_entityHandle entityHandle;
-	OCT_componentTypes componentType;
+	OCT_types componentType;
 
 	iOCT_rendererObjectID rendererObjectID;
 	iOCT_layerID layerID;
@@ -34,5 +34,5 @@ iOCT_rendererObject* iOCT_rendererObject_get(iOCT_rendererObjectID rendererObjec
 iOCT_rendererObject* iOCT_rendererObject_getPool(iOCT_layerID layerID);
 OCT_counter* iOCT_rendererObject_getCounter(iOCT_layerID layerID);
 
-iOCT_rendererObjectID iOCT_rendererObject_new(OCT_entityHandle entityHandle, iOCT_layerID layerID, OCT_componentTypes componentType, GLuint shaderProgram, bool dynamic);
+iOCT_rendererObjectID iOCT_rendererObject_new(OCT_entityHandle entityHandle, iOCT_layerID layerID, OCT_types componentType, GLuint shaderProgram, bool dynamic);
 void iOCT_render(iOCT_rendererObjectID rendererObjectID, iOCT_layerID layerID);

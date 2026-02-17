@@ -13,10 +13,10 @@ OCT_rectangle2D OCT_rectangle2D_generate(OCT_vertex2D center, OCT_vector2D dimen
     newBox.dimensions = dimensions;
     newBox.rotation = rotation;
 
-    newBox.bottomLeft = OCT_vector2D_vector2D(OCT_OP_ADD, OCT_vector2D_rotate(bottomLeft, rotation), center);
-    newBox.bottomRight = OCT_vector2D_vector2D(OCT_OP_ADD, OCT_vector2D_rotate(bottomRight, rotation), center);
-    newBox.topRight = OCT_vector2D_vector2D(OCT_OP_ADD, OCT_vector2D_rotate(topRight, rotation), center);
-    newBox.topLeft = OCT_vector2D_vector2D(OCT_OP_ADD, OCT_vector2D_rotate(topLeft, rotation), center);
+    newBox.bottomLeft = OCT_vec2_vec2_add(OCT_vec2_rotate(bottomLeft, rotation), center);
+    newBox.bottomRight = OCT_vec2_vec2_add(OCT_vec2_rotate(bottomRight, rotation), center);
+    newBox.topRight = OCT_vec2_vec2_add(OCT_vec2_rotate(topRight, rotation), center);
+    newBox.topLeft = OCT_vec2_vec2_add(OCT_vec2_rotate(topLeft, rotation), center);
 
     //printf("Generated vertices (%f, %f), (%f, %f), (%f, %f), (%f, %f)\n", newBox.bottomLeft.x, newBox.bottomLeft.y, newBox.bottomRight.x, newBox.bottomRight.y, newBox.topRight.x, newBox.topRight.y, newBox.topLeft.x, newBox.topLeft.y);
     return newBox;

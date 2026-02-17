@@ -32,7 +32,7 @@ OCT_counter* iOCT_rendererObject_getCounter(iOCT_layerID layerID) {
 	return &iOCT_layer_get(layerID)->rendererObjectCounter;
 }
 
-iOCT_rendererObjectID iOCT_rendererObject_new(OCT_entityHandle entityHandle, iOCT_layerID layerID, OCT_componentTypes componentType, GLuint shaderProgram, bool dynamic) {
+iOCT_rendererObjectID iOCT_rendererObject_new(OCT_entityHandle entityHandle, iOCT_layerID layerID, OCT_types componentType, GLuint shaderProgram, bool dynamic) {
 	iOCT_rendererObject newRendererObject = { 0 };
 	iOCT_glInfo buffers = iOCT_generateBuffers(entityHandle, componentType);
 	newRendererObject.entityHandle = entityHandle;		// link renderer object to ECS object

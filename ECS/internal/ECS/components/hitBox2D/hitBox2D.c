@@ -1,108 +1,95 @@
 #include "hitBox2D_internal.h"
-
-#include "ECS/entitySet/entitySet_internal.h"
-#include "ECS/components/position2D/position2D_internal.h"
+#include "OCT_EngineStructure.h"
+#include "ECS/entityContext/entityContext_internal.h"
+#include "ECS/components/transform2D/transform2D_internal.h"
 
 size_t iOCT_hitBox2D_max = iOCT_ENTITY_DEFAULT_MAX;
+OCT_vector2D iOCT_hitBox2D_default_size = { iOCT_HITBOX_DEFAULTSIZE_X, iOCT_HITBOX_DEFAULTSIZE_Y };
 
-iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
-    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
-    if (entitySet == iOCT_GET_FAILED || parentID >= entitySet->entityCounter) {
+iOCT_hitBox2D* iOCT_hitBox2D_get(OCT_ID entityContextID, OCT_ID hitBoxID) {
+    return (iOCT_hitBox2D*)iOCT_getByID(entityContextID, hitBoxID, OCT_typeComponentHitBox2D);
+}
+
+/// <summary>
+/// Adds a new hitbox to the given entity. If the entity already has a hitbox, create a new entity as a child of the parent, then add a hitbox to the child. 
+/// </summary>
+/// <param name="entityHandle"></param>
+/// <returns></returns>
+OCT_entityHandle OCT_hitBox2D_add(OCT_entityHandle parentHandle) {
+    if (OCT_entity_hasComponent(parentHandle, OCT_typeComponentHitBox2D)) {
+        OCT_entityHandle newEntity = OCT_entity_new(parentHandle);
+        iOCT_hitBox2D_add(newEntity.entityContextID, newEntity.entityID);
+        return newEntity;
+    }
+    else {
+        iOCT_hitBox2D_add(parentHandle.entityContextID, parentHandle.entityID);
+        return parentHandle;
+    }
+}
+/// Adds or REPLACES a hitbox on the given entity. 
+OCT_ID iOCT_hitBox2D_add(OCT_ID entityContextID, OCT_ID parentID) {
+    OCT_ID newID;
+    iOCT_hitBox2D* newHitBox;
+
+    newID = iOCT_IDMap_registerID(entityContextID, OCT_typeComponentHitBox2D);
+    newHitBox = iOCT_hitBox2D_get(entityContextID, newID);
+    memset(newHitBox, 0, sizeof(iOCT_hitBox2D));
+    
+    // Set values
+    newHitBox->hitBoxID = newID;
+    newHitBox->parentID = parentID;
+    newHitBox->localOrigin = OCT_origin2D;
+    newHitBox->rotation = 0;
+    iOCT_hitBox2D_resizeTo(entityContextID, parentID, iOCT_hitBox2D_default_size);
+
+    // Link to parent
+    iOCT_entity* parent = iOCT_entity_get(entityContextID, parentID);
+    parent->hitBoxID = newID;
+    iOCT_entity_updateMask(entityContextID, parentID, OCT_typeComponentHitBox2D);
+
+    printf("Added new hitBox2D to object #%zu in entitySet #%zu\n", parentID, entityContextID);
+    return newID;
+}
+
+/// <summary>
+/// Resizes a given hitbox to a given x, y size
+/// </summary>
+/// <param name="parentHandle"></param>
+/// <param name="size"></param>
+void OCT_hitBox2D_resizeTo(OCT_entityHandle parentHandle, OCT_vector2D size) {
+    if (iOCT_entity_hasComponent(parentHandle.entityContextID, parentHandle.entityID, OCT_typeComponentHitBox2D) == false) {
         OCT_logError(ERR_HITBOX2D_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
+        return;
     }
-    iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);
-    if (parent == iOCT_GET_FAILED) {
-        printf("failCheck 2\n");
-        OCT_logError(ERR_HITBOX2D_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
-    }
-    if (parent->hitBoxID == iOCT_NO_COMPONENT) {
-        printf("failCheck 3\n");
-        OCT_logError(ERR_HITBOX2D_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
-    }
-
-    //("Got hitBox2D from entity #%zu from entitySet #%zu\n", parentID, entitySetID);
-    return &entitySet->hitBox2DPool[parent->hitBoxID];
+    OCT_ID entityContextID = parentHandle.entityContextID;
+    OCT_ID parentID = parentHandle.entityID;
+    iOCT_hitBox2D_resizeTo(entityContextID, parentID, size);
+    _OCT_sendMessage(_OCT_Renderer, parentHandle, _OCT_hitBox2D_update, OCT_GENERIC_NONE, OCT_GENERIC_NONE);
 }
-
-iOCT_hitBox2D* iOCT_hitBox2D_getPool(iOCT_entityContextID entitySetID) {
-    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
-    if (entitySet == iOCT_GET_FAILED) {
-        OCT_logError(ERR_HITBOX2DPOOL_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
-    }
-
-    //printf("Got hitBox2D pool from entitySet #%zu\n", entitySetID);
-    return entitySet->hitBox2DPool; // array decays to pointer
-}
-OCT_counter* iOCT_hitBox2D_getCounter(iOCT_entityContextID entitySetID) {
-    iOCT_entityContext* entitySet = iOCT_entityContext_get(entitySetID);
-    if (entitySet == iOCT_GET_FAILED) {
-        OCT_logError(ERR_HITBOX2DCOUNTER_DOES_NOT_EXIST);
-        return iOCT_GET_FAILED;
-    }
-
-    //printf("Got hitBox2D counter from entitySet #%zu\n", entitySetID);
-    return &entitySet->hitBox2DCounter;
-}
-
-iOCT_componentID iOCT_hitBox2D_addNew(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
-    // Check if parent already has a hitBox2D component
-    if (iOCT_entity_hasComponent(entitySetID, parentID, OCT_componentHitBox2D)) {
-        OCT_logError(WARNING_COMPONENT_REPLACED);
-    }
-
-    // Get the counter and ensure the pool is not full
-    OCT_counter* counter = iOCT_hitBox2D_getCounter(entitySetID);
-    if (*counter >= iOCT_hitBox2D_max) {
-        OCT_logError(ERR_HITBOX2DPOOL_FULL);
-        return iOCT_HITBOX2D_FAILED;
-    }
-
-    iOCT_hitBox2D newHitBox2D = { 0 };
-
-    // Get parent object and mark it as having this component
-    iOCT_entity* parent = iOCT_entity_get(entitySetID, parentID);
-    parent->componentsMask |= (1ULL << OCT_componentHitBox2D);
-
-    // Set bookkeeping values
-    iOCT_componentID hitBoxID = *counter;
-    newHitBox2D.hitBoxID = hitBoxID;
-    newHitBox2D.parentID = parentID;
-    parent->hitBoxID = hitBoxID;
-
-    // Add to the pool
-    iOCT_hitBox2D_getPool(entitySetID)[*counter] = newHitBox2D;
-
-    iOCT_hitBox2D_resize(entitySetID, parentID, DEFAULT_HITBOX_X, DEFAULT_HITBOX_Y);
-
-    *counter += 1;
-
-    printf("Added new hitBox2D to object #%zu in entitySet #%zu\n", parentID, entitySetID);
-    return hitBoxID;
-}
-
-
-void iOCT_hitBox2D_resize(iOCT_entityContextID entitySetID, iOCT_entityID parentID, float sizeX, float sizeY) {
+OCT_vector2D iOCT_hitBox2D_resizeTo(OCT_ID entityContextID, OCT_ID parentID, OCT_vector2D newSize) {
     //printf("Resizing hitbox...\n");
-	iOCT_hitBox2D_get(entitySetID, parentID)->size.x = sizeX;
-	iOCT_hitBox2D_get(entitySetID, parentID)->size.y = sizeY;
+	iOCT_hitBox2D_get(entityContextID, parentID)->size.x = newSize.x;
+	iOCT_hitBox2D_get(entityContextID, parentID)->size.y = newSize.y;
+    return newSize;
 }
 
-void iOCT_hitBox2D_rotate(iOCT_entityContextID entitySetID, iOCT_entityID parentID, float rotation) {
+float iOCT_hitBox2D_rotateBy(OCT_ID entityContextID, OCT_ID parentID, float deltaDeg) {
     printf("Rotating hitbox...\n");
-    iOCT_hitBox2D_get(entitySetID, parentID)->rotation += rotation;
+    
+    float deltaRad = OCT_deg2rad(deltaDeg);
+    iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(entityContextID, parentID);
+    hitBox->rotation += deltaRad;
+    hitBox->rotation = fmodf(hitBox->rotation, OCT_2PI_f);
+    return hitBox->rotation;
 }
 
-OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entityContextID entitySetID, iOCT_entityID parentID) {
-    iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(entitySetID, parentID);
+OCT_rectangle2D iOCT_hitBox2D_generateVertices(OCT_ID entityContextID, OCT_ID parentID) {
+    iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(entityContextID, parentID);
 
-    OCT_vertex2D globalCenter = OCT_vector2D_vector2D(OCT_OP_ADD, iOCT_position2D_get(entitySetID, parentID)->globalPosition2D, hitBox->localOrigin); // get absolute values NOTE_DOES_NOT_ACCOUNT_FOR_SCALE
-    float globalRotation = iOCT_transform2D_get(entitySetID, parentID)->rotation + hitBox->rotation;
-    OCT_vector2D globalSize = OCT_vector2D_vector2D(OCT_OP_MULTIPLY, hitBox->size, iOCT_transform2D_get(entitySetID, parentID)->scale);
+    OCT_vertex2D globalCenter = OCT_vec2_vec2_add(iOCT_transform2D_get(entityContextID, parentID)->globalPosition, hitBox->localOrigin); // get absolute values NOTE_DOES_NOT_ACCOUNT_FOR_SCALE
+    float globalRotation = iOCT_transform2D_get(entityContextID, parentID)->rotation + hitBox->rotation;
+    OCT_vector2D globalSize = OCT_vec2_vec2_mult(hitBox->size, iOCT_transform2D_get(entityContextID, parentID)->scale);
 
-    OCT_rectangle2D newBox = OCT_rectangle2D_generate(globalCenter, iOCT_hitBox2D_get(entitySetID, parentID)->size, globalRotation);
+    OCT_rectangle2D newBox = OCT_rectangle2D_generate(globalCenter, iOCT_hitBox2D_get(entityContextID, parentID)->size, globalRotation);
     return newBox;
 }

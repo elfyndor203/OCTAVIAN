@@ -30,12 +30,6 @@
     <ClInclude Include="internal\standards\mathStandards_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\vector2D\vector2DScalar_internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="internal\vector2D\vector2DVector2D_internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\vector2D\vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -46,9 +40,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="internal\definitions\defaultValues_internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="internal\vector2D\vector2DInfo_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\definitions\operations.h">
@@ -63,9 +54,6 @@
     <ClInclude Include="include\shapes\rectangle2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vector3D\vector3D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="internal\shapes\rectangle2D_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -78,10 +66,16 @@
     <ClInclude Include="include\units\conversions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\units\constants.h">
+    <ClInclude Include="include\units\OCT_MathUnits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\units\OCT_MathUnits.h">
+    <ClInclude Include="internal\matrix2D\matrix2D.c">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\matrix2D\matrix2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\units\constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -96,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\units\conversions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\vector2D\vector2D.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\units\constants.c">

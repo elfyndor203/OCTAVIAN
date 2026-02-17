@@ -1,2 +1,4 @@
 #pragma once
-extern const float OCT_PI;
+#define _USE_MATH_DEFINES
+
+extern const float OCT_2PI_f;

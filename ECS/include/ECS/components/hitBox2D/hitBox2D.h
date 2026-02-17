@@ -1,5 +1,6 @@
 #pragma once
-#include "standards/ECSStandards.h"
+#include "OCT_EngineStructure.h"
+#include "OCT_Math.h"
 
-void OCT_hitBox2D_addNew(OCT_entityHandle parentHandle, size_t layer);
-void OCT_hitBox2D_resize(OCT_entityHandle parentHandle, float sizeX, float sizeY);
+OCT_entityHandle OCT_hitBox2D_add(OCT_entityHandle parentHandle);
+void OCT_hitBox2D_resizeTo(OCT_entityHandle parentHandle, OCT_vector2D size);

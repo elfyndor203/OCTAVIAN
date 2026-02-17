@@ -11,6 +11,11 @@
 // last two digits: specific error
 
 typedef enum {
+
+	// generic to replace later
+	EXIT_GENERIC_REPLACELATER = 1000,
+	ERR_GENERIC_REPLACELATER = 10000,
+
 	// memory
 	EXIT_FAILED_TO_ALLOCATE = 1101,
 

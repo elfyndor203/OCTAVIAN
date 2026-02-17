@@ -1,6 +1,6 @@
 #pragma once
-#include "standards/ECSStandards_internal.h"
 #include "OCT_Math.h"
+#include "OCT_EngineStructure.h"
 
 #define iOCT_POOLSIZE_DEFAULT 64
 
@@ -8,13 +8,15 @@
 /// Pools manage the arrays of data. Each entitySet can have at most 1 pool per type. The arrays are contigous and allocated when a new pool is created. 
 /// </summary>
 typedef struct iOCT_pool {
-	iOCT_ID entityContextID;
-	OCT_componentTypes componentType;
+	OCT_ID entityContextID;
+	OCT_types componentType;
 
 	OCT_counter counter;
 	OCT_counter capacity;
+
+	size_t componentSize;
 	void* array;
 } iOCT_pool;
 
-iOCT_pool* iOCT_pool_get(iOCT_entityContextID entityContextID, OCT_componentTypes componentType);
-bool iOCT_pool_allocate(iOCT_entityContextID entityContextID, OCT_componentTypes componentType);
+iOCT_pool* iOCT_pool_get(OCT_ID entityContextID, OCT_types componentType);
+bool iOCT_pool_allocate(OCT_ID entityContextID, OCT_types componentType);

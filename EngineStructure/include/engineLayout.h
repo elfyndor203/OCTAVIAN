@@ -5,21 +5,22 @@ typedef enum {
 	_OCT_Renderer = 2000
 } _OCT_subsystemList;
 
-typedef enum {					// componentsTotal == the number of actual components
-	OCT_componentEntity,		// not a component, but useful as it behaves similarly
+typedef enum {
+	OCT_typeEntity,		
 
-	OCT_componentPosition2D,	// 1 to 1s
-	OCT_componentTransform2D,
-	OCT_componentHitBox2D,
+	OCT_typeComponentTransform2D,
+	OCT_typeComponentHitBox2D,
 
-	OCT_componentsTotal
-} OCT_componentTypes;
-typedef size_t OCT_componentID;
+	OCT_typesTotal
+} OCT_types; // IF UPDATED, POOLS.C MUST ALSO BE UPDATED TO GET THE STRUCT SIZE
+
+typedef uint32_t OCT_ID;
 
 typedef struct {
-	size_t entitySetID;
-	size_t entityID;
+	OCT_ID entityContextID;
+	OCT_ID entityID;
 } OCT_entityHandle;
 
+extern const OCT_ID OCT_errorID;
 extern OCT_entityHandle _OCT_active;
 extern OCT_entityHandle _OCT_errorHandle;
