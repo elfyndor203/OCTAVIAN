@@ -1,6 +1,6 @@
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\hitBox2D.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\transform2D.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\ECS\ECSModule.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\ECSModule.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\module\ECSModule.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\ECSModule.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\IDMap.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\pools.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\pools.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entity.obj
@@ -8,3 +8,4 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\e
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\_ECS_Input\messageHandling.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\messageHandling.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\_ECS_Input\messageHandling_API.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\messageHandling_API.obj
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\_ECS_Output\vertexData.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\vertexData.obj
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\tests\newTestMain.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\newTestMain.obj

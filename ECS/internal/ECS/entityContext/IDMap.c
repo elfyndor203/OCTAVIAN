@@ -1,6 +1,7 @@
 #include "IDMap_internal.h"
 #include "entityContext_internal.h"
 #include "pools_internal.h"
+#include <stdlib.h>
 
 static iOCT_IDMap failedMap = { OCT_GENERIC_FAIL, OCT_GENERIC_FAIL, NULL };
 

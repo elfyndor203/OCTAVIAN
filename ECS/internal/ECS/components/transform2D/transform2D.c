@@ -2,7 +2,12 @@
 #include <string.h>
 #include <math.h>
 #include <stdbool.h>
+#include <inttypes.h>
+#include <stdio.h>
 
+
+#include "OCT_Errors.h"
+#include "OCT_EngineStructure.h"
 #include "units/constants.h"
 #include "ECS/entity/entity_internal.h"
 #include "ECS/entityContext/entityContext_internal.h"
@@ -48,7 +53,7 @@ OCT_ID iOCT_transform2D_add(OCT_ID entityContextID, OCT_ID parentID) {
     parent->transformID = newID;
     iOCT_entity_updateMask(entityContextID, parentID, OCT_typeComponentTransform2D);
 
-    printf("Added new transform2D to object #%zu in entitySet #%zu\n", parentID, entityContextID);
+    printf("ADD transform2D %5" PRIu64 " to entity %" PRIu64 " in entityContext %" PRIu64 "\n", newID, parentID, entityContextID);
     return newID;
 }
 
@@ -60,7 +65,9 @@ OCT_ID iOCT_transform2D_add(OCT_ID entityContextID, OCT_ID parentID) {
 /// <param name="delta"></param>
 /// <returns></returns>
 OCT_vector2D OCT_transform2D_moveBy(OCT_entityHandle parentHandle, OCT_vector2D delta) {
-    return iOCT_transform2D_moveBy(parentHandle.entityContextID, parentHandle.entityID, delta);
+    OCT_ID transformID = iOCT_entity_get(parentHandle.entityContextID, parentHandle.entityID)->transformID;
+    printf("MOV transform2D %5" PRIu64 " to (%.4f, %.4f) in entityContext %" PRIu64 "\n", transformID, delta.x, delta.y, parentHandle.entityContextID);
+    return iOCT_transform2D_moveBy(parentHandle.entityContextID, transformID, delta);
 }
 
 OCT_vector2D iOCT_transform2D_moveBy(OCT_ID entityContextID, OCT_ID transformID, OCT_vector2D delta) {

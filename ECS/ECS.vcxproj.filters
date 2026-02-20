@@ -28,9 +28,10 @@
     <ClInclude Include="internal\ECS\components\utilities\utilities_internal.h" />
     <ClInclude Include="internal\ECS\entityContext\pools_internal.h" />
     <ClInclude Include="internal\ECS\entityContext\IDMap_internal.h" />
-    <ClInclude Include="internal\ECS\ECS\ECSModule_internal.h" />
+    <ClInclude Include="internal\ECS\module\ECSModule_internal.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="include\ECS\components\hitBox2D\hitBox2D.h" />
+    <ClInclude Include="include\ECS\module\ECSModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />
@@ -41,7 +42,8 @@
     <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
     <ClCompile Include="internal\ECS\entityContext\pools.c" />
     <ClCompile Include="internal\ECS\entityContext\IDMap.c" />
-    <ClCompile Include="internal\ECS\ECS\ECSModule.c" />
+    <ClCompile Include="internal\ECS\module\ECSModule.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
+    <ClCompile Include="tests\newTestMain.c" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #include "messageHandling_internal.h"
+#include <stdio.h>
 
 #include "OCT_ECS.h"
 #include "ECS/entity/entity_internal.h"
@@ -18,7 +19,7 @@ void iOCT_handleECSMessages(void) {
 		switch (instruction) {
 		case _OCT_position2D_move:
 			activeMoving = true;
-			OCT_position2D_move(testActiveEntity, value1, value2);
+//			OCT_transform2D_moveBy(testActiveEntity, value1, value2);
 			printf("Moved entity %zu by %f, %f", testActiveEntity.entityID, value1, value2);
 			break;
 		case _OCT_position2D_stop:

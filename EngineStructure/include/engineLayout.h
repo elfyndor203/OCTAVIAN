@@ -14,7 +14,7 @@ typedef enum {
 	OCT_typesTotal
 } OCT_types; // IF UPDATED, POOLS.C MUST ALSO BE UPDATED TO GET THE STRUCT SIZE
 
-typedef uint32_t OCT_ID;
+typedef uint64_t OCT_ID;
 
 typedef struct {
 	OCT_ID entityContextID;

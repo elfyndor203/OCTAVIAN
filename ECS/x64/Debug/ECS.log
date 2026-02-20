@@ -1,3 +1,3 @@
-﻿  vertexData.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\_ECS_Output\vertexData.c(11,1): warning C4715: '_REN_rectVertices_get': not all control paths return a value
-  ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.lib
+﻿  newTestMain.c
+Errors.lib(errorHandling.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+  ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.exe

@@ -1,5 +1,6 @@
 #include "pools_internal.h"
 #include "entityContext_internal.h"
+#include <stdlib.h>
 
 #include "ECS/entityContext/IDMap_internal.h"
 #include "ECS/entity/entity_internal.h"

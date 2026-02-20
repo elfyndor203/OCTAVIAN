@@ -16,7 +16,6 @@
 /// </summary>
 typedef struct entityContext{
 	OCT_ID entityContextID;
-	OCT_ID rootEntityID;
 
 	iOCT_IDMap IDMap;
 	iOCT_pool pools[OCT_typesTotal];

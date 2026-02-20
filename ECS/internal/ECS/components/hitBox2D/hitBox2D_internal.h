@@ -17,7 +17,7 @@ typedef struct iOCT_hitBox2D{
 	float rotation;			// relative to the entity
 } iOCT_hitBox2D;
 
-
+iOCT_hitBox2D* iOCT_hitBox2D_get(OCT_ID entityContextID, OCT_ID hitBoxID);
 OCT_ID iOCT_hitBox2D_add(OCT_ID entityContextID, OCT_ID parentID);
 OCT_vector2D iOCT_hitBox2D_resizeTo(OCT_ID entityContextID, OCT_ID parentID, OCT_vector2D newSize);
 float iOCT_hitBox2D_rotateBy(OCT_ID entityContextID, OCT_ID parentID, float deltaDeg);

@@ -1,5 +1,7 @@
 #include "entity_internal.h"
 #include <string.h>
+#include <inttypes.h>
+#include <stdio.h>
 
 #include "ECS/entityContext/entityContext_internal.h"
 #include "ECS/entityContext/IDMap_internal.h"
@@ -26,11 +28,18 @@ OCT_entityHandle OCT_entity_new(OCT_entityHandle parentHandle) {
 	return newHandle;
 }
 OCT_ID iOCT_entity_new(OCT_ID entityContextID, OCT_ID parentID) {
+
 	OCT_ID newID;
 	iOCT_entity* newEntity;
 	
 	newID = iOCT_IDMap_registerID(entityContextID, OCT_typeEntity);		// Register an ID first to enable other functions
-	newEntity = iOCT_getByID(entityContextID, OCT_typeEntity, newID);	// Get the empty pool slot
+	if (parentID == iOCT_NOPARENT) {
+		printf("\nNEW entity %10" PRIu64 " in entityContext % " PRIu64 " as ROOT\n", newID, entityContextID);
+	}
+	else {
+		printf("\nNEW entity %10" PRIu64 " in entityContext %" PRIu64 " as a child of entity % " PRIu64 "\n", newID, entityContextID, parentID);
+	}
+	newEntity = iOCT_getByID(entityContextID, newID, OCT_typeEntity);	// Get the empty pool slot
 	memset(newEntity, 0, sizeof(iOCT_entity));							// Make sure the slot is empty
 
 	newEntity->entityContextID = entityContextID;
@@ -40,7 +49,7 @@ OCT_ID iOCT_entity_new(OCT_ID entityContextID, OCT_ID parentID) {
 	newEntity->hitBoxID = iOCT_NO_COMPONENT;
 	iOCT_entity_updateMask(entityContextID, newID, OCT_typeEntity);		// dummy marker
 
-	printf("\nCreated new entity #%zu in entityContext #%zu as a child of entity %zu \n", newID, entityContextID, parentID);
+
 	return newID;
 }
 
@@ -60,7 +69,7 @@ bool iOCT_entity_hasComponent(OCT_ID entityContextID, OCT_ID entityID, OCT_types
 		//printf("entity %zu DOES have componentTypes component #%d\n", entityID, component);
 		return true;
 	}
-	printf("entity %zu does NOT have componentTypes component #%d\n", entityID, componentType);
+//	printf("entity %zu does NOT have componentTypes component #%d\n", entityID, componentType);
 	return false;
 }
 
