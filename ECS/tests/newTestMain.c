@@ -15,7 +15,7 @@ int main() {
 	OCT_hitBox2D_add(grandChild);
 	OCT_entityHandle grandChildHitBox2 = OCT_hitBox2D_add(grandChild);
 	while (true) {
-		OCT_transform2D_moveBy(grandChildHitBox2, (OCT_vector2D){0.1f, 0.2f });
+		OCT_transform2D_moveBy(grandChildHitBox2, (OCT_vec2){0.1f, 0.2f });
 	};
 	return 0;
 }

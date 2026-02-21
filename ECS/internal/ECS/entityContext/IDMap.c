@@ -14,7 +14,7 @@ bool iOCT_IDMap_allocate(OCT_ID entityContextID) {
 	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
 
 	map->entityContextID = entityContextID;
-	map->counter = 0;
+	map->count = 0;
 	map->array = calloc(iOCT_POOLSIZE_DEFAULT * OCT_typesTotal, sizeof(iOCT_uniqueIndex));
 	if (!map->array) {
 		return false;
@@ -30,10 +30,10 @@ OCT_ID iOCT_IDMap_registerID(OCT_ID entityContextID, OCT_types componentType) {
 	iOCT_IDMap* IDMap = iOCT_IDMap_get(entityContextID);
 	iOCT_pool* pool = iOCT_pool_get(entityContextID, componentType);
 
-	newID = IDMap->counter;		// Grabs the next available ID
-	IDMap->counter += 1;
-	newIndex = pool->counter;
-	pool->counter += 1;
+	newID = IDMap->count;		// Grabs the next available ID
+	IDMap->count += 1;
+	newIndex = pool->count;
+	pool->count += 1;
 
 	iOCT_uniqueIndex uniqueIndex = {		// index stays with the map
 		.componentType = componentType,

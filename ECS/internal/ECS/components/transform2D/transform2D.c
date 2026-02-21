@@ -4,23 +4,25 @@
 #include <stdbool.h>
 #include <inttypes.h>
 #include <stdio.h>
-
+#include <stdlib.h>
 
 #include "OCT_Errors.h"
 #include "OCT_EngineStructure.h"
+#include "OCT_Math.h"
 #include "units/constants.h"
 #include "ECS/entity/entity_internal.h"
 #include "ECS/entityContext/entityContext_internal.h"
 #include "ECS/entityContext/IDMap_internal.h"
 
 static size_t iOCT_MAX_TRANSFORM2D = iOCT_ENTITY_DEFAULT_MAX;
-static OCT_vector2D defaultPosition = { iOCT_DEFAULT_POSITION_X, iOCT_DEFAULT_POSITION_Y };
-static OCT_vector2D defaultScale = { iOCT_DEFAULT_SCALE_X, iOCT_DEFAULT_SCALE_Y };
+static OCT_vec2 defaultPosition = { iOCT_DEFAULT_POSITION_X, iOCT_DEFAULT_POSITION_Y };
+static OCT_vec2 defaultScale = { iOCT_DEFAULT_SCALE_X, iOCT_DEFAULT_SCALE_Y };
+
+static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D transform);
 
 iOCT_transform2D* iOCT_transform2D_get(OCT_ID entityContextID, OCT_ID transformID) {
     return iOCT_getByID(entityContextID, transformID, OCT_typeComponentTransform2D);
 }
-
 
 /// <summary>
 /// Attaches a new transform2D component to the chosen entity. Returns false if anything failed.
@@ -44,7 +46,7 @@ OCT_ID iOCT_transform2D_add(OCT_ID entityContextID, OCT_ID parentID) {
     // Set values
     newTransform->transformID = newID;
     newTransform->parentID = parentID;
-    newTransform->localPosition = defaultPosition;
+    newTransform->position = defaultPosition;
     newTransform->rotation = iOCT_DEFAULT_ROTATION;
     newTransform->scale = defaultScale;
 
@@ -64,17 +66,17 @@ OCT_ID iOCT_transform2D_add(OCT_ID entityContextID, OCT_ID parentID) {
 /// <param name="parentHandle"></param>
 /// <param name="delta"></param>
 /// <returns></returns>
-OCT_vector2D OCT_transform2D_moveBy(OCT_entityHandle parentHandle, OCT_vector2D delta) {
+OCT_vec2 OCT_transform2D_moveBy(OCT_entityHandle parentHandle, OCT_vec2 delta) {
     OCT_ID transformID = iOCT_entity_get(parentHandle.entityContextID, parentHandle.entityID)->transformID;
     printf("MOV transform2D %5" PRIu64 " to (%.4f, %.4f) in entityContext %" PRIu64 "\n", transformID, delta.x, delta.y, parentHandle.entityContextID);
     return iOCT_transform2D_moveBy(parentHandle.entityContextID, transformID, delta);
 }
 
-OCT_vector2D iOCT_transform2D_moveBy(OCT_ID entityContextID, OCT_ID transformID, OCT_vector2D delta) {
+OCT_vec2 iOCT_transform2D_moveBy(OCT_ID entityContextID, OCT_ID transformID, OCT_vec2 delta) {
     iOCT_transform2D* transform = iOCT_transform2D_get(entityContextID, transformID);
-    transform->localPosition = OCT_vec2_vec2_add(transform->localPosition, delta);
-    transform->dirty = true;
-    return transform->localPosition;
+    transform->position = OCT_vec2_add(transform->position, delta);
+
+    return transform->position;
 }
 
 
@@ -104,23 +106,38 @@ float iOCT_transform2D_rotateBy(OCT_ID entityContextID, OCT_ID transformID, floa
     if (transform->rotation < 0) {
         transform->rotation += OCT_2PI_f;
     }
-
-    transform->dirty = true;           
+          
     return transform->rotation;
 }
 
+static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D transform) {
+    float cos = cosf(transform.rotation);
+    float sin = sinf(transform.rotation);
+    float scaleX = transform.scale.x;
+    float scaleY = transform.scale.y;
 
-OCT_vector2D iOCT_transform2D_getGlobal(OCT_ID entityContextID, OCT_ID transformID) {       // NOTE_ VERY BASIC RN NO ROTATION
-    OCT_vector2D globalPos = { 0 };
-    iOCT_transform2D* nextTransform = iOCT_transform2D_get(entityContextID, transformID);
-    iOCT_entity* nextParent = iOCT_entity_get(entityContextID, nextTransform->parentID);
-
-    while (nextTransform != NULL) {
-        globalPos = OCT_vec2_vec2_add(globalPos, nextTransform->localPosition);
-        nextParent = iOCT_entity_get(entityContextID, nextParent->parentID);
-        nextTransform = iOCT_transform2D_get(entityContextID, nextParent->transformID);
-    }
-    return globalPos;
+    OCT_mat3 localMatrix = {
+        scaleX * cos, -scaleY * sin, transform.position.x,
+        scaleX * sin,  scaleY * cos, transform.position.y,
+        0,             0,            1
+    };
+    return localMatrix;
 }
+
+void iOCT_transform2D_propagate(OCT_ID entityContextID) {
+    iOCT_pool* pool = iOCT_pool_get(entityContextID, OCT_typeComponentTransform2D);
+    iOCT_transform2D* array = (iOCT_transform2D*)pool->array;
+    iOCT_transform2D* currentTransform;
+    iOCT_transform2D* parentTransform;
+
+    for (int index = 0; index < pool->count; index++) {
+        currentTransform = &array[index];
+        parentTransform = iOCT_transform2D_get(entityContextID, currentTransform->parentID);
+
+        currentTransform->localMatrix = iOCT_transform2D_generateMatrix(*currentTransform);
+        currentTransform->globalMatrix = OCT_mat3_mul(parentTransform->globalMatrix, currentTransform->localMatrix);
+    }
+}
+
 
 

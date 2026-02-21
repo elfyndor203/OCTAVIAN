@@ -150,33 +150,21 @@
   <ItemGroup>
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\operations.h" />
-    <ClInclude Include="include\matrix2D\matrix2D.h" />
-    <ClInclude Include="include\shapes\OCT_MathShapes.h" />
+    <ClInclude Include="include\matrices\mat3.h" />
     <ClInclude Include="include\units\constants.h" />
     <ClInclude Include="include\units\conversions.h" />
-    <ClInclude Include="include\units\OCT_MathUnits.h" />
-    <ClInclude Include="include\vector2D\OCT_MathVector2D.h" />
     <ClInclude Include="include\OCT_Math.h" />
-    <ClInclude Include="include\shapes\rectangle2D.h" />
+    <ClInclude Include="include\shapes\rect2.h" />
     <ClInclude Include="include\shapes\shapes.h" />
-    <ClInclude Include="include\vector2D\vector2DScalar.h" />
-    <ClInclude Include="include\vector2D\vector2DVector2D.h" />
-    <ClInclude Include="include\vector2D\vector2DInfo.h" />
     <ClInclude Include="internal\definitions\defaultValues_internal.h" />
-    <ClInclude Include="internal\definitions\operations_internal.h" />
-    <ClInclude Include="internal\matrix2D\matrix2D.c" />
-    <ClInclude Include="internal\shapes\rectangle2D_internal.h" />
-    <ClInclude Include="internal\standards\mathStandards_internal.h" />
-    <ClInclude Include="internal\vector2D\vector2DInfo.c" />
-    <ClInclude Include="include\vector2D\vector2D.h" />
+    <ClInclude Include="internal\matrices\mat3.c" />
+    <ClInclude Include="include\vectors\vec2.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\shapes\rectangle2D.c" />
+    <ClCompile Include="internal\shapes\rect2.c" />
     <ClCompile Include="internal\units\constants.c" />
     <ClCompile Include="internal\units\conversions.c" />
-    <ClCompile Include="internal\vector2D\vector2D.c" />
-    <ClCompile Include="internal\vector2D\vector2DScalar.c" />
-    <ClCompile Include="internal\vector2D\vector2DVector2D.c" />
+    <ClCompile Include="internal\vec\vec2.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -24,7 +24,7 @@ bool iOCT_pool_allocate(OCT_ID entityContextID, OCT_types componentType) {
 
 	pool->entityContextID = entityContextID;					// set default values
 	pool->componentType = componentType;
-	pool->counter = 0;
+	pool->count = 0;
 	pool->capacity = iOCT_POOLSIZE_DEFAULT;
 	pool->componentSize = iOCT_componentSizeList[componentType];
 	pool->array = calloc(iOCT_POOLSIZE_DEFAULT, iOCT_componentSizeList[componentType]);

@@ -1,5 +1,11 @@
 #pragma once
 #include "definitions/aliases.h"
-#include "vector2D/OCT_MathVector2D.h"
-#include "shapes/OCT_MathShapes.h"
-#include "units/OCT_MathUnits.h"
+
+#include "units/constants.h"
+#include "units/conversions.h"
+
+#include "vectors/vec2.h"
+#include "matrices/mat3.h"
+
+#include "shapes/shapes.h"
+#include "shapes/rect2.h"

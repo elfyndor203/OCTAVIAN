@@ -15,28 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\vector2D\OCT_MathVector2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\vector2D\vector2DScalar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\vector2D\vector2DVector2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="internal\definitions\operations_internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="internal\standards\mathStandards_internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\vector2D\vector2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\vector2D\vector2DInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="internal\vector2D\vector2DInfo.c">
+    <ClInclude Include="include\vectors\vec2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="internal\definitions\defaultValues_internal.h">
@@ -51,28 +30,19 @@
     <ClInclude Include="include\definitions\aliases.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\shapes\rectangle2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="internal\shapes\rectangle2D_internal.h">
+    <ClInclude Include="include\shapes\rect2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\shapes\shapes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\shapes\OCT_MathShapes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\units\conversions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\units\OCT_MathUnits.h">
+    <ClInclude Include="internal\matrices\mat3.c">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\matrix2D\matrix2D.c">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\matrix2D\matrix2D.h">
+    <ClInclude Include="include\matrices\mat3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\units\constants.h">
@@ -80,19 +50,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\vector2D\vector2DScalar.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="internal\vector2D\vector2DVector2D.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="internal\shapes\rectangle2D.c">
+    <ClCompile Include="internal\shapes\rect2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\units\conversions.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="internal\vector2D\vector2D.c">
+    <ClCompile Include="internal\vec\vec2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\units\constants.c">

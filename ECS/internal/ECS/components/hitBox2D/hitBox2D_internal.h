@@ -12,14 +12,14 @@ typedef struct iOCT_hitBox2D{
 	OCT_ID hitBoxID;	// own spot
 	OCT_ID parentID;		// entity spot
 
-	OCT_vertex2D localOrigin;	// center
-	OCT_vector2D size;			// width, height
+	OCT_vert2 localOrigin;	// center
+	OCT_vec2 size;			// width, height
 	float rotation;			// relative to the entity
 } iOCT_hitBox2D;
 
 iOCT_hitBox2D* iOCT_hitBox2D_get(OCT_ID entityContextID, OCT_ID hitBoxID);
 OCT_ID iOCT_hitBox2D_add(OCT_ID entityContextID, OCT_ID parentID);
-OCT_vector2D iOCT_hitBox2D_resizeTo(OCT_ID entityContextID, OCT_ID parentID, OCT_vector2D newSize);
+OCT_vec2 iOCT_hitBox2D_resizeTo(OCT_ID entityContextID, OCT_ID parentID, OCT_vec2 newSize);
 float iOCT_hitBox2D_rotateBy(OCT_ID entityContextID, OCT_ID parentID, float deltaDeg);
 
 OCT_rectangle2D iOCT_hitBox2D_generateVertices(OCT_ID entityContextID, OCT_ID parentID);

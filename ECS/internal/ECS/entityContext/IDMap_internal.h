@@ -13,7 +13,7 @@ typedef struct iOCT_indexPair {
 /// </summary>
 typedef struct iOCT_IDMap {
 	OCT_ID entityContextID;	// Context that owns this map
-	OCT_counter counter;
+	OCT_counter count;
 	iOCT_uniqueIndex* array;				// array of unique indices
 } iOCT_IDMap;
 

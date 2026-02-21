@@ -11,7 +11,7 @@ typedef struct iOCT_pool {
 	OCT_ID entityContextID;
 	OCT_types componentType;
 
-	OCT_counter counter;
+	OCT_counter count;
 	OCT_counter capacity;
 
 	size_t componentSize;

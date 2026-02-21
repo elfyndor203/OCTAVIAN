@@ -21,15 +21,16 @@ typedef struct iOCT_transform2D {
 	OCT_ID transformID;
 	OCT_ID parentID;
 
-	bool dirty;
-	OCT_vector2D localPosition;
-	OCT_vector2D globalPosition;
+	OCT_vec2 position;
 	float rotation;
-	OCT_vector2D scale;
+	OCT_vec2 scale;
+
+	OCT_mat3 localMatrix;
+	OCT_mat3 globalMatrix;
 } iOCT_transform2D;
 
 iOCT_transform2D* iOCT_transform2D_get(OCT_ID entityContextID, OCT_ID transformID);
 OCT_ID iOCT_transform2D_add(OCT_ID entityContextID, OCT_ID parentID);
-OCT_vector2D iOCT_transform2D_moveBy(OCT_ID entityContextID, OCT_ID transformID, OCT_vector2D delta);
+OCT_vec2 iOCT_transform2D_moveBy(OCT_ID entityContextID, OCT_ID transformID, OCT_vec2 delta);
 float iOCT_transform2D_rotateBy(OCT_ID entityContextID, OCT_ID parentID, float deltaDegrees);
 
