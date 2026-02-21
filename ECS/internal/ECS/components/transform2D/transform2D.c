@@ -124,6 +124,7 @@ static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D transform) {
     return localMatrix;
 }
 
+
 void iOCT_transform2D_propagate(OCT_ID entityContextID) {
     iOCT_pool* pool = iOCT_pool_get(entityContextID, OCT_typeComponentTransform2D);
     iOCT_transform2D* array = (iOCT_transform2D*)pool->array;
