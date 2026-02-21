@@ -1,15 +1,10 @@
 To add new component type:
 
-* Add .h
-* Add .c
-* Add to componentTypes enum
-* Add pool to scene struct
-* Add counter to scene struct definition	
-* Add pool to poolsList\[]
-* Add get function in scenes.c
+* Add .h to include
+* Add \_internal.h to internal
+* Add .c to internal
+* Add to OCT\_types enum
+* Add to type size array
 
 
 
-If it is 1-1:
-
-* Add to gameObject struct definition
