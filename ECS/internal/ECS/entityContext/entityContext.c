@@ -47,8 +47,8 @@ OCT_entityHandle iOCT_entityContext_open() {
 /// Frees all memory used by the entityContext. Handles bookkeeping by swap replacing with the last entityContext if necessary. 
 /// </summary>
 /// <param name="closedContextID"></param>
-void OCT_entityContext_close(OCT_ID closedContextID) {
-	iOCT_entityContext_close(closedContextID);
+void OCT_entityContext_close(OCT_entityHandle rootHandle) {
+	iOCT_entityContext_close(rootHandle.entityContextID);
 }
 void iOCT_entityContext_close(OCT_ID closedContextID) {
 	iOCT_manager_ECS* game = &iOCT_ECS_instance;
@@ -98,6 +98,13 @@ void* iOCT_getByID(OCT_ID entityContextID, OCT_ID ID, OCT_types type) {
 
 	iOCT_pool* pool = iOCT_pool_get(entityContextID, type);
 	return (char*)pool->array + (index * pool->componentSize);
+}
+
+void OCT_entityContext_update(OCT_entityHandle root) {
+	iOCT_entityContext_update(root.entityContextID);
+}
+void iOCT_entityContext_update(OCT_ID contextID) {
+	iOCT_transform2D_propagate(contextID);
 }
 
 

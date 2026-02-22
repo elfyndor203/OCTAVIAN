@@ -14,11 +14,11 @@
 #include "ECS/entityContext/entityContext_internal.h"
 #include "ECS/entityContext/IDMap_internal.h"
 
-static size_t iOCT_MAX_TRANSFORM2D = iOCT_ENTITY_DEFAULT_MAX;
-static OCT_vec2 defaultPosition = { iOCT_DEFAULT_POSITION_X, iOCT_DEFAULT_POSITION_Y };
-static OCT_vec2 defaultScale = { iOCT_DEFAULT_SCALE_X, iOCT_DEFAULT_SCALE_Y };
+static int currentMaxDepth = -1;
+static OCT_index depthEnds[iOCT_TRANSFORM_MAXDEPTH] = {0}; // marks the end index of each depth group
 
 static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D transform);
+static void iOCT_transform2D_insert(OCT_ID contextID, iOCT_transform2D newTransform);
 
 iOCT_transform2D* iOCT_transform2D_get(OCT_ID entityContextID, OCT_ID transformID) {
     return iOCT_getByID(entityContextID, transformID, OCT_typeComponentTransform2D);
@@ -35,30 +35,86 @@ bool OCT_transform2D_add(OCT_entityHandle parentHandle) {
     }
     return true;
 }
-OCT_ID iOCT_transform2D_add(OCT_ID entityContextID, OCT_ID parentID) {
+OCT_ID iOCT_transform2D_add(OCT_ID contextID, OCT_ID entityID) {
     OCT_ID newID;
     iOCT_transform2D* newTransform;
+    iOCT_entity* entity = iOCT_entity_get(contextID, entityID);
+    iOCT_transform2D* parentTransform;
 
-    newID = iOCT_IDMap_registerID(entityContextID, OCT_typeComponentTransform2D);
-    newTransform = iOCT_transform2D_get(entityContextID, newID);
+    int parentDepth;
+    if (entityID == iOCT_ROOT_ID) {
+        parentDepth = -1;
+    }
+    else {
+        parentTransform = iOCT_transform2D_get(contextID, iOCT_entity_get(contextID, iOCT_entity_get(contextID, entityID)->parentID)->transformID);
+        parentDepth = parentTransform->depth;
+    }
+
+    newID = iOCT_IDMap_registerID(contextID, OCT_typeComponentTransform2D);
+    newTransform = iOCT_transform2D_get(contextID, newID);
     memset(newTransform, 0, sizeof(iOCT_transform2D));
 
     // Set values
     newTransform->transformID = newID;
-    newTransform->parentID = parentID;
-    newTransform->position = defaultPosition;
+    newTransform->entityID = entityID;
+    newTransform->depth = parentDepth + 1;
+    newTransform->position = (OCT_vec2){iOCT_DEFAULT_POSITION_X, iOCT_DEFAULT_POSITION_Y};
     newTransform->rotation = iOCT_DEFAULT_ROTATION;
-    newTransform->scale = defaultScale;
+    newTransform->scale = (OCT_vec2){iOCT_DEFAULT_SCALE_X, iOCT_DEFAULT_SCALE_Y};
 
     // Link to parent
-    iOCT_entity* parent = iOCT_entity_get(entityContextID, parentID);
-    parent->transformID = newID;
-    iOCT_entity_updateMask(entityContextID, parentID, OCT_typeComponentTransform2D);
+    entity->transformID = newID;
+    iOCT_entity_updateMask(contextID, entityID, OCT_typeComponentTransform2D);
 
-    printf("ADD transform2D %5" PRIu64 " to entity %" PRIu64 " in entityContext %" PRIu64 "\n", newID, parentID, entityContextID);
+    iOCT_transform2D_insert(contextID, *newTransform);
+    // printf("ADD transform2D %5" PRIu64 " to entity %" PRIu64 " in entityContext %" PRIu64 "\n", newID, entityID, contextID);
     return newID;
 }
 
+static void iOCT_transform2D_insert(OCT_ID contextID, iOCT_transform2D newTransform) {
+    int newDepth = newTransform.depth;
+
+    iOCT_transform2D* poolArray = (iOCT_transform2D*)iOCT_pool_get(contextID, OCT_typeComponentTransform2D)->array;
+    OCT_index targetIndex;
+
+    int workingDepth = newDepth;
+    iOCT_transform2D workingTransform = newTransform;
+    iOCT_transform2D displacedTransform;
+
+    if (newDepth == currentMaxDepth) {
+        depthEnds[newDepth] += 1;
+        poolArray[depthEnds[newDepth]] = newTransform;  // replace anyway
+        iOCT_IDMap_remap(contextID, newTransform.transformID, depthEnds[newDepth]);
+        return;
+    }
+    if (newDepth > currentMaxDepth) {
+        if (currentMaxDepth < 0) {
+            depthEnds[newDepth] = 0;
+        }
+        else {
+            depthEnds[newDepth] = depthEnds[currentMaxDepth] + 1;
+        }
+        poolArray[depthEnds[newDepth]] = newTransform;  // replace anyway
+        iOCT_IDMap_remap(contextID, newTransform.transformID, depthEnds[newDepth]);
+        currentMaxDepth = newDepth;
+        return;
+    }
+    while (workingDepth < currentMaxDepth) {
+        targetIndex = depthEnds[workingDepth] + 1;      // start of the next depth
+        displacedTransform = poolArray[targetIndex];    // temp copy of the displaced
+
+        poolArray[targetIndex] = workingTransform;      // copy the new one in
+        iOCT_IDMap_remap(contextID, workingTransform.transformID, targetIndex);
+
+        workingTransform = displacedTransform;          // start doing the same to the next layer
+        depthEnds[workingDepth] += 1;                   // expand the depth group by 1
+        workingDepth += 1;
+    }
+    OCT_index finalIndex = depthEnds[currentMaxDepth] + 1;
+    poolArray[finalIndex] = workingTransform;
+    iOCT_IDMap_remap(contextID, workingTransform.transformID, finalIndex);
+    depthEnds[currentMaxDepth] += 1;
+}
 
 /// <summary>
 /// Moves an entity by a given vector using its transform component.
@@ -68,14 +124,13 @@ OCT_ID iOCT_transform2D_add(OCT_ID entityContextID, OCT_ID parentID) {
 /// <returns></returns>
 OCT_vec2 OCT_transform2D_moveBy(OCT_entityHandle parentHandle, OCT_vec2 delta) {
     OCT_ID transformID = iOCT_entity_get(parentHandle.entityContextID, parentHandle.entityID)->transformID;
-    printf("MOV transform2D %5" PRIu64 " to (%.4f, %.4f) in entityContext %" PRIu64 "\n", transformID, delta.x, delta.y, parentHandle.entityContextID);
     return iOCT_transform2D_moveBy(parentHandle.entityContextID, transformID, delta);
 }
 
 OCT_vec2 iOCT_transform2D_moveBy(OCT_ID entityContextID, OCT_ID transformID, OCT_vec2 delta) {
     iOCT_transform2D* transform = iOCT_transform2D_get(entityContextID, transformID);
     transform->position = OCT_vec2_add(transform->position, delta);
-
+    // printf("MOV transform2D %5" PRIu64 " to (%.4f, %.4f) in entityContext %" PRIu64 "\n", transformID, transform->position.x, transform->position.y, entityContextID);
     return transform->position;
 }
 
@@ -87,7 +142,8 @@ OCT_vec2 iOCT_transform2D_moveBy(OCT_ID entityContextID, OCT_ID transformID, OCT
 /// <param name="deltaDegrees"></param>
 /// <returns></returns>
 float OCT_transform2D_rotateByDeg(OCT_entityHandle parentHandle, float deltaDegrees) {
-    return OCT_rad2deg(iOCT_transform2D_rotateBy(parentHandle.entityContextID, parentHandle.entityID, OCT_deg2rad(deltaDegrees)));
+    OCT_ID transformID = iOCT_entity_get(parentHandle.entityContextID, parentHandle.entityID)->transformID;
+    return OCT_rad2deg(iOCT_transform2D_rotateBy(parentHandle.entityContextID, transformID, OCT_deg2rad(deltaDegrees)));
 }
 /// <summary>
 /// Rotates an entity by a given angle in radians using its transform component.
@@ -96,7 +152,8 @@ float OCT_transform2D_rotateByDeg(OCT_entityHandle parentHandle, float deltaDegr
 /// <param name="deltaRadians"></param>
 /// <returns></returns>
 float OCT_transform2D_rotateByRad(OCT_entityHandle parentHandle, float deltaRadians) {
-    return iOCT_transform2D_rotateBy(parentHandle.entityContextID, parentHandle.entityID, deltaRadians);
+    OCT_ID transformID = iOCT_entity_get(parentHandle.entityContextID, parentHandle.entityID)->transformID;
+    return iOCT_transform2D_rotateBy(parentHandle.entityContextID, transformID, deltaRadians);
 }
 float iOCT_transform2D_rotateBy(OCT_ID entityContextID, OCT_ID transformID, float deltaRad) {
     iOCT_transform2D* transform = iOCT_transform2D_get(entityContextID, transformID);
@@ -124,20 +181,36 @@ static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D transform) {
     return localMatrix;
 }
 
-
-void iOCT_transform2D_propagate(OCT_ID entityContextID) {
-    iOCT_pool* pool = iOCT_pool_get(entityContextID, OCT_typeComponentTransform2D);
+void iOCT_transform2D_propagate(OCT_ID contextID) {
+    iOCT_pool* pool = iOCT_pool_get(contextID, OCT_typeComponentTransform2D);
     iOCT_transform2D* array = (iOCT_transform2D*)pool->array;
+
     iOCT_transform2D* currentTransform;
     iOCT_transform2D* parentTransform;
 
-    for (int index = 0; index < pool->count; index++) {
+    OCT_index rootIndex = iOCT_ROOT_ID;
+    currentTransform = &array[rootIndex];
+    currentTransform->localMatrix = iOCT_transform2D_generateMatrix(*currentTransform);
+    currentTransform->globalMatrix = currentTransform->localMatrix;
+
+    for (OCT_index index = rootIndex + 1; index < pool->count; index++) {
         currentTransform = &array[index];
-        parentTransform = iOCT_transform2D_get(entityContextID, currentTransform->parentID);
+        parentTransform = iOCT_transform2D_get(contextID, iOCT_entity_getParent(contextID, currentTransform->entityID)->transformID);
 
         currentTransform->localMatrix = iOCT_transform2D_generateMatrix(*currentTransform);
         currentTransform->globalMatrix = OCT_mat3_mul(parentTransform->globalMatrix, currentTransform->localMatrix);
+        
     }
+
+}
+
+OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform) {
+    OCT_mat3 matrix = transform.globalMatrix;
+    OCT_vec2 globalPos = {
+        .x = matrix.r0c2,
+        .y = matrix.r1c2
+    };
+    return globalPos;
 }
 
 

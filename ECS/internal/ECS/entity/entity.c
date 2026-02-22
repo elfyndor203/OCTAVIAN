@@ -34,10 +34,10 @@ OCT_ID iOCT_entity_new(OCT_ID entityContextID, OCT_ID parentID) {
 	
 	newID = iOCT_IDMap_registerID(entityContextID, OCT_typeEntity);		// Register an ID first to enable other functions
 	if (parentID == iOCT_NOPARENT) {
-		printf("\nNEW entity %10" PRIu64 " in entityContext % " PRIu64 " as ROOT\n", newID, entityContextID);
+	//	printf("\nNEW entity %10" PRIu64 " in entityContext % " PRIu64 " as ROOT\n", newID, entityContextID);
 	}
 	else {
-		printf("\nNEW entity %10" PRIu64 " in entityContext %" PRIu64 " as a child of entity % " PRIu64 "\n", newID, entityContextID, parentID);
+	//	printf("\nNEW entity %10" PRIu64 " in entityContext %" PRIu64 " as a child of entity % " PRIu64 "\n", newID, entityContextID, parentID);
 	}
 	newEntity = iOCT_getByID(entityContextID, newID, OCT_typeEntity);	// Get the empty pool slot
 	memset(newEntity, 0, sizeof(iOCT_entity));							// Make sure the slot is empty
@@ -48,7 +48,6 @@ OCT_ID iOCT_entity_new(OCT_ID entityContextID, OCT_ID parentID) {
 	newEntity->transformID = iOCT_transform2D_add(entityContextID, newID);
 	newEntity->hitBoxID = iOCT_NO_COMPONENT;
 	iOCT_entity_updateMask(entityContextID, newID, OCT_typeEntity);		// dummy marker
-
 
 	return newID;
 }
@@ -78,9 +77,14 @@ void iOCT_entity_updateMask(OCT_ID entityContextID, OCT_ID entityID, OCT_types c
 	entity->componentsMask |= (1ULL << componentType);
 }
 
+iOCT_entity* iOCT_entity_getParent(OCT_ID contextID, OCT_ID entityID) {
+	return iOCT_entity_get(contextID, iOCT_entity_get(contextID, entityID)->parentID);
+}
+
 void test_entitySetActive(OCT_entityHandle entity) {
 	testActiveEntity = entity;
 }
+
 
 
 

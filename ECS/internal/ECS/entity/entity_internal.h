@@ -23,8 +23,9 @@ typedef struct iOCT_entity{
 
 extern OCT_entityHandle testActiveEntity;
 
-iOCT_entity* iOCT_entity_get(OCT_ID entityContextID, OCT_ID entityID);
-OCT_ID iOCT_entity_new(OCT_ID entityContextID, OCT_ID parentID);
-bool iOCT_entity_hasComponent(OCT_ID entitySetID, OCT_ID entityID, OCT_types component);
-void iOCT_entity_updateMask(OCT_ID entityContextID, OCT_ID entityID, OCT_types componentType);
+iOCT_entity* iOCT_entity_get(OCT_ID contextID, OCT_ID entityID);
+OCT_ID iOCT_entity_new(OCT_ID contextID, OCT_ID parentID);
+bool iOCT_entity_hasComponent(OCT_ID contextID, OCT_ID entityID, OCT_types component);
+void iOCT_entity_updateMask(OCT_ID contextID, OCT_ID entityID, OCT_types componentType);
+iOCT_entity* iOCT_entity_getParent(OCT_ID contextID, OCT_ID entityID);
 

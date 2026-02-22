@@ -13,9 +13,8 @@ typedef struct OCT_mat3 {
 	float r2c0;
 	float r2c1;
 	float r2c2;
-
 } OCT_mat3;
 
-extern OCT_mat3 OCT_mat3x3_identity;
+extern OCT_mat3 OCT_mat3_identity;
 
 OCT_mat3 OCT_mat3_mul(OCT_mat3 matrixA, OCT_mat3 matrixB);

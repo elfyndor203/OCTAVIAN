@@ -25,4 +25,5 @@ iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityContextID);
 OCT_entityHandle iOCT_entityContext_open();
 void iOCT_entityContext_close(OCT_ID closedContextID);
 void* iOCT_getByID(OCT_ID entityContextID, OCT_ID ID, OCT_types componentType);
+void iOCT_entityContext_update(OCT_ID entityContextID);
 

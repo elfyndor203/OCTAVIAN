@@ -23,12 +23,12 @@ bool iOCT_IDMap_allocate(OCT_ID entityContextID) {
 }
 
 // Registers the next available ID with the provided pool index for any new entity or component.
-OCT_ID iOCT_IDMap_registerID(OCT_ID entityContextID, OCT_types componentType) {
+OCT_ID iOCT_IDMap_registerID(OCT_ID contextID, OCT_types componentType) {
 	OCT_ID newID;
 	OCT_index newIndex;
 
-	iOCT_IDMap* IDMap = iOCT_IDMap_get(entityContextID);
-	iOCT_pool* pool = iOCT_pool_get(entityContextID, componentType);
+	iOCT_IDMap* IDMap = iOCT_IDMap_get(contextID);
+	iOCT_pool* pool = iOCT_pool_get(contextID, componentType);
 
 	newID = IDMap->count;		// Grabs the next available ID
 	IDMap->count += 1;
@@ -42,4 +42,10 @@ OCT_ID iOCT_IDMap_registerID(OCT_ID entityContextID, OCT_types componentType) {
 
 	IDMap->array[newID] = uniqueIndex;		// Registers the index with the ID
 	return newID;							// only ID gets returned
+}
+
+void iOCT_IDMap_remap(OCT_ID contextID, OCT_ID ID, OCT_index newIndex) {
+	iOCT_IDMap* IDMap = iOCT_IDMap_get(contextID);
+	IDMap->array[ID].index = newIndex;
+	return;
 }

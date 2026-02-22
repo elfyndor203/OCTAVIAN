@@ -17,6 +17,7 @@ typedef struct iOCT_IDMap {
 	iOCT_uniqueIndex* array;				// array of unique indices
 } iOCT_IDMap;
 
-iOCT_IDMap* iOCT_IDMap_get(OCT_ID entityContextID);
-bool iOCT_IDMap_allocate(OCT_ID entityContextID);
-OCT_ID iOCT_IDMap_registerID(OCT_ID entityContextID, OCT_types componentType);
+iOCT_IDMap* iOCT_IDMap_get(OCT_ID contextID);
+bool iOCT_IDMap_allocate(OCT_ID contextID);
+OCT_ID iOCT_IDMap_registerID(OCT_ID contextID, OCT_types componentType);
+void iOCT_IDMap_remap(OCT_ID contextID, OCT_ID ID, OCT_index newIndex);

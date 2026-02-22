@@ -53,7 +53,7 @@ OCT_ID iOCT_hitBox2D_add(OCT_ID entityContextID, OCT_ID parentID) {
 
     iOCT_hitBox2D_resizeTo(entityContextID, parentID, iOCT_hitBox2D_default_size);
 
-    printf("ADD hitBox2D %8" PRIu64 " to entity %" PRIu64 " in entityContext %" PRIu64 "\n", newID, parentID, entityContextID);
+    // printf("ADD hitBox2D %8" PRIu64 " to entity %" PRIu64 " in entityContext %" PRIu64 "\n", newID, parentID, entityContextID);
     return newID;
 }
 
@@ -94,7 +94,7 @@ float iOCT_hitBox2D_rotateBy(OCT_ID entityContextID, OCT_ID parentID, float delt
 OCT_rectangle2D iOCT_hitBox2D_generateVertices(OCT_ID entityContextID, OCT_ID parentID) {
     iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(entityContextID, parentID);
 
-    OCT_vert2 globalCenter = OCT_vec2_add(iOCT_transform2D_get(entityContextID, parentID)->globalPosition, hitBox->localOrigin); // get absolute values NOTE_DOES_NOT_ACCOUNT_FOR_SCALE
+    OCT_vert2 globalCenter = OCT_vec2_add(iOCT_transform2D_globalPos(*iOCT_transform2D_get(entityContextID, parentID)), hitBox->localOrigin);
     float globalRotation = iOCT_transform2D_get(entityContextID, parentID)->rotation + hitBox->rotation;
 //    OCT_vector2D globalSize = OCT_vec2_vec2_mult(hitBox->size, iOCT_transform2D_get(entityContextID, parentID)->scale);
 

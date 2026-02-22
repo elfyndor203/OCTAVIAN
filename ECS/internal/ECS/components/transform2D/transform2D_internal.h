@@ -12,14 +12,15 @@
 #define iOCT_DEFAULT_SCALE_X 1.0f
 #define iOCT_DEFAULT_SCALE_Y 1.0f
 
-extern size_t iOCT_MAX_TRANSFORM2D;
+#define iOCT_TRANSFORM_MAXDEPTH 16
 
 /// <summary>
 /// Transform component. Stores local values and a global matrix. 
 /// </summary>
 typedef struct iOCT_transform2D {
 	OCT_ID transformID;
-	OCT_ID parentID;
+	OCT_ID entityID;
+	int depth;
 
 	OCT_vec2 position;
 	float rotation;
@@ -29,8 +30,10 @@ typedef struct iOCT_transform2D {
 	OCT_mat3 globalMatrix;
 } iOCT_transform2D;
 
-iOCT_transform2D* iOCT_transform2D_get(OCT_ID entityContextID, OCT_ID transformID);
-OCT_ID iOCT_transform2D_add(OCT_ID entityContextID, OCT_ID parentID);
-OCT_vec2 iOCT_transform2D_moveBy(OCT_ID entityContextID, OCT_ID transformID, OCT_vec2 delta);
-float iOCT_transform2D_rotateBy(OCT_ID entityContextID, OCT_ID parentID, float deltaDegrees);
+iOCT_transform2D* iOCT_transform2D_get(OCT_ID contextID, OCT_ID transformID);
+OCT_ID iOCT_transform2D_add(OCT_ID contextID, OCT_ID parentID);
+OCT_vec2 iOCT_transform2D_moveBy(OCT_ID contextID, OCT_ID transformID, OCT_vec2 delta);
+float iOCT_transform2D_rotateBy(OCT_ID contextID, OCT_ID parentID, float deltaDegrees);
+void iOCT_transform2D_propagate(OCT_ID contextID);
 
+OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform);

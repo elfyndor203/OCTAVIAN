@@ -157,10 +157,10 @@
     <ClInclude Include="include\shapes\rect2.h" />
     <ClInclude Include="include\shapes\shapes.h" />
     <ClInclude Include="internal\definitions\defaultValues_internal.h" />
-    <ClInclude Include="internal\matrices\mat3.c" />
     <ClInclude Include="include\vectors\vec2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="internal\matrices\mat3.c" />
     <ClCompile Include="internal\shapes\rect2.c" />
     <ClCompile Include="internal\units\constants.c" />
     <ClCompile Include="internal\units\conversions.c" />

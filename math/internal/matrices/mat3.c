@@ -1,7 +1,7 @@
 #pragma once
 #include "matrices/mat3.h"
 
-extern OCT_mat3 OCT_mat3x3_identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+OCT_mat3 OCT_mat3_identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
 
 OCT_mat3 OCT_mat3_mul(OCT_mat3 matrixA, OCT_mat3 matrixB) {
     OCT_mat3 result = {

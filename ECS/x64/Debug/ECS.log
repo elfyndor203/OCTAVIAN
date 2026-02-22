@@ -1,16 +1,3 @@
-﻿  hitBox2D.c
-  transform2D.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(97,92): error C2039: 'globalPosition': is not a member of 'iOCT_transform2D'
-      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D_internal.h(20,16):
-      see declaration of 'iOCT_transform2D'
-  
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(97,30): error C2198: 'OCT_vec2 OCT_vec2_add(OCT_vec2,OCT_vec2)': too few arguments for call
-  ECSModule.c
-  IDMap.c
-  pools.c
-  entity.c
-  entityContext.c
-  messageHandling.c
-  vertexData.c
-  newTestMain.c
-  Generating Code...
+﻿  newTestMain.c
+Errors.lib(errorHandling.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+  ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.exe

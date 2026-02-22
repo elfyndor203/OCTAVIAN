@@ -39,9 +39,6 @@
     <ClInclude Include="include\units\conversions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\matrices\mat3.c">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\matrices\mat3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -60,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\units\constants.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\matrices\mat3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
