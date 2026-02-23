@@ -167,6 +167,16 @@ float iOCT_transform2D_rotateBy(OCT_ID entityContextID, OCT_ID transformID, floa
     return transform->rotation;
 }
 
+OCT_vec2 OCT_transform2D_scaleBy(OCT_entityHandle parentHandle, OCT_vec2 delta) {
+    OCT_ID transformID = iOCT_entity_get(parentHandle.entityContextID, parentHandle.entityID)->transformID;
+    return iOCT_transform2D_scaleBy(parentHandle.entityContextID, transformID, delta);
+}
+OCT_vec2 iOCT_transform2D_scaleBy(OCT_ID contextID, OCT_ID transformID, OCT_vec2 delta) {
+    iOCT_transform2D* transform = iOCT_transform2D_get(contextID, transformID);
+    transform->scale = OCT_vec2_add(transform->scale, delta);
+    return transform->position;
+}
+
 static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D transform) {
     float cos = cosf(transform.rotation);
     float sin = sinf(transform.rotation);

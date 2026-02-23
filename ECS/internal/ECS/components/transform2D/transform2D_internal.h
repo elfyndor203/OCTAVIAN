@@ -34,6 +34,7 @@ iOCT_transform2D* iOCT_transform2D_get(OCT_ID contextID, OCT_ID transformID);
 OCT_ID iOCT_transform2D_add(OCT_ID contextID, OCT_ID parentID);
 OCT_vec2 iOCT_transform2D_moveBy(OCT_ID contextID, OCT_ID transformID, OCT_vec2 delta);
 float iOCT_transform2D_rotateBy(OCT_ID contextID, OCT_ID parentID, float deltaDegrees);
+OCT_vec2 iOCT_transform2D_scaleBy(OCT_ID contextID, OCT_ID transformID, OCT_vec2 delta);
 void iOCT_transform2D_propagate(OCT_ID contextID);
 
 OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform);

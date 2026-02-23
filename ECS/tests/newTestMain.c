@@ -36,11 +36,11 @@ int main() {
 	while (true) {
 //		OCT_transform2D_moveBy(chara, (OCT_vec2){0.1f, 0.2f });
 		OCT_transform2D_rotateByDeg(chara, 0.1f);
-		//OCT_transform2D_moveBy(child, (OCT_vec2) { -0.1f, 0.2f });
-
+//		OCT_transform2D_moveBy(child, (OCT_vec2) { -0.1f, 0.2f });
+		OCT_transform2D_scaleBy(chara, (OCT_vec2) { 0.001f, 0.001f });
 		OCT_entityContext_update(foreGround);
 		renderEntityDashboard(transformArray, 7);
-//		Sleep(1);
+		Sleep(1);
 	};
 
 	OCT_entityContext_close(foreGround);
