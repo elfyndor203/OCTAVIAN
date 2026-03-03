@@ -36,6 +36,8 @@
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
+    <ClInclude Include="internal\ECS\entityContext\IDMap_new.c" />
+    <ClInclude Include="internal\ECS\entityContext\IDMap_new_internal.h" />
     <ClInclude Include="internal\ECS\module\ECSModule_internal.h" />
     <ClInclude Include="internal\ECS\entityContext\IDMap_internal.h" />
     <ClInclude Include="internal\ECS\entityContext\pools_internal.h" />
@@ -63,6 +65,7 @@
     <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
     <ClCompile Include="internal\_ECS_Output\vertexData.c" />
     <ClCompile Include="tests\newTestMain.c" />
+    <ClCompile Include="tests\random.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

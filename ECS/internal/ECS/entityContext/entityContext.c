@@ -57,8 +57,8 @@ void iOCT_entityContext_close(OCT_ID closedContextID) {
 	OCT_index lastContextIndex = game->entityContextCounter - 1;									
 	OCT_ID lastContextID = game->entityContextPool[lastContextIndex].entityContextID;
 
-	free(closedContext->IDMap.array);												// Free pool and IDMap memory
-	closedContext->IDMap.array = NULL;
+	free(closedContext->IDMap.map);												// Free pool and IDMap memory
+	closedContext->IDMap.map = NULL;
 	for (int poolType = 0; poolType < OCT_typesTotal; poolType++) {
 		free(closedContext->pools[poolType].array);
 		closedContext->pools[poolType].array = NULL;
@@ -82,19 +82,13 @@ void iOCT_entityContext_close(OCT_ID closedContextID) {
 /// <param name="ID"></param>
 /// <param name="type"></param>
 /// <returns></returns>
-void* iOCT_getByID(OCT_ID entityContextID, OCT_ID ID, OCT_types type) {
-	if (ID == iOCT_NOPARENT) {
+void* iOCT_getByID(OCT_ID entityContextID, OCT_ID entityID, OCT_types type) {
+	if (entityID == iOCT_NOPARENT) {
 		return NULL;
 	}
 
 	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
-
-	if (type != map->array[ID].componentType) {
-		OCT_logError(EXIT_GENERIC_REPLACELATER);
-		return NULL;
-	}
-
-	OCT_index index = map->array[ID].index;
+	OCT_index index = *iOCT_IDMap_access(entityContextID, entityID, type);
 
 	iOCT_pool* pool = iOCT_pool_get(entityContextID, type);
 	return (char*)pool->array + (index * pool->componentSize);

@@ -18,7 +18,6 @@
 /// Transform component. Stores local values and a global matrix. 
 /// </summary>
 typedef struct iOCT_transform2D {
-	OCT_ID transformID;
 	OCT_ID entityID;
 	int depth;
 

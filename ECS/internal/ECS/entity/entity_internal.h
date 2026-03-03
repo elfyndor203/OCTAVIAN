@@ -8,15 +8,11 @@
 
 #define iOCT_GAMEOBJECT_FAILED OCT_GENERIC_FAIL
 
-#define iOCT_ENTITY_DEFAULT_MAX 1024
+#define iOCT_ENTITY_DEFAULT_MAX 64
 
 typedef struct iOCT_entity{
 	OCT_ID entityContextID;
 	OCT_ID entityID;
-
-	OCT_ID parentID;		// each entity can have at most one of each component type
-	OCT_ID transformID;
-	OCT_ID hitBoxID;	// if more hitboxes are needed, add more child objects
 	///
 	uint64_t componentsMask;	// tracks if the object has each component
 } iOCT_entity;

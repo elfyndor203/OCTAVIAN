@@ -1,12 +1,14 @@
 #pragma once
 
+#define iOCT_INVALID_ID UINT64_MAX
+
 typedef enum {
 	_OCT_ECS = 1000,
 	_OCT_Renderer = 2000
 } _OCT_subsystemList;
 
 typedef enum {
-	OCT_typeEntity,		
+	OCT_typeEntity,	
 
 	OCT_typeComponentTransform2D,
 	OCT_typeComponentHitBox2D,

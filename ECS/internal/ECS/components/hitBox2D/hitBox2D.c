@@ -37,7 +37,7 @@ OCT_ID iOCT_hitBox2D_add(OCT_ID entityContextID, OCT_ID parentID) {
     OCT_ID newID;
     iOCT_hitBox2D* newHitBox;
 
-    newID = iOCT_IDMap_registerID(entityContextID, OCT_typeComponentHitBox2D);
+    newID = iOCT_IDMap_register(entityContextID, OCT_typeComponentHitBox2D);
     newHitBox = iOCT_hitBox2D_get(entityContextID, newID);
     memset(newHitBox, 0, sizeof(iOCT_hitBox2D));
     

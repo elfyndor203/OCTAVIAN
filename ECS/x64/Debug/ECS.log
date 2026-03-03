@@ -1,3 +1,46 @@
-﻿  newTestMain.c
-Errors.lib(errorHandling.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-  ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.exe
+﻿  hitBox2D.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c(40,52): error C2197: 'OCT_ID iOCT_IDMap_registerID(OCT_ID)': too many arguments for call
+  transform2D.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c(53,46): error C2197: 'OCT_ID iOCT_IDMap_registerID(OCT_ID)': too many arguments for call
+  ECSModule.c
+  IDMap.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(8,51): error C2220: the following warning is treated as an error
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(8,51): warning C4047: 'initializing': 'OCT_index *' differs in levels of indirection from 'unsigned __int64'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(8,69): warning C4047: 'initializing': 'OCT_counter' differs in levels of indirection from 'void *'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(19,7): error C2039: 'count': is not a member of 'iOCT_IDMap'
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap_internal.h(8,16):
+      see declaration of 'iOCT_IDMap'
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(20,7): error C2039: 'array': is not a member of 'iOCT_IDMap'
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap_internal.h(8,16):
+      see declaration of 'iOCT_IDMap'
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(21,12): error C2039: 'array': is not a member of 'iOCT_IDMap'
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap_internal.h(8,16):
+      see declaration of 'iOCT_IDMap'
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(33,17): error C2039: 'array': is not a member of 'iOCT_IDMap'
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap_internal.h(8,16):
+      see declaration of 'iOCT_IDMap'
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(33,2): warning C4033: 'iOCT_IDMap_access' must return a value
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(62,9): error C2039: 'array': is not a member of 'iOCT_IDMap'
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap_internal.h(8,16):
+      see declaration of 'iOCT_IDMap'
+  
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(62,24): error C2065: 'uniqueIndex': undeclared identifier
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap.c(73,9): error C2039: 'array': is not a member of 'iOCT_IDMap'
+      C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\IDMap_internal.h(8,16):
+      see declaration of 'iOCT_IDMap'
+  
+  pools.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\pools.c(28,19): error C2065: 'iOCT_POOLSIZE_DEFAULT': undeclared identifier
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\pools.c(30,23): error C2065: 'iOCT_POOLSIZE_DEFAULT': undeclared identifier
+  entity.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c(35,49): error C2197: 'OCT_ID iOCT_IDMap_registerID(OCT_ID)': too many arguments for call
+  entityContext.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\entityContext.c(92,27): error C2224: left of '.componentType' must have struct/union type
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\entityContext.c(97,33): error C2224: left of '.index' must have struct/union type
+  newTestMain.c
+  random.c
+  Generating Code...

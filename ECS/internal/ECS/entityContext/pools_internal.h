@@ -2,8 +2,6 @@
 #include "OCT_Math.h"
 #include "OCT_EngineStructure.h"
 
-#define iOCT_POOLSIZE_DEFAULT 64
-
 /// <summary>
 /// Pools manage the arrays of data. Each entitySet can have at most 1 pool per type. The arrays are contigous and allocated when a new pool is created. 
 /// </summary>

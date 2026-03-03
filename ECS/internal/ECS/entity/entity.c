@@ -32,7 +32,7 @@ OCT_ID iOCT_entity_new(OCT_ID entityContextID, OCT_ID parentID) {
 	OCT_ID newID;
 	iOCT_entity* newEntity;
 	
-	newID = iOCT_IDMap_registerID(entityContextID, OCT_typeEntity);		// Register an ID first to enable other functions
+	newID = iOCT_IDMap_register(entityContextID, OCT_typeEntity);		// Register an ID first to enable other functions
 	if (parentID == iOCT_NOPARENT) {
 	//	printf("\nNEW entity %10" PRIu64 " in entityContext % " PRIu64 " as ROOT\n", newID, entityContextID);
 	}
