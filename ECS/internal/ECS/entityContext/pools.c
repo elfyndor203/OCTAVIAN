@@ -10,19 +10,17 @@
 static size_t iOCT_componentSizeList[OCT_typesTotal] = { sizeof(iOCT_entity), sizeof(iOCT_transform2D), sizeof(iOCT_hitBox2D)};	//NOTE __MUST__ MATCH COMPONENTTYPES
 //static iOCT_pool failedPool = { OCT_GENERIC_FAIL, OCT_GENERIC_FAIL, NULL };
 
-iOCT_pool* iOCT_pool_get(OCT_ID entityContextID, OCT_types componentType) {
-	iOCT_entityContext* entityContext = iOCT_entityContext_get(entityContextID);
-	return &entityContext->pools[componentType];
+iOCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_types componentType) {
+	return &context->pools[componentType];
 }
 
 /// <summary>
 /// Allocates memory for a single entityContext. Allows creation of all pools without rewriting when new component types are added
 /// </summary>
-bool iOCT_pool_allocate(OCT_ID entityContextID, OCT_types componentType) {
-	iOCT_entityContext* entityContext = iOCT_entityContext_get(entityContextID);
-	iOCT_pool* pool = &entityContext->pools[componentType];		// locate pool
+bool iOCT_pool_allocate(iOCT_entityContext* context, OCT_types componentType) {
+	iOCT_pool* pool = iOCT_pool_get(context, componentType);
 
-	pool->entityContextID = entityContextID;					// set default values
+	pool->entityContextID = context->entityContextID;					// set default values
 	pool->componentType = componentType;
 	pool->count = 0;
 	pool->capacity = iOCT_POOLSIZE_DEFAULT;

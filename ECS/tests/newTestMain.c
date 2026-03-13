@@ -19,8 +19,8 @@ int main() {
 	entityConsole_open();
 
 	OCT_entityHandle foreGround = OCT_entityContext_open();
-	iOCT_entityContext* context = iOCT_entityContext_get(iOCT_entity_get(foreGround.entityContextID, foreGround.entityID)->entityContextID);
-	iOCT_transform2D* transformArray = (iOCT_transform2D*)iOCT_pool_get(foreGround.entityContextID, OCT_typeComponentTransform2D)->array;
+	iOCT_entityContext* context = iOCT_entityContext_get(foreGround.entityContextID);
+	iOCT_transform2D* transformArray = (iOCT_transform2D*)iOCT_pool_get(context, OCT_typeComponentTransform2D)->array;
 
 	OCT_entityHandle chara = OCT_entity_new(foreGround);
 	OCT_hitBox2D_add(chara);
@@ -40,7 +40,7 @@ int main() {
 		OCT_transform2D_scaleBy(chara, (OCT_vec2) { 0.001f, 0.001f });
 		OCT_entityContext_update(foreGround);
 		renderEntityDashboard(transformArray, 7);
-		Sleep(1);
+		//Sleep(1);
 	};
 
 	OCT_entityContext_close(foreGround);

@@ -32,6 +32,7 @@
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="include\ECS\components\hitBox2D\hitBox2D.h" />
     <ClInclude Include="include\ECS\module\ECSModule.h" />
+    <ClInclude Include="internal\ECS\types_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />

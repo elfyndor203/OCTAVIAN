@@ -2,13 +2,16 @@
 
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"
 #include "OCT_Math.h"
+#include "ECS/types_internal.h"
+#include "ECS/entityContext/entityContext_internal.h"
 #include <stdio.h>
 
 OCT_rectangle2D _REN_rectVertices_get(OCT_entityHandle entityHandle, OCT_types componentType) {
+	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.entityContextID);
 	switch (componentType) {
 	case OCT_typeComponentHitBox2D:
-		return iOCT_hitBox2D_generateVertices(entityHandle.entityContextID, entityHandle.entityID);
+		return iOCT_hitBox2D_generateVertices(context, entityHandle.entityID);
 	default:
-		return iOCT_hitBox2D_generateVertices(entityHandle.entityContextID, entityHandle.entityID); // NOTE_CHANGE_DEFAULT
+		return iOCT_hitBox2D_generateVertices(context, entityHandle.entityID); // NOTE_CHANGE_DEFAULT
 	}
 }

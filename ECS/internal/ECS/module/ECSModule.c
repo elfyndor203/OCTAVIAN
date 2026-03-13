@@ -22,8 +22,8 @@ void iOCT_startModule_ECS() {
 
 void iOCT_freeModule_ECS(iOCT_manager_ECS* ECSModule) {
 	for (int index = 0; index < ECSModule->entityContextCounter; index++) {
-		OCT_ID contextID = ECSModule->entityContextPool[index].entityContextID;
-		iOCT_entityContext_close(contextID);
+		iOCT_entityContext* context = &ECSModule->entityContextPool[index];
+		iOCT_entityContext_close(context);
 	}
 	free(ECSModule);
 }

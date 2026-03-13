@@ -11,8 +11,8 @@
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"
 
 
-iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityCtxID) {				// valid as long as the entityContext exists
-	OCT_index index = iOCT_ECS_instance.entityContextMap[entityCtxID];
+iOCT_entityContext* iOCT_entityContext_get(OCT_ID contextID) {				// valid as long as the entityContext exists
+	OCT_index index = iOCT_ECS_instance.entityContextMap[contextID];
 	return &iOCT_ECS_instance.entityContextPool[index];
 }
 
@@ -33,12 +33,12 @@ OCT_entityHandle iOCT_entityContext_open() {
 	iOCT_entityContext* newEntityContext = iOCT_entityContext_get(entityContextID);	// get the next available slot in the entityContext pool
 
 	newEntityContext->entityContextID = entityContextID;
-	iOCT_IDMap_allocate(entityContextID);
+	iOCT_IDMap_allocate(newEntityContext);
 	for (int poolType = 0; poolType < OCT_typesTotal; poolType++) {			// create and log each pool type
-		iOCT_pool_allocate(entityContextID, poolType);
+		iOCT_pool_allocate(newEntityContext, poolType);
 	}
 
-	iOCT_entity_new(entityContextID, iOCT_NOPARENT);						// Create root entity
+	iOCT_entity_new(newEntityContext, iOCT_NOPARENT);						// Create root entity
 	OCT_entityHandle rootHandle = { entityContextID, iOCT_ROOT_ID };
 	return rootHandle;
 }
@@ -48,12 +48,12 @@ OCT_entityHandle iOCT_entityContext_open() {
 /// </summary>
 /// <param name="closedContextID"></param>
 void OCT_entityContext_close(OCT_entityHandle rootHandle) {
-	iOCT_entityContext_close(rootHandle.entityContextID);
+	iOCT_entityContext* context = iOCT_entityContext_get(rootHandle.entityContextID);
+	iOCT_entityContext_close(context);
 }
-void iOCT_entityContext_close(OCT_ID closedContextID) {
+void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
 	iOCT_manager_ECS* game = &iOCT_ECS_instance;
-	iOCT_entityContext* closedContext = iOCT_entityContext_get(closedContextID);
-	OCT_index closedContextIndex = game->entityContextMap[closedContextID];
+	OCT_index closedContextIndex = game->entityContextMap[closedContext->entityContextID];
 	OCT_index lastContextIndex = game->entityContextCounter - 1;									
 	OCT_ID lastContextID = game->entityContextPool[lastContextIndex].entityContextID;
 
@@ -72,7 +72,7 @@ void iOCT_entityContext_close(OCT_ID closedContextID) {
 		game->entityContextMap[lastContextID] = closedContextIndex;						// swap replace ID mapping and mark the old ID as free
 	}
 	game->entityContextCounter -= 1;
-	game->entityContextMap[closedContextID] = iOCT_NO_ENTITYCONTEXT;
+	game->entityContextMap[closedContext->entityContextID] = iOCT_NO_ENTITYCONTEXT;
 }
 
 /// <summary>
@@ -82,12 +82,12 @@ void iOCT_entityContext_close(OCT_ID closedContextID) {
 /// <param name="ID"></param>
 /// <param name="type"></param>
 /// <returns></returns>
-void* iOCT_getByID(OCT_ID entityContextID, OCT_ID ID, OCT_types type) {
+void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_types type) {
 	if (ID == iOCT_NOPARENT) {
 		return NULL;
 	}
 
-	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
+	iOCT_IDMap* map = iOCT_IDMap_get(context);
 
 	if (type != map->array[ID].componentType) {
 		OCT_logError(EXIT_GENERIC_REPLACELATER);
@@ -96,15 +96,16 @@ void* iOCT_getByID(OCT_ID entityContextID, OCT_ID ID, OCT_types type) {
 
 	OCT_index index = map->array[ID].index;
 
-	iOCT_pool* pool = iOCT_pool_get(entityContextID, type);
+	iOCT_pool* pool = iOCT_pool_get(context, type);
 	return (char*)pool->array + (index * pool->componentSize);
 }
 
 void OCT_entityContext_update(OCT_entityHandle root) {
-	iOCT_entityContext_update(root.entityContextID);
+	iOCT_entityContext* context = iOCT_entityContext_get(root.entityContextID);
+	iOCT_entityContext_update(context);
 }
-void iOCT_entityContext_update(OCT_ID contextID) {
-	iOCT_transform2D_propagate(contextID);
+void iOCT_entityContext_update(iOCT_entityContext* context) {
+	iOCT_transform2D_propagate(context);
 }
 
 

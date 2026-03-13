@@ -1,7 +1,4 @@
-﻿  glad.c
-  testCallback.c
-  prototypes.c
-  layer.c
+﻿  testCallback.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
   (compiling source file 'internal/input/testCallback.c')
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
@@ -12,6 +9,7 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
       see previous definition of 'OCT_GENERIC_FAIL'
   
+  layer.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
   (compiling source file 'internal/renderer/layer/layer.c')
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9):
@@ -77,7 +75,6 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
       C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Errors\include\errors\errorCodes.h(4,9):
       see previous definition of 'OCT_GENERIC_FAIL'
   
-  debugShaders.c
   shader.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rendererStandards_internal.h(5,9): warning C4005: 'GLFW_STATIC': macro redefinition
   (compiling source file 'internal/shaders/shader/shader.c')
@@ -148,7 +145,6 @@ C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\standards\rend
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\shaders\shader\shader_internal.h(6,2): warning C4091: 'typedef ': ignored on left of 'iOCT_shaderTypes' when no variable is declared
   (compiling source file 'internal/_REN_Input/messageHandling.c')
   
-  messageHandling_API.c
   main.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(22,2): error C2065: 'OCT_entitySetID': undeclared identifier
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(22,18): error C2146: syntax error: missing ';' before identifier 'mainSet'
