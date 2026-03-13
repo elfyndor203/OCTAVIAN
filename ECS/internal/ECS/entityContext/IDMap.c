@@ -5,15 +5,15 @@
 
 static iOCT_IDMap failedMap = { OCT_GENERIC_FAIL, OCT_GENERIC_FAIL, NULL };
 
-iOCT_IDMap* iOCT_IDMap_get(OCT_ID entityContextID) {
-	return &iOCT_entityContext_get(entityContextID)->IDMap;
+iOCT_IDMap* iOCT_IDMap_get(iOCT_entityContext* context) {
+	return &context->IDMap;
 }
 
 // Allocates initial memory for a single entityContext.
-bool iOCT_IDMap_allocate(OCT_ID entityContextID) {
-	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
+bool iOCT_IDMap_allocate(iOCT_entityContext* context) {
+	iOCT_IDMap* map = iOCT_IDMap_get(context);
 
-	map->entityContextID = entityContextID;
+	map->entityContextID = context->entityContextID;
 	map->count = 0;
 	map->array = calloc(iOCT_POOLSIZE_DEFAULT * OCT_typesTotal, sizeof(iOCT_uniqueIndex));
 	if (!map->array) {
@@ -23,12 +23,12 @@ bool iOCT_IDMap_allocate(OCT_ID entityContextID) {
 }
 
 // Registers the next available ID with the provided pool index for any new entity or component.
-OCT_ID iOCT_IDMap_registerID(OCT_ID contextID, OCT_types componentType) {
+OCT_ID iOCT_IDMap_registerID(iOCT_entityContext* context, OCT_types componentType) {
 	OCT_ID newID;
 	OCT_index newIndex;
 
-	iOCT_IDMap* IDMap = iOCT_IDMap_get(contextID);
-	iOCT_pool* pool = iOCT_pool_get(contextID, componentType);
+	iOCT_IDMap* IDMap = iOCT_IDMap_get(context);
+	iOCT_pool* pool = iOCT_pool_get(context, componentType);
 
 	newID = IDMap->count;		// Grabs the next available ID
 	IDMap->count += 1;
@@ -44,8 +44,13 @@ OCT_ID iOCT_IDMap_registerID(OCT_ID contextID, OCT_types componentType) {
 	return newID;							// only ID gets returned
 }
 
-void iOCT_IDMap_remap(OCT_ID contextID, OCT_ID ID, OCT_index newIndex) {
-	iOCT_IDMap* IDMap = iOCT_IDMap_get(contextID);
+void iOCT_IDMap_remap(iOCT_entityContext* context, OCT_ID ID, OCT_index newIndex) {
+	iOCT_IDMap* IDMap = iOCT_IDMap_get(context);
 	IDMap->array[ID].index = newIndex;
 	return;
+}
+
+OCT_index iOCT_IDMap_getIndex(iOCT_entityContext* context, OCT_ID ID) {
+	iOCT_IDMap* IDMap = iOCT_IDMap_get(context);
+	return IDMap->array[ID].index;
 }

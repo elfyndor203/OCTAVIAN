@@ -3,6 +3,7 @@
 
 #include "OCT_Math.h"
 #include "ECS/entity/entity_internal.h"
+#include "ECS/types_internal.h"
 
 #define iOCT_TRANSFORM2D_FAILED OCT_GENERIC_FAIL
 
@@ -17,10 +18,13 @@
 /// <summary>
 /// Transform component. Stores local values and a global matrix. 
 /// </summary>
-typedef struct iOCT_transform2D {
+struct iOCT_transform2D {
 	OCT_ID transformID;
 	OCT_ID entityID;
 	int depth;
+
+	OCT_index parentCache;
+	bool dirty;
 
 	OCT_vec2 position;
 	float rotation;
@@ -28,13 +32,13 @@ typedef struct iOCT_transform2D {
 
 	OCT_mat3 localMatrix;
 	OCT_mat3 globalMatrix;
-} iOCT_transform2D;
+};
 
-iOCT_transform2D* iOCT_transform2D_get(OCT_ID contextID, OCT_ID transformID);
-OCT_ID iOCT_transform2D_add(OCT_ID contextID, OCT_ID parentID);
-OCT_vec2 iOCT_transform2D_moveBy(OCT_ID contextID, OCT_ID transformID, OCT_vec2 delta);
-float iOCT_transform2D_rotateBy(OCT_ID contextID, OCT_ID parentID, float deltaDegrees);
-OCT_vec2 iOCT_transform2D_scaleBy(OCT_ID contextID, OCT_ID transformID, OCT_vec2 delta);
-void iOCT_transform2D_propagate(OCT_ID contextID);
+iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContext* context, OCT_ID transformID);
+OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID parentID);
+OCT_vec2 iOCT_transform2D_moveBy(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 delta);
+float iOCT_transform2D_rotateBy(iOCT_entityContext* context, OCT_ID parentID, float deltaDegrees);
+OCT_vec2 iOCT_transform2D_scaleBy(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 delta);
+void iOCT_transform2D_propagate(iOCT_entityContext* context);
 
 OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform);
