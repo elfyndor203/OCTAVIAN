@@ -23,6 +23,7 @@ struct iOCT_transform2D {
 	OCT_ID entityID;
 	int depth;
 
+	OCT_ID parentID;
 	OCT_index parentCache;
 	bool dirty;
 

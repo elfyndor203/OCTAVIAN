@@ -40,7 +40,7 @@ int main() {
 		OCT_transform2D_scaleBy(chara, (OCT_vec2) { 0.001f, 0.001f });
 		OCT_entityContext_update(foreGround);
 		renderEntityDashboard(transformArray, 7);
-		Sleep(1);
+		//Sleep(1);
 	};
 
 	OCT_entityContext_close(foreGround);
