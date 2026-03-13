@@ -1,7 +1,7 @@
 #pragma once
 #include "ECS/entityContext/entityContext.h"
 #include "pools_internal.h"
-#include "IDMap_internal.h"
+#include "registry_internal.h"
 
 #include "OCT_Math.h"
 #include "OCT_EngineStructure.h"
@@ -17,7 +17,7 @@
 typedef struct entityContext{
 	OCT_ID entityContextID;
 
-	iOCT_IDMap IDMap;
+	iOCT_registry registry;
 	iOCT_pool pools[OCT_typesTotal];
 } iOCT_entityContext;
 

@@ -33,7 +33,7 @@ OCT_entityHandle iOCT_entityContext_open() {
 	iOCT_entityContext* newEntityContext = iOCT_entityContext_get(entityContextID);	// get the next available slot in the entityContext pool
 
 	newEntityContext->entityContextID = entityContextID;
-	iOCT_IDMap_allocate(entityContextID);
+	iOCT_registry_allocate(entityContextID);
 	for (int poolType = 0; poolType < OCT_typesTotal; poolType++) {			// create and log each pool type
 		iOCT_pool_allocate(entityContextID, poolType);
 	}
@@ -57,11 +57,11 @@ void iOCT_entityContext_close(OCT_ID closedContextID) {
 	OCT_index lastContextIndex = game->entityContextCounter - 1;									
 	OCT_ID lastContextID = game->entityContextPool[lastContextIndex].entityContextID;
 
-	free(closedContext->IDMap.array);												// Free pool and IDMap memory
-	closedContext->IDMap.array = NULL;
+	free(closedContext->registry.map);												// Free pool and registry memory
+	closedContext->registry.map = NULL;
 	for (int poolType = 0; poolType < OCT_typesTotal; poolType++) {
-		free(closedContext->pools[poolType].array);
-		closedContext->pools[poolType].array = NULL;
+		free(closedContext->pools[poolType].data);
+		closedContext->pools[poolType].data = NULL;
 	}
 
 	if (closedContextIndex != lastContextIndex) {															// swap replace to maintain a dense array
@@ -76,28 +76,17 @@ void iOCT_entityContext_close(OCT_ID closedContextID) {
 }
 
 /// <summary>
-/// Gets a generic pointer to any entity or component in an entityContext. Works as long as the ID is registered, regardless of the state of the entity or component.
+/// Gets a generic pointer to any pool entry. Works as long as the entity ID is registered.
 /// </summary>
 /// <param name="entityContextID"></param>
 /// <param name="ID"></param>
 /// <param name="type"></param>
 /// <returns></returns>
-void* iOCT_getByID(OCT_ID entityContextID, OCT_ID ID, OCT_types type) {
-	if (ID == iOCT_NOPARENT) {
-		return NULL;
-	}
-
-	iOCT_IDMap* map = iOCT_IDMap_get(entityContextID);
-
-	if (type != map->array[ID].componentType) {
-		OCT_logError(EXIT_GENERIC_REPLACELATER);
-		return NULL;
-	}
-
-	OCT_index index = map->array[ID].index;
-
+void* iOCT_getByID(OCT_ID entityContextID, OCT_ID entityID, OCT_types type) {
+	iOCT_registry* registry = iOCT_registry_get(entityContextID);
+	OCT_index index = *iOCT_registry_accessU(registry, entityID, type);
 	iOCT_pool* pool = iOCT_pool_get(entityContextID, type);
-	return (char*)pool->array + (index * pool->componentSize);
+	return iOCT_pool_accessU(pool, index);
 }
 
 void OCT_entityContext_update(OCT_entityHandle root) {

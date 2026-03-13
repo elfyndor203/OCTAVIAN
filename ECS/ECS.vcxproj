@@ -37,7 +37,7 @@
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="internal\ECS\module\ECSModule_internal.h" />
-    <ClInclude Include="internal\ECS\entityContext\IDMap_internal.h" />
+    <ClInclude Include="internal\ECS\entityContext\registry_internal.h" />
     <ClInclude Include="internal\ECS\entityContext\pools_internal.h" />
     <ClInclude Include="internal\ECS\entitySet\typeMap.h" />
     <ClInclude Include="internal\ECS\components\transform2D\transform2D_internal.h" />
@@ -55,7 +55,7 @@
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
     <ClCompile Include="internal\ECS\module\ECSModule.c" />
-    <ClCompile Include="internal\ECS\entityContext\IDMap.c" />
+    <ClCompile Include="internal\ECS\entityContext\registry.c" />
     <ClCompile Include="internal\ECS\entityContext\pools.c" />
     <ClCompile Include="internal\ECS\entity\entity.c" />
     <ClCompile Include="internal\ECS\entityContext\entityContext.c" />

@@ -20,7 +20,7 @@ int main() {
 
 	OCT_entityHandle foreGround = OCT_entityContext_open();
 	iOCT_entityContext* context = iOCT_entityContext_get(iOCT_entity_get(foreGround.entityContextID, foreGround.entityID)->entityContextID);
-	iOCT_transform2D* transformArray = (iOCT_transform2D*)iOCT_pool_get(foreGround.entityContextID, OCT_typeComponentTransform2D)->array;
+	iOCT_transform2D* transformArray = (iOCT_transform2D*)iOCT_pool_get(foreGround.entityContextID, OCT_typeComponentTransform2D)->data;
 
 	OCT_entityHandle chara = OCT_entity_new(foreGround);
 	OCT_hitBox2D_add(chara);

@@ -4,10 +4,9 @@
 #include <stdio.h>
 
 #include "ECS/entityContext/entityContext_internal.h"
-#include "ECS/entityContext/IDMap_internal.h"
+#include "ECS/entityContext/registry_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 
-size_t iOCT_entity_max = iOCT_ENTITY_DEFAULT_MAX;
 OCT_entityHandle testActiveEntity;
 
 iOCT_entity* iOCT_entity_get(OCT_ID entityContextID, OCT_ID entityID) {
@@ -32,7 +31,7 @@ OCT_ID iOCT_entity_new(OCT_ID entityContextID, OCT_ID parentID) {
 	OCT_ID newID;
 	iOCT_entity* newEntity;
 	
-	newID = iOCT_IDMap_registerID(entityContextID, OCT_typeEntity);		// Register an ID first to enable other functions
+	newID = iOCT_registry_registerID(entityContextID, OCT_typeEntity);		// Register an ID first to enable other functions
 	if (parentID == iOCT_NOPARENT) {
 	//	printf("\nNEW entity %10" PRIu64 " in entityContext % " PRIu64 " as ROOT\n", newID, entityContextID);
 	}

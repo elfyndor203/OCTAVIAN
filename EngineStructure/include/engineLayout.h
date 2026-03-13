@@ -6,7 +6,7 @@ typedef enum {
 } _OCT_subsystemList;
 
 typedef enum {
-	OCT_typeEntity,		
+	OCT_typeEntity,
 
 	OCT_typeComponentTransform2D,
 	OCT_typeComponentHitBox2D,

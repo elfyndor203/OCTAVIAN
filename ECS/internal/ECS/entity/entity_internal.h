@@ -8,8 +8,6 @@
 
 #define iOCT_GAMEOBJECT_FAILED OCT_GENERIC_FAIL
 
-#define iOCT_ENTITY_DEFAULT_MAX 1024
-
 typedef struct iOCT_entity{
 	OCT_ID entityContextID;
 	OCT_ID entityID;
