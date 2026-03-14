@@ -20,7 +20,7 @@ void iOCT_handleECSMessages(void) {
 		case _OCT_position2D_move:
 			activeMoving = true;
 //			OCT_transform2D_moveBy(testActiveEntity, value1, value2);
-			printf("Moved entity %zu by %f, %f", testActiveEntity.entityID, value1, value2);
+			printf("Moved entity %zu by %f, %f", testActiveEntity.objectID, value1, value2);
 			break;
 		case _OCT_position2D_stop:
 			activeMoving = false;

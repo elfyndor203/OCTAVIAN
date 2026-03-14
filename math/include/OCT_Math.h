@@ -5,6 +5,7 @@
 #include "units/conversions.h"
 
 #include "vectors/vec2.h"
+#include "vectors/vec4.h"
 #include "matrices/mat3.h"
 
 #include "shapes/shapes.h"

@@ -156,6 +156,7 @@
     <ClInclude Include="include\OCT_Math.h" />
     <ClInclude Include="include\shapes\rect2.h" />
     <ClInclude Include="include\shapes\shapes.h" />
+    <ClInclude Include="include\vectors\vec4.h" />
     <ClInclude Include="internal\definitions\defaultValues_internal.h" />
     <ClInclude Include="include\vectors\vec2.h" />
   </ItemGroup>

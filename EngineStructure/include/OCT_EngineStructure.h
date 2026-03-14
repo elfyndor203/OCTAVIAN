@@ -1,6 +1,8 @@
 #pragma once
 #include <stdint.h>
-#include "messaging.h"
-#include "engineLayout.h"
+#include "types.h"
+#include "linking/messaging.h"
+#include "linking/engineLayout.h"
+#include "architecture/pools.h"
+#include "architecture/IDMap.h"
 
-typedef size_t messageCounter;

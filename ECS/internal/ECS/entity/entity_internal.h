@@ -12,7 +12,7 @@
 #define iOCT_ENTITY_DEFAULT_MAX 1024
 
 struct iOCT_entity{
-	OCT_ID entityContextID;
+	OCT_ID contextID;
 	OCT_ID entityID;
 
 	OCT_ID parentID;		// each entity can have at most one of each component type
@@ -22,7 +22,7 @@ struct iOCT_entity{
 	uint64_t componentsMask;	// tracks if the object has each component
 };
 
-extern OCT_entityHandle testActiveEntity;
+extern OCT_engineHandle testActiveEntity;
 
 iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID);
 OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID);

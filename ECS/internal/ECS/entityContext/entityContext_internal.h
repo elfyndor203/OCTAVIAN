@@ -1,6 +1,5 @@
 #pragma once
 #include "ECS/entityContext/entityContext.h"
-#include "pools_internal.h"
 #include "IDMap_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 
@@ -12,22 +11,25 @@
 #define iOCT_ENTITYCONTEXT_DEFAULT_MAX 64
 #define iOCT_ROOT_ID 0
 #define iOCT_NO_ENTITYCONTEXT OCT_GENERIC_NONE
+#define iOCT_ENGINEPOOL_DEFAULTSIZE 16
 
 /// <summary>
 /// Opening an entityContext allows you to create entities that interact with each other. Each context manages its own pools and IDmap.
 /// </summary>
 struct iOCT_entityContext{
-	OCT_ID entityContextID;
+	OCT_ID contextID;
 
-	iOCT_IDMap IDMap;
-	iOCT_pool pools[OCT_typesTotal];
+	OCT_IDMap IDMap;
+	OCT_pool pools[OCT_typesTotal];
 
+	// component utilities
 	int currentMaxDepth;
 	OCT_index depthEnds[iOCT_TRANSFORM_MAXDEPTH]; // marks the end index of each depth group
 };
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityContextID);
-OCT_entityHandle iOCT_entityContext_open();
+OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_types componentType);
+OCT_engineHandle iOCT_entityContext_open();
 void iOCT_entityContext_close(iOCT_entityContext* context);
 void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_types componentType);
 void iOCT_entityContext_update(iOCT_entityContext* context);
