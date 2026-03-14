@@ -32,5 +32,11 @@
     <ClCompile Include="internal\image\image.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="internal\resource\resource.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\test\testMain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

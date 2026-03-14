@@ -1,9 +1,8 @@
 #pragma once
+#include "ECS/types.h"
 
 typedef struct iOCT_entityContext iOCT_entityContext;
-typedef struct iOCT_IDMap iOCT_IDMap;
 typedef struct iOCT_uniqueIndex iOCT_uniqueIndex;
-typedef struct iOCT_pool iOCT_pool;
 
 typedef struct iOCT_entity iOCT_entity;
 

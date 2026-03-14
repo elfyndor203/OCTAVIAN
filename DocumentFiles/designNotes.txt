@@ -89,3 +89,14 @@ Memory
 	b. map arrays
 	c. the global entitySet array
 	d. the global entitySet map
+
+Headers for self.c
+#include "self.h"
+#include "types.h"
+
+#include "EngineLib1.h"
+#include "EngineLib2.h"
+#include <lib1.h>
+#include <lib2.h>
+
+#include "other.h"

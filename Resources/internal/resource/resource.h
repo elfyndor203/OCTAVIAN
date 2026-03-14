@@ -7,6 +7,6 @@ typedef enum {
 } OCT_resourceType;
 
 typedef struct OCT_resourceHandle {
-	OCT_resourceType type;
 	OCT_ID resourceID;
+	OCT_resourceType type;
 } OCT_resourceHandle;
