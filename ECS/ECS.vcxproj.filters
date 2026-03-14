@@ -32,6 +32,7 @@
     <ClInclude Include="include\ECS\module\ECSModule.h" />
     <ClInclude Include="internal\ECS\types_internal.h" />
     <ClInclude Include="internal\ECS\components\sprite2D\sprite2D.h" />
+    <ClInclude Include="include\ECS\types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\entity\entity.c" />

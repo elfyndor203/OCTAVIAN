@@ -4,7 +4,6 @@
 #include <stdio.h>
 
 #include "ECS/entityContext/entityContext_internal.h"
-#include "ECS/entityContext/IDMap_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 
 size_t iOCT_entity_max = iOCT_ENTITY_DEFAULT_MAX;

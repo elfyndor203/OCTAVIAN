@@ -1,4 +1,5 @@
 #pragma once
+#include "ECS/types.h"
 
 typedef struct iOCT_entityContext iOCT_entityContext;
 typedef struct iOCT_uniqueIndex iOCT_uniqueIndex;

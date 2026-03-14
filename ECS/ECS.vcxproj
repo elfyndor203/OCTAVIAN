@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="include\ECS\components\hitBox2D\hitBox2D.h" />
     <ClInclude Include="include\ECS\module\ECSModule.h" />
+    <ClInclude Include="include\ECS\types.h" />
     <ClInclude Include="include\_ECS_Output\_REN_include.h" />
     <ClInclude Include="include\OCT_ECS.h" />
     <ClInclude Include="include\ECS\components\transform2D\transform2D.h" />
