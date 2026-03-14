@@ -2,6 +2,7 @@
 #include "ECS/entityContext/entityContext.h"
 #include "pools_internal.h"
 #include "IDMap_internal.h"
+#include "ECS/components/transform2D/transform2D_internal.h"
 
 #include "OCT_Math.h"
 #include "OCT_EngineStructure.h"
@@ -20,6 +21,9 @@ struct iOCT_entityContext{
 
 	iOCT_IDMap IDMap;
 	iOCT_pool pools[OCT_typesTotal];
+
+	int currentMaxDepth;
+	OCT_index depthEnds[iOCT_TRANSFORM_MAXDEPTH]; // marks the end index of each depth group
 };
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityContextID);

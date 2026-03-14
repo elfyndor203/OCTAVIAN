@@ -14,9 +14,6 @@
 #include "ECS/entityContext/entityContext_internal.h"
 #include "ECS/entityContext/IDMap_internal.h"
 
-static int currentMaxDepth = -1;
-static OCT_index depthEnds[iOCT_TRANSFORM_MAXDEPTH] = {0}; // marks the end index of each depth group
-
 static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform);
 static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2D* newTransform);
 static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID parentID, int depth);
@@ -83,6 +80,9 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
 
 static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2D* transform) {
     iOCT_transform2D newTransform = *transform; // do not work with the existing memory in the pool
+
+    int* currentMaxDepth = &context->currentMaxDepth;
+    OCT_index* depthEnds = context->depthEnds;
     int newDepth = newTransform.depth;
 
     iOCT_transform2D* poolArray = (iOCT_transform2D*)iOCT_pool_get(context, OCT_typeComponentTransform2D)->array;
@@ -92,25 +92,25 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
     iOCT_transform2D workingTransform = newTransform;
     iOCT_transform2D displacedTransform;
 
-    if (newDepth == currentMaxDepth) {  // insert at the end, nothing gets displaced, nothing needs resolving
+    if (newDepth == *currentMaxDepth) {  // insert at the end, nothing gets displaced, nothing needs resolving
         depthEnds[newDepth] += 1;
         poolArray[depthEnds[newDepth]] = newTransform;  // replace anyway
         iOCT_IDMap_remap(context, newTransform.transformID, depthEnds[newDepth]);
         return;
     }
-    if (newDepth > currentMaxDepth) {   // insert at the end, nothing gets displaced, nothing needs resolving
-        if (currentMaxDepth < 0) {
+    if (newDepth > *currentMaxDepth) {   // insert at the end, nothing gets displaced, nothing needs resolving
+        if (*currentMaxDepth < 0) {
             depthEnds[newDepth] = 0;
         }
         else {
-            depthEnds[newDepth] = depthEnds[currentMaxDepth] + 1;
+            depthEnds[newDepth] = depthEnds[*currentMaxDepth] + 1;
         }
         poolArray[depthEnds[newDepth]] = newTransform;  // replace anyway
         iOCT_IDMap_remap(context, newTransform.transformID, depthEnds[newDepth]);
-        currentMaxDepth = newDepth;
+        *currentMaxDepth = newDepth;
         return;
     }
-    while (workingDepth < currentMaxDepth) {
+    while (workingDepth < *currentMaxDepth) {
         targetIndex = depthEnds[workingDepth] + 1;      // start of the next depth
         displacedTransform = poolArray[targetIndex];    // temp copy of the displaced
 
@@ -122,10 +122,10 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
         depthEnds[workingDepth] += 1;                   // expand the depth group by 1
         workingDepth += 1;
     }
-    OCT_index finalIndex = depthEnds[currentMaxDepth] + 1;
+    OCT_index finalIndex = depthEnds[*currentMaxDepth] + 1;
     poolArray[finalIndex] = workingTransform;
     iOCT_IDMap_remap(context, workingTransform.transformID, finalIndex);
-    depthEnds[currentMaxDepth] += 1;
+    depthEnds[*currentMaxDepth] += 1;
 }
 
 static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform) {
@@ -165,8 +165,9 @@ void iOCT_transform2D_propagate(iOCT_entityContext* context) {
 
 static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID parentID, int depth) {
     iOCT_transform2D* array = (iOCT_transform2D*)iOCT_pool_get(context, OCT_typeComponentTransform2D)->array;
+    OCT_index* depthEnds = context->depthEnds;
 
-    OCT_index start = depthEnds[depth];
+    OCT_index start = depthEnds[depth] + 1;
     iOCT_transform2D* transform;
     for (OCT_index index = start; index < depthEnds[depth + 1]; index++) {
         transform = &array[index];
@@ -175,19 +176,6 @@ static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID
         }
     }
 }
-
-//static void iOCT_transform2D_resolveDirties(iOCT_entityContext* context) {
-//    iOCT_transform2D* array = (iOCT_transform2D*)iOCT_pool_get(context, OCT_typeComponentTransform2D)->array;
-//    
-//    iOCT_transform2D* transform;
-//    for (OCT_index index = 0; index <= depthEnds[currentMaxDepth]; index++) {
-//        transform = &array[index];
-//        if (transform->dirty) {
-//            transform->parentCache = iOCT_IDMap_getIndex(context, transform->parentID);
-//            transform->dirty = false;
-//        }
-//    }
-//}
 
 OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform) {
     OCT_mat3 matrix = transform.globalMatrix;
@@ -260,7 +248,7 @@ OCT_vec2 OCT_transform2D_scaleBy(OCT_entityHandle handle, OCT_vec2 delta) {
 OCT_vec2 iOCT_transform2D_scaleBy(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 delta) {
     iOCT_transform2D* transform = iOCT_transform2D_get(context, transformID);
     transform->scale = OCT_vec2_add(transform->scale, delta);
-    return transform->position;
+    return transform->scale;
 }
 
 #pragma endregion
