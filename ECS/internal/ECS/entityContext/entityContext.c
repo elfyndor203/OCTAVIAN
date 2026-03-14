@@ -28,11 +28,13 @@ OCT_entityHandle iOCT_entityContext_open() {
 	OCT_ID entityContextID = (OCT_ID)iOCT_ECS_instance.entityContextCounter;	// Count will always be the next available slot
 	iOCT_ECS_instance.entityContextCounter += 1;
 	iOCT_ECS_instance.entityContextMap[entityContextID] = (OCT_index)entityContextID; // ID will start the same as the index
-	printf("Created entityContext with ID %" PRIu64 "\n", entityContextID);
+	// printf("Created entityContext with ID %" PRIu64 "\n", entityContextID);
 
 	iOCT_entityContext* newEntityContext = iOCT_entityContext_get(entityContextID);	// get the next available slot in the entityContext pool
 
 	newEntityContext->entityContextID = entityContextID;
+	newEntityContext->currentMaxDepth = -1;
+	memset(&newEntityContext->depthEnds, 0, sizeof(OCT_index) * iOCT_TRANSFORM_MAXDEPTH);
 	iOCT_IDMap_allocate(newEntityContext);
 	for (int poolType = 0; poolType < OCT_typesTotal; poolType++) {			// create and log each pool type
 		iOCT_pool_allocate(newEntityContext, poolType);

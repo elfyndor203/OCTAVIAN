@@ -36,6 +36,7 @@
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
+    <ClInclude Include="internal\ECS\components\sprite2D\sprite2D.h" />
     <ClInclude Include="internal\ECS\module\ECSModule_internal.h" />
     <ClInclude Include="internal\ECS\entityContext\IDMap_internal.h" />
     <ClInclude Include="internal\ECS\entityContext\pools_internal.h" />
@@ -54,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
+    <ClCompile Include="internal\ECS\components\sprite2D\sprite2D.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
     <ClCompile Include="internal\ECS\module\ECSModule.c" />
     <ClCompile Include="internal\ECS\entityContext\IDMap.c" />
