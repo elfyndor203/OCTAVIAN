@@ -9,7 +9,7 @@
 void iOCT_handleRendererMessages(void) {
 	_OCT_message newMessage = _OCT_queryMessage(_OCT_Renderer);
 	while (newMessage.instruction != _OCT_messageQueue_empty.instruction) {
-		OCT_engineHandle entity = newMessage.entity;
+		OCT_handle entity = newMessage.entity;
 		_OCT_messageTypes instruction = newMessage.instruction;
 		iOCT_layerID layer = (iOCT_layerID)newMessage.parameter1;
 		newMessage = _OCT_queryMessage(_OCT_Renderer);

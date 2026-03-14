@@ -24,7 +24,7 @@ static bool iOCT_queueFull(iOCT_messageCounter head, iOCT_messageCounter tail) {
 	return (head + 1) % iOCT_MAX_MESSAGES == tail;										// this is true when the next message would overwrite the message about to be read
 }
 
-bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_engineHandle entity, _OCT_messageTypes instruction, float parameter1, float parameter2) {
+bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_handle entity, _OCT_messageTypes instruction, float parameter1, float parameter2) {
 	_OCT_message messageToSend = { 0 };
 	messageToSend.entity = entity;
 	messageToSend.instruction = instruction;

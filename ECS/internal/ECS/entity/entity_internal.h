@@ -22,7 +22,7 @@ struct iOCT_entity{
 	uint64_t componentsMask;	// tracks if the object has each component
 };
 
-extern OCT_engineHandle testActiveEntity;
+extern OCT_handle testActiveEntity;
 
 iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID);
 OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID);

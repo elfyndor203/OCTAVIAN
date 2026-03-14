@@ -18,30 +18,30 @@ int main() {
 	OCT_startModule_ECS();
 	entityConsole_open();
 
-	OCT_engineHandle foreGround = OCT_entityContext_open();
-	iOCT_entityContext* context = iOCT_entityContext_get(foreGround.contextID);
+	OCT_handle foreGround = OCT_entityContext_open();
+	iOCT_entityContext* context = iOCT_entityContext_get(foreGround.ownerID);
 	iOCT_transform2D* transformArray = (iOCT_transform2D*)iOCT_pool_get(context, OCT_typeComponentTransform2D)->array;
 
-	OCT_engineHandle chara = OCT_entity_new(foreGround);
+	OCT_handle chara = OCT_entity_new(foreGround);
 	OCT_hitBox2D_add(chara);
-	OCT_engineHandle child = OCT_entity_new(chara);
+	OCT_handle child = OCT_entity_new(chara);
 	OCT_hitBox2D_add(child);
-	OCT_engineHandle grandChild = OCT_entity_new(child);
+	OCT_handle grandChild = OCT_entity_new(child);
 	OCT_hitBox2D_add(grandChild);
 
 	OCT_transform2D_moveBy(child, (OCT_vec2) { 1, 1 });
 	OCT_transform2D_moveBy(grandChild, (OCT_vec2) { 2, 2 });
 	// OCT_entityHandle grandChildHitBox2 = OCT_hitBox2D_add(grandChild);
 
-	OCT_engineHandle backGround = OCT_entityContext_open();
-	iOCT_entityContext* contextBG = iOCT_entityContext_get(backGround.contextID);
+	OCT_handle backGround = OCT_entityContext_open();
+	iOCT_entityContext* contextBG = iOCT_entityContext_get(backGround.ownerID);
 	iOCT_transform2D* transformArrayBG = (iOCT_transform2D*)iOCT_pool_get(contextBG, OCT_typeComponentTransform2D)->array;
 
-	OCT_engineHandle charaBG = OCT_entity_new(backGround);
+	OCT_handle charaBG = OCT_entity_new(backGround);
 	OCT_hitBox2D_add(charaBG);
-	OCT_engineHandle childBG = OCT_entity_new(charaBG);
+	OCT_handle childBG = OCT_entity_new(charaBG);
 	OCT_hitBox2D_add(childBG);
-	OCT_engineHandle grandChildBG = OCT_entity_new(childBG);
+	OCT_handle grandChildBG = OCT_entity_new(childBG);
 	OCT_hitBox2D_add(grandChildBG);
 
 	OCT_transform2D_moveBy(childBG, (OCT_vec2) { 1, 1 });

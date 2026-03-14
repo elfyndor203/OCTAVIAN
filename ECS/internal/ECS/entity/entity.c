@@ -7,7 +7,7 @@
 #include "ECS/components/transform2D/transform2D_internal.h"
 
 size_t iOCT_entity_max = iOCT_ENTITY_DEFAULT_MAX;
-OCT_engineHandle testActiveEntity;
+OCT_handle testActiveEntity;
 
 iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID) {
 	return (iOCT_entity*)iOCT_getByID(context, entityID, OCT_typeEntity);
@@ -19,12 +19,12 @@ iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID) {
 /// <param name="entityContextID"></param>
 /// <param name="parentID"></param>
 /// <returns></returns>
-OCT_engineHandle OCT_entity_new(OCT_engineHandle parentHandle) {
-	OCT_ID contextID = parentHandle.contextID;
+OCT_handle OCT_entity_new(OCT_handle parentHandle) {
+	OCT_ID contextID = parentHandle.ownerID;
 	iOCT_entityContext* context = iOCT_entityContext_get(contextID);
 	OCT_ID parentID = parentHandle.objectID;
 	OCT_ID newEntityID = iOCT_entity_new(context, parentID);
-	OCT_engineHandle newHandle = { contextID, newEntityID };
+	OCT_handle newHandle = { contextID, newEntityID };
 	return newHandle;
 }
 OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
@@ -53,8 +53,8 @@ OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
 /// <param name="entityHandle"></param>
 /// <param name="component"></param>
 /// <returns></returns>
-bool OCT_entity_hasComponent(OCT_engineHandle entityHandle, OCT_types component) {
-	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.contextID);
+bool OCT_entity_hasComponent(OCT_handle entityHandle, OCT_types component) {
+	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.ownerID);
 	return iOCT_entity_hasComponent(context, entityHandle.objectID, component);
 }
 bool iOCT_entity_hasComponent(iOCT_entityContext* context, OCT_ID entityID, OCT_types componentType) {
@@ -75,7 +75,7 @@ iOCT_entity* iOCT_entity_getParent(iOCT_entityContext* context, OCT_ID entityID)
 	return iOCT_entity_get(context, iOCT_entity_get(context, entityID)->parentID);
 }
 
-void test_entitySetActive(OCT_engineHandle entity) {
+void test_entitySetActive(OCT_handle entity) {
 	testActiveEntity = entity;
 }
 

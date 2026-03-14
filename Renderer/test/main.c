@@ -22,9 +22,9 @@ int main() {
 	OCT_entitySetID mainSet = OCT_entitySet_new();
 	OCT_layerID newLayer = OCT_layer_new();
 
-	OCT_engineHandle mainRoot = OCT_entitySet_root(mainSet);
+	OCT_handle mainRoot = OCT_entitySet_root(mainSet);
 
-	OCT_engineHandle testObject = OCT_entity_new(mainRoot);
+	OCT_handle testObject = OCT_entity_new(mainRoot);
 	OCT_hitBox2D_addNew(testObject, newLayer);
 	//OCT_hitBox2D_resize(testObject, 15.0, 15.0);
 

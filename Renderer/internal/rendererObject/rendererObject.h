@@ -9,6 +9,6 @@
 struct iOCT_rendererObject {
 	GLuint mesh;
 	GLuint texture;
-	OCT_engineHandle engineHandle;
+	OCT_handle engineHandle;
 	iOCT_renderData data;
 };

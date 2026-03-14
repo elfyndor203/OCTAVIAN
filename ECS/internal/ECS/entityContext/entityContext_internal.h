@@ -28,7 +28,7 @@ struct iOCT_entityContext{
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityContextID);
 OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_types componentType);
-OCT_engineHandle iOCT_entityContext_open();
+OCT_handle iOCT_entityContext_open();
 void iOCT_entityContext_close(iOCT_entityContext* context);
 void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_types componentType);
 void iOCT_entityContext_update(iOCT_entityContext* context);

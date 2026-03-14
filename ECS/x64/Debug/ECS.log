@@ -1,5 +1,4 @@
 ﻿  hitBox2D.c
-  sprite2D.c
   transform2D.c
   ECSModule.c
   entity.c

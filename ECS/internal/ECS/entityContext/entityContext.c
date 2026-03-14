@@ -29,11 +29,11 @@ OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_types componentType) {
 /// Opens a new entity context in the current ECS instance. Allocates initial needed memory and returns the root handle for use.
 /// </summary>
 /// <returns></returns>
-OCT_engineHandle OCT_entityContext_open() {
+OCT_handle OCT_entityContext_open() {
 	return iOCT_entityContext_open();
 }
 
-OCT_engineHandle iOCT_entityContext_open() {
+OCT_handle iOCT_entityContext_open() {
 	OCT_ID entityContextID = (OCT_ID)iOCT_ECS_instance.entityContextCounter;	// Count will always be the next available slot
 	iOCT_ECS_instance.entityContextCounter += 1;
 	iOCT_ECS_instance.entityContextMap[entityContextID] = (OCT_index)entityContextID; // ID will start the same as the index
@@ -50,7 +50,7 @@ OCT_engineHandle iOCT_entityContext_open() {
 	}
 
 	iOCT_entity_new(newContext, iOCT_NOPARENT);						// Create root entity
-	OCT_engineHandle rootHandle = { entityContextID, iOCT_ROOT_ID };
+	OCT_handle rootHandle = { entityContextID, iOCT_ROOT_ID };
 	return rootHandle;
 }
 
@@ -58,8 +58,8 @@ OCT_engineHandle iOCT_entityContext_open() {
 /// Frees all memory used by the entityContext. Handles bookkeeping by swap replacing with the last entityContext if necessary. 
 /// </summary>
 /// <param name="closedContextID"></param>
-void OCT_entityContext_close(OCT_engineHandle rootHandle) {
-	iOCT_entityContext* context = iOCT_entityContext_get(rootHandle.contextID);
+void OCT_entityContext_close(OCT_handle rootHandle) {
+	iOCT_entityContext* context = iOCT_entityContext_get(rootHandle.ownerID);
 	iOCT_entityContext_close(context);
 }
 void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
@@ -111,8 +111,8 @@ void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_types type) {
 	return (char*)pool->array + (index * pool->elementSize);
 }
 
-void OCT_entityContext_update(OCT_engineHandle root) {
-	iOCT_entityContext* context = iOCT_entityContext_get(root.contextID);
+void OCT_entityContext_update(OCT_handle root) {
+	iOCT_entityContext* context = iOCT_entityContext_get(root.ownerID);
 	iOCT_entityContext_update(context);
 }
 void iOCT_entityContext_update(iOCT_entityContext* context) {

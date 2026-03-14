@@ -23,7 +23,7 @@ typedef enum {
 } _OCT_messageTypes;
 
 typedef struct {
-	OCT_engineHandle entity;
+	OCT_handle entity;
 	_OCT_messageTypes instruction;
 	float parameter1;
 	float parameter2;
@@ -33,4 +33,4 @@ extern _OCT_message _OCT_messageQueue_empty;
 
 _OCT_message _OCT_queryMessage(_OCT_subsystemList subsystem);
 
-bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_engineHandle entity, _OCT_messageTypes instruction, float parameter1, float parameter2);
+bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_handle entity, _OCT_messageTypes instruction, float parameter1, float parameter2);

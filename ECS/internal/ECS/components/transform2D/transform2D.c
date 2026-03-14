@@ -26,8 +26,8 @@ iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContext* context, OCT_ID trans
 /// </summary>
 /// <param name="parentHandle"></param>
 /// <returns></returns>
-bool OCT_transform2D_add(OCT_engineHandle handle) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.contextID);
+bool OCT_transform2D_add(OCT_handle handle) {
+    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
     if (iOCT_transform2D_add(context, handle.objectID) == OCT_errorID) {
         return false;
     }
@@ -194,8 +194,8 @@ OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform) {
 /// <param name="parentHandle"></param>
 /// <param name="delta"></param>
 /// <returns></returns>
-OCT_vec2 OCT_transform2D_moveBy(OCT_engineHandle handle, OCT_vec2 delta) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.contextID);
+OCT_vec2 OCT_transform2D_moveBy(OCT_handle handle, OCT_vec2 delta) {
+    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
     OCT_ID transformID = iOCT_entity_get(context, handle.objectID)->transformID;
     return iOCT_transform2D_moveBy(context, transformID, delta);
 }
@@ -212,8 +212,8 @@ OCT_vec2 iOCT_transform2D_moveBy(iOCT_entityContext* context, OCT_ID transformID
 /// <param name="parentHandle"></param>
 /// <param name="deltaDegrees"></param>
 /// <returns></returns>
-float OCT_transform2D_rotateByDeg(OCT_engineHandle handle, float deltaDegrees) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.contextID);
+float OCT_transform2D_rotateByDeg(OCT_handle handle, float deltaDegrees) {
+    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
     OCT_ID transformID = iOCT_entity_get(context, handle.objectID)->transformID;
     return OCT_rad2deg(iOCT_transform2D_rotateBy(context, transformID, OCT_deg2rad(deltaDegrees)));
 }
@@ -223,8 +223,8 @@ float OCT_transform2D_rotateByDeg(OCT_engineHandle handle, float deltaDegrees) {
 /// <param name="parentHandle"></param>
 /// <param name="deltaRadians"></param>
 /// <returns></returns>
-float OCT_transform2D_rotateByRad(OCT_engineHandle handle, float deltaRadians) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.contextID);
+float OCT_transform2D_rotateByRad(OCT_handle handle, float deltaRadians) {
+    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
     OCT_ID transformID = iOCT_entity_get(context, handle.objectID)->transformID;
     return iOCT_transform2D_rotateBy(context, transformID, deltaRadians);
 }
@@ -240,8 +240,8 @@ float iOCT_transform2D_rotateBy(iOCT_entityContext* context, OCT_ID transformID,
     return transform->rotation;
 }
 
-OCT_vec2 OCT_transform2D_scaleBy(OCT_engineHandle handle, OCT_vec2 delta) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.contextID);
+OCT_vec2 OCT_transform2D_scaleBy(OCT_handle handle, OCT_vec2 delta) {
+    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
     OCT_ID transformID = iOCT_entity_get(context, handle.objectID)->transformID;
     return iOCT_transform2D_scaleBy(context, transformID, delta);
 }
