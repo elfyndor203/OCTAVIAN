@@ -1,11 +1,4 @@
-﻿  hitBox2D.c
-  transform2D.c
-  ECSModule.c
-  entity.c
-  entityContext.c
-  messageHandling.c
-  messageHandling_API.c
-  vertexData.c
+﻿  entityContext.c
   newTestMain.c
   Generating Code...
 Errors.lib(errorHandling.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification

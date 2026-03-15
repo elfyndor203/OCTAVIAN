@@ -19,6 +19,7 @@
     <ClCompile Include="internal\rendererObject\rendererObject.c" />
     <ClCompile Include="internal\sprite\renderData.c" />
     <ClCompile Include="internal\layer\layer.c" />
+    <ClCompile Include="internal\module\rendererModule.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="reference\update.h" />
@@ -49,5 +50,6 @@
     <ClInclude Include="internal\types_internal.h" />
     <ClInclude Include="internal\sprite\renderData.h" />
     <ClInclude Include="internal\layer\layer.h" />
+    <ClInclude Include="internal\module\rendererModule.h" />
   </ItemGroup>
 </Project>

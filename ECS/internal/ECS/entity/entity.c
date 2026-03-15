@@ -32,8 +32,8 @@ OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
 	iOCT_entity* newEntity;
 	OCT_index newIndex;
 
-	newEntity = OCT_pool_getSlot(iOCT_pool_get(context, OCT_typeEntity), &newIndex);
-	newID = OCT_IDMap_registerID(&context->IDMap, OCT_typeEntity, newIndex);		// Register an ID first to enable other functions
+	newEntity = OCT_pool_add(iOCT_pool_get(context, OCT_typeEntity), &newIndex);
+	newID = OCT_IDMap_register(&context->IDMap, OCT_typeEntity, newIndex);		// Register an ID first to enable other functions
 
 	//memset(newEntity, 0, sizeof(iOCT_entity));							// Make sure the slot is empty
 

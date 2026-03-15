@@ -36,6 +36,9 @@
     <ClInclude Include="include\architecture\IDMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\architecture\module.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\linking\messaging.c">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\architecture\IDMap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\architecture\module.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -10,7 +10,6 @@
 #define iOCT_ENTITYCONTEXT_DEFAULT_MAX 64
 #define iOCT_ROOT_ID 0
 #define iOCT_NO_ENTITYCONTEXT OCT_GENERIC_NONE
-#define iOCT_ENGINEPOOL_DEFAULTSIZE 16
 
 /// <summary>
 /// Opening an entityContext allows you to create entities that interact with each other. Each context manages its own pools and IDmap.

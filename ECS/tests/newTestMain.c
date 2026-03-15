@@ -48,6 +48,24 @@ int main() {
 	OCT_transform2D_moveBy(grandChildBG, (OCT_vec2) { 2, 2 });
 	// OCT_entityHandle grandChildHitBox2 = OCT_hitBox2D_add(grandChild);
 
+	OCT_handle middle = OCT_entityContext_open();
+	OCT_handle charaMD = OCT_entity_new(middle);
+	OCT_hitBox2D_add(charaMD);
+	OCT_handle childMD = OCT_entity_new(charaMD);
+	OCT_hitBox2D_add(childMD);
+	OCT_handle grandChildMD = OCT_entity_new(childMD);
+	OCT_hitBox2D_add(grandChildMD);
+
+	OCT_entityContext_close(middle);
+
+	//OCT_handle dummyContexts[15];
+	//for (int i = 0; i < 10; i++) {
+	//	dummyContexts[i] = OCT_entityContext_open();
+	//}
+	//for (int i = 0; i < 10; i++) {
+	//	OCT_entityContext_close(dummyContexts[i]);
+	//}
+
 	while (true) {
 //		OCT_transform2D_moveBy(chara, (OCT_vec2){0.1f, 0.2f });
 		OCT_transform2D_rotateByDeg(chara, 0.1f);

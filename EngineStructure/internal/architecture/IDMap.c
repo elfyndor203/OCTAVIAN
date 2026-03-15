@@ -3,6 +3,7 @@
 
 #include "OCT_Errors.h"
 #include <stdlib.h>
+#include <string.h>
 
 // Allocates initial memory for a single entityContext.
 OCT_IDMap OCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
@@ -18,7 +19,7 @@ OCT_IDMap OCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
 }
 
 // Registers the next available ID with the provided pool index for any new entity or component.
-OCT_ID OCT_IDMap_registerID(OCT_IDMap* map, int type, OCT_index index) {
+OCT_ID OCT_IDMap_register(OCT_IDMap* map, int type, OCT_index index) {
 	OCT_ID newID;
 
 	newID = map->count;		// Grabs the next available ID
@@ -33,6 +34,22 @@ OCT_ID OCT_IDMap_registerID(OCT_IDMap* map, int type, OCT_index index) {
 	return newID;							// only ID gets returned
 }
 
+/// <summary>
+/// Deletes an ID mapping. Does not deal with free ID recycling yet
+/// </summary>
+/// <param name="map"></param>
+/// <param name="ID"></param>
+/// <returns></returns>
+OCT_index OCT_IDMap_deregister(OCT_IDMap* map, OCT_ID ID) {
+	OCT_index index;
+	OCT_uniqueIndex* slot = &map->array[ID];
+	index = slot->index;
+	memset(slot, 0, sizeof(OCT_uniqueIndex));
+	
+	return index;
+}
+
+
 OCT_ID OCT_IDMap_remap(OCT_IDMap* map, OCT_ID ID, OCT_index newIndex) {
 	map->array[ID].index = newIndex;
 	return ID;
@@ -40,4 +57,9 @@ OCT_ID OCT_IDMap_remap(OCT_IDMap* map, OCT_ID ID, OCT_index newIndex) {
 
 OCT_index OCT_IDMap_getIndex(OCT_IDMap* map, OCT_ID ID) {
 	return map->array[ID].index;
+}
+
+void OCT_IDMap_free(OCT_IDMap map) {
+	free(map.array);
+	map.array = NULL;
 }

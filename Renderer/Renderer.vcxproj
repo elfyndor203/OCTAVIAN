@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="GLAD\src\glad.c" />
     <ClCompile Include="internal\layer\layer.c" />
+    <ClCompile Include="internal\module\rendererModule.c" />
     <ClCompile Include="internal\rendererObject\rendererObject.c" />
     <ClCompile Include="internal\sprite\renderData.c" />
     <ClCompile Include="reference\spaghetti3\internal\input\testCallback.c" />
@@ -44,6 +45,7 @@
     <ClInclude Include="GLFW\include\GLFW\glfw3.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3native.h" />
     <ClInclude Include="internal\layer\layer.h" />
+    <ClInclude Include="internal\module\rendererModule.h" />
     <ClInclude Include="internal\rendererObject\rendererObject.h" />
     <ClInclude Include="internal\sprite\renderData.h" />
     <ClInclude Include="internal\types_internal.h" />
