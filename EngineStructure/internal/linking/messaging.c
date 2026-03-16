@@ -24,14 +24,14 @@ static bool iOCT_queueFull(iOCT_messageCounter head, iOCT_messageCounter tail) {
 	return (head + 1) % iOCT_MAX_MESSAGES == tail;										// this is true when the next message would overwrite the message about to be read
 }
 
-bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_engineHandle entity, _OCT_messageTypes instruction, float parameter1, float parameter2) {
+bool _OCT_sendMessage(OCT_subsystemList recipient, OCT_handle entity, _OCT_messageTypes instruction, float parameter1, float parameter2) {
 	_OCT_message messageToSend = { 0 };
 	messageToSend.entity = entity;
 	messageToSend.instruction = instruction;
 	messageToSend.parameter1 = parameter1;
 	messageToSend.parameter2 = parameter2;
 	switch (recipient) {
-	case _OCT_Renderer:
+	case OCT_subsystem_renderer:
 		if (iOCT_queueFull(iOCT_REN_head, iOCT_REN_tail)) {
 			OCT_logError(EXIT_RENDERER_MESSAGES_OVERLOADED);
 			return false;
@@ -42,7 +42,7 @@ bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_engineHandle entity, _OC
 		//printf("Sent message to renderer\n");
 		return true;
 		break;
-	case _OCT_ECS:
+	case OCT_subsystem_ECS:
 		if (iOCT_queueFull(iOCT_ECS_head, iOCT_ECS_tail)) {
 			OCT_logError(EXIT_ECS_MESSAGES_OVERLOADED);
 			return false;
@@ -59,10 +59,10 @@ bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_engineHandle entity, _OC
 	}
 }
 
-_OCT_message _OCT_queryMessage(_OCT_subsystemList subsystem) {
+_OCT_message _OCT_queryMessage(OCT_subsystemList subsystem) {
 	_OCT_message messageToHandle = _OCT_messageQueue_empty;
 	switch (subsystem) {
-	case _OCT_Renderer:
+	case OCT_subsystem_renderer:
 		if (iOCT_queueEmpty(iOCT_REN_head, iOCT_REN_tail)) {
 			return _OCT_messageQueue_empty;
 		}
@@ -70,7 +70,7 @@ _OCT_message _OCT_queryMessage(_OCT_subsystemList subsystem) {
 		messageToHandle = iOCT_REN_messageQueue[iOCT_REN_tail];
 		iOCT_REN_tail = (iOCT_REN_tail + 1) % iOCT_MAX_MESSAGES;	// wraparound
 		break;
-	case (_OCT_ECS):
+	case (OCT_subsystem_ECS):
 		if (iOCT_queueEmpty(iOCT_ECS_head, iOCT_ECS_tail)) {
 			//printf("empty");
 			return _OCT_messageQueue_empty;

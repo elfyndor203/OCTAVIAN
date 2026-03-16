@@ -7,12 +7,12 @@
 #include "shaders/shader/shader_internal.h"
 
 void iOCT_handleRendererMessages(void) {
-	_OCT_message newMessage = _OCT_queryMessage(_OCT_Renderer);
+	_OCT_message newMessage = _OCT_queryMessage(OCT_subsystem_renderer);
 	while (newMessage.instruction != _OCT_messageQueue_empty.instruction) {
-		OCT_engineHandle entity = newMessage.entity;
+		OCT_handle entity = newMessage.entity;
 		_OCT_messageTypes instruction = newMessage.instruction;
 		iOCT_layerID layer = (iOCT_layerID)newMessage.parameter1;
-		newMessage = _OCT_queryMessage(_OCT_Renderer);
+		newMessage = _OCT_queryMessage(OCT_subsystem_renderer);
 		//iOCT_rendererObject* rendererObject = iOCT_rendererObject_get(entity.rendererObjectID, entity.layerID); //	NOTE_FIX
 		switch (instruction) {
 		case _OCT_hitBox2D_add:

@@ -20,11 +20,11 @@ iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entityContext* context, OCT_ID hitBoxID) {
 /// </summary>
 /// <param name="entityHandle"></param>
 /// <returns></returns>
-OCT_engineHandle OCT_hitBox2D_add(OCT_engineHandle handle) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.contextID);
+OCT_handle OCT_hitBox2D_add(OCT_handle handle) {
+    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
     if (OCT_entity_hasComponent(handle, OCT_typeComponentHitBox2D)) {
         printf("\nEntity already has hitBox. Generating new entity.\n");
-        OCT_engineHandle newEntity = OCT_entity_new(handle);
+        OCT_handle newEntity = OCT_entity_new(handle);
         iOCT_hitBox2D_add(context, newEntity.objectID);
         return newEntity;
     }
@@ -39,8 +39,8 @@ OCT_ID iOCT_hitBox2D_add(iOCT_entityContext* context, OCT_ID parentID) {
     OCT_index newIndex;
     iOCT_hitBox2D* newHitBox;
 
-    newHitBox = OCT_pool_getSlot(iOCT_pool_get(context, OCT_typeComponentHitBox2D), &newIndex);
-    newID = OCT_IDMap_registerID(&context->IDMap, OCT_typeComponentHitBox2D, newIndex);
+    newHitBox = OCT_pool_addTo(iOCT_pool_get(context, OCT_typeComponentHitBox2D), &newIndex);
+    newID = OCT_IDMap_register(&context->IDMap, OCT_typeComponentHitBox2D, newIndex);
     memset(newHitBox, 0, sizeof(iOCT_hitBox2D));
     
     // Set values
@@ -64,13 +64,13 @@ OCT_ID iOCT_hitBox2D_add(iOCT_entityContext* context, OCT_ID parentID) {
 /// </summary>
 /// <param name="parentHandle"></param>
 /// <param name="size"></param>
-void OCT_hitBox2D_resizeTo(OCT_engineHandle handle, OCT_vec2 size) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.contextID);
+void OCT_hitBox2D_resizeTo(OCT_handle handle, OCT_vec2 size) {
+    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
     if (iOCT_entity_hasComponent(context, handle.objectID, OCT_typeComponentHitBox2D) == false) {
         OCT_logError(ERR_HITBOX2D_DOES_NOT_EXIST);
         return;
     }
-    OCT_ID entityContextID = handle.contextID;
+    OCT_ID entityContextID = handle.ownerID;
     OCT_ID parentID = handle.objectID;
     iOCT_hitBox2D_resizeTo(context, parentID, size);
 //    _OCT_sendMessage(_OCT_Renderer, parentHandle, _OCT_hitBox2D_update, OCT_GENERIC_NONE, OCT_GENERIC_NONE);

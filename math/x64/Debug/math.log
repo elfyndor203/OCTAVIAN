@@ -1,10 +1,9 @@
 ﻿  mat3.c
   rect2.c
   constants.c
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\math\internal\units\constants.c(4,27): warning C4305: 'initializing': truncation from 'double' to 'const float'
   conversions.c
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\math\internal\units\conversions.c(5,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\math\internal\units\conversions.c(9,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   vec2.c
   Generating Code...
-  math.vcxproj -> C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\x64\Debug\Math.lib
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\units\conversions.c(5,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\units\conversions.c(9,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  math.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Math.lib

@@ -9,7 +9,7 @@
 
 const GLsizei defaultStride = 0;
 
-iOCT_glInfo iOCT_generateBuffers(OCT_engineHandle entity, OCT_types componentType) {	// generates buffers for a new rendererObject
+iOCT_glInfo iOCT_generateBuffers(OCT_handle entity, OCT_types componentType) {	// generates buffers for a new rendererObject
 	GLuint vertexCount = 0;
 	GLuint indexCount = 0;
 
@@ -56,7 +56,7 @@ iOCT_glInfo iOCT_generateBuffers(OCT_engineHandle entity, OCT_types componentTyp
 	return info;
 }
 
-void iOCT_updateVertexBuffer(OCT_engineHandle entity, OCT_types componentType) {
+void iOCT_updateVertexBuffer(OCT_handle entity, OCT_types componentType) {
 	iOCT_rendererObjectHandle handle = iOCT_rendererObject_locate(entity, componentType);
 	iOCT_rendererObject* rendererObject = iOCT_rendererObject_get(handle.rendererObjectID, handle.layerID);
 	glBindBuffer(GL_ARRAY_BUFFER, rendererObject->VBO);

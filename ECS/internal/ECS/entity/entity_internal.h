@@ -5,7 +5,7 @@
 #include "ECS/types_internal.h"
 
 #define iOCT_NO_COMPONENT OCT_GENERIC_NONE //unless you somehow end up with that many objects
-#define iOCT_NOPARENT OCT_GENERIC_NONE
+#define iOCT_NOPARENT OCT_NULL_ID
 
 #define iOCT_GAMEOBJECT_FAILED OCT_GENERIC_FAIL
 
@@ -22,7 +22,7 @@ struct iOCT_entity{
 	uint64_t componentsMask;	// tracks if the object has each component
 };
 
-extern OCT_engineHandle testActiveEntity;
+extern OCT_handle testActiveEntity;
 
 iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID);
 OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID);

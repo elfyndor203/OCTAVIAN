@@ -3,13 +3,12 @@
 
 #include "ECS/entityContext/entityContext_internal.h"
 
-typedef struct iOCT_manager_ECS {
-	iOCT_entityContext* entityContextPool;
-	OCT_index* entityContextMap;
-	OCT_counter entityContextCounter;
-} iOCT_manager_ECS;
+typedef struct iOCT_module_ECS {
+	OCT_pool contextPool;
+	OCT_IDMap IDMap;
+} iOCT_module_ECS;
 
-extern iOCT_manager_ECS iOCT_ECS_instance;	// Current running ECS
+extern iOCT_module_ECS iOCT_ECS_instance;	// Current running ECS
 
-void iOCT_startModule_ECS();
-void iOCT_freeModule_ECS(iOCT_manager_ECS* ECSModule);
+void iOCT_ECSModule_init();
+void iOCT_ECSModule_free(iOCT_module_ECS* ECSModule);

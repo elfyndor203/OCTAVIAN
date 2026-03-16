@@ -8,9 +8,8 @@
 #include "ECS/types_internal.h"
 
 #define iOCT_ENTITYCONTEXT_DEFAULT_MAX 64
-#define iOCT_ROOT_ID 0
+#define iOCT_ROOT_ID 1
 #define iOCT_NO_ENTITYCONTEXT OCT_GENERIC_NONE
-#define iOCT_ENGINEPOOL_DEFAULTSIZE 16
 
 /// <summary>
 /// Opening an entityContext allows you to create entities that interact with each other. Each context manages its own pools and IDmap.
@@ -28,7 +27,7 @@ struct iOCT_entityContext{
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityContextID);
 OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_types componentType);
-OCT_engineHandle iOCT_entityContext_open();
+OCT_handle iOCT_entityContext_open();
 void iOCT_entityContext_close(iOCT_entityContext* context);
 void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_types componentType);
 void iOCT_entityContext_update(iOCT_entityContext* context);
