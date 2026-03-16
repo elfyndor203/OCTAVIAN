@@ -8,7 +8,7 @@
 #include "ECS/types_internal.h"
 
 #define iOCT_ENTITYCONTEXT_DEFAULT_MAX 64
-#define iOCT_ROOT_ID 0
+#define iOCT_ROOT_ID 1
 #define iOCT_NO_ENTITYCONTEXT OCT_GENERIC_NONE
 
 /// <summary>

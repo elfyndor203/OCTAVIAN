@@ -1,5 +1,3 @@
-﻿  entityContext.c
-  newTestMain.c
-  Generating Code...
+﻿  transform2D.c
 Errors.lib(errorHandling.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-  ECS.vcxproj -> C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.exe
+  ECS.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\ECS.exe

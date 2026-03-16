@@ -15,7 +15,7 @@ void entityConsole_open();
 void renderEntityDashboard(iOCT_transform2D* array, int count);
 
 int main() {
-	OCT_startModule_ECS();
+	OCT_ECSModule_init();
 	entityConsole_open();
 
 	OCT_handle foreGround = OCT_entityContext_open();

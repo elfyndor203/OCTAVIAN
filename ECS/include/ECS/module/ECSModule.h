@@ -1,2 +1,2 @@
 #pragma once
-void OCT_startModule_ECS();
+void OCT_ECSModule_init();

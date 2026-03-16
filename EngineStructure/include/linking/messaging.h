@@ -31,6 +31,6 @@ typedef struct {
 
 extern _OCT_message _OCT_messageQueue_empty;
 
-_OCT_message _OCT_queryMessage(_OCT_subsystemList subsystem);
+_OCT_message _OCT_queryMessage(OCT_subsystemList subsystem);
 
-bool _OCT_sendMessage(_OCT_subsystemList recipient, OCT_handle entity, _OCT_messageTypes instruction, float parameter1, float parameter2);
+bool _OCT_sendMessage(OCT_subsystemList recipient, OCT_handle entity, _OCT_messageTypes instruction, float parameter1, float parameter2);

@@ -11,10 +11,7 @@ void OCT_module_start(OCT_module* instance, size_t size) {
 
 void OCT_module_free(OCT_module* instance) {
 	void* array = instance->pool.array;
-	for (int index = 0; index < instance->pool.count; index++) {
-		iOCT_entityContext* context = &array[index];
-		iOCT_entityContext_close(context);
-	}
+
 	OCT_pool_free(&instance->pool);
-	OCT_IDMap_free
+	OCT_IDMap_free(&instance->IDMap);
 }

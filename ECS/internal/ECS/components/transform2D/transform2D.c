@@ -149,7 +149,7 @@ void iOCT_transform2D_propagate(iOCT_entityContext* context) {
     iOCT_transform2D* currentTransform;
     iOCT_transform2D* parentTransform;
 
-    OCT_index rootIndex = iOCT_ROOT_ID;
+    OCT_index rootIndex = OCT_IDMap_getIndex(&context->IDMap, iOCT_entity_get(context, iOCT_ROOT_ID)->transformID);
     currentTransform = &array[rootIndex];
     currentTransform->localMatrix = iOCT_transform2D_generateMatrix(currentTransform);
     currentTransform->globalMatrix = currentTransform->localMatrix;

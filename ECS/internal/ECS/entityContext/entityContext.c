@@ -45,7 +45,7 @@ OCT_handle iOCT_entityContext_open() {
 	newContext->currentMaxDepth = -1; // prepare for root
 	memset(&newContext->depthEnds, 0, sizeof(OCT_index) * iOCT_TRANSFORM_MAXDEPTH);
 
-	newContext->IDMap = OCT_IDMap_init(OCT_IDMAPTYPE_CONTAINER, OCT_POOLSIZE_DEFAULT * OCT_typesTotal);	// enough for all pools
+	newContext->IDMap = OCT_IDMap_init(OCT_subsystem_ECS, OCT_POOLSIZE_DEFAULT * OCT_typesTotal);	// enough for all pools
 	for (int poolType = 0; poolType < OCT_typesTotal; poolType++) {
 		newContext->pools[poolType] = OCT_pool_init(newContext->contextID, OCT_POOLSIZE_DEFAULT, sizeList[poolType]);
 	}

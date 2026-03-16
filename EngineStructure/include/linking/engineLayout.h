@@ -2,10 +2,10 @@
 #include "types.h"
 
 typedef enum {
-	_OCT_ECS = 1000,
-	_OCT_Renderer = 2000,
-	_OCT_Resource = 3000
-} _OCT_subsystemList;
+	OCT_subsystem_ECS = 1000,
+	OCT_subsystem_renderer = 2000,
+	OCT_subsystem_resources = 3000
+} OCT_subsystemList;
 
 typedef struct OCT_engineHandle {
 	OCT_ID ownerID;

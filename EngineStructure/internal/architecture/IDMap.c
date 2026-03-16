@@ -10,8 +10,8 @@ OCT_IDMap OCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
 	OCT_IDMap map = { 0 };
 
 	map.ownerID = ownerID;
-	map.count = 0;
-	map.array = calloc(capacity, sizeof(OCT_uniqueIndex));
+	map.count = 1; // null ID
+	map.array = calloc(capacity + 1, sizeof(OCT_uniqueIndex));
 	if (!map.array) {
 		OCT_logError(EXIT_FAILED_TO_ALLOCATE);
 	}
@@ -59,7 +59,7 @@ OCT_index OCT_IDMap_getIndex(OCT_IDMap* map, OCT_ID ID) {
 	return map->array[ID].index;
 }
 
-void OCT_IDMap_free(OCT_IDMap map) {
-	free(map.array);
-	map.array = NULL;
+void OCT_IDMap_free(OCT_IDMap* map) {
+	free(map->array);
+	map->array = NULL;
 }
