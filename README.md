@@ -7,6 +7,7 @@ OCTAVIAN is a simple game engine designed to make me learn C. It uses a minimal 
 - OpenGL 3.3
 - GLAD
 - GLFW
+- stb_image
 
 ## Installation (WIP)
 1. Build
