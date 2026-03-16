@@ -5,7 +5,7 @@
 #include "ECS/types_internal.h"
 
 #define iOCT_NO_COMPONENT OCT_GENERIC_NONE //unless you somehow end up with that many objects
-#define iOCT_NOPARENT OCT_GENERIC_NONE
+#define iOCT_NOPARENT OCT_NULL_ID
 
 #define iOCT_GAMEOBJECT_FAILED OCT_GENERIC_FAIL
 

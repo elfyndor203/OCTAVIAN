@@ -20,9 +20,17 @@ iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID) {
 /// <param name="parentID"></param>
 /// <returns></returns>
 OCT_handle OCT_entity_new(OCT_handle parentHandle) {
-	OCT_ID contextID = parentHandle.ownerID;
+	OCT_ID parentID;
+	OCT_ID contextID;
+	if (parentHandle.ownerID == OCT_subsystem_ECS) {	// adding to context
+		parentID = iOCT_ROOT_ID;
+		contextID = parentHandle.objectID;
+	}
+	else {	// adding as child
+		parentID = parentHandle.objectID;
+		contextID = parentHandle.ownerID;
+	}
 	iOCT_entityContext* context = iOCT_entityContext_get(contextID);
-	OCT_ID parentID = parentHandle.objectID;
 	OCT_ID newEntityID = iOCT_entity_new(context, parentID);
 	OCT_handle newHandle = { contextID, newEntityID };
 	return newHandle;
@@ -32,18 +40,17 @@ OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
 	iOCT_entity* newEntity;
 	OCT_index newIndex;
 
-	newEntity = OCT_pool_add(iOCT_pool_get(context, OCT_typeEntity), &newIndex);
+	newEntity = OCT_pool_addTo(iOCT_pool_get(context, OCT_typeEntity), &newIndex);
 	newID = OCT_IDMap_register(&context->IDMap, OCT_typeEntity, newIndex);		// Register an ID first to enable other functions
 
-	//memset(newEntity, 0, sizeof(iOCT_entity));							// Make sure the slot is empty
+	memset(newEntity, 0, sizeof(iOCT_entity)); // fill with NULL IDs
 
 	newEntity->contextID = context->contextID;
 	newEntity->entityID = newID;
 	newEntity->parentID = parentID;
 	newEntity->transformID = iOCT_transform2D_add(context, newID);
-	newEntity->hitBoxID = iOCT_NO_COMPONENT;
-	iOCT_entity_updateMask(context, newID, OCT_typeEntity);		// dummy marker
 
+	iOCT_entity_updateMask(context, newID, OCT_typeEntity);		// dummy marker
 	return newID;
 }
 

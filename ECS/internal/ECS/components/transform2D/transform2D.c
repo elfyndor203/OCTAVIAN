@@ -55,7 +55,7 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
         parentID = parentTransform->transformID;
     }
 
-    newTransform = OCT_pool_add(iOCT_pool_get(context, OCT_typeComponentTransform2D), &newIndex);
+    newTransform = OCT_pool_addTo(iOCT_pool_get(context, OCT_typeComponentTransform2D), &newIndex);
     newID = OCT_IDMap_register(&context->IDMap, OCT_typeComponentTransform2D, newIndex);
     memset(newTransform, 0, sizeof(iOCT_transform2D));
 

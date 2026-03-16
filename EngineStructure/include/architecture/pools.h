@@ -20,7 +20,7 @@ struct OCT_pool {
 };
 
 OCT_pool OCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t size);
-void* OCT_pool_add(OCT_pool* pool, OCT_index* index);
+void* OCT_pool_addTo(OCT_pool* pool, OCT_index* index);
 void* OCT_pool_access(OCT_pool* pool, OCT_index index);
 
 void OCT_pool_delete(OCT_pool* pool, OCT_index index, bool compact);

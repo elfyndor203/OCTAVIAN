@@ -26,19 +26,18 @@ OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_types componentType) {
 }
 
 /// <summary>
-/// Opens a new entity context in the current ECS instance. Allocates initial needed memory and returns the root handle for use.
+/// Opens a new entity context in the current ECS instance.
 /// </summary>
 /// <returns></returns>
 OCT_handle OCT_entityContext_open() {
 	return iOCT_entityContext_open();
 }
-
 OCT_handle iOCT_entityContext_open() {
 	OCT_index newIndex;
 	OCT_ID newID;
 	iOCT_entityContext* newContext;
 
-	newContext = OCT_pool_add(&iOCT_ECS_instance.contextPool, &newIndex);
+	newContext = OCT_pool_addTo(&iOCT_ECS_instance.contextPool, &newIndex);
 	newID = OCT_IDMap_register(&iOCT_ECS_instance.IDMap, 0, newIndex); // 0: type does not matter
 
 	newContext->contextID = newID;

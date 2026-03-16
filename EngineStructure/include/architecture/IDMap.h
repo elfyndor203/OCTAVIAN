@@ -2,6 +2,8 @@
 #include "OCT_Math.h"
 #include "linking/engineLayout.h"
 
+#define OCT_NULL_ID 0
+
 // Unique location within an entityContext
 struct OCT_uniqueIndex {
 	OCT_index index;

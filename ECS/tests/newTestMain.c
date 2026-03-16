@@ -68,8 +68,8 @@ int main() {
 
 	while (true) {
 //		OCT_transform2D_moveBy(chara, (OCT_vec2){0.1f, 0.2f });
-		OCT_transform2D_rotateByDeg(chara, 0.1f);
-		OCT_transform2D_scaleBy(chara, (OCT_vec2) { 0.001f, 0.001f });
+		//OCT_transform2D_rotateByDeg(chara, 0.1f);
+		// OCT_transform2D_scaleBy(chara, (OCT_vec2) { 0.001f, 0.001f });
 
 		OCT_transform2D_rotateByDeg(charaBG, -0.0001f);
 		OCT_transform2D_scaleBy(charaBG, (OCT_vec2) { 0.001f, 0.001f });
