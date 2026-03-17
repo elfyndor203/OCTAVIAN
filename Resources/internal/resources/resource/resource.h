@@ -1,12 +1,13 @@
 #pragma once
+#include "types.h"
+
 #include "OCT_EngineStructure.h"
 
-typedef enum {
-	OCT_resourceImage,
-	OCT_resourceAudio
-} OCT_resourceType;
+#define iOCT_PATHNAME_MAX 64
 
-typedef struct OCT_resourceHandle {
+struct iOCT_resource {
+	OCT_ID listID;
 	OCT_ID resourceID;
-	OCT_resourceType type;
-} OCT_resourceHandle;
+	char path[iOCT_PATHNAME_MAX];
+	iOCT_resourceType type;
+};

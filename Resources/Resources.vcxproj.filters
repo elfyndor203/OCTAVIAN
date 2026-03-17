@@ -30,7 +30,10 @@
     <ClInclude Include="internal\module\RESModule_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\resourceType\resourceType_internal.h">
+    <ClInclude Include="internal\resourceList\resourceList_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -45,6 +48,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\module\RESModule.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\resourceList\resourceList.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

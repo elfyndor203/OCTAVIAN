@@ -11,7 +11,7 @@ void OCT_ECSModule_init() {
 	iOCT_ECSModule_init();
 }
 void iOCT_ECSModule_init() {
-	OCT_module_init(&iOCT_ECS_instance, sizeof(iOCT_entityContext));
+	OCT_module_init(&iOCT_ECS_instance, OCT_POOLSIZE_DEFAULT, sizeof(iOCT_entityContext));
 }
 
 void iOCT_ECSModule_free() {

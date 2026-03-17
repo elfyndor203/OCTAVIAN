@@ -1,10 +1,10 @@
 #pragma once
 
 typedef enum {
-	OCT_typeEntity,
+	OCT_ECStype_Entity,
 
-	OCT_typeComponentTransform2D,
-	OCT_typeComponentHitBox2D,
+	OCT_ECSType_transform2D,
+	OCT_ECSType_hitBox2D,
 
-	OCT_typesTotal
-} OCT_ECStypes; // IF UPDATED, ENTITYCONTEXT.c MUST ALSO BE UPDATED TO GET THE STRUCT SIZE
+	OCT_ECSTypes_total
+} OCT_ECSTypes; // IF UPDATED, ENTITYCONTEXT.c MUST ALSO BE UPDATED TO GET THE STRUCT SIZE

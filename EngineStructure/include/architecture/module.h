@@ -9,4 +9,4 @@ struct OCT_module {
 };
 
 void OCT_module_free(OCT_module* instance);
-void OCT_module_init(OCT_module* instance, size_t size);
+void OCT_module_init(OCT_module* instance, OCT_counter capcity, size_t size);

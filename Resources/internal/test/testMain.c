@@ -1,10 +1,11 @@
-#include "image/image.h"
+#include "resources/image/image.h"
+#include "module/RESModule_internal.h"
 #include <stdio.h>
+#include "OCT_EngineStructure.h"
 
 int main() {
-	OCT_image image = OCT_image_loadPNG("C:/Users/haex4/MyDocuments/Projects/OCTAVIAN/Resources/internal/test/grey.png");
-	for (int i = 0; i < 1000; i++) {
-		printf("%d ", image.pixels[i]);
-	}
+	iOCT_RESModule_init();
+	OCT_handle image = iOCT_image_loadPNG("C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Resources/internal/test/grey.png");
+
 	return 0;
 }

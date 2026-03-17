@@ -1,9 +1,9 @@
 ﻿  hitBox2D.c
   sprite2D.c
   transform2D.c
-  entityContext.c
-  entity.c
   ECSModule.c
+  entity.c
+  entityContext.c
   messageHandling.c
   messageHandling_API.c
   vertexData.c

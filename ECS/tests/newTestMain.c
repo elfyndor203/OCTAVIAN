@@ -21,7 +21,7 @@ int main() {
 	OCT_handle foreGroundRoot;
 	OCT_handle foreGround = OCT_entityContext_open(&foreGroundRoot);
 	iOCT_entityContext* context = iOCT_entityContext_get(foreGround.objectID);
-	iOCT_transform2D* transformArray = (iOCT_transform2D*)iOCT_pool_get(context, OCT_typeComponentTransform2D)->array;
+	iOCT_transform2D* transformArray = (iOCT_transform2D*)iOCT_pool_get(context, OCT_ECSType_transform2D)->array;
 
 	OCT_handle chara = OCT_entity_new(foreGround);
 	OCT_hitBox2D_add(chara);
@@ -37,7 +37,7 @@ int main() {
 	OCT_handle backGroundRoot;
 	OCT_handle backGround = OCT_entityContext_open(&backGroundRoot);
 	iOCT_entityContext* contextBG = iOCT_entityContext_get(backGround.objectID);
-	iOCT_transform2D* transformArrayBG = (iOCT_transform2D*)iOCT_pool_get(contextBG, OCT_typeComponentTransform2D)->array;
+	iOCT_transform2D* transformArrayBG = (iOCT_transform2D*)iOCT_pool_get(contextBG, OCT_ECSType_transform2D)->array;
 
 	OCT_handle charaBG = OCT_entity_new(backGround);
 	OCT_hitBox2D_add(charaBG);

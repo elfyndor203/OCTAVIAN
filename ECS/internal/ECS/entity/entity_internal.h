@@ -26,7 +26,7 @@ extern OCT_handle testActiveEntity;
 
 iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID);
 OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID);
-bool iOCT_entity_hasComponent(iOCT_entityContext* context, OCT_ID entityID, OCT_ECStypes component);
-void iOCT_entity_updateMask(iOCT_entityContext* context, OCT_ID entityID, OCT_ECStypes componentType);
+bool iOCT_entity_hasComponent(iOCT_entityContext* context, OCT_ID entityID, OCT_ECSTypes component);
+void iOCT_entity_updateMask(iOCT_entityContext* context, OCT_ID entityID, OCT_ECSTypes componentType);
 iOCT_entity* iOCT_entity_getParent(iOCT_entityContext* context, OCT_ID entityID);
 

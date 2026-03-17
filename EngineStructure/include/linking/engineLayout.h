@@ -2,17 +2,15 @@
 #include "types.h"
 
 typedef enum {
-	OCT_subsystem_threshold = 1000,
-
-	OCT_subsystem_ECS,
-	OCT_subsystem_renderer,
-	OCT_subsystem_resources
+	OCT_subsystem_ECS = 1000,
+	OCT_subsystem_renderer = 2000,
+	OCT_subsystem_resources = 3000
 } OCT_subsystemList;
 
 typedef enum {
 	OCT_handle_null = 0,
 
-	OCT_handle_context,
+	OCT_handle_entityContext,
 	OCT_handle_entity,
 	OCT_handle_transform2D,
 	OCT_handle_hitBox2D,
@@ -26,8 +24,10 @@ typedef enum {
 } OCT_handleType;
 
 struct OCT_handle {
-	OCT_ID ownerID;
+	OCT_ID subsystem;
+	OCT_ID containerID;
 	OCT_ID objectID;
+	OCT_handleType type;
 };
 
 extern const OCT_ID OCT_errorID;
