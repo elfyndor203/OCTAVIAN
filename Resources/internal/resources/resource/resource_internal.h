@@ -1,7 +1,7 @@
 #pragma once
 #include "resources/types_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 
 #define iOCT_PATHNAME_MAX 64
 

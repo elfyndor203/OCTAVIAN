@@ -1,7 +1,7 @@
 #include "image_internal.h"
 #include "resources/types_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include <string.h>
 
 #include "resources/resource/resource_internal.h"
@@ -21,8 +21,8 @@ OCT_handle iOCT_image_loadPNG(const char* path) {
 	OCT_ID newID;
 	iOCT_resource* newImage;
 
-	newImage = OCT_pool_addTo(&list->pool, &newIndex);
-	newID = OCT_IDMap_register(&list->map, newIndex);
+	newImage = iOCT_pool_addEntry(&list->pool, &newIndex);
+	newID = iOCT_IDMap_register(&list->map, newIndex);
 	
 	newImage->listID = imageListID;
 	strncpy(newImage->path, path, iOCT_PATHNAME_MAX - 1);

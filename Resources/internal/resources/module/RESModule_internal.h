@@ -1,5 +1,5 @@
 #pragma once
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 
 enum iOCT_resourceType {
 	iOCT_resourceImage,
@@ -8,7 +8,7 @@ enum iOCT_resourceType {
 	iOCT_resourceTypes_total
 };
 
-extern OCT_module iOCT_RESModule_instance;
+extern iOCT_module iOCT_RESModule_instance;
 
 void iOCT_RESModule_init();
 void iOCT_RESModule_free();

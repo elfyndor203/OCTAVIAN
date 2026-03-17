@@ -1,5 +1,5 @@
 #pragma once
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include "OCT_Math.h"
 #include "ECS/entity/entity_internal.h"
 

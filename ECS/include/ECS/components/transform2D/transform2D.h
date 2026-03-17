@@ -1,7 +1,7 @@
 #pragma once
 #include <stdbool.h>
 #include "OCT_Math.h"
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 
 bool OCT_transform2D_add(OCT_handle parentHandle);
 OCT_vec2 OCT_transform2D_moveBy(OCT_handle entity, OCT_vec2 delta);

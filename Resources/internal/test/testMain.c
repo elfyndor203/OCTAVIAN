@@ -1,7 +1,7 @@
 #include "resources/image/image_internal.h"
 #include "resources/module/RESModule_internal.h"
 #include <stdio.h>
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 
 int main() {
 	iOCT_RESModule_init();

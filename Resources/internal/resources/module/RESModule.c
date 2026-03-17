@@ -1,16 +1,16 @@
 #include "RESModule_internal.h"
 #include "resources/types_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 
 #include "resources/resourceList/resourceList_internal.h"
 #include "resources/resource/resource_internal.h"
 
-OCT_module iOCT_RESModule_instance = { 0 };
+iOCT_module iOCT_RESModule_instance = { 0 };
 OCT_ID iOCT_resourceList_IDList[iOCT_resourceTypes_total];
 
 void iOCT_RESModule_init() {
-	OCT_module_init(&iOCT_RESModule_instance, iOCT_resourceTypes_total, sizeof(iOCT_resourceList));
+	iOCT_module_init(&iOCT_RESModule_instance, iOCT_resourceTypes_total, sizeof(iOCT_resourceList));
 	for (int type = 0; type < iOCT_resourceTypes_total; type++) {
 		iOCT_resourceList_IDList[type] = iOCT_resourceList_open(type);
 	}

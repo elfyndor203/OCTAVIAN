@@ -18,25 +18,28 @@
     <ClInclude Include="include\OCT_engineStructure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\linking\messaging.h">
+    <ClInclude Include="core\linking\messaging_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\linking\messaging_internal.h">
+    <ClInclude Include="include\layout\engineLayout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\linking\engineLayout.h">
+    <ClInclude Include="include\layout\types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\architecture\pools.h">
+    <ClInclude Include="core\architecture\IDMap_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\linking\types.h">
+    <ClInclude Include="core\linking\types_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\architecture\IDMap.h">
+    <ClInclude Include="core\cOCT_EngineStructure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\architecture\module.h">
+    <ClInclude Include="core\architecture\pools_core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\architecture\module_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

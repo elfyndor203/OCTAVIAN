@@ -27,7 +27,6 @@
     <ClInclude Include="include\ECS\components\transform2D\transform2D.h" />
     <ClInclude Include="include\ECS\entity\entity.h" />
     <ClInclude Include="include\ECS\entityContext\entityContext.h" />
-    <ClInclude Include="include\_ECS_Output\vertexData.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
     <ClInclude Include="include\ECS\components\hitBox2D.h" />
     <ClInclude Include="include\ECS\components\position2D.h" />
@@ -60,7 +59,7 @@
     <ClCompile Include="internal\ECS\entityContext\entityContext.c" />
     <ClCompile Include="internal\_ECS_Input\messageHandling.c" />
     <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
-    <ClCompile Include="internal\_ECS_Output\vertexData.c" />
+    <ClCompile Include="internal\_ECS_Output\transformRequest.c" />
     <ClCompile Include="tests\newTestMain.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -139,7 +138,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -165,7 +164,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -189,7 +188,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -215,7 +214,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>

@@ -9,13 +9,15 @@ struct iOCT_layer {
 	OCT_ID layerID;
 
 	OCT_IDMap IDMap;
-	OCT_pool renObjPool;
+	iOCT_pool renObjPool;
 
 	GLuint spriteBuffer;
 	OCT_counter spriteCapacity;
+
+	bool dynamic;
 };
 
-iOCT_layer iOCT_layer_get(OCT_ID layerID);
+iOCT_layer* iOCT_layer_get(OCT_ID layerID);
 
-OCT_ID iOCT_layer_open();
+OCT_ID iOCT_layer_open(bool dynamic);
 void iOCT_layer_close(iOCT_layer* context);

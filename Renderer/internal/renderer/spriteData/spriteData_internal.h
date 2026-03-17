@@ -6,5 +6,3 @@ struct iOCT_spriteData {
 	OCT_vec4 color;
 	OCT_rect2 uvRect;
 };
-
-GLuint iOCT_renderData_initBuffer(int capacity);

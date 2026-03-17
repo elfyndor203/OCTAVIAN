@@ -1,0 +1,28 @@
+#pragma once
+#include "architecture/pools_core.h"
+#include "linking/types_core.h"
+
+#include "OCT_Math.h"
+#include <stdbool.h>
+
+#define OCT_POOLSIZE_DEFAULT 8
+
+/// <summary>
+/// Pools manage the arrays of data. Each entitySet can have at most 1 pool per type. The arrays are contigous and allocated when a new pool is created. 
+/// </summary>
+struct iOCT_pool {
+	OCT_ID ownerID;
+
+	OCT_counter count;
+	OCT_counter capacity;
+
+	size_t elementSize;
+	void* array;
+};
+
+iOCT_pool iOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t size);
+void* iOCT_pool_addEntry(iOCT_pool* pool, OCT_index* outIndex);
+void* iOCT_pool_access(iOCT_pool* pool, OCT_index index);
+
+void iOCT_pool_deleteEntry(iOCT_pool* pool, OCT_index index, bool compact);
+void iOCT_pool_free(iOCT_pool* pool);

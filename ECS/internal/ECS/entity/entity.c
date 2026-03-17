@@ -1,6 +1,6 @@
 #include "entity_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include <string.h>
 #include <inttypes.h>
 #include <stdio.h>
@@ -50,8 +50,8 @@ OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
 	iOCT_entity* newEntity;
 	OCT_index newIndex;
 
-	newEntity = (iOCT_entity*)OCT_pool_addTo(iOCT_pool_get(context, OCT_ECStype_Entity), &newIndex);
-	newID = OCT_IDMap_register(&context->IDMap, newIndex);		// Register an ID first to enable other functions
+	newEntity = (iOCT_entity*)iOCT_pool_addEntry(iOCT_pool_get(context, OCT_ECStype_Entity), &newIndex);
+	newID = iOCT_IDMap_register(&context->IDMap, newIndex);		// Register an ID first to enable other functions
 
 	memset(newEntity, 0, sizeof(iOCT_entity)); // fill with NULL IDs
 

@@ -1,6 +1,6 @@
-#include "linking/messaging.h"
-#include "messaging_internal.h"
+#include "linking/messaging_core.h"
 
+#include "layout/engineLayout.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>

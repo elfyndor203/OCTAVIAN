@@ -1,14 +1,14 @@
 #pragma once
 #include "resources/types_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 
 #include "resources/module/RESModule_internal.h"
 
 struct iOCT_resourceList {
 	OCT_ID listID;
 	OCT_IDMap map;
-	OCT_pool pool;
+	iOCT_pool pool;
 	iOCT_resourceType type;
 };
 

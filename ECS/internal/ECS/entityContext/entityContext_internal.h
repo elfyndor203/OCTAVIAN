@@ -3,7 +3,7 @@
 #include "ECS/components/transform2D/transform2D_internal.h"
 
 #include "OCT_Math.h"
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include "OCT_Errors.h"
 #include "ECS/types_internal.h"
 
@@ -18,7 +18,7 @@ struct iOCT_entityContext{
 	OCT_ID contextID;
 
 	OCT_IDMap IDMap;
-	OCT_pool pools[OCT_ECSTypes_total];
+	iOCT_pool pools[OCT_ECSTypes_total];
 
 	// component utilities
 	int currentMaxDepth;
@@ -26,7 +26,7 @@ struct iOCT_entityContext{
 };
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityContextID);
-OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_ECSTypes componentType);
+iOCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_ECSTypes componentType);
 
 OCT_ID iOCT_entityContext_open();
 void iOCT_entityContext_close(iOCT_entityContext* context);

@@ -10,4 +10,5 @@ struct iOCT_rendererObject {
 	GLuint mesh;
 	GLuint texture;
 	OCT_handle engineHandle;
+	OCT_handle transformHandle; // direct access
 };

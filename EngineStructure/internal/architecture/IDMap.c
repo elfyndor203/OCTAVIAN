@@ -1,14 +1,15 @@
-#include "architecture/IDMap.h"
-#include "linking/types.h"
+#include "architecture/IDMap_core.h"
+#include "linking/types_core.h"
 
 #include "OCT_Errors.h"
+#include "OCT_Math.h"
 #include <stdlib.h>
 #include <string.h>
 
 #define OCT_IDMAP_TYPECONTAINER SIZE_MAX
 
 // Allocates initial memory for a single entityContext.
-OCT_IDMap OCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
+OCT_IDMap iOCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
 	OCT_IDMap map = { 0 };
 
 	map.ownerID = ownerID;
@@ -21,7 +22,7 @@ OCT_IDMap OCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
 }
 
 // Registers the next available ID with the provided pool index for any new entity or component.
-OCT_ID OCT_IDMap_register(OCT_IDMap* map, OCT_index index) {
+OCT_ID iOCT_IDMap_register(OCT_IDMap* map, OCT_index index) {
 	OCT_ID newID;
 
 	newID = map->count;		// Grabs the next available ID
@@ -37,7 +38,7 @@ OCT_ID OCT_IDMap_register(OCT_IDMap* map, OCT_index index) {
 /// <param name="map"></param>
 /// <param name="ID"></param>
 /// <returns></returns>
-OCT_index OCT_IDMap_deregister(OCT_IDMap* map, OCT_ID ID) {
+OCT_index iOCT_IDMap_deregister(OCT_IDMap* map, OCT_ID ID) {
 	OCT_index index;
 	OCT_index* slot = &map->array[ID];
 	index = *slot;
@@ -47,16 +48,16 @@ OCT_index OCT_IDMap_deregister(OCT_IDMap* map, OCT_ID ID) {
 }
 
 
-OCT_ID OCT_IDMap_remap(OCT_IDMap* map, OCT_ID ID, OCT_index newIndex) {
+OCT_ID iOCT_IDMap_remap(OCT_IDMap* map, OCT_ID ID, OCT_index newIndex) {
 	map->array[ID] = newIndex;
 	return ID;
 }
 
-OCT_index OCT_IDMap_getIndex(OCT_IDMap* map, OCT_ID ID) {
+OCT_index iOCT_IDMap_getIndex(OCT_IDMap* map, OCT_ID ID) {
 	return map->array[ID];
 }
 
-void OCT_IDMap_free(OCT_IDMap* map) {
+void iOCT_IDMap_free(OCT_IDMap* map) {
 	free(map->array);
 	map->array = NULL;
 }

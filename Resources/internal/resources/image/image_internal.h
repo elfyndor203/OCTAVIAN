@@ -1,5 +1,5 @@
 #pragma once
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include "resources/resource/resource_internal.h"
 
 typedef struct OCT_image {

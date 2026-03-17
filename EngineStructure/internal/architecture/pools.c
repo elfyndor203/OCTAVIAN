@@ -1,7 +1,8 @@
-#include "architecture/pools.h"
-#include "linking/types.h"
+#include "architecture/pools_core.h"
+#include "linking/types_core.h"
 
 #include "OCT_Errors.h"
+#include "OCT_Math.h"
 
 #include <stdlib.h>
 #include <assert.h>
@@ -10,8 +11,8 @@
 /// <summary>
 /// Allocates memory for a single pool. Allows creation of all pools without rewriting when new component types are added
 /// </summary>
-OCT_pool OCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize) {
-	OCT_pool pool = { 0 };
+iOCT_pool iOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize) {
+	iOCT_pool pool = { 0 };
 
 	pool.ownerID = ownerID;					// set default values
 	pool.count = 0;
@@ -30,18 +31,18 @@ OCT_pool OCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize)
 /// <param name="pool"></param>
 /// <param name="indexDest"></param>
 /// <returns></returns>
-void* OCT_pool_addTo(OCT_pool* pool, OCT_index* outIndex) {
-	void* slot = OCT_pool_access(pool, pool->count);
+void* iOCT_pool_addEntry(iOCT_pool* pool, OCT_index* outIndex) {
+	void* slot = iOCT_pool_access(pool, pool->count);
 	*outIndex = pool->count++;
 	return slot;
 }
 
-void OCT_pool_delete(OCT_pool* pool, OCT_index index, bool compact) {
-	void* entry = OCT_pool_access(pool, index);
+void iOCT_pool_deleteEntry(iOCT_pool* pool, OCT_index index, bool compact) {
+	void* entry = iOCT_pool_access(pool, index);
 
 	// if shuffling is needed
 	if (index < pool->count - 1 && compact) {
-		void* finalEntry = OCT_pool_access(pool, pool->count);
+		void* finalEntry = iOCT_pool_access(pool, pool->count);
 		memcpy(entry, finalEntry, pool->elementSize);
 		memset(finalEntry, 0, pool->elementSize);
 	}
@@ -51,12 +52,12 @@ void OCT_pool_delete(OCT_pool* pool, OCT_index index, bool compact) {
 	pool->count--;
 }
 
-void OCT_pool_free(OCT_pool* pool) {
+void iOCT_pool_free(iOCT_pool* pool) {
 	free(pool->array);
 	pool->array = NULL;
 }
 
-void* OCT_pool_access(OCT_pool* pool, OCT_index index) {
+void* iOCT_pool_access(iOCT_pool* pool, OCT_index index) {
 	void* entry = (char*)pool->array + index * pool->elementSize;
 	return entry;
 }

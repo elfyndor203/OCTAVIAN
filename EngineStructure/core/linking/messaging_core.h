@@ -1,9 +1,10 @@
 #pragma once
+#pragma once
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "engineLayout.h"
+#include "layout/engineLayout.h"
 
 #define iOCT_MAX_MESSAGES 1024
 
@@ -31,6 +32,10 @@ typedef struct {
 
 extern _OCT_message _OCT_messageQueue_empty;
 
+extern _OCT_message iOCT_REN_messageQueue[iOCT_MAX_MESSAGES];
+extern _OCT_message iOCT_ECS_messageQueue[iOCT_MAX_MESSAGES];
+
 _OCT_message _OCT_queryMessage(OCT_subsystemList subsystem);
 
 bool _OCT_sendMessage(OCT_subsystemList recipient, OCT_handle entity, _OCT_messageTypes instruction, float parameter1, float parameter2);
+
