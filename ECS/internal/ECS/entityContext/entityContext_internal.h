@@ -18,7 +18,7 @@ struct iOCT_entityContext{
 	OCT_ID contextID;
 
 	OCT_IDMap IDMap;
-	OCT_pool pools[OCT_typesTotal];
+	OCT_pool pools[OCT_ECSTypes_total];
 
 	// component utilities
 	int currentMaxDepth;
@@ -26,9 +26,11 @@ struct iOCT_entityContext{
 };
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID entityContextID);
-OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_types componentType);
-OCT_handle iOCT_entityContext_open();
+OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_ECSTypes componentType);
+
+OCT_ID iOCT_entityContext_open();
 void iOCT_entityContext_close(iOCT_entityContext* context);
-void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_types componentType);
+void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_ECSTypes componentType);
 void iOCT_entityContext_update(iOCT_entityContext* context);
+
 

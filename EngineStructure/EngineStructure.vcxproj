@@ -139,7 +139,7 @@
     <ClInclude Include="include\OCT_EngineStructure.h" />
     <ClInclude Include="internal\linking\messaging_internal.h" />
     <ClInclude Include="include\architecture\pools.h" />
-    <ClInclude Include="include\types.h" />
+    <ClInclude Include="include\linking\types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\architecture\IDMap.c" />

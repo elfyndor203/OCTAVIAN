@@ -1,5 +1,5 @@
 #include "architecture/pools.h"
-#include "types.h"
+#include "linking/types.h"
 
 #include "OCT_Errors.h"
 
@@ -24,6 +24,12 @@ OCT_pool OCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize)
 	return pool;
 }
 
+/// <summary>
+/// Returns a pointer to the empty pool slot. Use the index return to register an ID. Should be cast to the correct type for clarity. 
+/// </summary>
+/// <param name="pool"></param>
+/// <param name="indexDest"></param>
+/// <returns></returns>
 void* OCT_pool_addTo(OCT_pool* pool, OCT_index* indexDest) {
 	void* slot = OCT_pool_access(pool, pool->count);
 	*indexDest = pool->count++;

@@ -1,7 +1,10 @@
 #include "entity_internal.h"
+
+#include "OCT_EngineStructure.h"
 #include <string.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include <assert.h>
 
 #include "ECS/entityContext/entityContext_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
@@ -10,29 +13,36 @@ size_t iOCT_entity_max = iOCT_ENTITY_DEFAULT_MAX;
 OCT_handle testActiveEntity;
 
 iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID) {
-	return (iOCT_entity*)iOCT_getByID(context, entityID, OCT_typeEntity);
+	return (iOCT_entity*)iOCT_getByID(context, entityID, OCT_ECStype_Entity);
 }
 
 /// <summary>
-/// Registers a new entity in the given entityContext. Fills in required components: transform
+/// Spawns a new entity. ParentHandle may be a context or entity handle. If context, the parent of the new entity is the root of that context.
 /// </summary>
 /// <param name="entityContextID"></param>
 /// <param name="parentID"></param>
 /// <returns></returns>
 OCT_handle OCT_entity_new(OCT_handle parentHandle) {
+	assert(parentHandle.type == OCT_handle_entity || parentHandle.type == OCT_handle_entityContext);
+
 	OCT_ID parentID;
 	OCT_ID contextID;
-	if (parentHandle.ownerID == OCT_subsystem_ECS) {	// adding to context
+	if (parentHandle.type == OCT_handle_entityContext) {	// adding to context
 		parentID = iOCT_ROOT_ID;
 		contextID = parentHandle.objectID;
 	}
 	else {	// adding as child
 		parentID = parentHandle.objectID;
-		contextID = parentHandle.ownerID;
+		contextID = parentHandle.containerID;
 	}
 	iOCT_entityContext* context = iOCT_entityContext_get(contextID);
 	OCT_ID newEntityID = iOCT_entity_new(context, parentID);
-	OCT_handle newHandle = { contextID, newEntityID };
+	OCT_handle newHandle = {
+		.subsystem = OCT_subsystem_ECS,
+		.containerID = contextID,
+		.objectID = newEntityID,
+		.type = OCT_handle_entity
+	};
 	return newHandle;
 }
 OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
@@ -40,8 +50,8 @@ OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
 	iOCT_entity* newEntity;
 	OCT_index newIndex;
 
-	newEntity = OCT_pool_addTo(iOCT_pool_get(context, OCT_typeEntity), &newIndex);
-	newID = OCT_IDMap_register(&context->IDMap, OCT_typeEntity, newIndex);		// Register an ID first to enable other functions
+	newEntity = (iOCT_entity*)OCT_pool_addTo(iOCT_pool_get(context, OCT_ECStype_Entity), &newIndex);
+	newID = OCT_IDMap_register(&context->IDMap, newIndex);		// Register an ID first to enable other functions
 
 	memset(newEntity, 0, sizeof(iOCT_entity)); // fill with NULL IDs
 
@@ -50,7 +60,7 @@ OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
 	newEntity->parentID = parentID;
 	newEntity->transformID = iOCT_transform2D_add(context, newID);
 
-	iOCT_entity_updateMask(context, newID, OCT_typeEntity);		// dummy marker
+	iOCT_entity_updateMask(context, newID, OCT_ECStype_Entity);		// dummy marker
 	return newID;
 }
 
@@ -60,11 +70,13 @@ OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
 /// <param name="entityHandle"></param>
 /// <param name="component"></param>
 /// <returns></returns>
-bool OCT_entity_hasComponent(OCT_handle entityHandle, OCT_types component) {
-	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.ownerID);
+bool OCT_entity_hasComponent(OCT_handle entityHandle, OCT_ECSTypes component) {
+	assert(entityHandle.type == OCT_handle_entity);
+
+	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
 	return iOCT_entity_hasComponent(context, entityHandle.objectID, component);
 }
-bool iOCT_entity_hasComponent(iOCT_entityContext* context, OCT_ID entityID, OCT_types componentType) {
+bool iOCT_entity_hasComponent(iOCT_entityContext* context, OCT_ID entityID, OCT_ECSTypes componentType) {
 	if (iOCT_entity_get(context, entityID)->componentsMask & (1ULL << componentType)) { // creates a new uint_64 with a 1 at the component # bit and compares bitwise
 		//printf("entity %zu DOES have componentTypes component #%d\n", entityID, component);
 		return true;
@@ -73,7 +85,7 @@ bool iOCT_entity_hasComponent(iOCT_entityContext* context, OCT_ID entityID, OCT_
 	return false;
 }
 
-void iOCT_entity_updateMask(iOCT_entityContext* context, OCT_ID entityID, OCT_types componentType) {
+void iOCT_entity_updateMask(iOCT_entityContext* context, OCT_ID entityID, OCT_ECSTypes componentType) {
 	iOCT_entity* entity = iOCT_entity_get(context, entityID);
 	entity->componentsMask |= (1ULL << componentType);
 }

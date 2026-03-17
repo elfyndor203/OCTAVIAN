@@ -3,6 +3,7 @@
   module.c
   engineLayout.c
   messaging.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\EngineStructure\internal\linking\messaging.c(17,64): warning C4244: 'initializing': conversion from 'double' to 'OCT_ID', possible loss of data
   pools.c
   Generating Code...
   EngineStructure.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\EngineStructure.lib

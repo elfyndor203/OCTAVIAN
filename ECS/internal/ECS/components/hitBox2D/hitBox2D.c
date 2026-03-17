@@ -1,18 +1,20 @@
 #include "hitBox2D_internal.h"
+
 #include "OCT_EngineStructure.h"
-#include "ECS/entityContext/entityContext_internal.h"
-#include "ECS/components/transform2D/transform2D_internal.h"
 #include <string.h>
 #include <inttypes.h>
 #include <stdio.h>
 #include <math.h>
+#include <assert.h>
 
+#include "ECS/entityContext/entityContext_internal.h"
+#include "ECS/components/transform2D/transform2D_internal.h"
 
 size_t iOCT_hitBox2D_max = iOCT_ENTITY_DEFAULT_MAX;
 OCT_vec2 iOCT_hitBox2D_default_size = { iOCT_HITBOX_DEFAULTSIZE_X, iOCT_HITBOX_DEFAULTSIZE_Y };
 
 iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entityContext* context, OCT_ID hitBoxID) {
-    return (iOCT_hitBox2D*)iOCT_getByID(context, hitBoxID, OCT_typeComponentHitBox2D);
+    return (iOCT_hitBox2D*)iOCT_getByID(context, hitBoxID, OCT_ECSType_hitBox2D);
 }
 
 /// <summary>
@@ -20,17 +22,19 @@ iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entityContext* context, OCT_ID hitBoxID) {
 /// </summary>
 /// <param name="entityHandle"></param>
 /// <returns></returns>
-OCT_handle OCT_hitBox2D_add(OCT_handle handle) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
-    if (OCT_entity_hasComponent(handle, OCT_typeComponentHitBox2D)) {
+OCT_handle OCT_hitBox2D_add(OCT_handle entity) {
+    assert(entity.type == OCT_handle_entity);
+
+    iOCT_entityContext* context = iOCT_entityContext_get(entity.containerID);
+    if (OCT_entity_hasComponent(entity, OCT_ECSType_hitBox2D)) {
         printf("\nEntity already has hitBox. Generating new entity.\n");
-        OCT_handle newEntity = OCT_entity_new(handle);
+        OCT_handle newEntity = OCT_entity_new(entity);
         iOCT_hitBox2D_add(context, newEntity.objectID);
         return newEntity;
     }
     else {
-        iOCT_hitBox2D_add(context, handle.objectID);
-        return handle;
+        iOCT_hitBox2D_add(context, entity.objectID);
+        return entity;
     }
 }
 /// Adds or REPLACES a hitbox on the given entity. 
@@ -39,8 +43,8 @@ OCT_ID iOCT_hitBox2D_add(iOCT_entityContext* context, OCT_ID parentID) {
     OCT_index newIndex;
     iOCT_hitBox2D* newHitBox;
 
-    newHitBox = OCT_pool_addTo(iOCT_pool_get(context, OCT_typeComponentHitBox2D), &newIndex);
-    newID = OCT_IDMap_register(&context->IDMap, OCT_typeComponentHitBox2D, newIndex);
+    newHitBox = (iOCT_hitBox2D*)OCT_pool_addTo(iOCT_pool_get(context, OCT_ECSType_hitBox2D), &newIndex);
+    newID = OCT_IDMap_register(&context->IDMap, newIndex);
     memset(newHitBox, 0, sizeof(iOCT_hitBox2D));
     
     // Set values
@@ -51,7 +55,7 @@ OCT_ID iOCT_hitBox2D_add(iOCT_entityContext* context, OCT_ID parentID) {
     // Link to parent
     iOCT_entity* parent = iOCT_entity_get(context, parentID);
     parent->hitBoxID = newID;
-    iOCT_entity_updateMask(context, parentID, OCT_typeComponentHitBox2D);
+    iOCT_entity_updateMask(context, parentID, OCT_ECSType_hitBox2D);
 
     iOCT_hitBox2D_resizeTo(context, parentID, iOCT_hitBox2D_default_size);
 
@@ -64,14 +68,16 @@ OCT_ID iOCT_hitBox2D_add(iOCT_entityContext* context, OCT_ID parentID) {
 /// </summary>
 /// <param name="parentHandle"></param>
 /// <param name="size"></param>
-void OCT_hitBox2D_resizeTo(OCT_handle handle, OCT_vec2 size) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
-    if (iOCT_entity_hasComponent(context, handle.objectID, OCT_typeComponentHitBox2D) == false) {
+void OCT_hitBox2D_resizeTo(OCT_handle entity, OCT_vec2 size) {
+    assert(entity.type == OCT_handle_entity);
+
+    iOCT_entityContext* context = iOCT_entityContext_get(entity.containerID);
+    if (iOCT_entity_hasComponent(context, entity.objectID, OCT_ECSType_hitBox2D) == false) {
         OCT_logError(ERR_HITBOX2D_DOES_NOT_EXIST);
         return;
     }
-    OCT_ID entityContextID = handle.ownerID;
-    OCT_ID parentID = handle.objectID;
+    OCT_ID entityContextID = entity.containerID;
+    OCT_ID parentID = entity.objectID;
     iOCT_hitBox2D_resizeTo(context, parentID, size);
 //    _OCT_sendMessage(_OCT_Renderer, parentHandle, _OCT_hitBox2D_update, OCT_GENERIC_NONE, OCT_GENERIC_NONE);
 }

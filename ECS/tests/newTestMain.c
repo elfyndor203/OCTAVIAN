@@ -18,9 +18,10 @@ int main() {
 	OCT_ECSModule_init();
 	entityConsole_open();
 
-	OCT_handle foreGround = OCT_entityContext_open();
-	iOCT_entityContext* context = iOCT_entityContext_get(foreGround.ownerID);
-	iOCT_transform2D* transformArray = (iOCT_transform2D*)iOCT_pool_get(context, OCT_typeComponentTransform2D)->array;
+	OCT_handle foreGroundRoot;
+	OCT_handle foreGround = OCT_entityContext_open(&foreGroundRoot);
+	iOCT_entityContext* context = iOCT_entityContext_get(foreGround.objectID);
+	iOCT_transform2D* transformArray = (iOCT_transform2D*)iOCT_pool_get(context, OCT_ECSType_transform2D)->array;
 
 	OCT_handle chara = OCT_entity_new(foreGround);
 	OCT_hitBox2D_add(chara);
@@ -33,9 +34,10 @@ int main() {
 	OCT_transform2D_moveBy(grandChild, (OCT_vec2) { 2, 2 });
 	// OCT_entityHandle grandChildHitBox2 = OCT_hitBox2D_add(grandChild);
 
-	OCT_handle backGround = OCT_entityContext_open();
-	iOCT_entityContext* contextBG = iOCT_entityContext_get(backGround.ownerID);
-	iOCT_transform2D* transformArrayBG = (iOCT_transform2D*)iOCT_pool_get(contextBG, OCT_typeComponentTransform2D)->array;
+	OCT_handle backGroundRoot;
+	OCT_handle backGround = OCT_entityContext_open(&backGroundRoot);
+	iOCT_entityContext* contextBG = iOCT_entityContext_get(backGround.objectID);
+	iOCT_transform2D* transformArrayBG = (iOCT_transform2D*)iOCT_pool_get(contextBG, OCT_ECSType_transform2D)->array;
 
 	OCT_handle charaBG = OCT_entity_new(backGround);
 	OCT_hitBox2D_add(charaBG);
@@ -48,7 +50,8 @@ int main() {
 	OCT_transform2D_moveBy(grandChildBG, (OCT_vec2) { 2, 2 });
 	// OCT_entityHandle grandChildHitBox2 = OCT_hitBox2D_add(grandChild);
 
-	OCT_handle middle = OCT_entityContext_open();
+	OCT_handle middleRoot;
+	OCT_handle middle = OCT_entityContext_open(&middleRoot);
 	OCT_handle charaMD = OCT_entity_new(middle);
 	OCT_hitBox2D_add(charaMD);
 	OCT_handle childMD = OCT_entity_new(charaMD);
@@ -67,13 +70,13 @@ int main() {
 	//}
 
 	while (true) {
-//		OCT_transform2D_moveBy(chara, (OCT_vec2){0.1f, 0.2f });
-		//OCT_transform2D_rotateByDeg(chara, 0.1f);
-		// OCT_transform2D_scaleBy(chara, (OCT_vec2) { 0.001f, 0.001f });
+		OCT_transform2D_moveBy(chara, (OCT_vec2){0.1f, 0.2f });
+		OCT_transform2D_rotateByDeg(chara, 0.1f);
+		OCT_transform2D_scaleBy(chara, (OCT_vec2) { 0.001f, 0.001f });
 
 		OCT_transform2D_rotateByDeg(charaBG, -0.0001f);
 		OCT_transform2D_scaleBy(charaBG, (OCT_vec2) { 0.001f, 0.001f });
-		OCT_transform2D_moveBy(backGround, (OCT_vec2) { 1.0f, 0.002f });
+		OCT_transform2D_moveBy(backGroundRoot, (OCT_vec2) { 1.0f, 0.002f });
 
 		OCT_entityContext_update(foreGround);
 		OCT_entityContext_update(backGround);

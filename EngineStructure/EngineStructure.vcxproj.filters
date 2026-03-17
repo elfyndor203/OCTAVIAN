@@ -30,7 +30,7 @@
     <ClInclude Include="include\architecture\pools.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types.h">
+    <ClInclude Include="include\linking\types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\architecture\IDMap.h">

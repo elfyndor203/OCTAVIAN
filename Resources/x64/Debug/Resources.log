@@ -1,1 +1,3 @@
-﻿
+﻿  testMain.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Resources\internal\test\testMain.c(8,13): warning C4101: 'image': unreferenced local variable
+  Resources.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Resources.exe
