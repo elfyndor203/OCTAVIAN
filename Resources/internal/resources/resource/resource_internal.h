@@ -1,5 +1,5 @@
 #pragma once
-#include "types.h"
+#include "resources/types_internal.h"
 
 #include "OCT_EngineStructure.h"
 

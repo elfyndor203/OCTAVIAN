@@ -20,10 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLAD\src\glad.c" />
-    <ClCompile Include="internal\layer\layer.c" />
-    <ClCompile Include="internal\module\rendererModule.c" />
-    <ClCompile Include="internal\rendererObject\rendererObject.c" />
-    <ClCompile Include="internal\sprite\renderData.c" />
+    <ClCompile Include="internal\renderer\layer\layer.c" />
+    <ClCompile Include="internal\renderer\module\rendererModule.c" />
+    <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
+    <ClCompile Include="internal\renderer\spriteData\spriteData.c" />
     <ClCompile Include="reference\spaghetti3\internal\input\testCallback.c" />
     <ClCompile Include="reference\spaghetti3\internal\mesh\prototypes.c" />
     <ClCompile Include="reference\spaghetti3\internal\renderer\layer\layer.c" />
@@ -44,11 +44,11 @@
     <ClInclude Include="GLAD\include\KHR\khrplatform.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3.h" />
     <ClInclude Include="GLFW\include\GLFW\glfw3native.h" />
-    <ClInclude Include="internal\layer\layer.h" />
-    <ClInclude Include="internal\module\rendererModule.h" />
-    <ClInclude Include="internal\rendererObject\rendererObject.h" />
-    <ClInclude Include="internal\sprite\renderData.h" />
-    <ClInclude Include="internal\types_internal.h" />
+    <ClInclude Include="internal\renderer\layer\layer_internal.h" />
+    <ClInclude Include="internal\renderer\module\rendererModule_internal.h" />
+    <ClInclude Include="internal\renderer\rendererObject\rendererObject.h" />
+    <ClInclude Include="internal\renderer\spriteData\spriteData_internal.h" />
+    <ClInclude Include="internal\renderer\types_internal.h" />
     <ClInclude Include="reference\spaghetti3\include\OCT_Renderer.h" />
     <ClInclude Include="reference\spaghetti3\include\renderer\layer\layer.h" />
     <ClInclude Include="reference\spaghetti3\include\renderer\rendererObject\rendererObject.h" />

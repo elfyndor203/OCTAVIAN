@@ -1,6 +1,6 @@
 #include "shapes/rect2.h"
 
-OCT_rectangle2D OCT_rectangle2D_generate(OCT_vert2 center, OCT_vec2 dimensions, float rotation) {
+OCT_rect2 OCT_rectangle2D_generate(OCT_vec2 center, OCT_vec2 dimensions, float rotation) {
     OCT_vec2 halfDimensions = { dimensions.x / 2.0f, dimensions.y / 2.0f };
 
     OCT_vec2 bottomLeft = { -halfDimensions.x, -halfDimensions.y };
@@ -8,7 +8,7 @@ OCT_rectangle2D OCT_rectangle2D_generate(OCT_vert2 center, OCT_vec2 dimensions, 
     OCT_vec2 topRight = { halfDimensions.x, halfDimensions.y };
     OCT_vec2 topLeft = { -halfDimensions.x, halfDimensions.y };
 
-    OCT_rectangle2D newBox;
+    OCT_rect2 newBox;
     newBox.origin = center;
     newBox.dimensions = dimensions;
     newBox.rotation = rotation;

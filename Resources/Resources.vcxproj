@@ -22,17 +22,17 @@
     <None Include="stb\LICENSE" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="internal\resources\image\image.h" />
-    <ClInclude Include="internal\module\RESModule_internal.h" />
-    <ClInclude Include="internal\resourceList\resourceList_internal.h" />
-    <ClInclude Include="internal\resources\resource\resource.h" />
+    <ClInclude Include="internal\resources\image\image_internal.h" />
+    <ClInclude Include="internal\resources\module\RESModule_internal.h" />
+    <ClInclude Include="internal\resources\resourceList\resourceList_internal.h" />
+    <ClInclude Include="internal\resources\resource\resource_internal.h" />
     <ClInclude Include="stb\stb_image.h" />
-    <ClInclude Include="internal\types.h" />
+    <ClInclude Include="internal\resources\types_internal.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\resourceList\resourceList.c" />
+    <ClCompile Include="internal\resources\resourceList\resourceList.c" />
     <ClCompile Include="internal\resources\image\image.c" />
-    <ClCompile Include="internal\module\RESModule.c" />
+    <ClCompile Include="internal\resources\module\RESModule.c" />
     <ClCompile Include="internal\resources\resource\resource.c" />
     <ClCompile Include="internal\test\testMain.c" />
   </ItemGroup>

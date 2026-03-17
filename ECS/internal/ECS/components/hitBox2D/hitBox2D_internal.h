@@ -14,7 +14,7 @@ struct iOCT_hitBox2D{
 	OCT_ID hitBoxID;	// own spot
 	OCT_ID parentID;		// entity spot
 
-	OCT_vert2 localOrigin;	// center
+	OCT_vec2 localOrigin;	// center
 	OCT_vec2 size;			// width, height
 	float rotation;			// relative to the entity
 };
@@ -24,4 +24,4 @@ OCT_ID iOCT_hitBox2D_add(iOCT_entityContext* context, OCT_ID parentID);
 OCT_vec2 iOCT_hitBox2D_resizeTo(iOCT_entityContext* context, OCT_ID parentID, OCT_vec2 newSize);
 float iOCT_hitBox2D_rotateBy(iOCT_entityContext* context, OCT_ID parentID, float deltaDeg);
 
-OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entityContext* context, OCT_ID parentID);
+OCT_rect2 iOCT_hitBox2D_generateVertices(iOCT_entityContext* context, OCT_ID parentID);

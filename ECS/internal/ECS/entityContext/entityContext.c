@@ -19,8 +19,8 @@ static size_t sizeList[OCT_ECSTypes_total] = {
 };
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID contextID) {				// valid as long as the entityContext exists
-	OCT_index index = OCT_IDMap_getIndex(&iOCT_ECS_instance.IDMap, contextID);
-	return (iOCT_entityContext*)OCT_pool_access(&iOCT_ECS_instance.pool, index);
+	OCT_index index = OCT_IDMap_getIndex(&iOCT_ECSModule_instance.IDMap, contextID);
+	return (iOCT_entityContext*)OCT_pool_access(&iOCT_ECSModule_instance.pool, index);
 }
 
 OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_ECSTypes componentType) {
@@ -52,8 +52,8 @@ OCT_ID iOCT_entityContext_open() {
 	OCT_ID newID;
 	iOCT_entityContext* newContext;
 
-	newContext = (iOCT_entityContext*)OCT_pool_addTo(&iOCT_ECS_instance.pool, &newIndex);
-	newID = OCT_IDMap_register(&iOCT_ECS_instance.IDMap, newIndex);
+	newContext = (iOCT_entityContext*)OCT_pool_addTo(&iOCT_ECSModule_instance.pool, &newIndex);
+	newID = OCT_IDMap_register(&iOCT_ECSModule_instance.IDMap, newIndex);
 
 	newContext->contextID = newID;
 	newContext->currentMaxDepth = -1; // prepare for root
@@ -79,7 +79,7 @@ void OCT_entityContext_close(OCT_handle contextHandle) {
 	iOCT_entityContext_close(context);
 }
 void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
-	OCT_index closedIndex = OCT_IDMap_deregister(&iOCT_ECS_instance.IDMap, closedContext->contextID);
+	OCT_index closedIndex = OCT_IDMap_deregister(&iOCT_ECSModule_instance.IDMap, closedContext->contextID);
 
 	OCT_IDMap_free(&closedContext->IDMap);
 	OCT_pool* pool;
@@ -88,7 +88,7 @@ void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
 		OCT_pool_free(pool);
 	}
 	
-	OCT_pool_delete(&iOCT_ECS_instance.pool, closedIndex, true);
+	OCT_pool_delete(&iOCT_ECSModule_instance.pool, closedIndex, true);
 }
 
 /// <summary>

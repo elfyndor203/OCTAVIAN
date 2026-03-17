@@ -1,2 +1,2 @@
-#include "resource.h"
+#include "resource_internal.h"
 

@@ -30,9 +30,9 @@ OCT_pool OCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize)
 /// <param name="pool"></param>
 /// <param name="indexDest"></param>
 /// <returns></returns>
-void* OCT_pool_addTo(OCT_pool* pool, OCT_index* indexDest) {
+void* OCT_pool_addTo(OCT_pool* pool, OCT_index* outIndex) {
 	void* slot = OCT_pool_access(pool, pool->count);
-	*indexDest = pool->count++;
+	*outIndex = pool->count++;
 	return slot;
 }
 

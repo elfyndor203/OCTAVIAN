@@ -1,12 +1,12 @@
-#include "image.h"
-#include "types.h"
+#include "image_internal.h"
+#include "resources/types_internal.h"
 
 #include "OCT_EngineStructure.h"
 #include <string.h>
 
-#include "resources/resource/resource.h"
-#include "resourceList/resourceList_internal.h"
-#include "module/RESModule_internal.h"
+#include "resources/resource/resource_internal.h"
+#include "resources/resourceList/resourceList_internal.h"
+#include "resources/module/RESModule_internal.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"

@@ -1,5 +1,5 @@
-#include "resources/image/image.h"
-#include "module/RESModule_internal.h"
+#include "resources/image/image_internal.h"
+#include "resources/module/RESModule_internal.h"
 #include <stdio.h>
 #include "OCT_EngineStructure.h"
 

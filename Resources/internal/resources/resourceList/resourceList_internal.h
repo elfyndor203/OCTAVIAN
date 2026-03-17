@@ -1,9 +1,9 @@
 #pragma once
-#include "types.h"
+#include "resources/types_internal.h"
 
 #include "OCT_EngineStructure.h"
 
-#include "module/RESModule_internal.h"
+#include "resources/module/RESModule_internal.h"
 
 struct iOCT_resourceList {
 	OCT_ID listID;

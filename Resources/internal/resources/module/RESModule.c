@@ -1,10 +1,10 @@
 #include "RESModule_internal.h"
-#include "types.h"
+#include "resources/types_internal.h"
 
 #include "OCT_EngineStructure.h"
 
-#include "resourceList/resourceList_internal.h"
-#include "resources/resource/resource.h"
+#include "resources/resourceList/resourceList_internal.h"
+#include "resources/resource/resource_internal.h"
 
 OCT_module iOCT_RESModule_instance = { 0 };
 OCT_ID iOCT_resourceList_IDList[iOCT_resourceTypes_total];

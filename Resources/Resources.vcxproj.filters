@@ -21,19 +21,19 @@
     <ClInclude Include="stb\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\resources\image\image.h">
+    <ClInclude Include="internal\resources\image\image_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\resources\resource\resource.h">
+    <ClInclude Include="internal\resources\resource\resource_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\module\RESModule_internal.h">
+    <ClInclude Include="internal\resources\module\RESModule_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\resourceList\resourceList_internal.h">
+    <ClInclude Include="internal\resources\resourceList\resourceList_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\types.h">
+    <ClInclude Include="internal\resources\types_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,10 +47,10 @@
     <ClCompile Include="internal\test\testMain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="internal\module\RESModule.c">
+    <ClCompile Include="internal\resources\module\RESModule.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="internal\resourceList\resourceList.c">
+    <ClCompile Include="internal\resources\resourceList\resourceList.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

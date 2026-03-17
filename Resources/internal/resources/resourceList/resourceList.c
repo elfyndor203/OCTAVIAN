@@ -1,11 +1,11 @@
-#include "resourceList/resourceList_internal.h"
-#include "types.h"
+#include "resources/resourceList/resourceList_internal.h"
+#include "resources/types_internal.h"
 
 #include "OCT_EngineStructure.h"
 #include "OCT_Math.h"
 
-#include "resources/resource/resource.h"
-#include "module/RESModule_internal.h"
+#include "resources/resource/resource_internal.h"
+#include "resources/module/RESModule_internal.h"
 
 iOCT_resourceList* iOCT_resourceList_get(OCT_ID listID) {
 	OCT_index index = OCT_IDMap_getIndex(&iOCT_RESModule_instance.IDMap, listID);

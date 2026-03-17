@@ -6,7 +6,7 @@
 #include "ECS/entityContext/entityContext_internal.h"
 #include <stdio.h>
 
-OCT_rectangle2D _REN_rectVertices_get(OCT_handle entityHandle, OCT_ECSTypes componentType) {
+OCT_rect2 _REN_rectVertices_get(OCT_handle entityHandle, OCT_ECSTypes componentType) {
 	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
 	switch (componentType) {
 	case OCT_ECSType_hitBox2D:
