@@ -1,10 +1,12 @@
 #include "entityContext_internal.h"
+
+#include "OCT_EngineStructure.h"
 #include <string.h>
 #include <stdlib.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include <assert.h>
 
-#include "OCT_EngineStructure.h"
 #include "ECS/module/ECSModule_internal.h"
 #include "ECS/entity/entity_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
@@ -18,10 +20,10 @@ static size_t sizeList[OCT_typesTotal] = {
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID contextID) {				// valid as long as the entityContext exists
 	OCT_index index = OCT_IDMap_getIndex(&iOCT_ECS_instance.IDMap, contextID);
-	return (iOCT_entityContext*)OCT_pool_access(&iOCT_ECS_instance.contextPool, index);
+	return (iOCT_entityContext*)OCT_pool_access(&iOCT_ECS_instance.pool, index);
 }
 
-OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_types componentType) {
+OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_ECStypes componentType) {
 	return &context->pools[componentType];
 }
 
@@ -29,15 +31,17 @@ OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_types componentType) {
 /// Opens a new entity context in the current ECS instance.
 /// </summary>
 /// <returns></returns>
-OCT_handle OCT_entityContext_open() {
-	return iOCT_entityContext_open();
+OCT_handle OCT_entityContext_open(OCT_handle* outRoot) {
+	OCT_handle contextHandle = (OCT_handle){ OCT_subsystem_ECS, iOCT_entityContext_open()};
+	*outRoot = (OCT_handle){ contextHandle.objectID, iOCT_ROOT_ID };
+	return contextHandle;
 }
-OCT_handle iOCT_entityContext_open() {
+OCT_ID iOCT_entityContext_open() {
 	OCT_index newIndex;
 	OCT_ID newID;
 	iOCT_entityContext* newContext;
 
-	newContext = OCT_pool_addTo(&iOCT_ECS_instance.contextPool, &newIndex);
+	newContext = OCT_pool_addTo(&iOCT_ECS_instance.pool, &newIndex);
 	newID = OCT_IDMap_register(&iOCT_ECS_instance.IDMap, 0, newIndex); // 0: type does not matter
 
 	newContext->contextID = newID;
@@ -50,20 +54,20 @@ OCT_handle iOCT_entityContext_open() {
 	}
 
 	iOCT_entity_new(newContext, iOCT_NOPARENT);						// Create root entity
-	OCT_handle rootHandle = { newID, iOCT_ROOT_ID };
-	return rootHandle;
+	return newID;
 }
 
 /// <summary>
 /// Frees all memory used by the entityContext. Handles bookkeeping by swap replacing with the last entityContext if necessary. 
 /// </summary>
 /// <param name="closedContextID"></param>
-void OCT_entityContext_close(OCT_handle rootHandle) {
-	iOCT_entityContext* context = iOCT_entityContext_get(rootHandle.ownerID);
+void OCT_entityContext_close(OCT_handle contextHandle) {
+	assert(contextHandle.ownerID == OCT_subsystem_ECS);
+
+	iOCT_entityContext* context = iOCT_entityContext_get(contextHandle.objectID);
 	iOCT_entityContext_close(context);
 }
 void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
-	
 	OCT_index closedIndex = OCT_IDMap_deregister(&iOCT_ECS_instance.IDMap, closedContext->contextID);
 
 	free(closedContext->IDMap.array);												// Free pool and IDMap memory
@@ -73,7 +77,7 @@ void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
 		OCT_pool_free(pool);
 	}
 	
-	OCT_pool_delete(&iOCT_ECS_instance.contextPool, closedIndex, true);
+	OCT_pool_delete(&iOCT_ECS_instance.pool, closedIndex, true);
 }
 
 /// <summary>
@@ -83,7 +87,7 @@ void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
 /// <param name="ID"></param>
 /// <param name="type"></param>
 /// <returns></returns>
-void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_types type) {
+void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_ECStypes type) {
 	if (ID == iOCT_NOPARENT) {
 		return NULL;
 	}
@@ -101,8 +105,10 @@ void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_types type) {
 	return OCT_pool_access(pool, index);
 }
 
-void OCT_entityContext_update(OCT_handle root) {
-	iOCT_entityContext* context = iOCT_entityContext_get(root.ownerID);
+void OCT_entityContext_update(OCT_handle contextHandle) {
+	assert(contextHandle.ownerID == OCT_subsystem_ECS);
+
+	iOCT_entityContext* context = iOCT_entityContext_get(contextHandle.objectID);
 	iOCT_entityContext_update(context);
 }
 void iOCT_entityContext_update(iOCT_entityContext* context) {

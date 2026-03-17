@@ -2,8 +2,8 @@
   rect2.c
   constants.c
   conversions.c
-  vec2.c
-  Generating Code...
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\units\conversions.c(5,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\math\internal\units\conversions.c(9,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  vec2.c
+  Generating Code...
   math.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Math.lib

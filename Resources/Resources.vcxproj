@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -22,13 +22,16 @@
     <None Include="stb\LICENSE" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="internal\image\image.h" />
-    <ClInclude Include="internal\resource\resource.h" />
+    <ClInclude Include="internal\resources\image\image.h" />
+    <ClInclude Include="internal\module\RESModule_internal.h" />
+    <ClInclude Include="internal\resourceType\resourceType_internal.h" />
+    <ClInclude Include="internal\resources\resource\resource.h" />
     <ClInclude Include="stb\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\image\image.c" />
-    <ClCompile Include="internal\resource\resource.c" />
+    <ClCompile Include="internal\resources\image\image.c" />
+    <ClCompile Include="internal\module\RESModule.c" />
+    <ClCompile Include="internal\resources\resource\resource.c" />
     <ClCompile Include="internal\test\testMain.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

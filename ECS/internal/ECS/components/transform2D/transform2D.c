@@ -7,9 +7,12 @@
 #include <stdlib.h>
 
 #include "OCT_Errors.h"
+#include "transform2D_internal.h"
+
 #include "OCT_EngineStructure.h"
 #include "OCT_Math.h"
-#include "units/constants.h"
+#include <assert.h>
+
 #include "ECS/entity/entity_internal.h"
 #include "ECS/entityContext/entityContext_internal.h"
 
@@ -27,6 +30,7 @@ iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContext* context, OCT_ID trans
 /// <param name="parentHandle"></param>
 /// <returns></returns>
 bool OCT_transform2D_add(OCT_handle handle) {
+    assert(handle.ownerID < OCT_subsystem_threshold);
     iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
     if (iOCT_transform2D_add(context, handle.objectID) == OCT_errorID) {
         return false;
@@ -194,9 +198,10 @@ OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform) {
 /// <param name="parentHandle"></param>
 /// <param name="delta"></param>
 /// <returns></returns>
-OCT_vec2 OCT_transform2D_moveBy(OCT_handle handle, OCT_vec2 delta) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
-    OCT_ID transformID = iOCT_entity_get(context, handle.objectID)->transformID;
+OCT_vec2 OCT_transform2D_moveBy(OCT_handle entity, OCT_vec2 delta) {
+    assert(entity.ownerID < OCT_subsystem_threshold);
+    iOCT_entityContext* context = iOCT_entityContext_get(entity.ownerID);
+    OCT_ID transformID = iOCT_entity_get(context, entity.objectID)->transformID;
     return iOCT_transform2D_moveBy(context, transformID, delta);
 }
 OCT_vec2 iOCT_transform2D_moveBy(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 delta) {
@@ -212,9 +217,11 @@ OCT_vec2 iOCT_transform2D_moveBy(iOCT_entityContext* context, OCT_ID transformID
 /// <param name="parentHandle"></param>
 /// <param name="deltaDegrees"></param>
 /// <returns></returns>
-float OCT_transform2D_rotateByDeg(OCT_handle handle, float deltaDegrees) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
-    OCT_ID transformID = iOCT_entity_get(context, handle.objectID)->transformID;
+float OCT_transform2D_rotateByDeg(OCT_handle entity, float deltaDegrees) {
+    assert(entity.ownerID < OCT_subsystem_threshold);
+
+    iOCT_entityContext* context = iOCT_entityContext_get(entity.ownerID);
+    OCT_ID transformID = iOCT_entity_get(context, entity.objectID)->transformID;
     return OCT_rad2deg(iOCT_transform2D_rotateBy(context, transformID, OCT_deg2rad(deltaDegrees)));
 }
 /// <summary>
@@ -223,9 +230,11 @@ float OCT_transform2D_rotateByDeg(OCT_handle handle, float deltaDegrees) {
 /// <param name="parentHandle"></param>
 /// <param name="deltaRadians"></param>
 /// <returns></returns>
-float OCT_transform2D_rotateByRad(OCT_handle handle, float deltaRadians) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
-    OCT_ID transformID = iOCT_entity_get(context, handle.objectID)->transformID;
+float OCT_transform2D_rotateByRad(OCT_handle entity, float deltaRadians) {
+    assert(entity.ownerID < OCT_subsystem_threshold);
+
+    iOCT_entityContext* context = iOCT_entityContext_get(entity.ownerID);
+    OCT_ID transformID = iOCT_entity_get(context, entity.objectID)->transformID;
     return iOCT_transform2D_rotateBy(context, transformID, deltaRadians);
 }
 float iOCT_transform2D_rotateBy(iOCT_entityContext* context, OCT_ID transformID, float deltaRad) {
@@ -240,9 +249,11 @@ float iOCT_transform2D_rotateBy(iOCT_entityContext* context, OCT_ID transformID,
     return transform->rotation;
 }
 
-OCT_vec2 OCT_transform2D_scaleBy(OCT_handle handle, OCT_vec2 delta) {
-    iOCT_entityContext* context = iOCT_entityContext_get(handle.ownerID);
-    OCT_ID transformID = iOCT_entity_get(context, handle.objectID)->transformID;
+OCT_vec2 OCT_transform2D_scaleBy(OCT_handle entity, OCT_vec2 delta) {
+    assert(entity.ownerID < OCT_subsystem_threshold);
+
+    iOCT_entityContext* context = iOCT_entityContext_get(entity.ownerID);
+    OCT_ID transformID = iOCT_entity_get(context, entity.objectID)->transformID;
     return iOCT_transform2D_scaleBy(context, transformID, delta);
 }
 OCT_vec2 iOCT_transform2D_scaleBy(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 delta) {

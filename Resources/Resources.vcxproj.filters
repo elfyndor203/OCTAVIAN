@@ -21,21 +21,30 @@
     <ClInclude Include="stb\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\image\image.h">
+    <ClInclude Include="internal\resources\image\image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\resource\resource.h">
+    <ClInclude Include="internal\resources\resource\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\module\RESModule_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\resourceType\resourceType_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\image\image.c">
+    <ClCompile Include="internal\resources\image\image.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="internal\resource\resource.c">
+    <ClCompile Include="internal\resources\resource\resource.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\test\testMain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\module\RESModule.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

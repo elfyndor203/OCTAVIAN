@@ -5,21 +5,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-iOCT_module_ECS iOCT_ECS_instance = { 0 };
+OCT_module iOCT_ECS_instance = { 0 };
 
 void OCT_ECSModule_init() {
 	iOCT_ECSModule_init();
 }
 void iOCT_ECSModule_init() {
-	iOCT_ECS_instance.contextPool = OCT_pool_init(0, iOCT_ENTITYCONTEXT_DEFAULT_MAX, sizeof(iOCT_entityContext));
-	iOCT_ECS_instance.IDMap = OCT_IDMap_init(0, iOCT_ENTITYCONTEXT_DEFAULT_MAX);
+	OCT_module_init(&iOCT_ECS_instance, sizeof(iOCT_entityContext));
 }
 
-void iOCT_ECSModule_free(iOCT_module_ECS* ECSModule) {
-	iOCT_entityContext* array = (iOCT_entityContext*)ECSModule->contextPool.array;
-	for (int index = 0; index < ECSModule->contextPool.count; index++) {
+void iOCT_ECSModule_free() {
+	iOCT_entityContext* array = (iOCT_entityContext*)iOCT_ECS_instance.pool.array;
+
+	for (int index = 0; index < iOCT_ECS_instance.pool.count; index++) {
 		iOCT_entityContext* context = &array[index];
 		iOCT_entityContext_close(context);
 	}
-	free(ECSModule);
+	OCT_module_free(&iOCT_ECS_instance);
 }

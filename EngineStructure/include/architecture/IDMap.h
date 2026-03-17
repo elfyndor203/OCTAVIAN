@@ -4,6 +4,12 @@
 
 #define OCT_NULL_ID 0
 
+enum OCT_IDLevel {
+	OCT_IDLevel_obj = 1,
+	OCT_IDLevel_container = 10,
+	OCT_IDLevel_module = 1000
+};
+
 // Unique location within an entityContext
 struct OCT_uniqueIndex {
 	OCT_index index;
