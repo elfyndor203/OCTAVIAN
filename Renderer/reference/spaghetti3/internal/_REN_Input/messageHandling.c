@@ -1,7 +1,7 @@
 #include "_REN_input/messageHandling_internal.h"
 
 #include <stdio.h>
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include "bufferGeneration_internal.h"
 #include "renderer/rendererObject/rendererObject_internal.h"
 #include "shaders/shader/shader_internal.h"

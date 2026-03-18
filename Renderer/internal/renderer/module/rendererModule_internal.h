@@ -1,5 +1,5 @@
 #pragma once
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include "renderer/types_internal.h"
 
 extern iOCT_module iOCT_RENModule_instance;

@@ -4,5 +4,5 @@
 struct iOCT_spriteData {
 	OCT_mat3 transform;
 	OCT_vec4 color;
-	OCT_rect2 uvRect;
+	OCT_vec4 uvRect;
 };

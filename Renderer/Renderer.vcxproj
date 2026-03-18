@@ -145,7 +145,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -166,7 +166,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -185,7 +185,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
@@ -207,7 +207,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
