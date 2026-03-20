@@ -9,8 +9,8 @@
 #define OCT_IDMAP_TYPECONTAINER SIZE_MAX
 
 // Allocates initial memory for a single entityContext.
-OCT_IDMap iOCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
-	OCT_IDMap map = { 0 };
+cOCT_IDMap iOCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
+	cOCT_IDMap map = { 0 };
 
 	map.ownerID = ownerID;
 	map.count = 1; // null ID
@@ -22,7 +22,7 @@ OCT_IDMap iOCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
 }
 
 // Registers the next available ID with the provided pool index for any new entity or component.
-OCT_ID iOCT_IDMap_register(OCT_IDMap* map, OCT_index index) {
+OCT_ID iOCT_IDMap_register(cOCT_IDMap* map, OCT_index index) {
 	OCT_ID newID;
 
 	newID = map->count;		// Grabs the next available ID
@@ -38,7 +38,7 @@ OCT_ID iOCT_IDMap_register(OCT_IDMap* map, OCT_index index) {
 /// <param name="map"></param>
 /// <param name="ID"></param>
 /// <returns></returns>
-OCT_index iOCT_IDMap_deregister(OCT_IDMap* map, OCT_ID ID) {
+OCT_index iOCT_IDMap_deregister(cOCT_IDMap* map, OCT_ID ID) {
 	OCT_index index;
 	OCT_index* slot = &map->array[ID];
 	index = *slot;
@@ -48,16 +48,16 @@ OCT_index iOCT_IDMap_deregister(OCT_IDMap* map, OCT_ID ID) {
 }
 
 
-OCT_ID iOCT_IDMap_remap(OCT_IDMap* map, OCT_ID ID, OCT_index newIndex) {
+OCT_ID iOCT_IDMap_remap(cOCT_IDMap* map, OCT_ID ID, OCT_index newIndex) {
 	map->array[ID] = newIndex;
 	return ID;
 }
 
-OCT_index iOCT_IDMap_getIndex(OCT_IDMap* map, OCT_ID ID) {
+OCT_index iOCT_IDMap_getIndex(cOCT_IDMap* map, OCT_ID ID) {
 	return map->array[ID];
 }
 
-void iOCT_IDMap_free(OCT_IDMap* map) {
+void iOCT_IDMap_free(cOCT_IDMap* map) {
 	free(map->array);
 	map->array = NULL;
 }

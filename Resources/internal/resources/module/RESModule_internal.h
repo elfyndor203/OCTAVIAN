@@ -8,7 +8,7 @@ enum iOCT_resourceType {
 	iOCT_resourceTypes_total
 };
 
-extern iOCT_module iOCT_RESModule_instance;
+extern cOCT_module iOCT_RESModule_instance;
 
 void iOCT_RESModule_init();
 void iOCT_RESModule_free();

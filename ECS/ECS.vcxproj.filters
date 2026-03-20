@@ -36,7 +36,6 @@
     <ClCompile Include="internal\ECS\entity\entity.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
     <ClCompile Include="internal\ECS\entityContext\entityContext.c" />
-    <ClCompile Include="internal\_ECS_Output\transformRequest.c" />
     <ClCompile Include="internal\_ECS_Input\messageHandling.c" />
     <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
     <ClCompile Include="internal\ECS\module\ECSModule.c" />

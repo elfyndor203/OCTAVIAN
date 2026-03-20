@@ -10,7 +10,7 @@ typedef struct OCT_image {
 	int channels;
 } OCT_image;
 
-OCT_handle iOCT_image_loadPNG(const char* path);
+OCT_image iOCT_image_loadPNG(const char* path);
 
 
 

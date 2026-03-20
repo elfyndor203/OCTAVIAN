@@ -4,7 +4,8 @@
 typedef enum {
 	OCT_subsystem_ECS = 1000,
 	OCT_subsystem_renderer = 2000,
-	OCT_subsystem_resources = 3000
+	OCT_subsystem_resources = 3000,
+	OCT_subsystem_window = 4000,
 } OCT_subsystemList;
 
 typedef enum {
@@ -20,7 +21,9 @@ typedef enum {
 	OCT_handle_rendererObject,
 	
 	OCT_handle_image,
-	OCT_handle_mesh
+	OCT_handle_mesh,
+
+	OCT_handle_window
 } OCT_handleType;
 
 struct OCT_handle {

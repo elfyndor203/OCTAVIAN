@@ -1,6 +1,9 @@
 #pragma once
 #include "layout/types.h"
+#include "inttypes.h"
 
-typedef struct iOCT_pool iOCT_pool;
-typedef struct iOCT_IDMap OCT_IDMap;
-typedef struct iOCT_module iOCT_module;
+typedef struct cOCT_pool cOCT_pool;
+typedef struct cOCT_IDMap cOCT_IDMap;
+typedef struct cOCT_module cOCT_module;
+
+typedef size_t messageCounter;

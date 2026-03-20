@@ -142,15 +142,15 @@ static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform) {
     float scaleY = transform->scale.y;
 
     OCT_mat3 localMatrix = {
-        scaleX * cos, -scaleY * sin, transform->position.x,
-        scaleX * sin,  scaleY * cos, transform->position.y,
-        0,             0,            1
+        scaleX * cos,  scaleX * sin,  0,   // column 0
+       -scaleY * sin,  scaleY * cos,  0,   // column 1
+        transform->position.x, transform->position.y, 1  // column 2
     };
     return localMatrix;
 }
 
 void iOCT_transform2D_propagate(iOCT_entityContext* context) {
-    iOCT_pool* pool = iOCT_pool_get(context, OCT_ECSType_transform2D);
+    cOCT_pool* pool = iOCT_pool_get(context, OCT_ECSType_transform2D);
     iOCT_transform2D* array = (iOCT_transform2D*)pool->array;
 
     iOCT_transform2D* currentTransform;
@@ -189,8 +189,8 @@ static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID
 OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform) {
     OCT_mat3 matrix = transform.globalMatrix;
     OCT_vec2 globalPos = {
-        .x = matrix.r0c2,
-        .y = matrix.r1c2
+        .x = matrix.c2r0,
+        .y = matrix.c2r1
     };
     return globalPos;
 }
@@ -278,4 +278,16 @@ OCT_mat3 _OCT_transform2D_getMatrix(OCT_handle transformHandle) {
     return iOCT_transform2D_get(context, transformHandle.objectID)->globalMatrix;
 }
 
+OCT_handle _tOCT_transform2D_getHandleFromEntity(OCT_handle entityHandle) {
+    iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
+    iOCT_entity* entity = iOCT_entity_get(context, entityHandle.objectID);
+    OCT_ID transform = entity->transformID;
+    OCT_handle transformHandle = {
+        .subsystem = OCT_subsystem_ECS,
+        .objectID = transform,
+        .containerID = context->contextID,
+        .type = OCT_handle_transform2D
+    };
+    return transformHandle;
+}
 #pragma endregion

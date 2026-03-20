@@ -5,13 +5,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-iOCT_module iOCT_ECSModule_instance = { 0 };
+cOCT_module iOCT_ECSModule_instance = { 0 };
 
 void OCT_ECSModule_init() {
 	iOCT_ECSModule_init();
 }
 void iOCT_ECSModule_init() {
-	iOCT_module_init(&iOCT_ECSModule_instance, OCT_POOLSIZE_DEFAULT, sizeof(iOCT_entityContext));
+	iOCT_module_init(&iOCT_ECSModule_instance, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_entityContext));
 }
 
 void iOCT_ECSModule_free() {

@@ -6,7 +6,7 @@
 #include "resources/resourceList/resourceList_internal.h"
 #include "resources/resource/resource_internal.h"
 
-iOCT_module iOCT_RESModule_instance = { 0 };
+cOCT_module iOCT_RESModule_instance = { 0 };
 OCT_ID iOCT_resourceList_IDList[iOCT_resourceTypes_total];
 
 void iOCT_RESModule_init() {

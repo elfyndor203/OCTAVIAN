@@ -13,7 +13,9 @@
 
 #define iOCT_RGBA 4
 
-OCT_handle iOCT_image_loadPNG(const char* path) {
+OCT_image iOCT_image_loadPNG(const char* path) {
+	stbi_set_flip_vertically_on_load(1);
+
 	OCT_ID imageListID = iOCT_resourceList_IDList[iOCT_resourceImage];
 	iOCT_resourceList* list = iOCT_resourceList_get(imageListID);
 
@@ -47,8 +49,9 @@ OCT_handle iOCT_image_loadPNG(const char* path) {
 	};
 
 	//_OCT_sendMessage(OCT_subsystem_renderer, handle, OCT_message_loadImage, pixels);
-	for (int i = 0; i < 1000; i++) {
-		printf("%d ", pixels[i]);
-	}
-	return handle;
+	//for (int i = 0; i < 1000; i++) {
+	//	printf("%d ", pixels[i]);
+	//}
+	
+	return (OCT_image) { newID, pixels, width, height, channels };
 }

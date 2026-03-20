@@ -21,8 +21,8 @@ OCT_ID iOCT_resourceList_open(iOCT_resourceType type) {
 	newID = iOCT_IDMap_register(&iOCT_RESModule_instance.IDMap, newIndex);
 
 	newList->listID = newID;
-	newList->map = iOCT_IDMap_init(newID, OCT_POOLSIZE_DEFAULT);
-	newList->pool = iOCT_pool_init(newID, OCT_POOLSIZE_DEFAULT, sizeof(iOCT_resource));
+	newList->map = iOCT_IDMap_init(newID, iOCT_POOLSIZE_DEFAULT);
+	newList->pool = iOCT_pool_init(newID, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_resource));
 	newList->type = type;
 
 	return newID;

@@ -36,6 +36,9 @@
     <ClInclude Include="internal\resources\types_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\iOCT_Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\resources\image\image.c">

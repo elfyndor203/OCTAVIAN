@@ -5,12 +5,12 @@
 #include "OCT_Math.h"
 #include <stdbool.h>
 
-#define OCT_POOLSIZE_DEFAULT 8
+#define iOCT_POOLSIZE_DEFAULT 8
 
 /// <summary>
 /// Pools manage the arrays of data. Each entitySet can have at most 1 pool per type. The arrays are contigous and allocated when a new pool is created. 
 /// </summary>
-struct iOCT_pool {
+struct cOCT_pool {
 	OCT_ID ownerID;
 
 	OCT_counter count;
@@ -20,9 +20,9 @@ struct iOCT_pool {
 	void* array;
 };
 
-iOCT_pool iOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t size);
-void* iOCT_pool_addEntry(iOCT_pool* pool, OCT_index* outIndex);
-void* iOCT_pool_access(iOCT_pool* pool, OCT_index index);
+cOCT_pool iOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize);
+void* iOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex);
+void* iOCT_pool_access(cOCT_pool* pool, OCT_index index);
 
-void iOCT_pool_deleteEntry(iOCT_pool* pool, OCT_index index, bool compact);
-void iOCT_pool_free(iOCT_pool* pool);
+void iOCT_pool_deleteEntry(cOCT_pool* pool, OCT_index index, bool compact);
+void iOCT_pool_free(cOCT_pool* pool);

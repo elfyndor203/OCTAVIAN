@@ -3,6 +3,6 @@
   RESModule.c
   resource.c
   testMain.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Resources\internal\test\testMain.c(8,13): warning C4101: 'image': unreferenced local variable
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Resources\internal\test\testMain.c(8,12): warning C4101: 'image': unreferenced local variable
   Generating Code...
-  Resources.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Resources.exe
+  Resources.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Resources.lib

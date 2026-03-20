@@ -23,7 +23,7 @@ iOCT_entityContext* iOCT_entityContext_get(OCT_ID contextID) {				// valid as lo
 	return (iOCT_entityContext*)iOCT_pool_access(&iOCT_ECSModule_instance.pool, index);
 }
 
-iOCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_ECSTypes componentType) {
+cOCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_ECSTypes componentType) {
 	return &context->pools[componentType];
 }
 
@@ -59,9 +59,9 @@ OCT_ID iOCT_entityContext_open() {
 	newContext->currentMaxDepth = -1; // prepare for root
 	memset(&newContext->depthEnds, 0, sizeof(OCT_index) * iOCT_TRANSFORM_MAXDEPTH);
 
-	newContext->IDMap = iOCT_IDMap_init(OCT_subsystem_ECS, OCT_POOLSIZE_DEFAULT * OCT_ECSTypes_total);	// enough for all pools
+	newContext->IDMap = iOCT_IDMap_init(OCT_subsystem_ECS, iOCT_POOLSIZE_DEFAULT * OCT_ECSTypes_total);	// enough for all pools
 	for (int poolType = 0; poolType < OCT_ECSTypes_total; poolType++) {
-		newContext->pools[poolType] = iOCT_pool_init(newContext->contextID, OCT_POOLSIZE_DEFAULT, sizeList[poolType]);
+		newContext->pools[poolType] = iOCT_pool_init(newContext->contextID, iOCT_POOLSIZE_DEFAULT, sizeList[poolType]);
 	}
 
 	iOCT_entity_new(newContext, iOCT_NOPARENT);						// Create root entity
@@ -82,7 +82,7 @@ void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
 	OCT_index closedIndex = iOCT_IDMap_deregister(&iOCT_ECSModule_instance.IDMap, closedContext->contextID);
 
 	iOCT_IDMap_free(&closedContext->IDMap);
-	iOCT_pool* pool;
+	cOCT_pool* pool;
 	for (int poolType = 0; poolType < OCT_ECSTypes_total; poolType++) {
 		pool = &closedContext->pools[poolType];
 		iOCT_pool_free(pool);
@@ -103,10 +103,10 @@ void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_ECSTypes type) {
 		return NULL;
 	}
 
-	OCT_IDMap* map = &context->IDMap;
+	cOCT_IDMap* map = &context->IDMap;
 
 	OCT_index index = iOCT_IDMap_getIndex(map, ID);
-	iOCT_pool* pool = iOCT_pool_get(context, type);
+	cOCT_pool* pool = iOCT_pool_get(context, type);
 
 	return iOCT_pool_access(pool, index);
 }

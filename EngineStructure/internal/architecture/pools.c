@@ -11,14 +11,14 @@
 /// <summary>
 /// Allocates memory for a single pool. Allows creation of all pools without rewriting when new component types are added
 /// </summary>
-iOCT_pool iOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize) {
-	iOCT_pool pool = { 0 };
+cOCT_pool iOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize) {
+	cOCT_pool pool = { 0 };
 
 	pool.ownerID = ownerID;					// set default values
 	pool.count = 0;
 	pool.capacity = capacity;
 	pool.elementSize = elementSize;
-	pool.array = calloc(OCT_POOLSIZE_DEFAULT, elementSize);
+	pool.array = calloc(iOCT_POOLSIZE_DEFAULT, elementSize);
 	if (!pool.array) {
 		OCT_logError(EXIT_FAILED_TO_ALLOCATE);
 	}
@@ -31,13 +31,13 @@ iOCT_pool iOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSiz
 /// <param name="pool"></param>
 /// <param name="indexDest"></param>
 /// <returns></returns>
-void* iOCT_pool_addEntry(iOCT_pool* pool, OCT_index* outIndex) {
+void* iOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex) {
 	void* slot = iOCT_pool_access(pool, pool->count);
 	*outIndex = pool->count++;
 	return slot;
 }
 
-void iOCT_pool_deleteEntry(iOCT_pool* pool, OCT_index index, bool compact) {
+void iOCT_pool_deleteEntry(cOCT_pool* pool, OCT_index index, bool compact) {
 	void* entry = iOCT_pool_access(pool, index);
 
 	// if shuffling is needed
@@ -52,12 +52,12 @@ void iOCT_pool_deleteEntry(iOCT_pool* pool, OCT_index index, bool compact) {
 	pool->count--;
 }
 
-void iOCT_pool_free(iOCT_pool* pool) {
+void iOCT_pool_free(cOCT_pool* pool) {
 	free(pool->array);
 	pool->array = NULL;
 }
 
-void* iOCT_pool_access(iOCT_pool* pool, OCT_index index) {
+void* iOCT_pool_access(cOCT_pool* pool, OCT_index index) {
 	void* entry = (char*)pool->array + index * pool->elementSize;
 	return entry;
 }

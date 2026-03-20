@@ -7,8 +7,8 @@
 
 struct iOCT_resourceList {
 	OCT_ID listID;
-	OCT_IDMap map;
-	iOCT_pool pool;
+	cOCT_IDMap map;
+	cOCT_pool pool;
 	iOCT_resourceType type;
 };
 
