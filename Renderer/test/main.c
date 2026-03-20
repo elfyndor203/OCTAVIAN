@@ -12,7 +12,7 @@
 #include "renderer/texture/texture_internal.h"
 
 int main() {
-	OCT_WDWModule_init("OTTO OCTAvian", 3000, 2000);
+	OCT_WDWModule_init("OTTO OCTAvian", 500, 500);
 	iOCT_RENModule_init();
 	iOCT_RESModule_init();
 	OCT_ECSModule_init();
@@ -34,9 +34,10 @@ int main() {
 	OCT_handle renObj = iOCT_rendererObject_add(layerPt, entity, transform);
 
 	while (true) {
-		OCT_entityContext_update(context);
-
 		OCT_window_wipe();
+
+		OCT_transform2D_rotateByDeg(root, 1);
+		OCT_entityContext_update(context);
 		iOCT_layer_draw(layerPt);
 		OCT_window_show();
 	};

@@ -1,16 +1,5 @@
-﻿  layer.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(120,74): warning C4267: 'function': conversion from 'size_t' to 'GLsizei', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\layer\layer.c(122,2): warning C4013: 'printf' undefined; assuming extern returning int
-  rendererModule.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\module\rendererModule.c(42,2): warning C4013: 'printf' undefined; assuming extern returning int
-  rendererObject.c
-  shader.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\renderer\shader\shader\shader.c(8,8): warning C4029: declared formal parameter list different from definition
-  spriteData.c
-  texture.c
-  main.c
+﻿  main.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(32,46): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(32,51): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(34,13): warning C4101: 'renObj': unreferenced local variable
-  Generating Code...
   Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.exe
