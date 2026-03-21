@@ -22,9 +22,12 @@
     <None Include="stb\LICENSE" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\iOCT_Resources.h" />
+    <ClInclude Include="include\OCT_Resources.h" />
+    <ClInclude Include="include\resources\image\image.h" />
+    <ClInclude Include="include\resources\module\RESModule.h" />
+    <ClInclude Include="include\_RES_Output\_REN_include.h" />
     <ClInclude Include="internal\resources\image\image_internal.h" />
-    <ClInclude Include="internal\resources\module\RESModule_internal.h" />
+    <ClInclude Include="internal\module\RESModule_internal.h" />
     <ClInclude Include="internal\resources\resourceList\resourceList_internal.h" />
     <ClInclude Include="internal\resources\resource\resource_internal.h" />
     <ClInclude Include="stb\stb_image.h" />
@@ -33,9 +36,7 @@
   <ItemGroup>
     <ClCompile Include="internal\resources\resourceList\resourceList.c" />
     <ClCompile Include="internal\resources\image\image.c" />
-    <ClCompile Include="internal\resources\module\RESModule.c" />
-    <ClCompile Include="internal\resources\resource\resource.c" />
-    <ClCompile Include="internal\test\testMain.c" />
+    <ClCompile Include="internal\module\RESModule.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

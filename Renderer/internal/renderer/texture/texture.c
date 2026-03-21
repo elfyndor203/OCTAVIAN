@@ -1,8 +1,12 @@
 #include "texture_internal.h"
 
-#include "glad/glad.h"
+#include "cOCT_EngineStructure.h"
+#include <glad/glad.h>
+#include <assert.h>
 
-GLuint iOCT_texture2D_load(unsigned char* pixels, int width, int height) {
+#include "module/RENModule_internal.h"
+
+GLuint iOCT_texture2D_load(unsigned char* pixels, int width, int height, OCT_handle resourceHandle) {
 	GLuint texture;
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -12,5 +16,12 @@ GLuint iOCT_texture2D_load(unsigned char* pixels, int width, int height) {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
+	assert(resourceHandle.objectID < iOCT_RENModule_instance.textureCapacity);
+	iOCT_RENModule_instance.textureList[resourceHandle.objectID] = texture;
 	return texture;
+}
+
+GLuint iOCT_texture2D_get(OCT_handle resourceHandle) {
+	assert(resourceHandle.objectID < iOCT_RENModule_instance.textureCapacity);
+	return iOCT_RENModule_instance.textureList[resourceHandle.objectID];
 }

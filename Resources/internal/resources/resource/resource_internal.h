@@ -3,11 +3,13 @@
 
 #include "cOCT_EngineStructure.h"
 
-#define iOCT_PATHNAME_MAX 64
+#include "resources/resourceList/resourceList_internal.h"
+
+#define iOCT_RESOURCE_PATHNAME_MAX 64
 
 struct iOCT_resource {
 	OCT_ID listID;
+	char path[iOCT_RESOURCE_PATHNAME_MAX];
 	OCT_ID resourceID;
-	char path[iOCT_PATHNAME_MAX];
 	iOCT_resourceType type;
 };

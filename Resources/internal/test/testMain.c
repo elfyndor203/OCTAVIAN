@@ -5,7 +5,7 @@
 
 int main() {
 	iOCT_RESModule_init();
-	OCT_image image = iOCT_image_loadPNG("C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Resources/internal/test/grey.png");
+	OCT_image image = iOCT_image_load("C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Resources/internal/test/grey.png");
 
 	return 0;
 }

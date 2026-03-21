@@ -14,9 +14,9 @@ struct cOCT_IDMap {
 	OCT_index* array;
 };
 
-cOCT_IDMap iOCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity);
-OCT_ID iOCT_IDMap_register(cOCT_IDMap* map, OCT_index index);
-OCT_index iOCT_IDMap_deregister(cOCT_IDMap* map, OCT_ID ID);
-OCT_ID iOCT_IDMap_remap(cOCT_IDMap* map, OCT_ID ID, OCT_index newIndex);
-OCT_index iOCT_IDMap_getIndex(cOCT_IDMap* map, OCT_ID ID);
-void iOCT_IDMap_free(cOCT_IDMap* map);
+cOCT_IDMap cOCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity);
+OCT_ID cOCT_IDMap_register(cOCT_IDMap* map, OCT_index inIndex);
+OCT_index cOCT_IDMap_deregister(cOCT_IDMap* map, OCT_ID ID);
+OCT_ID cOCT_IDMap_remap(cOCT_IDMap* map, OCT_ID ID, OCT_index newIndex);
+OCT_index cOCT_IDMap_getIndex(cOCT_IDMap* map, OCT_ID ID);
+void cOCT_IDMap_free(cOCT_IDMap* map);

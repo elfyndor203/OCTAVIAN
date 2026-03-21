@@ -50,8 +50,8 @@ OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID) {
 	iOCT_entity* newEntity;
 	OCT_index newIndex;
 
-	newEntity = (iOCT_entity*)iOCT_pool_addEntry(iOCT_pool_get(context, OCT_ECStype_Entity), &newIndex);
-	newID = iOCT_IDMap_register(&context->IDMap, newIndex);		// Register an ID first to enable other functions
+	newEntity = (iOCT_entity*)cOCT_pool_addEntry(iOCT_pool_get(context, OCT_ECStype_Entity), &newIndex);
+	newID = cOCT_IDMap_register(&context->IDMap, newIndex);		// Register an ID first to enable other functions
 
 	memset(newEntity, 0, sizeof(iOCT_entity)); // fill with NULL IDs
 

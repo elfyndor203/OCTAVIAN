@@ -20,9 +20,9 @@ struct cOCT_pool {
 	void* array;
 };
 
-cOCT_pool iOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize);
-void* iOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex);
-void* iOCT_pool_access(cOCT_pool* pool, OCT_index index);
+cOCT_pool cOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize);
+void* cOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex);
+void* cOCT_pool_access(cOCT_pool* pool, OCT_index index);
 
-void iOCT_pool_deleteEntry(cOCT_pool* pool, OCT_index index, bool compact);
-void iOCT_pool_free(cOCT_pool* pool);
+void cOCT_pool_deleteEntry(cOCT_pool* pool, OCT_index index, bool compact);
+void cOCT_pool_free(cOCT_pool* pool);

@@ -1,6 +1,5 @@
 #pragma once
 #include "cOCT_EngineStructure.h"
-#include "resources/resource/resource_internal.h"
 
 typedef struct OCT_image {
 	OCT_ID resourceID;
@@ -10,7 +9,7 @@ typedef struct OCT_image {
 	int channels;
 } OCT_image;
 
-OCT_image iOCT_image_loadPNG(const char* path);
+OCT_handle iOCT_image_load(const char* path);
 
 
 

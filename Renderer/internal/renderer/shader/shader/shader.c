@@ -1,17 +1,17 @@
-#include "shader.h"
+#include "shader_internal.h"
 
 #include "OCT_Errors.h"
 #include <glad/glad.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-GLuint iOCT_shader_load(char* path, bool vert) {
+GLuint iOCT_shader_load(char* path, int type) {
 	FILE* file;
 	long size;
 	char* src;
 	size_t read;
 	GLuint shader;
-	if (vert) {
+	if (type == iOCT_SHADER_VERT) {
 		shader = glCreateShader(GL_VERTEX_SHADER);
 	}
 	else {
@@ -64,6 +64,10 @@ GLuint iOCT_shader_createProgram(char* vert, char* frag) {
 		glGetProgramInfoLog(program, 512, NULL, log);
 		printf("Program link error: %s\n", log);
 	}
+
+	glUseProgram(program);
+	GLuint texUniform = glGetUniformLocation(program, "tex");
+	glUniform1i(texUniform, 0);
 
 	printf("Shader program created\n");
 	return program;

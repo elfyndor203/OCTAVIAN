@@ -133,21 +133,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="core\cOCT_EngineStructure.h" />
+    <ClInclude Include="core\linking\messaging_core.h" />
+    <ClInclude Include="internal\core\linking\messaging_internal.h" />
+    <ClInclude Include="internal\core\module\CORModule_internal.h" />
     <ClInclude Include="include\layout\engineLayout.h" />
     <ClInclude Include="include\OCT_EngineStructure.h" />
     <ClInclude Include="core\architecture\IDMap_core.h" />
     <ClInclude Include="core\architecture\module_core.h" />
     <ClInclude Include="core\architecture\pools_core.h" />
-    <ClInclude Include="core\linking\messaging_core.h" />
     <ClInclude Include="include\layout\types.h" />
     <ClInclude Include="core\linking\types_core.h" />
+    <ClInclude Include="internal\core\types_internal.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\architecture\IDMap.c" />
-    <ClCompile Include="internal\architecture\module.c" />
-    <ClCompile Include="internal\linking\engineLayout.c" />
-    <ClCompile Include="internal\linking\messaging.c" />
-    <ClCompile Include="internal\architecture\pools.c" />
+    <ClCompile Include="internal\core\architecture\IDMap.c" />
+    <ClCompile Include="internal\core\architecture\module.c" />
+    <ClCompile Include="internal\core\linking\messaging.c" />
+    <ClCompile Include="internal\core\architecture\pools.c" />
+    <ClCompile Include="internal\core\module\CORModule.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

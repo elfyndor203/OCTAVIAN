@@ -4,32 +4,50 @@
 #include "cOCT_EngineStructure.h"
 #include "_ECS_Output/_REN_include.h"
 #include <glad/glad.h>
+#include <stdio.h>
 
-#include "renderer/module/rendererModule_internal.h"
-#include "renderer/rendererObject/rendererObject.h"
+#include "module/RENModule_internal.h"
+#include "renderer/rendererObject/rendererObject_internal.h"
 #include "renderer/spriteData/spriteData_internal.h"
+#include "renderer/texture/texture_internal.h"
 
 
 iOCT_layer* iOCT_layer_get(OCT_ID layerID) {
-	OCT_index index = iOCT_IDMap_getIndex(&iOCT_RENModule_instance.layerMap, layerID);
-	return (iOCT_layer*)iOCT_pool_access(&iOCT_RENModule_instance.layerPool, index);
+	OCT_index index = cOCT_IDMap_getIndex(&iOCT_RENModule_instance.layerMap, layerID);
+	return (iOCT_layer*)cOCT_pool_access(&iOCT_RENModule_instance.layerPool, index);
 }
 
-OCT_ID iOCT_layer_open(bool dynamic, GLuint atlas) {
+/// <summary>
+/// Creates a new visual layer. All sprites on each layer use the same texture atlas. Any loaded images must be uploaded using OCT_RENModule_flush() before layers are created or a frame will be skipped.
+/// </summary>
+/// <param name="dynamic"></param>
+/// <param name="texAtlas"></param>
+/// <returns></returns>
+OCT_handle OCT_layer_open(bool dynamic, OCT_handle texAtlas) {
+	OCT_handle newLayer = {
+		.containerID = OCT_subsystem_renderer,
+		.objectID = iOCT_layer_open(dynamic, texAtlas),
+		.subsystem = OCT_subsystem_renderer,
+		.type = OCT_handle_layer
+	};
+	return newLayer;
+}
+OCT_ID iOCT_layer_open(bool dynamic, OCT_handle texAtlasHandle) {
 	OCT_index newIndex;
 	OCT_ID newID;
 	iOCT_layer* newLayer;
 
 	// register layer
-	newLayer = (iOCT_layer*)iOCT_pool_addEntry(&iOCT_RENModule_instance.layerPool, &newIndex);
-	newID = iOCT_IDMap_register(&iOCT_RENModule_instance.layerMap, newIndex);
+	newLayer = (iOCT_layer*)cOCT_pool_addEntry(&iOCT_RENModule_instance.layerPool, &newIndex);
+	newID = cOCT_IDMap_register(&iOCT_RENModule_instance.layerMap, newIndex);
 
 	// set defaults, init pool/map
 	newLayer->layerID = newID;
-	newLayer->IDMap = iOCT_IDMap_init(newID, iOCT_POOLSIZE_DEFAULT);
-	newLayer->pool = iOCT_pool_init(newID, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_rendererObject));
+	newLayer->IDMap = cOCT_IDMap_init(newID, iOCT_POOLSIZE_DEFAULT);
+	newLayer->pool = cOCT_pool_init(newID, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_rendererObject));
 	newLayer->dynamic = dynamic;
-	newLayer->spriteTextureAtlas = atlas;
+	newLayer->spriteAtlasHandle = texAtlasHandle;
+	newLayer->spriteAtlas = iOCT_texture2D_get(texAtlasHandle);
 	
 	// VAO
 	GLuint VAO;
@@ -76,12 +94,13 @@ OCT_ID iOCT_layer_open(bool dynamic, GLuint atlas) {
 	glVertexAttribDivisor(iOCT_attrib_texUV, 1);
 
 	newLayer->spriteVAO = VAO;
+
 	return newID;
 }
 
 void iOCT_layer_close(iOCT_layer* layer) {
-	iOCT_IDMap_free(&layer->IDMap);
-	iOCT_pool_free(&layer->pool);
+	cOCT_IDMap_free(&layer->IDMap);
+	cOCT_pool_free(&layer->pool);
 }
 
 void iOCT_layer_draw(iOCT_layer* layer) {
@@ -97,8 +116,7 @@ void iOCT_layer_draw(iOCT_layer* layer) {
 	// shaders and textures
 	glUseProgram(iOCT_RENModule_instance.spriteShader);
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, layer->spriteTextureAtlas);
-	glUniform1i(iOCT_RENModule_instance.texUniform, 0);
+	glBindTexture(GL_TEXTURE_2D, layer->spriteAtlas);
 
 	// sprite instance buffer
 	glBindBuffer(GL_ARRAY_BUFFER, layer->spriteBuffer);
@@ -117,7 +135,6 @@ void iOCT_layer_draw(iOCT_layer* layer) {
 
 	glUnmapBuffer(GL_ARRAY_BUFFER);	
 
-	glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0, layer->pool.count);
+	glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0, (GLsizei)layer->pool.count);
 
-	GL_CHECK();
 }

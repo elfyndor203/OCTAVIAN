@@ -1,5 +1,16 @@
-﻿  main.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(32,46): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(32,51): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(34,13): warning C4101: 'renObj': unreferenced local variable
-  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.exe
+﻿  rendererObject.c
+  main.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(36,55): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(36,60): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(37,47): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(37,52): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(39,42): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(39,48): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(40,42): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(40,48): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(41,42): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(41,47): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(42,42): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(42,47): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
+  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib

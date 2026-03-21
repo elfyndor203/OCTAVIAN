@@ -20,9 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ECS\components\hitBox2D\hitBox2D.h" />
+    <ClInclude Include="include\ECS\components\sprite2D\sprite2D.h" />
     <ClInclude Include="include\ECS\module\ECSModule.h" />
     <ClInclude Include="include\ECS\types.h" />
-    <ClInclude Include="include\_ECS_Output\_REN_include.h" />
     <ClInclude Include="include\OCT_ECS.h" />
     <ClInclude Include="include\ECS\components\transform2D\transform2D.h" />
     <ClInclude Include="include\ECS\entity\entity.h" />
@@ -35,8 +35,9 @@
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="include\math\vectors.h" />
+    <ClInclude Include="include\_ECS_Output\_REN_include.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
-    <ClInclude Include="internal\ECS\components\sprite2D\sprite2D.h" />
+    <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
     <ClInclude Include="internal\ECS\module\ECSModule_internal.h" />
     <ClInclude Include="internal\ECS\entitySet\typeMap.h" />
     <ClInclude Include="internal\ECS\components\transform2D\transform2D_internal.h" />
@@ -45,10 +46,8 @@
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\myStandards.h" />
-    <ClInclude Include="include\_ECS_Input\messageHandling.h" />
     <ClInclude Include="internal\ECS\types_internal.h" />
     <ClInclude Include="internal\_ECS_Input\messageHandling.h" />
-    <ClInclude Include="internal\_ECS_Input\messageHandling_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
@@ -57,8 +56,6 @@
     <ClCompile Include="internal\ECS\module\ECSModule.c" />
     <ClCompile Include="internal\ECS\entity\entity.c" />
     <ClCompile Include="internal\ECS\entityContext\entityContext.c" />
-    <ClCompile Include="internal\_ECS_Input\messageHandling.c" />
-    <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
     <ClCompile Include="tests\newTestMain.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

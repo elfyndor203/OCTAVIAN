@@ -1,41 +1,39 @@
 #pragma once
-#pragma once
-#include <stddef.h>
+#include "linking/types_core.h"
+
+#include "OCT_Math.h"
 #include <stdbool.h>
-#include <stdint.h>
 
 #include "layout/engineLayout.h"
 
-#define iOCT_MAX_MESSAGES 1024
+#define cOCT_MESSAGES_MAX 64
 
-typedef size_t iOCT_messageCounter;
+enum cOCT_messageTypes {
+	cOCT_MSG_ALLCLEAR,
+	cOCT_MSG_TEXTURE_LOAD,
+	cOCT_MSG_TEXTURE_DONE,
 
-typedef enum {
-	_OCT_sprite_add,
-	_OCT_sprite_update,
-	_OCT_sprite_delete,
+	cOCT_MSG_RENDERABLE_NEW
+};
 
-	_OCT_hitBox2D_add,
-	_OCT_hitBox2D_update,
+struct cOCT_message {
+	cOCT_messageTypes messageType;
 
-	_OCT_position2D_move,
-	_OCT_position2D_stop,
-	_OCT_empty = SIZE_MAX
-} _OCT_messageTypes;
+	union {
+		struct { OCT_handle texHandle;  char* pixels; int width; int height; } texture_load;
+		struct { OCT_handle texHandle; uint32_t rendererRef; } texture_done;
 
-typedef struct {
-	OCT_handle entity;
-	_OCT_messageTypes instruction;
-	float parameter1;
-	float parameter2;
-} _OCT_message;
+		struct { OCT_handle layerHandle; OCT_vec4 color; OCT_vec4 uv; OCT_handle entityHandle; OCT_handle transformHandle;} renderable_new;
+	};
+};
 
-extern _OCT_message _OCT_messageQueue_empty;
+struct cOCT_messageBox {
+	OCT_subsystemList owner;
+	cOCT_message queue[cOCT_MESSAGES_MAX];
+	OCT_counter count;
+	OCT_counter head;
+	OCT_counter tail;
+};
 
-extern _OCT_message iOCT_REN_messageQueue[iOCT_MAX_MESSAGES];
-extern _OCT_message iOCT_ECS_messageQueue[iOCT_MAX_MESSAGES];
-
-_OCT_message _OCT_queryMessage(OCT_subsystemList subsystem);
-
-bool _OCT_sendMessage(OCT_subsystemList recipient, OCT_handle entity, _OCT_messageTypes instruction, float parameter1, float parameter2);
-
+bool cOCT_message_push(OCT_subsystemList recipient, cOCT_message message);
+cOCT_message cOCT_message_pop(OCT_subsystemList self);

@@ -1,5 +1,5 @@
 #pragma once
-#include "cOCT_EngineStructure.h"
+#include "OCT_engineStructure.h"
 #include "OCT_Math.h"
 
 OCT_handle OCT_hitBox2D_add(OCT_handle entity);

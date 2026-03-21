@@ -3,7 +3,10 @@
 
 #include "cOCT_EngineStructure.h"
 
-#include "resources/module/RESModule_internal.h"
+enum iOCT_resourceType {
+	iOCT_resourceImage = 1,
+	iOCT_resourceAudio,
+};
 
 struct iOCT_resourceList {
 	OCT_ID listID;
@@ -12,6 +15,6 @@ struct iOCT_resourceList {
 	iOCT_resourceType type;
 };
 
-iOCT_resourceList* iOCT_resourceList_get(OCT_ID listID);
-OCT_ID iOCT_resourceList_open(iOCT_resourceType type);
+iOCT_resourceList* iOCT_resourceList_get(iOCT_resourceType type);
+iOCT_resourceList iOCT_resourceList_open(iOCT_resourceType type);
 void iOCT_resourceList_close(iOCT_resourceList* list);

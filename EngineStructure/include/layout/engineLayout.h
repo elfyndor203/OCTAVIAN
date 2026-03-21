@@ -2,10 +2,12 @@
 #include "types.h"
 
 typedef enum {
-	OCT_subsystem_ECS = 1000,
-	OCT_subsystem_renderer = 2000,
-	OCT_subsystem_resources = 3000,
-	OCT_subsystem_window = 4000,
+	OCT_subsystem_ECS,
+	OCT_subsystem_renderer,
+	OCT_subsystem_resources,
+	OCT_subsystem_window,
+
+	OCT_subsystem_count
 } OCT_subsystemList;
 
 typedef enum {
@@ -15,7 +17,7 @@ typedef enum {
 	OCT_handle_entity,
 	OCT_handle_transform2D,
 	OCT_handle_hitBox2D,
-	OCT_handle_sprite,
+	OCT_handle_sprite2D,
 
 	OCT_handle_layer,
 	OCT_handle_rendererObject,
