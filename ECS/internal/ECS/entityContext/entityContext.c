@@ -1,6 +1,6 @@
 #include "entityContext_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include <string.h>
 #include <stdlib.h>
 #include <inttypes.h>
@@ -11,19 +11,21 @@
 #include "ECS/entity/entity_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"
+#include "ECS/components/sprite2D/sprite2D_internal.h"
 
 static size_t sizeList[OCT_ECSTypes_total] = {
 	sizeof(iOCT_entity),
 	sizeof(iOCT_transform2D),
 	sizeof(iOCT_hitBox2D),
+	sizeof(iOCT_sprite2D)
 };
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID contextID) {				// valid as long as the entityContext exists
-	OCT_index index = OCT_IDMap_getIndex(&iOCT_ECS_instance.IDMap, contextID);
-	return (iOCT_entityContext*)OCT_pool_access(&iOCT_ECS_instance.pool, index);
+	OCT_index index = cOCT_IDMap_getIndex(&iOCT_ECSModule_instance.IDMap, contextID);
+	return (iOCT_entityContext*)cOCT_pool_access(&iOCT_ECSModule_instance.pool, index);
 }
 
-OCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_ECSTypes componentType) {
+cOCT_pool* iOCT_pool_get(iOCT_entityContext* context, OCT_ECSTypes componentType) {
 	return &context->pools[componentType];
 }
 
@@ -52,16 +54,16 @@ OCT_ID iOCT_entityContext_open() {
 	OCT_ID newID;
 	iOCT_entityContext* newContext;
 
-	newContext = (iOCT_entityContext*)OCT_pool_addTo(&iOCT_ECS_instance.pool, &newIndex);
-	newID = OCT_IDMap_register(&iOCT_ECS_instance.IDMap, newIndex);
+	newContext = (iOCT_entityContext*)cOCT_pool_addEntry(&iOCT_ECSModule_instance.pool, &newIndex);
+	newID = cOCT_IDMap_register(&iOCT_ECSModule_instance.IDMap, newIndex);
 
 	newContext->contextID = newID;
 	newContext->currentMaxDepth = -1; // prepare for root
 	memset(&newContext->depthEnds, 0, sizeof(OCT_index) * iOCT_TRANSFORM_MAXDEPTH);
 
-	newContext->IDMap = OCT_IDMap_init(OCT_subsystem_ECS, OCT_POOLSIZE_DEFAULT * OCT_ECSTypes_total);	// enough for all pools
+	newContext->IDMap = cOCT_IDMap_init(OCT_subsystem_ECS, iOCT_POOLSIZE_DEFAULT * OCT_ECSTypes_total);	// enough for all pools
 	for (int poolType = 0; poolType < OCT_ECSTypes_total; poolType++) {
-		newContext->pools[poolType] = OCT_pool_init(newContext->contextID, OCT_POOLSIZE_DEFAULT, sizeList[poolType]);
+		newContext->pools[poolType] = cOCT_pool_init(newContext->contextID, iOCT_POOLSIZE_DEFAULT, sizeList[poolType]);
 	}
 
 	iOCT_entity_new(newContext, iOCT_NOPARENT);						// Create root entity
@@ -79,16 +81,16 @@ void OCT_entityContext_close(OCT_handle contextHandle) {
 	iOCT_entityContext_close(context);
 }
 void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
-	OCT_index closedIndex = OCT_IDMap_deregister(&iOCT_ECS_instance.IDMap, closedContext->contextID);
+	OCT_index closedIndex = cOCT_IDMap_deregister(&iOCT_ECSModule_instance.IDMap, closedContext->contextID);
 
-	OCT_IDMap_free(&closedContext->IDMap);
-	OCT_pool* pool;
+	cOCT_IDMap_free(&closedContext->IDMap);
+	cOCT_pool* pool;
 	for (int poolType = 0; poolType < OCT_ECSTypes_total; poolType++) {
 		pool = &closedContext->pools[poolType];
-		OCT_pool_free(pool);
+		cOCT_pool_free(pool);
 	}
 	
-	OCT_pool_delete(&iOCT_ECS_instance.pool, closedIndex, true);
+	cOCT_pool_deleteEntry(&iOCT_ECSModule_instance.pool, closedIndex, true);
 }
 
 /// <summary>
@@ -103,12 +105,12 @@ void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_ECSTypes type) {
 		return NULL;
 	}
 
-	OCT_IDMap* map = &context->IDMap;
+	cOCT_IDMap* map = &context->IDMap;
 
-	OCT_index index = OCT_IDMap_getIndex(map, ID);
-	OCT_pool* pool = iOCT_pool_get(context, type);
+	OCT_index index = cOCT_IDMap_getIndex(map, ID);
+	cOCT_pool* pool = iOCT_pool_get(context, type);
 
-	return OCT_pool_access(pool, index);
+	return cOCT_pool_access(pool, index);
 }
 
 void OCT_entityContext_update(OCT_handle contextHandle) {

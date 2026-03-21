@@ -20,14 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ECS\components\hitBox2D\hitBox2D.h" />
+    <ClInclude Include="include\ECS\components\sprite2D\sprite2D.h" />
     <ClInclude Include="include\ECS\module\ECSModule.h" />
     <ClInclude Include="include\ECS\types.h" />
-    <ClInclude Include="include\_ECS_Output\_REN_include.h" />
     <ClInclude Include="include\OCT_ECS.h" />
     <ClInclude Include="include\ECS\components\transform2D\transform2D.h" />
     <ClInclude Include="include\ECS\entity\entity.h" />
     <ClInclude Include="include\ECS\entityContext\entityContext.h" />
-    <ClInclude Include="include\_ECS_Output\vertexData.h" />
     <ClInclude Include="include\definitions\errorCodes.h" />
     <ClInclude Include="include\ECS\components\hitBox2D.h" />
     <ClInclude Include="include\ECS\components\position2D.h" />
@@ -36,8 +35,9 @@
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="include\math\vectors.h" />
+    <ClInclude Include="include\_ECS_Output\_REN_include.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
-    <ClInclude Include="internal\ECS\components\sprite2D\sprite2D.h" />
+    <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
     <ClInclude Include="internal\ECS\module\ECSModule_internal.h" />
     <ClInclude Include="internal\ECS\entitySet\typeMap.h" />
     <ClInclude Include="internal\ECS\components\transform2D\transform2D_internal.h" />
@@ -46,10 +46,8 @@
     <ClInclude Include="include\errors\errorCodes.h" />
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="include\myStandards.h" />
-    <ClInclude Include="include\_ECS_Input\messageHandling.h" />
     <ClInclude Include="internal\ECS\types_internal.h" />
     <ClInclude Include="internal\_ECS_Input\messageHandling.h" />
-    <ClInclude Include="internal\_ECS_Input\messageHandling_internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
@@ -58,9 +56,6 @@
     <ClCompile Include="internal\ECS\module\ECSModule.c" />
     <ClCompile Include="internal\ECS\entity\entity.c" />
     <ClCompile Include="internal\ECS\entityContext\entityContext.c" />
-    <ClCompile Include="internal\_ECS_Input\messageHandling.c" />
-    <ClCompile Include="internal\_ECS_Input\messageHandling_API.c" />
-    <ClCompile Include="internal\_ECS_Output\vertexData.c" />
     <ClCompile Include="tests\newTestMain.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -73,34 +68,34 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableASAN>true</EnableASAN>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableASAN>true</EnableASAN>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableASAN>true</EnableASAN>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableASAN>true</EnableASAN>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -139,7 +134,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -165,7 +160,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -189,7 +184,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -215,7 +210,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)internal;$(ProjectDir)include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>

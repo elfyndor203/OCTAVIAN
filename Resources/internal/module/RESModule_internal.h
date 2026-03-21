@@ -1,17 +1,16 @@
 #pragma once
-#include "OCT_EngineStructure.h"
+#include "resources/types_internal.h"
 
-enum iOCT_resourceType {
-	iOCT_resourceImage,
-	iOCT_resourceAudio,
+#include "cOCT_EngineStructure.h"
 
-	iOCT_resourceTypes_total
+#include "resources/resourceList/resourceList_internal.h"
+
+struct iOCT_RESModule {
+	iOCT_resourceList imageList;
+	iOCT_resourceList audioList;
 };
 
-extern OCT_module iOCT_RESModule_instance;
+extern iOCT_RESModule iOCT_RESModule_instance;
 
 void iOCT_RESModule_init();
 void iOCT_RESModule_free();
-
-extern OCT_ID iOCT_resourceList_IDList[iOCT_resourceTypes_total];
-

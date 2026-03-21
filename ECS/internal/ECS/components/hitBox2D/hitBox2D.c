@@ -1,6 +1,6 @@
 #include "hitBox2D_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include <string.h>
 #include <inttypes.h>
 #include <stdio.h>
@@ -43,8 +43,8 @@ OCT_ID iOCT_hitBox2D_add(iOCT_entityContext* context, OCT_ID parentID) {
     OCT_index newIndex;
     iOCT_hitBox2D* newHitBox;
 
-    newHitBox = (iOCT_hitBox2D*)OCT_pool_addTo(iOCT_pool_get(context, OCT_ECSType_hitBox2D), &newIndex);
-    newID = OCT_IDMap_register(&context->IDMap, newIndex);
+    newHitBox = (iOCT_hitBox2D*)cOCT_pool_addEntry(iOCT_pool_get(context, OCT_ECSType_hitBox2D), &newIndex);
+    newID = cOCT_IDMap_register(&context->IDMap, newIndex);
     memset(newHitBox, 0, sizeof(iOCT_hitBox2D));
     
     // Set values
@@ -100,13 +100,13 @@ float iOCT_hitBox2D_rotateBy(iOCT_entityContext* context, OCT_ID parentID, float
     return hitBox->rotation;
 }
 
-OCT_rectangle2D iOCT_hitBox2D_generateVertices(iOCT_entityContext* context, OCT_ID parentID) {
+OCT_rect2 iOCT_hitBox2D_generateVertices(iOCT_entityContext* context, OCT_ID parentID) {
     iOCT_hitBox2D* hitBox = iOCT_hitBox2D_get(context, parentID);
 
-    OCT_vert2 globalCenter = OCT_vec2_add(iOCT_transform2D_globalPos(*iOCT_transform2D_get(context, parentID)), hitBox->localOrigin);
+    OCT_vec2 globalCenter = OCT_vec2_add(iOCT_transform2D_globalPos(*iOCT_transform2D_get(context, parentID)), hitBox->localOrigin);
     float globalRotation = iOCT_transform2D_get(context, parentID)->rotation + hitBox->rotation;
 //    OCT_vector2D globalSize = OCT_vec2_vec2_mult(hitBox->size, iOCT_transform2D_get(entityContextID, parentID)->scale);
 
-    OCT_rectangle2D newBox = OCT_rectangle2D_generate(globalCenter, iOCT_hitBox2D_get(context, parentID)->size, globalRotation);
+    OCT_rect2 newBox = OCT_rectangle2D_generate(globalCenter, iOCT_hitBox2D_get(context, parentID)->size, globalRotation);
     return newBox;
 }

@@ -7,11 +7,11 @@
 bool activeMoving = false;
 
 void iOCT_handleECSMessages(void) {
-	_OCT_message newMessage = _OCT_queryMessage(OCT_subsystem_ECS);
+	cOCT_message newMessage = _OCT_queryMessage(OCT_subsystem_ECS);
 
 	//printf("DO: %d", newMessage.instruction);
 	while (newMessage.instruction != _OCT_messageQueue_empty.instruction) {
-		_OCT_messageTypes instruction = newMessage.instruction;
+		cOCT_messageTypes instruction = newMessage.instruction;
 		float value1 = newMessage.parameter1;
 		float value2 = newMessage.parameter2;
 		newMessage = _OCT_queryMessage(OCT_subsystem_ECS);

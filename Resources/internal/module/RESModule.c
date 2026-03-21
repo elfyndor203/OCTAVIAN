@@ -1,26 +1,22 @@
 #include "RESModule_internal.h"
-#include "types.h"
+#include "resources/types_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 
-#include "resourceList/resourceList_internal.h"
-#include "resources/resource/resource.h"
+#include "resources/resourceList/resourceList_internal.h"
+#include "resources/resource/resource_internal.h"
 
-OCT_module iOCT_RESModule_instance = { 0 };
-OCT_ID iOCT_resourceList_IDList[iOCT_resourceTypes_total];
+iOCT_RESModule iOCT_RESModule_instance = { 0 };
 
+void OCT_RESModule_init() {
+	iOCT_RESModule_init();
+}
 void iOCT_RESModule_init() {
-	OCT_module_init(&iOCT_RESModule_instance, iOCT_resourceTypes_total, sizeof(iOCT_resourceList));
-	for (int type = 0; type < iOCT_resourceTypes_total; type++) {
-		iOCT_resourceList_IDList[type] = iOCT_resourceList_open(type);
-	}
+	iOCT_RESModule_instance.imageList = iOCT_resourceList_open(iOCT_resourceImage);
+	iOCT_RESModule_instance.audioList = iOCT_resourceList_open(iOCT_resourceAudio);
 }
 
 void iOCT_RESModule_free() {
-	iOCT_resourceList* array = (iOCT_resourceList*)iOCT_RESModule_instance.pool.array;
-
-	for (int index = 0; index < iOCT_RESModule_instance.pool.count; index++) {
-		iOCT_resourceList* list = &array[index];
-		iOCT_resourceList_close(list);
-	}
+	iOCT_resourceList_close(&iOCT_RESModule_instance.imageList);
+	iOCT_resourceList_close(&iOCT_RESModule_instance.audioList);
 }

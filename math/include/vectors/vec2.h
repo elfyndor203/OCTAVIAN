@@ -7,7 +7,6 @@ typedef struct {
 	float y;
 } OCT_vec2;
 
-typedef OCT_vec2 OCT_vert2;
 extern const OCT_vec2 OCT_vec2_zero;
 
 float OCT_vec2_dot(OCT_vec2 vectorA, OCT_vec2 vectorB);

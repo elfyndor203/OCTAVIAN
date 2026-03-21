@@ -9,7 +9,7 @@
 #include "OCT_Errors.h"
 #include "transform2D_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include "OCT_Math.h"
 #include <assert.h>
 
@@ -30,10 +30,10 @@ iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContext* context, OCT_ID trans
 /// <param name="parentHandle"></param>
 /// <returns></returns>
 bool OCT_transform2D_add(OCT_handle handle) {
-    assert(handle.type == OCT_handle_transform2D);
+    assert(handle.type == OCT_handle_entity);
 
     iOCT_entityContext* context = iOCT_entityContext_get(handle.containerID);
-    if (iOCT_transform2D_add(context, handle.objectID) == OCT_errorID) {
+    if (iOCT_transform2D_add(context, handle.objectID) == OCT_NULL_ID) {
         return false;
     }
     return true;
@@ -56,12 +56,12 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
     else {
         parentTransform = iOCT_transform2D_get(context, iOCT_entity_get(context, iOCT_entity_get(context, entityID)->parentID)->transformID);
         parentDepth = parentTransform->depth;
-        parentIndex = OCT_IDMap_getIndex(&context->IDMap, parentTransform->transformID);
+        parentIndex = cOCT_IDMap_getIndex(&context->IDMap, parentTransform->transformID);
         parentID = parentTransform->transformID;
     }
 
-    newTransform = (iOCT_transform2D*)OCT_pool_addTo(iOCT_pool_get(context, OCT_ECSType_transform2D), &newIndex);
-    newID = OCT_IDMap_register(&context->IDMap, newIndex);
+    newTransform = (iOCT_transform2D*)cOCT_pool_addEntry(iOCT_pool_get(context, OCT_ECSType_transform2D), &newIndex);
+    newID = cOCT_IDMap_register(&context->IDMap, newIndex);
     memset(newTransform, 0, sizeof(iOCT_transform2D));
 
     // Set values
@@ -83,6 +83,8 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
     return newID;
 }
 
+#pragma region helpers
+
 static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2D* transform) {
     iOCT_transform2D newTransform = *transform; // do not work with the existing memory in the pool
 
@@ -100,7 +102,7 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
     if (newDepth == *currentMaxDepth) {  // insert at the end, nothing gets displaced, nothing needs resolving
         depthEnds[newDepth] += 1;
         poolArray[depthEnds[newDepth]] = newTransform;  // replace anyway
-        OCT_IDMap_remap(&context->IDMap, newTransform.transformID, depthEnds[newDepth]);
+        cOCT_IDMap_remap(&context->IDMap, newTransform.transformID, depthEnds[newDepth]);
         return;
     }
     if (newDepth > *currentMaxDepth) {   // insert at the end, nothing gets displaced, nothing needs resolving
@@ -111,7 +113,7 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
             depthEnds[newDepth] = depthEnds[*currentMaxDepth] + 1;
         }
         poolArray[depthEnds[newDepth]] = newTransform;  // replace anyway
-        OCT_IDMap_remap(&context->IDMap, newTransform.transformID, depthEnds[newDepth]);
+        cOCT_IDMap_remap(&context->IDMap, newTransform.transformID, depthEnds[newDepth]);
         *currentMaxDepth = newDepth;
         return;
     }
@@ -120,7 +122,7 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
         displacedTransform = poolArray[targetIndex];    // temp copy of the displaced
 
         poolArray[targetIndex] = workingTransform;      // copy the new one in
-        OCT_IDMap_remap(&context->IDMap, workingTransform.transformID, targetIndex);
+        cOCT_IDMap_remap(&context->IDMap, workingTransform.transformID, targetIndex);
         iOCT_transform2D_updateDisplaced(context, workingTransform.transformID, workingTransform.depth);
 
         workingTransform = displacedTransform;          // start doing the same to the next layer
@@ -129,7 +131,7 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
     }
     OCT_index finalIndex = depthEnds[*currentMaxDepth] + 1;
     poolArray[finalIndex] = workingTransform;
-    OCT_IDMap_remap(&context->IDMap, workingTransform.transformID, finalIndex);
+    cOCT_IDMap_remap(&context->IDMap, workingTransform.transformID, finalIndex);
     depthEnds[*currentMaxDepth] += 1;
 }
 
@@ -140,21 +142,21 @@ static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform) {
     float scaleY = transform->scale.y;
 
     OCT_mat3 localMatrix = {
-        scaleX * cos, -scaleY * sin, transform->position.x,
-        scaleX * sin,  scaleY * cos, transform->position.y,
-        0,             0,            1
+        scaleX * cos,  scaleX * sin,  0,   // column 0
+       -scaleY * sin,  scaleY * cos,  0,   // column 1
+        transform->position.x, transform->position.y, 1  // column 2
     };
     return localMatrix;
 }
 
 void iOCT_transform2D_propagate(iOCT_entityContext* context) {
-    OCT_pool* pool = iOCT_pool_get(context, OCT_ECSType_transform2D);
+    cOCT_pool* pool = iOCT_pool_get(context, OCT_ECSType_transform2D);
     iOCT_transform2D* array = (iOCT_transform2D*)pool->array;
 
     iOCT_transform2D* currentTransform;
     iOCT_transform2D* parentTransform;
 
-    OCT_index rootIndex = OCT_IDMap_getIndex(&context->IDMap, iOCT_entity_get(context, iOCT_ROOT_ID)->transformID);
+    OCT_index rootIndex = cOCT_IDMap_getIndex(&context->IDMap, iOCT_entity_get(context, iOCT_ROOT_ID)->transformID);
     currentTransform = &array[rootIndex];
     currentTransform->localMatrix = iOCT_transform2D_generateMatrix(currentTransform);
     currentTransform->globalMatrix = currentTransform->localMatrix;
@@ -177,16 +179,18 @@ static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID
     for (OCT_index index = start; index < depthEnds[depth + 1]; index++) {
         transform = &array[index];
         if (transform->parentID == parentID) {
-            transform->parentCache = OCT_IDMap_getIndex(&context->IDMap, transform->parentID);
+            transform->parentCache = cOCT_IDMap_getIndex(&context->IDMap, transform->parentID);
         }
     }
 }
 
+#pragma endregion
+
 OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform) {
     OCT_mat3 matrix = transform.globalMatrix;
     OCT_vec2 globalPos = {
-        .x = matrix.r0c2,
-        .y = matrix.r1c2
+        .x = matrix.c2r0,
+        .y = matrix.c2r1
     };
     return globalPos;
 }
@@ -260,10 +264,31 @@ OCT_vec2 OCT_transform2D_scaleBy(OCT_handle entity, OCT_vec2 delta) {
 }
 OCT_vec2 iOCT_transform2D_scaleBy(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 delta) {
     iOCT_transform2D* transform = iOCT_transform2D_get(context, transformID);
-    transform->scale = OCT_vec2_add(transform->scale, delta);
+    transform->scale.x *= delta.x;
+    transform->scale.y *= delta.y;
     return transform->scale;
 }
 
 #pragma endregion
 
+#pragma region cross-module requests
 
+OCT_mat3 _OCT_transform2D_getMatrix(OCT_handle transformHandle) {
+    assert(transformHandle.type == OCT_handle_transform2D);
+    iOCT_entityContext* context = iOCT_entityContext_get(transformHandle.containerID);
+    return iOCT_transform2D_get(context, transformHandle.objectID)->globalMatrix;
+}
+
+OCT_handle _tOCT_transform2D_getHandleFromEntity(OCT_handle entityHandle) {
+    iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
+    iOCT_entity* entity = iOCT_entity_get(context, entityHandle.objectID);
+    OCT_ID transform = entity->transformID;
+    OCT_handle transformHandle = {
+        .subsystem = OCT_subsystem_ECS,
+        .objectID = transform,
+        .containerID = context->contextID,
+        .type = OCT_handle_transform2D
+    };
+    return transformHandle;
+}
+#pragma endregion

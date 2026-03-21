@@ -22,19 +22,21 @@
     <None Include="stb\LICENSE" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="internal\resources\image\image.h" />
+    <ClInclude Include="include\OCT_Resources.h" />
+    <ClInclude Include="include\resources\image\image.h" />
+    <ClInclude Include="include\resources\module\RESModule.h" />
+    <ClInclude Include="include\_RES_Output\_REN_include.h" />
+    <ClInclude Include="internal\resources\image\image_internal.h" />
     <ClInclude Include="internal\module\RESModule_internal.h" />
-    <ClInclude Include="internal\resourceList\resourceList_internal.h" />
-    <ClInclude Include="internal\resources\resource\resource.h" />
+    <ClInclude Include="internal\resources\resourceList\resourceList_internal.h" />
+    <ClInclude Include="internal\resources\resource\resource_internal.h" />
     <ClInclude Include="stb\stb_image.h" />
-    <ClInclude Include="internal\types.h" />
+    <ClInclude Include="internal\resources\types_internal.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\resourceList\resourceList.c" />
+    <ClCompile Include="internal\resources\resourceList\resourceList.c" />
     <ClCompile Include="internal\resources\image\image.c" />
     <ClCompile Include="internal\module\RESModule.c" />
-    <ClCompile Include="internal\resources\resource\resource.c" />
-    <ClCompile Include="internal\test\testMain.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -45,26 +47,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -94,7 +96,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -111,7 +113,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,7 +128,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,7 +145,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

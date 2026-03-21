@@ -1,11 +1,11 @@
-#include "image.h"
-#include "types.h"
+#include "image_internal.h"
+#include "resources/types_internal.h"
 
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include <string.h>
 
-#include "resources/resource/resource.h"
-#include "resourceList/resourceList_internal.h"
+#include "resources/resource/resource_internal.h"
+#include "resources/resourceList/resourceList_internal.h"
 #include "module/RESModule_internal.h"
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -13,20 +13,25 @@
 
 #define iOCT_RGBA 4
 
-OCT_handle iOCT_image_loadPNG(const char* path) {
-	OCT_ID imageListID = iOCT_resourceList_IDList[iOCT_resourceImage];
-	iOCT_resourceList* list = iOCT_resourceList_get(imageListID);
+OCT_handle OCT_image_load(const char* path) {
+	OCT_handle handle = iOCT_image_load(path);
+	return handle;
+}
+OCT_handle iOCT_image_load(const char* path) {
+	stbi_set_flip_vertically_on_load(1);
+
+	iOCT_resourceList* list = iOCT_resourceList_get(iOCT_resourceImage);
 
 	OCT_index newIndex;
 	OCT_ID newID;
 	iOCT_resource* newImage;
 
-	newImage = OCT_pool_addTo(&list->pool, &newIndex);
-	newID = OCT_IDMap_register(&list->map, newIndex);
+	newImage = cOCT_pool_addEntry(&list->pool, &newIndex);
+	newID = cOCT_IDMap_register(&list->map, newIndex);
 	
-	newImage->listID = imageListID;
-	strncpy(newImage->path, path, iOCT_PATHNAME_MAX - 1);
-	newImage->path[iOCT_PATHNAME_MAX - 1] = '\0';
+	newImage->listID = list->listID;
+	strncpy(newImage->path, path, iOCT_RESOURCE_PATHNAME_MAX - 1);
+	newImage->path[iOCT_RESOURCE_PATHNAME_MAX - 1] = '\0';
 	newImage->resourceID = newID;
 	newImage->type = iOCT_resourceImage;
 
@@ -41,14 +46,21 @@ OCT_handle iOCT_image_loadPNG(const char* path) {
 
 	OCT_handle handle = {
 		.subsystem = OCT_subsystem_resources,
-		.containerID = imageListID,
+		.containerID = list->listID,
 		.objectID = newID,
 		.type = OCT_handle_image
 	};
 
-	//_OCT_sendMessage(OCT_subsystem_renderer, handle, OCT_message_loadImage, pixels);
-	for (int i = 0; i < 1000; i++) {
-		printf("%d ", pixels[i]);
-	}
+	cOCT_message renderMSG = {
+		.messageType = cOCT_MSG_TEXTURE_LOAD,
+		.texture_load = {
+			.pixels = pixels,
+			.texHandle = handle,
+			.width = width,
+			.height = height
+			}
+	};
+
+	cOCT_message_push(OCT_subsystem_renderer, renderMSG);
 	return handle;
 }

@@ -1,4 +1,4 @@
-#include "OCT_EngineStructure.h"
+#include "cOCT_EngineStructure.h"
 #include "OCT_Math.h"
 #include "OCT_Errors.h"
 #include "OCT_ECS.h"
@@ -106,22 +106,22 @@ void renderEntityDashboard(iOCT_transform2D* array, int count) {
 		iOCT_transform2D* t = &array[i];
 
 		// Extract global TRS from global matrix
-		float gx = t->globalMatrix.r0c2;
-		float gy = t->globalMatrix.r1c2;
+		float gx = t->globalMatrix.c2r0;
+		float gy = t->globalMatrix.c2r1;
 
 		float gScaleX = sqrtf(
-			t->globalMatrix.r0c0 * t->globalMatrix.r0c0 +
-			t->globalMatrix.r1c0 * t->globalMatrix.r1c0
+			t->globalMatrix.c0r0 * t->globalMatrix.c0r0 +
+			t->globalMatrix.c0r1 * t->globalMatrix.c0r1
 		);
 
 		float gScaleY = sqrtf(
-			t->globalMatrix.r0c1 * t->globalMatrix.r0c1 +
-			t->globalMatrix.r1c1 * t->globalMatrix.r1c1
+			t->globalMatrix.c1r0 * t->globalMatrix.c1r0 +
+			t->globalMatrix.c1r1 * t->globalMatrix.c1r1
 		);
 
 		float gRotation = atan2f(
-			t->globalMatrix.r1c0,
-			t->globalMatrix.r0c0
+			t->globalMatrix.c0r1,
+			t->globalMatrix.c0r0
 		);
 
 		printf(
