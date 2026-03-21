@@ -43,7 +43,7 @@ int main() {
 	while (true) {
 		OCT_window_wipe();
 
-		//OCT_transform2D_rotateByDeg(newEntity, 1);
+		// OCT_transform2D_rotateByDeg(center, 1);
 		//OCT_transform2D_rotateByDeg(child, 1);
 
 		OCT_ECSModule_update();
