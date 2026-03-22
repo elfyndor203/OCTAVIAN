@@ -20,7 +20,7 @@ OCT_handle OCT_image_load(const char* path) {
 OCT_handle iOCT_image_load(const char* path) {
 	stbi_set_flip_vertically_on_load(1);
 
-	iOCT_resourceList* list = iOCT_resourceList_get(iOCT_resourceImage);
+	iOCT_resourceList* list = &iOCT_RESModule_instance.imageList;
 
 	OCT_index newIndex;
 	OCT_ID newID;

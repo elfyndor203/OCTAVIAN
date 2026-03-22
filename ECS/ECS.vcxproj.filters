@@ -21,7 +21,7 @@
     <ClInclude Include="include\OCT_ECS.h" />
     <ClInclude Include="internal\_ECS_Input\messageHandling.h" />
     <ClInclude Include="internal\ECS\entitySet\typeMap.h" />
-    <ClInclude Include="internal\ECS\module\ECSModule_internal.h" />
+    <ClInclude Include="internal\module\ECSModule_internal.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="include\ECS\components\hitBox2D\hitBox2D.h" />
     <ClInclude Include="include\ECS\module\ECSModule.h" />
@@ -35,7 +35,7 @@
     <ClCompile Include="internal\ECS\entity\entity.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
     <ClCompile Include="internal\ECS\entityContext\entityContext.c" />
-    <ClCompile Include="internal\ECS\module\ECSModule.c" />
+    <ClCompile Include="internal\module\ECSModule.c" />
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
     <ClCompile Include="tests\newTestMain.c" />
     <ClCompile Include="internal\ECS\components\sprite2D\sprite2D.c" />

@@ -20,7 +20,7 @@ bool cOCT_message_push(OCT_subsystemList recipient, cOCT_message message) {
 	}
 
 	inbox->queue[inbox->head] = message;
-	printf("Pushing MSG %d to INBOX %d, at HEAD %zu\n", message.messageType, inbox->owner, inbox->head);
+	//printf("Pushing MSG %d to INBOX %d, at HEAD %zu\n", message.messageType, inbox->owner, inbox->head);
 	inbox->head = (inbox->head + 1) % cOCT_MESSAGES_MAX;
 
 	return true;
@@ -35,7 +35,7 @@ cOCT_message cOCT_message_pop(OCT_subsystemList self) {
 	}
 	//printf("Message available\n");
 	msg = inbox->queue[inbox->tail];
-	printf("Popping MSG %d from INBOX %d, at TAIL %zu\n", msg.messageType, inbox->owner, inbox->tail);
+	//printf("Popping MSG %d from INBOX %d, at TAIL %zu\n", msg.messageType, inbox->owner, inbox->tail);
 	inbox->tail = (inbox->tail + 1) % cOCT_MESSAGES_MAX;	// wraparound
 
 	return msg;
@@ -66,6 +66,9 @@ static cOCT_messageBox* iOCT_messageBox_get(OCT_subsystemList recipient, int box
 			break;
 		case OCT_subsystem_window:
 			box = &iOCT_CORModule_instance.inbox_WDW;
+			break;
+		case OCT_subsystem_input:
+			box = &iOCT_CORModule_instance.inbox_INP;
 			break;
 		default:
 			return NULL;

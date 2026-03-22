@@ -18,6 +18,13 @@ GLuint iOCT_texture2D_load(unsigned char* pixels, int width, int height, OCT_han
 
 	assert(resourceHandle.objectID < iOCT_RENModule_instance.textureCapacity);
 	iOCT_RENModule_instance.textureList[resourceHandle.objectID] = texture;
+
+	cOCT_message RESMsg = {
+		.messageType = cOCT_MSG_TEXTURE_DONE,
+		.texture_done = {
+			.texHandle = resourceHandle
+		}
+	};
 	return texture;
 }
 

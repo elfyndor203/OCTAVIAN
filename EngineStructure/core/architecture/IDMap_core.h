@@ -11,6 +11,7 @@
 struct cOCT_IDMap {
 	OCT_ID ownerID;	// Context that owns this map
 	OCT_counter count;
+	OCT_counter capacity;
 	OCT_index* array;
 };
 

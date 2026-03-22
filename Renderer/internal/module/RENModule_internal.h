@@ -17,10 +17,14 @@ struct iOCT_RENModule {
 
 	size_t textureCapacity;
 	GLuint* textureList;
+
+	OCT_vec2 worldScale;
+	GLuint worldProjUniform;
+	OCT_mat3 worldProj;
 };
 extern iOCT_RENModule iOCT_RENModule_instance;
 
-void iOCT_RENModule_init();
+void iOCT_RENModule_init(OCT_vec2 resolution);
 void iOCT_RENModule_free();
 
 void iOCT_RENModule_update();

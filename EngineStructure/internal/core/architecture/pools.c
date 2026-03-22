@@ -32,6 +32,17 @@ cOCT_pool cOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSiz
 /// <param name="indexDest"></param>
 /// <returns></returns>
 void* cOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex) {
+	if (pool->count == pool->capacity) {
+		void* newArray = realloc(pool->array, pool->elementSize * pool->capacity * 2);
+		if (!newArray) {
+			OCT_logError(EXIT_FAILED_TO_ALLOCATE);
+			return NULL;
+		}
+		else {
+			pool->array = newArray;
+			pool->capacity *= 2;
+		}
+	}
 	void* slot = cOCT_pool_access(pool, pool->count);
 	*outIndex = pool->count++;
 	return slot;

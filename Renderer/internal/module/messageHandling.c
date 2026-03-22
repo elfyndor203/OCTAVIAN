@@ -31,7 +31,7 @@ void iOCT_RENModule_handleMSGs() {
 		}
 		case cOCT_MSG_RENDERABLE_NEW: {
 			iOCT_layer* layer = iOCT_layer_get(msg.renderable_new.layerHandle.objectID);
-			iOCT_rendererObject_add(layer, msg.renderable_new.color, msg.renderable_new.uv, msg.renderable_new.entityHandle, msg.renderable_new.transformHandle);
+			iOCT_rendererObject_add(layer, msg.renderable_new.entityHandle, msg.renderable_new.transformHandle, msg.renderable_new.renderableHandle);
 			break;
 		}
 		default:

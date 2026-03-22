@@ -9,8 +9,9 @@
 #include "renderer/layer/layer_internal.h"
 #include "renderer/shader/shader/shader_internal.h"
 
-iOCT_RENModule iOCT_RENModule_instance = { 0 };
+static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale);
 
+iOCT_RENModule iOCT_RENModule_instance = { 0 };
 
 static const float iOCT_quadVerts[16] = {
 	-0.5f, -0.5f,  0.0f, 0.0f,  // bottom left
@@ -24,11 +25,11 @@ static const unsigned int iOCT_quadIndices[6] = {
 	0, 2, 3
 };
 
-void OCT_RENModule_init() {
+void OCT_RENModule_init(OCT_vec2 scale) {
 	// check init order
-	iOCT_RENModule_init();
+	iOCT_RENModule_init(scale);
 }
-void iOCT_RENModule_init() {
+void iOCT_RENModule_init(OCT_vec2 coordinateScale) {
 	iOCT_RENModule_instance.layerMap = cOCT_IDMap_init(OCT_subsystem_renderer, iOCT_POOLSIZE_DEFAULT);
 	iOCT_RENModule_instance.layerPool = cOCT_pool_init(OCT_subsystem_renderer, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_layer));
 	iOCT_RENModule_instance.textureCapacity = iOCT_TEXTURE_INITIALCAPACITY;
@@ -43,10 +44,16 @@ void iOCT_RENModule_init() {
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(iOCT_quadIndices), &iOCT_quadIndices, GL_STATIC_DRAW);
 
 	// load basic sprite shader
-	iOCT_RENModule_instance.spriteShader = iOCT_shader_createProgram(
+	GLuint basicShader = iOCT_shader_createProgram(
 		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.vert",
 		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.frag");
+	iOCT_RENModule_instance.spriteShader = basicShader;
+	glUseProgram(basicShader);
 
+	iOCT_RENModule_instance.worldScale = coordinateScale;
+	iOCT_RENModule_instance.worldProj = iOCT_calcWorldProj(coordinateScale);
+	iOCT_RENModule_instance.worldProjUniform = glGetUniformLocation(basicShader, "worldProj");
+	glUniformMatrix3fv(iOCT_RENModule_instance.worldProjUniform, 1, GL_FALSE, &iOCT_RENModule_instance.worldProj.c0r0);
 	GL_CHECK();
 }
 
@@ -83,3 +90,21 @@ void iOCT_RENModule_update() {
 	}
 
 }
+
+#pragma region helpers
+static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale) {
+	OCT_mat3 proj = { 0 };
+	proj.c0r0 = 2 / coordinateScale.x;
+	proj.c1r1 = 2 / coordinateScale.y;
+	proj.c2r0 = -1;
+	proj.c2r1 = -1;
+	proj.c2r2 = -1;
+	return proj;
+}
+#pragma regionend
+
+#pragma region cross-module requests
+OCT_vec2 _OCT_worldRatio_get() {
+	return iOCT_RENModule_instance.worldScale;
+}
+#pragma endregion

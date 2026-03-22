@@ -38,7 +38,7 @@
     <ClInclude Include="include\_ECS_Output\_REN_include.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
-    <ClInclude Include="internal\ECS\module\ECSModule_internal.h" />
+    <ClInclude Include="internal\module\ECSModule_internal.h" />
     <ClInclude Include="internal\ECS\entitySet\typeMap.h" />
     <ClInclude Include="internal\ECS\components\transform2D\transform2D_internal.h" />
     <ClInclude Include="internal\ECS\entity\entity_internal.h" />
@@ -53,7 +53,7 @@
     <ClCompile Include="internal\ECS\components\hitBox2D\hitBox2D.c" />
     <ClCompile Include="internal\ECS\components\sprite2D\sprite2D.c" />
     <ClCompile Include="internal\ECS\components\transform2D\transform2D.c" />
-    <ClCompile Include="internal\ECS\module\ECSModule.c" />
+    <ClCompile Include="internal\module\ECSModule.c" />
     <ClCompile Include="internal\ECS\entity\entity.c" />
     <ClCompile Include="internal\ECS\entityContext\entityContext.c" />
     <ClCompile Include="tests\newTestMain.c" />
