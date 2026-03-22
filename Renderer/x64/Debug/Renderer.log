@@ -1,16 +1,9 @@
-﻿  rendererObject.c
-  main.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(36,55): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(36,60): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(37,47): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(37,52): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(39,42): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(39,48): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(40,42): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(40,48): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(41,42): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(41,47): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(42,42): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\test\main.c(42,47): warning C4305: 'initializing': truncation from 'double' to 'float'
+﻿  RENModule.c
+  messageHandling.c
+  layer.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Renderer\internal\module\RENModule.c(104,9): warning C4068: unknown pragma 'regionend'
+  rendererObject.c
+  spriteData.c
+  texture.c
   Generating Code...
   Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib

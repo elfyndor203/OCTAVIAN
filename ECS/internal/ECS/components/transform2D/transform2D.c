@@ -278,17 +278,4 @@ OCT_mat3 _OCT_transform2D_getMatrix(OCT_handle transformHandle) {
     iOCT_entityContext* context = iOCT_entityContext_get(transformHandle.containerID);
     return iOCT_transform2D_get(context, transformHandle.objectID)->globalMatrix;
 }
-
-OCT_handle _tOCT_transform2D_getHandleFromEntity(OCT_handle entityHandle) {
-    iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
-    iOCT_entity* entity = iOCT_entity_get(context, entityHandle.objectID);
-    OCT_ID transform = entity->transformID;
-    OCT_handle transformHandle = {
-        .subsystem = OCT_subsystem_ECS,
-        .objectID = transform,
-        .containerID = context->contextID,
-        .type = OCT_handle_transform2D
-    };
-    return transformHandle;
-}
 #pragma endregion

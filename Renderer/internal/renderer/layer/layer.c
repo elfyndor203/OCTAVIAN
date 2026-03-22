@@ -93,6 +93,11 @@ OCT_ID iOCT_layer_open(bool dynamic, OCT_handle texAtlasHandle) {
 	glEnableVertexAttribArray(iOCT_attrib_texUV);
 	glVertexAttribDivisor(iOCT_attrib_texUV, 1);
 
+		// dimensions
+	glVertexAttribPointer(iOCT_attrib_dimensions, 2, GL_FLOAT, GL_FALSE, sizeof(iOCT_spriteData), (void*)offsetof(iOCT_spriteData, dimensions));
+	glEnableVertexAttribArray(iOCT_attrib_dimensions);
+	glVertexAttribDivisor(iOCT_attrib_dimensions, 1);
+
 	newLayer->spriteVAO = VAO;
 
 	return newID;
@@ -129,8 +134,9 @@ void iOCT_layer_draw(iOCT_layer* layer) {
 		slot = &buffer[i];
 
 		slot->transform = _OCT_transform2D_getMatrix(renObj->transformHandle);
-		slot->color = renObj->color;
-		slot->uvRect = renObj->uvRect;
+		slot->color = _OCT_sprite2D_getColor(renObj->renderableHandle);
+		slot->uvRect = _OCT_sprite2D_getUV(renObj->renderableHandle);
+		slot->dimensions = _OCT_sprite2D_getDimensions(renObj->renderableHandle);
 	}
 
 	glUnmapBuffer(GL_ARRAY_BUFFER);	

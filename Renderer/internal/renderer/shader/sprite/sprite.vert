@@ -7,15 +7,19 @@ layout(location = 3) in vec3 col1;
 layout(location = 4) in vec3 col2;
 layout(location = 5) in vec4 color;
 layout(location = 6) in vec4 texUV;
+layout(location = 7) in vec2 size;
+
+uniform mat3 worldProj;
 
 out vec2 fragUV;
 out vec4 fragColor;
 
 void main() {
     mat3 transform = mat3(col0, col1, col2);
-    vec3 position = transform * vec3(quadXY, 1.0);
+    vec3 position = transform * vec3(quadXY * size, 1.0);
+    vec3 projection = position * worldProj;
 
-    gl_Position = vec4(position.xy, 0.0, 1.0);
+    gl_Position = vec4(projection.xy, 0.0, 1.0);
     fragUV = texUV.xy + quadUV * texUV.zw;
     fragColor = color;
 }

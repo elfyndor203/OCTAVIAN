@@ -1,27 +1,51 @@
 #include "WDWModule_internal.h"
 
+#include "OCT_Math.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <stdbool.h>
 
 #include "window/window_internal.h"
 
 iOCT_WDWModule iOCT_WDWModule_instance = { 0 };
 
-void OCT_WDWModule_init(char* name, unsigned int sizeX, unsigned int sizeY) {
-	iOCT_WDWModule_init(name, sizeX, sizeY);
+void OCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OCT_vec4 color) {
+	iOCT_WDWModule_init(name, width, height, color);
 }
 
-void iOCT_WDWModule_init(char* name, unsigned int sizeX, unsigned int sizeY) {
+void iOCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OCT_vec4 color) {
 	glfwInit();
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	GLFWwindow* window = glfwCreateWindow(sizeX, sizeY, name, NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(width, height, name, NULL, NULL);
 	glfwMakeContextCurrent(window);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
+	glClearColor(color.x, color.y, color.z, color.a);
 	iOCT_WDWModule_instance.windowPtr = window;
+	iOCT_WDWModule_instance.resolution = (OCT_vec2){ width, height };
+
+	glfwSetFramebufferSizeCallback(window, iOCT_window_callback_resize);
+	glfwSetKeyCallback(window, iOCT_window_callback_keyEvent);
+	glfwSetMouseButtonCallback(window, iOCT_window_callback_mouseEvent);
+	iOCT_window_viewport(width, height);
+}
+
+void OCT_WDWModule_update() {
+	iOCT_window_show();
+	iOCT_window_wipe();
+	glfwPollEvents();
+}
+
+bool OCT_window_closed() {
+	if (glfwWindowShouldClose(iOCT_WDWModule_instance.windowPtr)) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 

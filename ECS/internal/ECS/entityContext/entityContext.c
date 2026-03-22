@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include "ECS/module/ECSModule_internal.h"
+#include "module/ECSModule_internal.h"
 #include "ECS/entity/entity_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"

@@ -15,7 +15,8 @@ enum iOCT_attributes {
 	iOCT_attrib_transformCol1,
 	iOCT_attrib_transformCol2,
 	iOCT_attrib_color,
-	iOCT_attrib_texUV
+	iOCT_attrib_texUV,
+	iOCT_attrib_dimensions
 };
 
 struct iOCT_layer {

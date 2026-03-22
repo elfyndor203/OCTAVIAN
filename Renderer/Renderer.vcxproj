@@ -26,7 +26,6 @@
     <ClCompile Include="internal\renderer\shader\shader\shader.c" />
     <ClCompile Include="internal\renderer\spriteData\spriteData.c" />
     <ClCompile Include="internal\renderer\texture\texture.c" />
-    <ClCompile Include="test\main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLAD\include\glad\glad.h" />
@@ -34,6 +33,7 @@
     <ClInclude Include="include\module\RENModule.h" />
     <ClInclude Include="include\OCT_Renderer.h" />
     <ClInclude Include="include\renderer\layer\layer.h" />
+    <ClInclude Include="include\_REN_Output\_WDW_include.h" />
     <ClInclude Include="internal\renderer\layer\layer_internal.h" />
     <ClInclude Include="internal\module\RENModule_internal.h" />
     <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
@@ -41,7 +41,6 @@
     <ClInclude Include="internal\renderer\spriteData\spriteData_internal.h" />
     <ClInclude Include="internal\renderer\texture\texture_internal.h" />
     <ClInclude Include="internal\renderer\types_internal.h" />
-    <ClInclude Include="test\main.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

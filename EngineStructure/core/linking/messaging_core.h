@@ -13,7 +13,10 @@ enum cOCT_messageTypes {
 	cOCT_MSG_TEXTURE_LOAD,
 	cOCT_MSG_TEXTURE_DONE,
 
-	cOCT_MSG_RENDERABLE_NEW
+	cOCT_MSG_RENDERABLE_NEW,
+	
+	cOCT_MSG_BUTTON_DOWN,
+	cOCT_MSG_BUTTON_UP
 };
 
 struct cOCT_message {
@@ -23,7 +26,9 @@ struct cOCT_message {
 		struct { OCT_handle texHandle;  char* pixels; int width; int height; } texture_load;
 		struct { OCT_handle texHandle; uint32_t rendererRef; } texture_done;
 
-		struct { OCT_handle layerHandle; OCT_vec4 color; OCT_vec4 uv; OCT_handle entityHandle; OCT_handle transformHandle;} renderable_new;
+		struct { OCT_handle layerHandle; OCT_handle entityHandle; OCT_handle transformHandle; OCT_handle renderableHandle; } renderable_new;
+		struct { OCT_vec2 windowSize; } windowSize_set;
+		struct { int button; int modifiers; } button_event;
 	};
 };
 

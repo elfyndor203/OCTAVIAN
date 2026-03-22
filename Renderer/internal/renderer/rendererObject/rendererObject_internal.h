@@ -9,11 +9,9 @@
 #define iOCT_RENDEREROBJECT_DEFAULTMAX 64
 
 struct iOCT_rendererObject {
-	OCT_vec4 color;
-	OCT_vec4 uvRect;
-
 	OCT_handle engineHandle;
 	OCT_handle transformHandle; // direct access
+	OCT_handle renderableHandle; // sprite for now
 };
 
-OCT_handle iOCT_rendererObject_add(iOCT_layer* layer, OCT_vec4 color, OCT_vec4 uv, OCT_handle engineHandle, OCT_handle transform);
+OCT_handle iOCT_rendererObject_add(iOCT_layer* layer, OCT_handle engineHandle, OCT_handle transform, OCT_handle renderable);

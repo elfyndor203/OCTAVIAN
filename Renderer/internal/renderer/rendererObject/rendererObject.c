@@ -9,7 +9,7 @@ void iOCT_rendererObject_getTransforms(iOCT_rendererObject obj) {
 	
 }
 
-OCT_handle iOCT_rendererObject_add(iOCT_layer* layer, OCT_vec4 color, OCT_vec4 uv, OCT_handle engineHandle, OCT_handle transform) {
+OCT_handle iOCT_rendererObject_add(iOCT_layer* layer, OCT_handle engineHandle, OCT_handle transform, OCT_handle renderable) {
 	OCT_ID newID;
 	OCT_index newIndex;
 	iOCT_rendererObject* newObj = { 0 };
@@ -19,8 +19,7 @@ OCT_handle iOCT_rendererObject_add(iOCT_layer* layer, OCT_vec4 color, OCT_vec4 u
 
 	newObj->engineHandle = engineHandle;
 	newObj->transformHandle = transform;
-	newObj->color = color;
-	newObj->uvRect = uv;
+	newObj->renderableHandle = renderable;
 
 	OCT_handle newHandle = {
 		.subsystem = OCT_subsystem_renderer,

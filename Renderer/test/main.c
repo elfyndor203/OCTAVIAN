@@ -8,7 +8,7 @@
 #include "renderer/texture/texture_internal.h"
 
 int main() {
-	OCT_WDWModule_init("OTTO OCTAvian", 2000, 1000);
+	OCT_WDWModule_init("OTTO OCTAvian", 2000, 1000, black);
 	OCT_RESModule_init();
 	OCT_RENModule_init();
 	OCT_ECSModule_init();
