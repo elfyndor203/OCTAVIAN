@@ -24,7 +24,7 @@ int main() {
 	OCT_handle mainContextRoot;
 	OCT_handle mainContext = OCT_entityContext_open(&mainContextRoot);
 
-	OCT_handle mainTex = OCT_image_load("C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Resources/internal/test/dark.png");
+	OCT_handle mainTex = OCT_image_load("C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/zGameTest/zTestFiles/gear.png");
 	OCT_RENModule_flush();
 	OCT_handle layer = OCT_layer_open(true, mainTex);
 
