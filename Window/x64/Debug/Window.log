@@ -1,8 +1,9 @@
-﻿  WDWModule.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(29,51): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(29,58): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+﻿  glad.c
+  WDWModule.c
   window.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\window\window.c(33,26): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\window\window.c(82,9): warning C4068: unknown pragma 'regionend'
+C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(29,51): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(29,58): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\Window\internal\window\window.c(33,26): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\Window\internal\window\window.c(82,9): warning C4068: unknown pragma 'regionend'
   Generating Code...
-  Window.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Window.lib
+  Window.vcxproj -> C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\x64\Debug\Window.lib

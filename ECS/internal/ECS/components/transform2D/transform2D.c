@@ -218,6 +218,25 @@ OCT_vec2 iOCT_transform2D_moveBy(iOCT_entityContext* context, OCT_ID transformID
 }
 
 /// <summary>
+/// Moves an entity to a given local position.
+/// </summary>
+/// <param name="parentHandle"></param>
+/// <param name="delta"></param>
+/// <returns></returns>
+OCT_vec2 OCT_transform2D_moveTo(OCT_handle entity, OCT_vec2 delta) {
+    assert(entity.type == OCT_handle_entity);
+
+    iOCT_entityContext* context = iOCT_entityContext_get(entity.containerID);
+    OCT_ID transformID = iOCT_entity_get(context, entity.objectID)->transformID;
+    return iOCT_transform2D_moveTo(context, transformID, delta);
+}
+OCT_vec2 iOCT_transform2D_moveTo(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 newPos) {
+    iOCT_transform2D* transform = iOCT_transform2D_get(context, transformID);
+    transform->position = newPos;
+    return transform->position;
+}
+
+/// <summary>
 /// Rotates an entity by a given angle in degrees using its transform component. 
 /// </summary>
 /// <param name="parentHandle"></param>

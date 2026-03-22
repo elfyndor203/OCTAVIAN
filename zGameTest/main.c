@@ -11,7 +11,7 @@
 
 OCT_vec4 purple = { 0.5, 0.0, 0.5, 1.0 };
 OCT_vec4 black = { 0.0, 0.0, 0.0, 0.5 };
-OCT_vec2 normalRect = { 96, 54 };
+OCT_vec2 normalRect = { 96, 54};
 
 int main() {
 	OCT_WDWModule_init("OTTO OCTAvian that one guy that flew across the entire dungeon and then died", 1920, 1080, black);
@@ -24,7 +24,7 @@ int main() {
 	OCT_handle mainContextRoot;
 	OCT_handle mainContext = OCT_entityContext_open(&mainContextRoot);
 
-	OCT_handle mainTex = OCT_image_load("C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/zGameTest/zTestFiles/gear.png");
+	OCT_handle mainTex = OCT_image_load("C:/Users/haex4/MyDocuments/Projects/OCTAVIAN/zGameTest/zTestFiles/gear.png");
 	OCT_RENModule_flush();
 	OCT_handle layer = OCT_layer_open(true, mainTex);
 
@@ -39,24 +39,29 @@ int main() {
 	OCT_sprite2D_add(RT, layer, solid, (OCT_vec4) { 0.5, 0.5, 0.5, 0.5 }, normalRect);
 	OCT_sprite2D_add(RB, layer, solid, (OCT_vec4) { 0.5, 0.0, 0.5, 0.5 }, normalRect);
 
+	//OCT_transform2D_scaleBy(center, (OCT_vec2){0.5, 0.5});
 	OCT_transform2D_moveBy(LB, (OCT_vec2) { -48.0, -27.0 });
 	OCT_transform2D_moveBy(LT, (OCT_vec2) { -48.0, 27.0 });
 	OCT_transform2D_moveBy(RT, (OCT_vec2) { 48.0, 27.0 });
 	OCT_transform2D_moveBy(RB, (OCT_vec2) { 48.0, -27.0 });
 
-	float cycle = 2.0;
+	OCT_transform2D_moveBy(RT, (OCT_vec2) { 5, 5 });
+
+	float cycle = 0.0;
 	float sine = 0;
 	while (!OCT_window_closed()) {
 
-		cycle += 0.1f;
+		cycle += 0.001f;
 		sine = sinf(cycle);
+
+		printf("%f\n", sine);
 
 		//OCT_transform2D_moveBy(center, (OCT_vec2) { 0, sinf(cycle) });
 
-		OCT_transform2D_moveBy(LB, (OCT_vec2) { -sine, -sine });
-		OCT_transform2D_moveBy(LT, (OCT_vec2) { -sine, sine });
-		OCT_transform2D_moveBy(RT, (OCT_vec2) { sine, sine });
-		OCT_transform2D_moveBy(RB, (OCT_vec2) { sine, -sine });
+		//OCT_transform2D_moveBy(LB, (OCT_vec2) { -sine, -sine });
+		//OCT_transform2D_moveBy(LT, (OCT_vec2) { -sine, sine });
+		OCT_transform2D_moveTo(center, (OCT_vec2) { sine * 12, sine * 12});
+		//OCT_transform2D_moveBy(RB, (OCT_vec2) { sine, -sine });
 		//OCT_transform2D_rotateByDeg(center, 1);
 		//OCT_transform2D_rotateByDeg(LB, 0.5);
 		//OCT_transform2D_rotateByDeg(LT, -0.5);

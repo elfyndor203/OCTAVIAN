@@ -45,8 +45,10 @@ void iOCT_RENModule_init(OCT_vec2 coordinateScale) {
 
 	// load basic sprite shader
 	GLuint basicShader = iOCT_shader_createProgram(
-		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.vert",
-		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.frag");
+//		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.vert",
+//		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.frag"
+		"C:/Users/haex4/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.vert",
+		"C:/Users/haex4/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.frag");
 	iOCT_RENModule_instance.spriteShader = basicShader;
 	glUseProgram(basicShader);
 
@@ -98,7 +100,7 @@ static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale) {
 	proj.c1r1 = 2 / coordinateScale.y;
 	proj.c2r0 = -1;
 	proj.c2r1 = -1;
-	proj.c2r2 = -1;
+	proj.c2r2 = 1;
 	return proj;
 }
 #pragma regionend
