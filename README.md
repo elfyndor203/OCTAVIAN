@@ -1,7 +1,7 @@
 # OCTAVIAN (WORK IN PROGRESS)
 A simple modular ECS game engine written in C 
 
-OCTAVIAN is a simple game engine designed to make me learn C. It uses a entity-component design, similar to ECS, to manage game data, and its subsystems (currently ECS and Renderer) are designed to be modular. An old semi-functional prototype is available in the demo branch. 
+OCTAVIAN is a simple game engine designed to make me learn C. It uses a mix of ECS and object style systems to manage game data. Its subsystems are meant to be modular. A simple example game is in zGameTest.
 
 # Libraries
 - OpenGL 3.3
