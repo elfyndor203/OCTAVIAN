@@ -6,6 +6,7 @@
 #include <stdbool.h>
 
 #include "window/window_internal.h"
+#include "keys/keys_internal.h"
 
 iOCT_WDWModule iOCT_WDWModule_instance = { 0 };
 
@@ -24,14 +25,16 @@ void iOCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OC
 	glfwMakeContextCurrent(window);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
-	glClearColor(color.x, color.y, color.z, color.a);
-	iOCT_WDWModule_instance.windowPtr = window;
-	iOCT_WDWModule_instance.resolution = (OCT_vec2){ width, height };
-
 	glfwSetFramebufferSizeCallback(window, iOCT_window_callback_resize);
 	glfwSetKeyCallback(window, iOCT_window_callback_keyEvent);
 	glfwSetMouseButtonCallback(window, iOCT_window_callback_mouseEvent);
+
+	glClearColor(color.x, color.y, color.z, color.a);
+
+	iOCT_WDWModule_instance.windowPtr = window;
+	iOCT_WDWModule_instance.resolution = (OCT_vec2){ width, height };
 	iOCT_window_viewport(width, height);
+	iOCT_keyMap_init();
 }
 
 void OCT_WDWModule_update() {

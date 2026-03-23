@@ -11,3 +11,4 @@ typedef struct cOCT_message cOCT_message;
 typedef struct cOCT_messageBox cOCT_messageBox;
 
 typedef size_t messageCounter;
+

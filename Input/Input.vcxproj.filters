@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="internal\keys\keys.h">
+    <ClInclude Include="internal\keys\keys_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="internal\module\INPModule_internal.h">
@@ -25,6 +25,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\OCT_Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\input\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\types_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\input\keys\keys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

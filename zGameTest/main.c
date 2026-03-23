@@ -24,7 +24,7 @@ int main() {
 	OCT_handle mainContextRoot;
 	OCT_handle mainContext = OCT_entityContext_open(&mainContextRoot);
 
-	OCT_handle mainTex = OCT_image_load("C:/Users/haex4/MyDocuments/Projects/OCTAVIAN/zGameTest/zTestFiles/gear.png");
+	OCT_handle mainTex = OCT_image_load("ztestFiles/gear.png");
 	OCT_RENModule_flush();
 	OCT_handle layer = OCT_layer_open(true, mainTex);
 
@@ -45,37 +45,60 @@ int main() {
 	OCT_transform2D_moveBy(RT, (OCT_vec2) { 48.0, 27.0 });
 	OCT_transform2D_moveBy(RB, (OCT_vec2) { 48.0, -27.0 });
 
-	OCT_transform2D_moveBy(RT, (OCT_vec2) { 5, 5 });
+	// OCT_transform2D_moveBy(RT, (OCT_vec2) { 5, 5 });
 
 	float cycle = 0.0;
 	float sine = 0;
 	while (!OCT_window_closed()) {
 
-		cycle += 0.001f;
-		sine = sinf(cycle);
+		cycle += 0.01f;
+		sine = sinf(cycle) / 8;
 
-		printf("%f\n", sine);
+		//printf("%f\n", sine);
 
 		//OCT_transform2D_moveBy(center, (OCT_vec2) { 0, sinf(cycle) });
 
-		//OCT_transform2D_moveBy(LB, (OCT_vec2) { -sine, -sine });
-		//OCT_transform2D_moveBy(LT, (OCT_vec2) { -sine, sine });
-		OCT_transform2D_moveTo(center, (OCT_vec2) { sine * 12, sine * 12});
-		//OCT_transform2D_moveBy(RB, (OCT_vec2) { sine, -sine });
-		//OCT_transform2D_rotateByDeg(center, 1);
-		//OCT_transform2D_rotateByDeg(LB, 0.5);
-		//OCT_transform2D_rotateByDeg(LT, -0.5);
-		//OCT_transform2D_rotateByDeg(RB, -0.5);
-		//OCT_transform2D_rotateByDeg(RT, 0.5);
-
-
-		// OCT_transform2D_rotateByDeg(center, 1);
-		//OCT_transform2D_rotateByDeg(child, 1);
+		/*OCT_transform2D_moveBy(LB, (OCT_vec2) { -sine, -sine });
+		OCT_transform2D_moveBy(LT, (OCT_vec2) { -sine, sine });
+		OCT_transform2D_moveBy(RB, (OCT_vec2) { sine, -sine });
+		OCT_transform2D_moveBy(RT, (OCT_vec2) { sine, sine });*/
 
 		OCT_INPModule_update();
 		OCT_ECSModule_update();
 		OCT_RENModule_update();
 		OCT_WDWModule_update();
+
+		if (OCT_keyState_get(OCT_KEY_W) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_moveBy(center, (OCT_vec2) { 0, 1 });
+		}
+		if (OCT_keyState_get(OCT_KEY_A) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_moveBy(center, (OCT_vec2) { -1, 0 });
+		}
+		if (OCT_keyState_get(OCT_KEY_S) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_moveBy(center, (OCT_vec2) { 0, -1 });
+		}
+		if (OCT_keyState_get(OCT_KEY_D) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_moveBy(center, (OCT_vec2) { 1, 0 });
+		}
+		if (OCT_keyState_get(OCT_KEY_RIGHT) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_rotateByDeg(center, -1);
+		}
+		if (OCT_keyState_get(OCT_KEY_LEFT) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_rotateByDeg(center, 1.1f);
+		}
+		if (OCT_keyState_get(OCT_KEY_UP) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_moveBy(LB, (OCT_vec2) { -1.0, -1.0 });
+			OCT_transform2D_moveBy(LT, (OCT_vec2) { -1.0, 1.0 });
+			OCT_transform2D_moveBy(RT, (OCT_vec2) { 1.0, 1.0 });
+			OCT_transform2D_moveBy(RB, (OCT_vec2) { 1.0, -1.0 });
+		}
+		if (OCT_keyState_get(OCT_KEY_DOWN) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_moveBy(LB, (OCT_vec2) { 1.0, 1.0 });
+			OCT_transform2D_moveBy(LT, (OCT_vec2) { 1.0, -1.0 });
+			OCT_transform2D_moveBy(RT, (OCT_vec2) { -1.0, -1.0 });
+			OCT_transform2D_moveBy(RB, (OCT_vec2) { -1.0, 1.0 });
+		}
+
 	};
 
 	return 0;

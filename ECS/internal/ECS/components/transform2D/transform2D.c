@@ -247,6 +247,7 @@ float OCT_transform2D_rotateByDeg(OCT_handle entity, float deltaDegrees) {
 
     iOCT_entityContext* context = iOCT_entityContext_get(entity.containerID);
     OCT_ID transformID = iOCT_entity_get(context, entity.objectID)->transformID;
+
     return OCT_rad2deg(iOCT_transform2D_rotateBy(context, transformID, OCT_deg2rad(deltaDegrees)));
 }
 /// <summary>

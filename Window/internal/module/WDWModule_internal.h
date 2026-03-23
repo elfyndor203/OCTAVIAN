@@ -1,6 +1,7 @@
 #pragma once
 #include "types_internal.h"
 
+#include "cOCT_EngineStructure.h"
 #include "OCT_Math.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -8,6 +9,8 @@
 struct iOCT_WDWModule {
 	GLFWwindow* windowPtr;
 	OCT_vec2 resolution;
+
+	OCT_key* keyMap;
 };
 
 extern iOCT_WDWModule iOCT_WDWModule_instance;

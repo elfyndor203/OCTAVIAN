@@ -45,10 +45,8 @@ void iOCT_RENModule_init(OCT_vec2 coordinateScale) {
 
 	// load basic sprite shader
 	GLuint basicShader = iOCT_shader_createProgram(
-//		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.vert",
-//		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.frag"
-		"C:/Users/haex4/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.vert",
-		"C:/Users/haex4/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.frag");
+		"../renderer/internal/renderer/shader/sprite/sprite.vert",
+		"../renderer/internal/renderer/shader/sprite/sprite.frag");
 	iOCT_RENModule_instance.spriteShader = basicShader;
 	glUseProgram(basicShader);
 
