@@ -49,6 +49,8 @@ void iOCT_RENModule_init(OCT_vec2 coordinateScale) {
 		"../renderer/internal/renderer/shader/sprite/sprite.frag");
 	iOCT_RENModule_instance.spriteShader = basicShader;
 	glUseProgram(basicShader);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	iOCT_RENModule_instance.worldScale = coordinateScale;
 	iOCT_RENModule_instance.worldProj = iOCT_calcWorldProj(coordinateScale);

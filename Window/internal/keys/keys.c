@@ -135,6 +135,23 @@ void iOCT_keyMap_init() {
     map[GLFW_KEY_KP_SUBTRACT] = OCT_KEY_NP_SUBTRACT;
     map[GLFW_KEY_KP_ADD] = OCT_KEY_NP_ADD;
     map[GLFW_KEY_KP_ENTER] = OCT_KEY_NP_ENTER;
+    
+}
+
+void iOCT_mouseMap_init() {
+    iOCT_WDWModule_instance.mouseMap = (OCT_key*)calloc((GLFW_MOUSE_BUTTON_LAST + 1), sizeof(OCT_key));
+    OCT_key* map = iOCT_WDWModule_instance.keyMap;
+
+    if (!map) {
+        OCT_logError(EXIT_FAILED_TO_ALLOCATE);
+        return;
+    }
+
+    map[GLFW_MOUSE_BUTTON_1] = OCT_KEY_MOUSE_LEFT;
+    map[GLFW_MOUSE_BUTTON_2] = OCT_KEY_MOUSE_MIDDLE;
+    map[GLFW_MOUSE_BUTTON_3] = OCT_KEY_MOUSE_RIGHT;
+    map[GLFW_MOUSE_BUTTON_4] = OCT_KEY_MOUSE_4;
+    map[GLFW_MOUSE_BUTTON_5] = OCT_KEY_MOUSE_5;
 }
 
 void iOCT_window_keyEvent(OCT_key key, int action, int modifiers) {

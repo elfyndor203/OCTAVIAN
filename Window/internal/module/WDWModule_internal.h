@@ -3,6 +3,7 @@
 
 #include "cOCT_EngineStructure.h"
 #include "OCT_Math.h"
+#include "OCT_Input.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -11,6 +12,7 @@ struct iOCT_WDWModule {
 	OCT_vec2 resolution;
 
 	OCT_key* keyMap;
+	OCT_key* mouseMap;
 };
 
 extern iOCT_WDWModule iOCT_WDWModule_instance;

@@ -1,2 +1,9 @@
-﻿  keys.c
-  Window.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Window.lib
+﻿  glad.c
+  keys.c
+  WDWModule.c
+C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(35,51): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(35,58): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+  window.c
+C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\Window\internal\window\window.c(30,26): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  Window.vcxproj -> C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\x64\Debug\Window.lib

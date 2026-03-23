@@ -51,4 +51,3 @@ bool OCT_window_closed() {
 		return false;
 	}
 }
-

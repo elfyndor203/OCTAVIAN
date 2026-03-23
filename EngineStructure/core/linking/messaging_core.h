@@ -29,7 +29,7 @@ struct cOCT_message {
 
 		struct { OCT_handle layerHandle; OCT_handle entityHandle; OCT_handle transformHandle; OCT_handle renderableHandle; } renderable_new;
 		struct { OCT_vec2 windowSize; } windowSize_set;
-		struct { OCT_key key; } key_event;
+		struct { int key; } key_event;
 	};
 };
 

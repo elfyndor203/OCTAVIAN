@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)Input\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

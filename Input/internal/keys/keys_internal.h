@@ -1,6 +1,6 @@
 #pragma once
+#include "input/keys/keys.h"
 
-#include "cOCT_EngineStructure.h"
 #include "input/types.h"
 
 OCT_keyState iOCT_keyState_get(OCT_key key);
