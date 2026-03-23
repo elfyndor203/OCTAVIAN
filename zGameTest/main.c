@@ -54,10 +54,12 @@ int main() {
 
 	float cycle = 0.0;
 	float sine = 0;
+	OCT_vec2 cursorPos;
 	while (!OCT_window_closed()) {
 
 		cycle += 0.01f;
 		sine = sinf(cycle) / 8;
+		cursorPos = OCT_cursorPos_get(false);
 
 		//printf("%f\n", sine);
 
@@ -68,37 +70,44 @@ int main() {
 		OCT_transform2D_moveBy(RB, (OCT_vec2) { sine, -sine });
 		OCT_transform2D_moveBy(RT, (OCT_vec2) { sine, sine });*/
 
-		if (OCT_keyState_get(OCT_KEY_W) == OCT_KEYSTATE_DOWN) {
+		if (OCT_keyState_read(OCT_KEY_W) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_moveBy(center, (OCT_vec2) { 0, 1 });
 		}
-		if (OCT_keyState_get(OCT_KEY_A) == OCT_KEYSTATE_DOWN) {
+		if (OCT_keyState_read(OCT_KEY_A) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_moveBy(center, (OCT_vec2) { -1, 0 });
 		}
-		if (OCT_keyState_get(OCT_KEY_S) == OCT_KEYSTATE_DOWN) {
+		if (OCT_keyState_read(OCT_KEY_S) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_moveBy(center, (OCT_vec2) { 0, -1 });
 		}
-		if (OCT_keyState_get(OCT_KEY_D) == OCT_KEYSTATE_DOWN) {
+		if (OCT_keyState_read(OCT_KEY_D) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_moveBy(center, (OCT_vec2) { 1, 0 });
 		}
-		if (OCT_keyState_get(OCT_KEY_RIGHT) == OCT_KEYSTATE_DOWN) {
+		if (OCT_keyState_read(OCT_KEY_RIGHT) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_rotateByDeg(center, -1);
 		}
-		if (OCT_keyState_get(OCT_KEY_LEFT) == OCT_KEYSTATE_DOWN) {
+		if (OCT_keyState_read(OCT_KEY_LEFT) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_rotateByDeg(center, 1.1f);
 		}
-		if (OCT_keyState_get(OCT_KEY_UP) == OCT_KEYSTATE_DOWN) {
+		if (OCT_keyState_read(OCT_KEY_UP) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_moveBy(LB, (OCT_vec2) { -0.1, -0.1 });
 			OCT_transform2D_moveBy(LT, (OCT_vec2) { -0.1, 0.1 });
 			OCT_transform2D_moveBy(RT, (OCT_vec2) { 0.1, 0.1 });
 			OCT_transform2D_moveBy(RB, (OCT_vec2) { 0.1, -0.1 });
 		}
-		if (OCT_keyState_get(OCT_KEY_DOWN) == OCT_KEYSTATE_DOWN) {
+		if (OCT_keyState_read(OCT_KEY_DOWN) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_moveBy(LB, (OCT_vec2) { 0.1, 0.1 });
 			OCT_transform2D_moveBy(LT, (OCT_vec2) { 0.1, -0.1 });
 			OCT_transform2D_moveBy(RT, (OCT_vec2) { -0.1, -0.1 });
 			OCT_transform2D_moveBy(RB, (OCT_vec2) { -0.1, 0.1 });
 		}
 
+		if (OCT_keyState_read(OCT_KEY_MOUSE_MIDDLE) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_moveTo(center, (OCT_vec2) { 0, 0 });
+		}
+
+		if (OCT_keyState_read(OCT_KEY_MOUSE_LEFT) == OCT_KEYSTATE_DOWN) {
+			OCT_transform2D_moveTo(center, cursorPos);
+		}
 
 		OCT_INPModule_update();
 		OCT_ECSModule_update();

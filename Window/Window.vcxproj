@@ -141,7 +141,8 @@
     <ClInclude Include="GLFW\include\GLFW\glfw3native.h" />
     <ClInclude Include="include\module\WDWModule.h" />
     <ClInclude Include="include\window\window.h" />
-    <ClInclude Include="internal\keys\keys_internal.h" />
+    <ClInclude Include="include\_WDW_Output\_WDW_include.h" />
+    <ClInclude Include="internal\inputs\inputs_internal.h" />
     <ClInclude Include="internal\module\WDWModule.h" />
     <ClInclude Include="internal\module\WDWModule_internal.h" />
     <ClInclude Include="internal\types_internal.h" />
@@ -150,7 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLAD\src\glad.c" />
-    <ClCompile Include="internal\keys\keys.c" />
+    <ClCompile Include="internal\inputs\inputs.c" />
     <ClCompile Include="internal\module\WDWModule.c" />
     <ClCompile Include="internal\window\window.c" />
   </ItemGroup>

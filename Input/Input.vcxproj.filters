@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="internal\keys\keys_internal.h">
+    <ClInclude Include="internal\input\keys\keys_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="internal\module\INPModule_internal.h">
@@ -36,15 +36,24 @@
     <ClInclude Include="include\input\keys\keys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="internal\input\cursor\cursor_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\input\cursor\cursor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\keys\keys.c">
+    <ClCompile Include="internal\input\keys\keys.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\module\messageHandling.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="internal\module\INPModule.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\input\cursor\cursor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

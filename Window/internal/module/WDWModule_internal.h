@@ -9,10 +9,12 @@
 
 struct iOCT_WDWModule {
 	GLFWwindow* windowPtr;
-	OCT_vec2 resolution;
+	OCT_vec2 targetResolution;
+	OCT_vec2 currentResolution;
 
 	OCT_key* keyMap;
 	OCT_key* mouseMap;
+	OCT_vec2 cursorPos;
 };
 
 extern iOCT_WDWModule iOCT_WDWModule_instance;

@@ -4,7 +4,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#include "keys/keys_internal.h"
+#include "input/keys/keys_internal.h"
 
 void iOCT_INPModule_handleMSGs() {
 	cOCT_message msg = cOCT_message_pop(OCT_subsystem_input);

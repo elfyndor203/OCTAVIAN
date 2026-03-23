@@ -7,10 +7,10 @@
 static OCT_keyState iOCT_keyStateList[OCT_KEYS_TOTAL];
 
 
-OCT_keyState OCT_keyState_get(OCT_key key) {
-	return iOCT_keyState_get(key);
+OCT_keyState OCT_keyState_read(OCT_key key) {
+	return iOCT_keyState_read(key);
 }
-OCT_keyState iOCT_keyState_get(OCT_key key) {
+OCT_keyState iOCT_keyState_read(OCT_key key) {
 	return iOCT_keyStateList[key];
 }
 

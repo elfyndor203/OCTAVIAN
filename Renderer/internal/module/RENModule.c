@@ -8,6 +8,7 @@
 
 #include "renderer/layer/layer_internal.h"
 #include "renderer/shader/shader/shader_internal.h"
+#include "_WDW_Output/_WDW_include.h"
 
 static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale);
 
@@ -106,7 +107,22 @@ static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale) {
 #pragma regionend
 
 #pragma region cross-module requests
-OCT_vec2 _OCT_worldRatio_get() {
-	return iOCT_RENModule_instance.worldScale;
+OCT_vec2 _OCT_renderer_projectCoords(OCT_vec2 screen) {
+	OCT_vec2 offset;
+	OCT_vec2 window = _OCT_window_getResolution(&offset);
+	OCT_vec2 displayArea = {
+		.x = window.x - (2 * offset.x),
+		.y = window.y - (2 * offset.y)
+	};
+
+	OCT_vec2 normalized = {
+		.x = (screen.x - offset.x) / displayArea.x * 2.0f - 1.0f,
+		.y = 1.0f - (screen.y - offset.y) / displayArea.y * 2.0f
+	};
+
+	OCT_vec3 ndc = { normalized.x, normalized.y, 1.0f };
+	OCT_vec3 worldPos = OCT_mat3_mulVec(iOCT_RENModule_instance.worldProj, ndc);
+
+	return (OCT_vec2) { worldPos.x, worldPos.y };
 }
 #pragma endregion

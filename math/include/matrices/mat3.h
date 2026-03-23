@@ -1,6 +1,7 @@
 #pragma once
 
 #include "vectors/vec2.h"
+#include "vectors/vec3.h"
 
 /// <summary>
 /// Row-major 3x3 matrix
@@ -22,3 +23,4 @@ typedef struct OCT_mat3 {
 extern OCT_mat3 OCT_mat3_identity;
 
 OCT_mat3 OCT_mat3_mul(OCT_mat3 matrixA, OCT_mat3 matrixB);
+OCT_vec3 OCT_mat3_mulVec(OCT_mat3 matrix, OCT_vec3 vector);

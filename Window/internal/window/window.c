@@ -28,7 +28,7 @@ void iOCT_window_viewport(int width, int height) {
 	glViewport(0, 0, width, height);
 
     float aspect = width / height;
-	float targetAspect = iOCT_WDWModule_instance.resolution.x / iOCT_WDWModule_instance.resolution.y;
+	float targetAspect = iOCT_WDWModule_instance.targetResolution.x / iOCT_WDWModule_instance.targetResolution.y;
 
     int viewWidth, viewHeight, offsetX, offsetY;
 
@@ -50,6 +50,13 @@ void iOCT_window_viewport(int width, int height) {
 
 #pragma region callbacks
 void iOCT_window_callback_resize(GLFWwindow* window, int newWidth, int newHeight) {
+    iOCT_WDWModule_instance.currentResolution = (OCT_vec2){ newWidth, newHeight };
     iOCT_window_viewport(newWidth, newHeight);
+}
+#pragma endregion
+
+#pragma region cross-module requests
+OCT_vec2 _OCT_window_getResolution(OCT_vec2* viewPortOffset) {
+    return iOCT_WDWModule_instance.currentResolution;
 }
 #pragma endregion

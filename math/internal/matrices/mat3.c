@@ -17,3 +17,13 @@ OCT_mat3 OCT_mat3_mul(OCT_mat3 matA, OCT_mat3 matB) {
     };
     return result;
 }
+
+OCT_vec3 OCT_mat3_mulVec(OCT_mat3 mat, OCT_vec3 vec) {
+    OCT_vec3 result = {
+        mat.c0r0 * vec.x + mat.c1r0 * vec.y + mat.c2r0 * vec.z,
+        mat.c0r1 * vec.x + mat.c1r1 * vec.y + mat.c2r1 * vec.z,
+        mat.c0r2 * vec.x + mat.c1r2 * vec.y + mat.c2r2 * vec.z
+    };
+
+    return result;
+}

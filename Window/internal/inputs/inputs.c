@@ -1,5 +1,5 @@
 #pragma once
-#include "keys/keys_internal.h"
+#include "inputs/inputs_internal.h"
 
 #include "cOCT_EngineStructure.h"
 #include "OCT_Errors.h"
@@ -141,7 +141,7 @@ void iOCT_keyMap_init() {
 
 void iOCT_mouseMap_init() {
     iOCT_WDWModule_instance.mouseMap = (OCT_key*)calloc((GLFW_MOUSE_BUTTON_LAST + 1), sizeof(OCT_key));
-    OCT_key* map = iOCT_WDWModule_instance.keyMap;
+    OCT_key* map = iOCT_WDWModule_instance.mouseMap;
 
     if (!map) {
         OCT_logError(EXIT_FAILED_TO_ALLOCATE);
@@ -149,8 +149,8 @@ void iOCT_mouseMap_init() {
     }
 
     map[GLFW_MOUSE_BUTTON_1] = OCT_KEY_MOUSE_LEFT;
-    map[GLFW_MOUSE_BUTTON_2] = OCT_KEY_MOUSE_MIDDLE;
-    map[GLFW_MOUSE_BUTTON_3] = OCT_KEY_MOUSE_RIGHT;
+    map[GLFW_MOUSE_BUTTON_2] = OCT_KEY_MOUSE_RIGHT;
+    map[GLFW_MOUSE_BUTTON_3] = OCT_KEY_MOUSE_MIDDLE;
     map[GLFW_MOUSE_BUTTON_4] = OCT_KEY_MOUSE_4;
     map[GLFW_MOUSE_BUTTON_5] = OCT_KEY_MOUSE_5;
 }
@@ -171,6 +171,10 @@ void iOCT_window_keyEvent(OCT_key key, int action, int modifiers) {
     cOCT_message_push(OCT_subsystem_input, keyMsg);
 }
 
+OCT_vec2 OCT_window_cursorPos_get() {
+    return iOCT_WDWModule_instance.cursorPos;
+}
+
 #pragma region helpers
 static OCT_key iOCT_getOCTKey(int glfwKey) {
     return iOCT_WDWModule_instance.keyMap[glfwKey];
@@ -187,5 +191,9 @@ void iOCT_window_callback_keyEvent(GLFWwindow* window, int key, int scancode, in
 
 void iOCT_window_callback_mouseEvent(GLFWwindow* window, int key, int action, int modifiers) {
     iOCT_window_keyEvent(iOCT_getOCTButton(key), action, modifiers);
+}
+
+void iOCT_window_callback_mouseMove(GLFWwindow* window, double x, double y) {
+    iOCT_WDWModule_instance.cursorPos = (OCT_vec2){ x, y };
 }
 #pragma endregion

@@ -22,6 +22,6 @@
     <ClInclude Include="include\module\RENModule.h" />
     <ClInclude Include="include\OCT_Renderer.h" />
     <ClInclude Include="include\renderer\layer\layer.h" />
-    <ClInclude Include="include\_REN_Output\_WDW_include.h" />
+    <ClInclude Include="include\_REN_Output\_REN_include.h" />
   </ItemGroup>
 </Project>

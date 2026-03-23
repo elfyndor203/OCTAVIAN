@@ -24,7 +24,7 @@
     <ClCompile Include="internal\module\WDWModule.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="internal\keys\keys.c">
+    <ClCompile Include="internal\inputs\inputs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,7 +62,10 @@
     <ClInclude Include="internal\types_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal\keys\keys_internal.h">
+    <ClInclude Include="internal\inputs\inputs_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\_WDW_Output\_WDW_include.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

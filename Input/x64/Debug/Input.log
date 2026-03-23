@@ -1,5 +1,7 @@
-﻿  keys.c
+﻿  cursor.c
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Input\internal\input\cursor\cursor.c(14,2): warning C4013: 'printf' undefined; assuming extern returning int
+  keys.c
   INPModule.c
   messageHandling.c
   Generating Code...
-  Input.vcxproj -> C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\x64\Debug\Input.lib
+  Input.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Input.lib
