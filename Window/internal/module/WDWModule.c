@@ -35,6 +35,7 @@ void iOCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OC
 	iOCT_WDWModule_instance.resolution = (OCT_vec2){ width, height };
 	iOCT_window_viewport(width, height);
 	iOCT_keyMap_init();
+	iOCT_mouseMap_init();
 }
 
 void OCT_WDWModule_update() {

@@ -10,6 +10,7 @@
 #include "module/WDWModule_internal.h"
 
 static OCT_key iOCT_getOCTKey(int GLFW_KEY);
+static OCT_key iOCT_getOCTButton(int glfwButton);
 
 void iOCT_keyMap_init() {
 	iOCT_WDWModule_instance.keyMap = (OCT_key*)calloc((GLFW_KEY_LAST + 1), sizeof(OCT_key));
@@ -171,8 +172,11 @@ void iOCT_window_keyEvent(OCT_key key, int action, int modifiers) {
 }
 
 #pragma region helpers
-static OCT_key iOCT_getOCTKey(int GLFW_KEY) {
-    return iOCT_WDWModule_instance.keyMap[GLFW_KEY];
+static OCT_key iOCT_getOCTKey(int glfwKey) {
+    return iOCT_WDWModule_instance.keyMap[glfwKey];
+}
+static OCT_key iOCT_getOCTButton(int glfwButton) {
+    return iOCT_WDWModule_instance.mouseMap[glfwButton];
 }
 #pragma endregion
 
@@ -182,6 +186,6 @@ void iOCT_window_callback_keyEvent(GLFWwindow* window, int key, int scancode, in
 }
 
 void iOCT_window_callback_mouseEvent(GLFWwindow* window, int key, int action, int modifiers) {
-    iOCT_window_keyEvent(iOCT_getOCTKey(key), action, modifiers);
+    iOCT_window_keyEvent(iOCT_getOCTButton(key), action, modifiers);
 }
 #pragma endregion

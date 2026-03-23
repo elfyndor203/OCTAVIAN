@@ -1,18 +1,1 @@
-﻿  main.c
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(90,44): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(90,50): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(91,44): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(91,50): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(92,44): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(92,49): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(93,44): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(93,49): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(96,44): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(96,49): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(97,44): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(97,49): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(98,44): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(98,50): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(99,44): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\zGameTest\main.c(99,50): warning C4305: 'initializing': truncation from 'double' to 'float'
-  zGameTest.vcxproj -> C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\x64\Debug\zGameTest.exe
+﻿  zGameTest.vcxproj -> C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\x64\Debug\zGameTest.exe
