@@ -37,6 +37,7 @@ void iOCT_window_viewport(int width, int height) {
         viewWidth = (int)(height * targetAspect);
         offsetX = (width - viewWidth) / 2;
         offsetY = 0;
+
     }
     else { // too tall
         viewWidth = width;
@@ -44,6 +45,8 @@ void iOCT_window_viewport(int width, int height) {
         offsetX = 0;
         offsetY = (height - viewHeight) / 2;
     }
+    iOCT_WDWModule_instance.windowOffset.x = offsetX;
+    iOCT_WDWModule_instance.windowOffset.y = offsetY;
 
     glViewport(offsetX, offsetY, viewWidth, viewHeight);
 }
@@ -57,6 +60,7 @@ void iOCT_window_callback_resize(GLFWwindow* window, int newWidth, int newHeight
 
 #pragma region cross-module requests
 OCT_vec2 _OCT_window_getResolution(OCT_vec2* viewPortOffset) {
+    *viewPortOffset = iOCT_WDWModule_instance.windowOffset;
     return iOCT_WDWModule_instance.currentResolution;
 }
 #pragma endregion

@@ -100,10 +100,11 @@ int main() {
 	float sine = 0;
 	OCT_vec2 cursorPos;
 	while (!OCT_window_closed()) {
+		OCT_WDWModule_startFrame();
 
 		cycle += 0.01f;
 		sine = sinf(cycle) / 8;
-		cursorPos = OCT_cursorPos_get(false);
+		cursorPos = OCT_cursorPos_get(true);
 
 		//printf("%f\n", sine);
 
@@ -160,14 +161,14 @@ int main() {
 			OCT_transform2D_moveTo(center, (OCT_vec2) { 0, 0 });
 		}
 
-		if (OCT_keyState_read(OCT_KEY_MOUSE_LEFT) == OCT_KEYSTATE_DOWN) {
+		if (OCT_keyState_read(OCT_KEY_MOUSE_LEFT) == OCT_KEYSTATE_UP) {
 			OCT_transform2D_moveTo(center, cursorPos);
 		}
 
 		OCT_INPModule_update();
 		OCT_ECSModule_update();
 		OCT_RENModule_update();
-		OCT_WDWModule_update();
+		OCT_WDWModule_endFrame();
 
 
 	};

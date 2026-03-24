@@ -1,10 +1,2 @@
-﻿  messageHandling.c
-  layer.c
-  RENModule.c
-  rendererObject.c
-C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\Renderer\internal\module\RENModule.c(107,9): warning C4068: unknown pragma 'regionend'
-  shader.c
-  spriteData.c
-  texture.c
-  Generating Code...
-  Renderer.vcxproj -> C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib
+﻿  RENModule.c
+  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib

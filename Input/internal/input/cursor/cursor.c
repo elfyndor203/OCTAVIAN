@@ -8,6 +8,7 @@
 
 OCT_vec2 OCT_cursorPos_get(bool virtual) {
 	OCT_vec2 pos = OCT_window_cursorPos_get();
+	//printf("Coords: %f, %f\n", pos.x, pos.y);
 	if (virtual) {
 		pos = _OCT_renderer_projectCoords(pos);
 	}

@@ -40,10 +40,12 @@ void iOCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OC
 	iOCT_mouseMap_init();
 }
 
-void OCT_WDWModule_update() {
+void OCT_WDWModule_startFrame() {
+	glfwPollEvents();
+}
+void OCT_WDWModule_endFrame() {
 	iOCT_window_show();
 	iOCT_window_wipe();
-	glfwPollEvents();
 }
 
 bool OCT_window_closed() {
