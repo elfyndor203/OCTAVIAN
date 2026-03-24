@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -93,7 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)Input\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,7 +125,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)GLAD\include;$(ProjectDir)GLFW\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,6 +141,8 @@
     <ClInclude Include="GLFW\include\GLFW\glfw3native.h" />
     <ClInclude Include="include\module\WDWModule.h" />
     <ClInclude Include="include\window\window.h" />
+    <ClInclude Include="include\_WDW_Output\_WDW_include.h" />
+    <ClInclude Include="internal\inputs\inputs_internal.h" />
     <ClInclude Include="internal\module\WDWModule.h" />
     <ClInclude Include="internal\module\WDWModule_internal.h" />
     <ClInclude Include="internal\types_internal.h" />
@@ -149,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLAD\src\glad.c" />
+    <ClCompile Include="internal\inputs\inputs.c" />
     <ClCompile Include="internal\module\WDWModule.c" />
     <ClCompile Include="internal\window\window.c" />
   </ItemGroup>

@@ -1,5 +1,5 @@
-﻿  RESModule.c
+﻿  resourceList.c
   image.c
-  resourceList.c
+  RESModule.c
   Generating Code...
   Resources.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Resources.lib

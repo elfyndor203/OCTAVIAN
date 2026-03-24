@@ -21,6 +21,7 @@ struct iOCT_RENModule {
 	OCT_vec2 worldScale;
 	GLuint worldProjUniform;
 	OCT_mat3 worldProj;
+	OCT_mat3 inverseWorldProj;
 };
 extern iOCT_RENModule iOCT_RENModule_instance;
 

@@ -5,6 +5,7 @@
 #include <stdbool.h>
 
 #include "layout/engineLayout.h"
+#include "layout/types.h"
 
 #define cOCT_MESSAGES_MAX 64
 
@@ -15,8 +16,8 @@ enum cOCT_messageTypes {
 
 	cOCT_MSG_RENDERABLE_NEW,
 	
-	cOCT_MSG_BUTTON_DOWN,
-	cOCT_MSG_BUTTON_UP
+	cOCT_MSG_KEY_DOWN,
+	cOCT_MSG_KEY_UP
 };
 
 struct cOCT_message {
@@ -28,7 +29,7 @@ struct cOCT_message {
 
 		struct { OCT_handle layerHandle; OCT_handle entityHandle; OCT_handle transformHandle; OCT_handle renderableHandle; } renderable_new;
 		struct { OCT_vec2 windowSize; } windowSize_set;
-		struct { int button; int modifiers; } button_event;
+		struct { int key; } key_event;
 	};
 };
 

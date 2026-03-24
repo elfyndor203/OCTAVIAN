@@ -8,8 +8,10 @@
 
 #include "renderer/layer/layer_internal.h"
 #include "renderer/shader/shader/shader_internal.h"
+#include "_WDW_Output/_WDW_include.h"
 
 static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale);
+static OCT_mat3 invertWorldProj(OCT_mat3 proj);
 
 iOCT_RENModule iOCT_RENModule_instance = { 0 };
 
@@ -45,13 +47,16 @@ void iOCT_RENModule_init(OCT_vec2 coordinateScale) {
 
 	// load basic sprite shader
 	GLuint basicShader = iOCT_shader_createProgram(
-		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.vert",
-		"C:/Users/Elfyndor/MyDocuments/Projects/OCTAVIAN/Renderer/internal/renderer/shader/sprite/sprite.frag");
+		"../renderer/internal/renderer/shader/sprite/sprite.vert",
+		"../renderer/internal/renderer/shader/sprite/sprite.frag");
 	iOCT_RENModule_instance.spriteShader = basicShader;
 	glUseProgram(basicShader);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	iOCT_RENModule_instance.worldScale = coordinateScale;
 	iOCT_RENModule_instance.worldProj = iOCT_calcWorldProj(coordinateScale);
+	iOCT_RENModule_instance.inverseWorldProj = invertWorldProj(iOCT_RENModule_instance.worldProj);
 	iOCT_RENModule_instance.worldProjUniform = glGetUniformLocation(basicShader, "worldProj");
 	glUniformMatrix3fv(iOCT_RENModule_instance.worldProjUniform, 1, GL_FALSE, &iOCT_RENModule_instance.worldProj.c0r0);
 	GL_CHECK();
@@ -98,13 +103,37 @@ static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale) {
 	proj.c1r1 = 2 / coordinateScale.y;
 	proj.c2r0 = -1;
 	proj.c2r1 = -1;
-	proj.c2r2 = -1;
+	proj.c2r2 = 1;
 	return proj;
 }
-#pragma regionend
+
+static OCT_mat3 invertWorldProj(OCT_mat3 proj) {
+	OCT_mat3 inv = { 0 };
+	inv.c0r0 = 1.0f / proj.c0r0;
+	inv.c1r1 = 1.0f / proj.c1r1;
+	inv.c2r0 = 0.0f;
+	inv.c2r1 = 0.0f;
+	inv.c2r2 = 1.0f;
+	return inv;
+}
+#pragma endregion
 
 #pragma region cross-module requests
-OCT_vec2 _OCT_worldRatio_get() {
-	return iOCT_RENModule_instance.worldScale;
+OCT_vec2 _OCT_renderer_projectCoords(OCT_vec2 screen) {
+	OCT_vec2 offset;
+	OCT_vec2 window = _OCT_window_getResolution(&offset);
+	OCT_vec2 displayArea = {
+		.x = window.x - (2 * offset.x),
+		.y = window.y - (2 * offset.y)
+	};
+
+	OCT_vec2 normalized = {
+		.x = (screen.x - offset.x) / displayArea.x * 2.0f - 1.0f,
+		.y = 1.0f - (screen.y - offset.y) / displayArea.y * 2.0f
+	};
+	OCT_vec3 normVec = { normalized.x, normalized.y, 1.0f };
+	OCT_vec3 worldPos = OCT_mat3_mulVec(iOCT_RENModule_instance.inverseWorldProj, normVec);
+
+	return (OCT_vec2) { worldPos.x, worldPos.y };
 }
 #pragma endregion

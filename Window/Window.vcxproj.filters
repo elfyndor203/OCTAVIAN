@@ -24,6 +24,9 @@
     <ClCompile Include="internal\module\WDWModule.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="internal\inputs\inputs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLAD\include\glad\glad.h">
@@ -57,6 +60,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="internal\types_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\inputs\inputs_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\_WDW_Output\_WDW_include.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

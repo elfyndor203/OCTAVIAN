@@ -6,6 +6,7 @@
 #include <stdbool.h>
 
 #include "window/window_internal.h"
+#include "inputs/inputs_internal.h"
 
 iOCT_WDWModule iOCT_WDWModule_instance = { 0 };
 
@@ -24,20 +25,28 @@ void iOCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OC
 	glfwMakeContextCurrent(window);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
-	glClearColor(color.x, color.y, color.z, color.a);
-	iOCT_WDWModule_instance.windowPtr = window;
-	iOCT_WDWModule_instance.resolution = (OCT_vec2){ width, height };
-
 	glfwSetFramebufferSizeCallback(window, iOCT_window_callback_resize);
 	glfwSetKeyCallback(window, iOCT_window_callback_keyEvent);
 	glfwSetMouseButtonCallback(window, iOCT_window_callback_mouseEvent);
+	glfwSetCursorPosCallback(window, iOCT_window_callback_mouseMove);
+
+	glClearColor(color.x, color.y, color.z, color.a);
+
+	glfwSwapInterval(0);
+	iOCT_WDWModule_instance.windowPtr = window;
+	iOCT_WDWModule_instance.targetResolution = (OCT_vec2){ width, height };
+	iOCT_WDWModule_instance.currentResolution = iOCT_WDWModule_instance.targetResolution;
 	iOCT_window_viewport(width, height);
+	iOCT_keyMap_init();
+	iOCT_mouseMap_init();
 }
 
-void OCT_WDWModule_update() {
+void OCT_WDWModule_startFrame() {
+	glfwPollEvents();
+}
+void OCT_WDWModule_endFrame() {
 	iOCT_window_show();
 	iOCT_window_wipe();
-	glfwPollEvents();
 }
 
 bool OCT_window_closed() {
@@ -48,4 +57,3 @@ bool OCT_window_closed() {
 		return false;
 	}
 }
-

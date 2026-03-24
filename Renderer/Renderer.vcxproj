@@ -33,7 +33,7 @@
     <ClInclude Include="include\module\RENModule.h" />
     <ClInclude Include="include\OCT_Renderer.h" />
     <ClInclude Include="include\renderer\layer\layer.h" />
-    <ClInclude Include="include\_REN_Output\_WDW_include.h" />
+    <ClInclude Include="include\_REN_Output\_REN_include.h" />
     <ClInclude Include="internal\renderer\layer\layer_internal.h" />
     <ClInclude Include="internal\module\RENModule_internal.h" />
     <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
@@ -117,7 +117,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_STATIC; _CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)Window\include;$(SolutionDir)Resources\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(SolutionDir)Window\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)ECS\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -138,7 +138,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_STATIC; _CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)Window\include;$(SolutionDir)Resources\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(SolutionDir)Window\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)ECS\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -157,7 +157,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_STATIC; _CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)Window\include;$(SolutionDir)Resources\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(SolutionDir)Window\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)ECS\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
@@ -179,7 +179,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_STATIC; _CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(ProjectDir)GLFW\include;$(SolutionDir)ECS\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)Window\include;$(SolutionDir)Resources\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)Glad\include;$(SolutionDir)Window\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)ECS\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
