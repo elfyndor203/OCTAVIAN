@@ -1,2 +1,9 @@
-﻿  RENModule.c
-  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib
+﻿  messageHandling.c
+  layer.c
+  RENModule.c
+  rendererObject.c
+  shader.c
+  spriteData.c
+  texture.c
+  Generating Code...
+  Renderer.vcxproj -> C:\Users\haex4\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib
