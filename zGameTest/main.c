@@ -9,17 +9,17 @@
 
 #include <math.h>
 
-OCT_vec4 purple = { 0.5, 0.0, 0.5, 1.0 };
-OCT_vec4 black = { 0.0, 0.0, 0.0, 0.5 };
-OCT_vec2 normalRect = { 96, 54};
+//OCT_vec4 purple = { 0.5, 0.0, 0.5, 1.0 };
+//OCT_vec4 black = { 0.0, 0.0, 0.0, 0.5 };
+//OCT_vec2 normalRect = { 96, 54};
+//
+//OCT_vec4 solid = { 1.0, 1.0, 1.0, 1.0 };
+//OCT_vec4 threeQSolid = { 1.0, 1.0, 1.0, 0.75 };
+//OCT_vec4 halfSolid = { 1.0, 1.0, 1.0, 0.5 };
+//OCT_vec4 quarterSolid = { 1.0, 1.0, 1.0, 0.25 };
 
-OCT_vec4 solid = { 1.0, 1.0, 1.0, 1.0 };
-OCT_vec4 threeQSolid = { 1.0, 1.0, 1.0, 0.75 };
-OCT_vec4 halfSolid = { 1.0, 1.0, 1.0, 0.5 };
-OCT_vec4 quarterSolid = { 1.0, 1.0, 1.0, 0.25 };
 
-
-int main() {
+int oldmain() {
 	OCT_WDWModule_init("OTTO OCTAvian that one guy that flew across the entire dungeon and then died", 1920, 1080, black);
 	OCT_RESModule_init();
 	OCT_RENModule_init((OCT_vec2){ 960, 540});

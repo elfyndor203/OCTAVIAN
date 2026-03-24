@@ -19,6 +19,7 @@
 static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform);
 static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2D* newTransform);
 static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID parentID, int depth);
+static void iOCT_transform2D_updateParentCaches(iOCT_entityContext* context);
 
 iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContext* context, OCT_ID transformID) {
     return iOCT_getByID(context, transformID, OCT_ECSType_transform2D);
@@ -81,6 +82,29 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
     iOCT_transform2D_insert(context, newTransform);
     // printf("ADD transform2D %5" PRIu64 " to entity %" PRIu64 " in entityContext %" PRIu64 "\n", newID, entityID, contextID);
     return newID;
+}
+
+void iOCT_transform2D_propagate(iOCT_entityContext* context) {
+    iOCT_transform2D_updateParentCaches(context);
+
+    cOCT_pool* pool = iOCT_pool_get(context, OCT_ECSType_transform2D);
+    iOCT_transform2D* array = (iOCT_transform2D*)pool->array;
+
+    iOCT_transform2D* currentTransform;
+    iOCT_transform2D* parentTransform;
+
+    OCT_index rootIndex = cOCT_IDMap_getIndex(&context->IDMap, iOCT_entity_get(context, iOCT_ROOT_ID)->transformID);
+    currentTransform = &array[rootIndex];
+    currentTransform->localMatrix = iOCT_transform2D_generateMatrix(currentTransform);
+    currentTransform->globalMatrix = currentTransform->localMatrix;
+
+    for (OCT_index index = rootIndex + 1; index < pool->count; index++) {
+        currentTransform = &array[index];
+        parentTransform = &array[currentTransform->parentCache];
+
+        currentTransform->localMatrix = iOCT_transform2D_generateMatrix(currentTransform);
+        currentTransform->globalMatrix = OCT_mat3_mul(parentTransform->globalMatrix, currentTransform->localMatrix);
+    }
 }
 
 #pragma region helpers
@@ -149,27 +173,6 @@ static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform) {
     return localMatrix;
 }
 
-void iOCT_transform2D_propagate(iOCT_entityContext* context) {
-    cOCT_pool* pool = iOCT_pool_get(context, OCT_ECSType_transform2D);
-    iOCT_transform2D* array = (iOCT_transform2D*)pool->array;
-
-    iOCT_transform2D* currentTransform;
-    iOCT_transform2D* parentTransform;
-
-    OCT_index rootIndex = cOCT_IDMap_getIndex(&context->IDMap, iOCT_entity_get(context, iOCT_ROOT_ID)->transformID);
-    currentTransform = &array[rootIndex];
-    currentTransform->localMatrix = iOCT_transform2D_generateMatrix(currentTransform);
-    currentTransform->globalMatrix = currentTransform->localMatrix;
-
-    for (OCT_index index = rootIndex + 1; index < pool->count; index++) {
-        currentTransform = &array[index];
-        parentTransform = &array[currentTransform->parentCache];
-
-        currentTransform->localMatrix = iOCT_transform2D_generateMatrix(currentTransform);
-        currentTransform->globalMatrix = OCT_mat3_mul(parentTransform->globalMatrix, currentTransform->localMatrix);
-    }
-}
-
 static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID parentID, int depth) {
     iOCT_transform2D* array = (iOCT_transform2D*)iOCT_pool_get(context, OCT_ECSType_transform2D)->array;
     OCT_index* depthEnds = context->depthEnds;
@@ -181,6 +184,19 @@ static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID
         if (transform->parentID == parentID) {
             transform->parentCache = cOCT_IDMap_getIndex(&context->IDMap, transform->parentID);
         }
+    }
+}
+
+static void iOCT_transform2D_updateParentCaches(iOCT_entityContext* context) {
+    cOCT_pool* transformPool = iOCT_pool_get(context, OCT_ECSType_transform2D);
+    iOCT_transform2D* array = (iOCT_transform2D*)transformPool->array;
+
+    iOCT_transform2D* transform;
+    OCT_index newIndex;
+    for (int i = 0; i < transformPool->count; i++) {
+        transform = &array[i];
+        newIndex = cOCT_IDMap_getIndex(&context->IDMap, transform->parentID);
+        transform->parentCache = newIndex;
     }
 }
 
