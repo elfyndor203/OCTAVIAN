@@ -1,4 +1,4 @@
 ﻿  WDWModule.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(36,57): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(36,64): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(37,57): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\module\WDWModule.c(37,64): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
   Window.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Window.lib

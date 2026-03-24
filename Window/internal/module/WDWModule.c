@@ -32,6 +32,7 @@ void iOCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OC
 
 	glClearColor(color.x, color.y, color.z, color.a);
 
+	glfwSwapInterval(0);
 	iOCT_WDWModule_instance.windowPtr = window;
 	iOCT_WDWModule_instance.targetResolution = (OCT_vec2){ width, height };
 	iOCT_WDWModule_instance.currentResolution = iOCT_WDWModule_instance.targetResolution;
