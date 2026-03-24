@@ -74,9 +74,6 @@ void iOCT_RENModule_free() {
 	free(iOCT_RENModule_instance.textureList);
 }
 
-/// <summary>
-/// Handle all incoming messages. Required between loading a texture and opening a layer.
-/// </summary>
 void OCT_RENModule_flush() {
 	iOCT_RENModule_handleMSGs();
 }

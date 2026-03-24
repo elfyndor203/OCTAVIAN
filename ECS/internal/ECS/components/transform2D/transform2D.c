@@ -147,7 +147,7 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
 
         poolArray[targetIndex] = workingTransform;      // copy the new one in
         cOCT_IDMap_remap(&context->IDMap, workingTransform.transformID, targetIndex);
-        iOCT_transform2D_updateDisplaced(context, workingTransform.transformID, workingTransform.depth);
+        //iOCT_transform2D_updateDisplaced(context, workingTransform.transformID, workingTransform.depth);
 
         workingTransform = displacedTransform;          // start doing the same to the next layer
         depthEnds[workingDepth] += 1;                   // expand the depth group by 1
@@ -173,19 +173,19 @@ static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform) {
     return localMatrix;
 }
 
-static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID parentID, int depth) {
-    iOCT_transform2D* array = (iOCT_transform2D*)iOCT_pool_get(context, OCT_ECSType_transform2D)->array;
-    OCT_index* depthEnds = context->depthEnds;
-
-    OCT_index start = depthEnds[depth] + 1;
-    iOCT_transform2D* transform;
-    for (OCT_index index = start; index < depthEnds[depth + 1]; index++) {
-        transform = &array[index];
-        if (transform->parentID == parentID) {
-            transform->parentCache = cOCT_IDMap_getIndex(&context->IDMap, transform->parentID);
-        }
-    }
-}
+//static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID parentID, int depth) {
+//    iOCT_transform2D* array = (iOCT_transform2D*)iOCT_pool_get(context, OCT_ECSType_transform2D)->array;
+//    OCT_index* depthEnds = context->depthEnds;
+//
+//    OCT_index start = depthEnds[depth] + 1;
+//    iOCT_transform2D* transform;
+//    for (OCT_index index = start; index < depthEnds[depth + 1]; index++) {
+//        transform = &array[index];
+//        if (transform->parentID == parentID) {
+//            transform->parentCache = cOCT_IDMap_getIndex(&context->IDMap, transform->parentID);
+//        }
+//    }
+//}
 
 static void iOCT_transform2D_updateParentCaches(iOCT_entityContext* context) {
     cOCT_pool* transformPool = iOCT_pool_get(context, OCT_ECSType_transform2D);

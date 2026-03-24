@@ -68,7 +68,6 @@ OCT_ID iOCT_layer_open(bool dynamic, OCT_handle texAtlasHandle) {
 	glGenBuffers(1, &newLayer->spriteBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, newLayer->spriteBuffer);
 	glBufferData(GL_ARRAY_BUFFER, iOCT_POOLSIZE_DEFAULT * sizeof(iOCT_spriteData), NULL, GL_DYNAMIC_DRAW);	// initial size
-	newLayer->spriteBufferCapacity = iOCT_POOLSIZE_DEFAULT;
 
 		// matrix
 	glVertexAttribPointer(iOCT_attrib_transformCol0, 3, GL_FLOAT, GL_FALSE, sizeof(iOCT_spriteData), (void*)offsetof(iOCT_spriteData, transform.c0r0));
