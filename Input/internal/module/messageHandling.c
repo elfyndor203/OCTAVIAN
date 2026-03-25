@@ -16,7 +16,7 @@ void iOCT_INPModule_handleMSGs() {
 		}
 		else {
 			iOCT_keyState_set(msg.key_event.key, OCT_KEYSTATE_UP);
-			//printf("Key: %d\n", msg.key_event.key);
+			printf("Key: %d\n", msg.key_event.key);
 		}
 
 		msg = cOCT_message_pop(OCT_subsystem_input);
