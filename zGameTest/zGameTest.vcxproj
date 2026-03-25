@@ -137,10 +137,11 @@
   <ItemGroup>
     <ClCompile Include="armMain.c" />
     <ClCompile Include="arm.c" />
-    <ClCompile Include="stressTest.c" />
+    <ClCompile Include="contextStressTest.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arm.h" />
+    <ClInclude Include="main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

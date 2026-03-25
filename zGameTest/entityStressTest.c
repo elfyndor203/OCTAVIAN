@@ -9,15 +9,13 @@
 #include "OCT_window.h"
 #include "OCT_Input.h"
 
+#include "main.h"
+
 #include <math.h>
 #include <stdlib.h>
 
-#define STRESS_ENTITY_COUNT 500
-#define STRESS_ARM_COUNT 5
-#define STRESS_ARM_LENGTH 8
-
-OCT_vec4 clearColor = { 0.0, 0.0, 0.0, 1.0 };
-OCT_vec2 smallRect = { 12, 7 };
+#define STRESS_ENTITY_COUNT 2000
+#define STRESS_ARM_LENGTH 15
 
 typedef struct {
     OCT_handle entity;
@@ -25,7 +23,7 @@ typedef struct {
     float rotSpeed;
 } stressEntity;
 
-int main() {
+int entityMain() {
     OCT_WDWModule_init("Stress Test", 1920, 1080, clearColor);
     OCT_RESModule_init();
     OCT_RENModule_init((OCT_vec2) { 960, 540 });
