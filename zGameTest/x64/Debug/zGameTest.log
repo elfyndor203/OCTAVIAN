@@ -1,18 +1,15 @@
 ﻿  armMain.c
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(119,38): warning C4305: 'function': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(122,43): warning C4305: 'function': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(126,49): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(129,46): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(132,49): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(135,46): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(138,47): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(138,54): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(141,47): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(141,54): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(80,22): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(120,38): warning C4305: 'function': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(123,43): warning C4305: 'function': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(127,48): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(130,46): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(133,49): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(136,46): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(139,46): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(139,53): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(142,47): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(142,54): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(81,22): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(33,13): warning C4101: 'mouseContext': unreferenced local variable
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(83,13): warning C4101: 'newlySpawned': unreferenced local variable
-  stressTest.c
-  Generating Code...
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(149,1): warning C4716: 'notmain': must return a value
+C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\zGameTest\armMain.c(84,13): warning C4101: 'newlySpawned': unreferenced local variable
   zGameTest.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\zGameTest.exe

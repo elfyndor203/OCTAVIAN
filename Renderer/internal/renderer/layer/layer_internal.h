@@ -23,7 +23,10 @@ struct iOCT_layer {
 	GLuint spriteVAO;
 
 	GLuint spriteBuffer;
+<<<<<<< HEAD
+=======
 	cOCT_pool spriteDataPool;
+>>>>>>> main
 
 	OCT_handle spriteAtlasHandle;
 	GLuint spriteAtlas;

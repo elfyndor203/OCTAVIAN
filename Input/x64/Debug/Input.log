@@ -1,6 +1,4 @@
-﻿  cursor.c
-  keys.c
-  INPModule.c
+﻿  keys.c
   messageHandling.c
   Generating Code...
   Input.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Input.lib
