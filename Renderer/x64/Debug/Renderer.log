@@ -1,8 +1,1 @@
-﻿  messageHandling.c
-  layer.c
-  RENModule.c
-  shader.c
-  spriteData.c
-  texture.c
-  Generating Code...
-  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib
+﻿  Renderer.vcxproj -> C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\x64\Debug\Renderer.lib
