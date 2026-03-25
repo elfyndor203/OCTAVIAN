@@ -21,7 +21,7 @@ OCT_vec2 downRight = { 1, -1 };
 OCT_vec2 upLeft = { -1, 1 };
 OCT_vec2 downLeft = { -1, -1 };
 
-int notmain() {
+int armMain() {
 	OCT_WDWModule_init("Arms", 1920, 1080, black);
 	OCT_RESModule_init();
 	OCT_RENModule_init((OCT_vec2) { 960, 540 });

@@ -21,12 +21,15 @@
     <ClCompile Include="armMain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stressTest.c">
+    <ClCompile Include="contextStressTest.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
