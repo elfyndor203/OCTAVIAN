@@ -3,5 +3,3 @@
 
 #include "OCT_Math.h"
 #include <glad/glad.h>
-
-#include "renderer/rendererObject/rendererObject_internal.h"

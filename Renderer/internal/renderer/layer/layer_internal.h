@@ -6,8 +6,6 @@
 #include <glad/glad.h>
 #include <stdbool.h>
 
-#include "renderer/rendererObject/rendererObject_internal.h"
-
 enum iOCT_attributes {
 	iOCT_attrib_position = 0,
 	iOCT_attrib_vertUV,

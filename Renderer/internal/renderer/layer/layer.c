@@ -8,7 +8,6 @@
 #include <assert.h>
 
 #include "module/RENModule_internal.h"
-#include "renderer/rendererObject/rendererObject_internal.h"
 #include "renderer/spriteData/spriteData_internal.h"
 #include "renderer/texture/texture_internal.h"
 
@@ -105,43 +104,6 @@ OCT_ID iOCT_layer_open(bool dynamic, OCT_handle texAtlasHandle) {
 void iOCT_layer_close(iOCT_layer* layer) {
 	cOCT_pool_free(&layer->spriteDataPool);
 }
-
-//void iOCT_layer_draw(iOCT_layer* layer) {
-//	if (layer->dynamic == false) {
-//		return;
-//	}
-//
-//	iOCT_rendererObject* array = (iOCT_rendererObject*)layer->pool.array;
-//	iOCT_rendererObject* renObj;
-//
-//	glBindVertexArray(layer->spriteVAO);
-//
-//	// shaders and textures
-//	glUseProgram(iOCT_RENModule_instance.spriteShader);
-//	glActiveTexture(GL_TEXTURE0);
-//	glBindTexture(GL_TEXTURE_2D, layer->spriteAtlas);
-//
-//	// sprite instance buffer
-//	glBindBuffer(GL_ARRAY_BUFFER, layer->spriteBuffer);
-//	glBufferData(GL_ARRAY_BUFFER, layer->pool.count * sizeof(iOCT_spriteData), NULL, GL_DYNAMIC_DRAW);	// orphan
-//	iOCT_spriteData* buffer = (iOCT_spriteData*)glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-//
-//	iOCT_spriteData* slot;
-//	for (int i = 0; i < layer->pool.count; i++) {
-//		renObj = &array[i];
-//		slot = &buffer[i];
-//
-//		slot->transform = _OCT_transform2D_getMatrix(renObj->transformHandle);
-//		slot->color = _OCT_sprite2D_getColor(renObj->renderableHandle);
-//		slot->uvRect = _OCT_sprite2D_getUV(renObj->renderableHandle);
-//		slot->dimensions = _OCT_sprite2D_getDimensions(renObj->renderableHandle);
-//	}
-//
-//	glUnmapBuffer(GL_ARRAY_BUFFER);	
-//
-//	glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0, (GLsizei)layer->pool.count);
-//
-//}
 
 void iOCT_layer_drawAll() {
 	OCT_counter contextCount = _OCT_entityContext_getCount();

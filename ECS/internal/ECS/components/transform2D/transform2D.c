@@ -18,7 +18,6 @@
 
 static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform);
 static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2D* newTransform);
-static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID parentID, int depth);
 static void iOCT_transform2D_updateParentCaches(iOCT_entityContext* context);
 
 iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContext* context, OCT_ID transformID) {
@@ -147,7 +146,6 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
 
         poolArray[targetIndex] = workingTransform;      // copy the new one in
         cOCT_IDMap_remap(&context->IDMap, workingTransform.transformID, targetIndex);
-        //iOCT_transform2D_updateDisplaced(context, workingTransform.transformID, workingTransform.depth);
 
         workingTransform = displacedTransform;          // start doing the same to the next layer
         depthEnds[workingDepth] += 1;                   // expand the depth group by 1
@@ -171,20 +169,6 @@ static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform) {
         transform->position.x, transform->position.y, 1  // column 2
     };
     return localMatrix;
-}
-
-static void iOCT_transform2D_updateDisplaced(iOCT_entityContext* context, OCT_ID parentID, int depth) {
-    iOCT_transform2D* array = (iOCT_transform2D*)iOCT_pool_get(context, OCT_ECSType_transform2D)->array;
-    OCT_index* depthEnds = context->depthEnds;
-
-    OCT_index start = depthEnds[depth] + 1;
-    iOCT_transform2D* transform;
-    for (OCT_index index = start; index < depthEnds[depth + 1]; index++) {
-        transform = &array[index];
-        if (transform->parentID == parentID) {
-            transform->parentCache = cOCT_IDMap_getIndex(&context->IDMap, transform->parentID);
-        }
-    }
 }
 
 static void iOCT_transform2D_updateParentCaches(iOCT_entityContext* context) {
@@ -303,6 +287,17 @@ OCT_vec2 iOCT_transform2D_scaleBy(iOCT_entityContext* context, OCT_ID transformI
     transform->scale.x *= delta.x;
     transform->scale.y *= delta.y;
     return transform->scale;
+}
+
+OCT_vec2 OCT_transform2D_readPos(OCT_handle entity) {
+    assert(entity.type == OCT_handle_entity);
+
+    iOCT_entityContext* context = iOCT_entityContext_get(entity.containerID);
+    OCT_ID transformID = iOCT_entity_get(context, entity.objectID)->transformID;
+    return iOCT_transform2D_readPos(context, transformID);
+}
+OCT_vec2 iOCT_transform2D_readPos(iOCT_entityContext* context, OCT_ID transformID) {
+    return iOCT_transform2D_get(context, transformID)->position;
 }
 
 #pragma endregion
