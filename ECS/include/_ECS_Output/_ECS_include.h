@@ -12,7 +12,7 @@ typedef struct {
 	OCT_handle layer;
 } _OCT_sprite2D_dataRequest;
 
-OCT_mat3 _OCT_transform2D_getMatrix(OCT_handle transformHandle);
+//OCT_mat3 _OCT_transform2D_getMatrix(OCT_handle transformHandle);
 
 OCT_vec4 _OCT_sprite2D_getUV(OCT_handle spriteHandle);
 OCT_vec4 _OCT_sprite2D_getColor(OCT_handle spriteHandle);

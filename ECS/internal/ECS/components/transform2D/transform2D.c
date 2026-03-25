@@ -300,13 +300,20 @@ OCT_vec2 iOCT_transform2D_readPos(iOCT_entityContext* context, OCT_ID transformI
     return iOCT_transform2D_get(context, transformID)->position;
 }
 
+OCT_vec2 OCT_transform2D_readPosGlobal(OCT_handle entity) {
+    assert(entity.type == OCT_handle_entity);
+
+    iOCT_entityContext* context = iOCT_entityContext_get(entity.containerID);
+    OCT_ID transformID = iOCT_entity_get(context, entity.objectID)->transformID;
+    return iOCT_transform2D_readPosGlobal(context, transformID);
+}
+OCT_vec2 iOCT_transform2D_readPosGlobal(iOCT_entityContext* context, OCT_ID transformID) {
+    OCT_mat3 transform = iOCT_transform2D_get(context, transformID)->globalMatrix;
+    return (OCT_vec2) { transform.c2r0, transform.c2r1 };
+}
+
 #pragma endregion
 
 #pragma region cross-module requests
 
-OCT_mat3 _OCT_transform2D_getMatrix(OCT_handle transformHandle) {
-    assert(transformHandle.type == OCT_handle_transform2D);
-    iOCT_entityContext* context = iOCT_entityContext_get(transformHandle.containerID);
-    return iOCT_transform2D_get(context, transformHandle.objectID)->globalMatrix;
-}
 #pragma endregion

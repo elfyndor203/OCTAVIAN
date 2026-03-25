@@ -79,7 +79,7 @@ int main() {
 
             // move and bounce off virtual screen edges
             OCT_transform2D_moveBy(e, entities[i].velocity);
-            OCT_vec2 pos = OCT_transform2D_readPos(e);
+            OCT_vec2 pos = OCT_transform2D_readPosGlobal(e);
             if (pos.x > 480 || pos.x < -480) entities[i].velocity.x *= -1;
             if (pos.y > 270 || pos.y < -270) entities[i].velocity.y *= -1;
 
