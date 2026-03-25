@@ -29,11 +29,11 @@ void iOCT_RENModule_handleMSGs() {
 			cOCT_message_push(OCT_subsystem_resources, doneMsg);
 			break;
 		}
-		case cOCT_MSG_RENDERABLE_NEW: {
-			iOCT_layer* layer = iOCT_layer_get(msg.renderable_new.layerHandle.objectID);
-			iOCT_rendererObject_add(layer, msg.renderable_new.entityHandle, msg.renderable_new.transformHandle, msg.renderable_new.renderableHandle);
-			break;
-		}
+		//case cOCT_MSG_RENDERABLE_NEW: {
+		//	iOCT_layer* layer = iOCT_layer_get(msg.renderable_new.layerHandle.objectID);
+		//	iOCT_rendererObject_add(layer, msg.renderable_new.entityHandle, msg.renderable_new.transformHandle, msg.renderable_new.renderableHandle);
+		//	break;
+		//}
 		default:
 			assert(false && "Message unhandled by REN");
 		}

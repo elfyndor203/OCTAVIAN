@@ -35,7 +35,7 @@
     <ClInclude Include="include\ECS\gameObjects.h" />
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="include\math\vectors.h" />
-    <ClInclude Include="include\_ECS_Output\_REN_include.h" />
+    <ClInclude Include="include\_ECS_Output\_ECS_include.h" />
     <ClInclude Include="internal\ECS\components\hitBox2D\hitBox2D_internal.h" />
     <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
     <ClInclude Include="internal\module\ECSModule_internal.h" />

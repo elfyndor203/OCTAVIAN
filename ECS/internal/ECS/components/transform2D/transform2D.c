@@ -147,7 +147,7 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
 
         poolArray[targetIndex] = workingTransform;      // copy the new one in
         cOCT_IDMap_remap(&context->IDMap, workingTransform.transformID, targetIndex);
-        iOCT_transform2D_updateDisplaced(context, workingTransform.transformID, workingTransform.depth);
+        //iOCT_transform2D_updateDisplaced(context, workingTransform.transformID, workingTransform.depth);
 
         workingTransform = displacedTransform;          // start doing the same to the next layer
         depthEnds[workingDepth] += 1;                   // expand the depth group by 1

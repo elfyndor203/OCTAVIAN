@@ -123,5 +123,9 @@ void iOCT_entityContext_update(iOCT_entityContext* context) {
 	iOCT_transform2D_propagate(context);
 }
 
-
+#pragma region cross-module requests
+OCT_counter _OCT_entityContext_getCount() {
+	return iOCT_ECSModule_instance.pool.count;
+}
+#pragma endregion
 
