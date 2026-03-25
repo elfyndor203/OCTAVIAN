@@ -21,7 +21,7 @@
     <ClCompile Include="armMain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="contextStressTest.c">
+    <ClCompile Include="entityStressTest.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

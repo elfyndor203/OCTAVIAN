@@ -137,7 +137,7 @@
   <ItemGroup>
     <ClCompile Include="armMain.c" />
     <ClCompile Include="arm.c" />
-    <ClCompile Include="contextStressTest.c" />
+    <ClCompile Include="entityStressTest.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arm.h" />

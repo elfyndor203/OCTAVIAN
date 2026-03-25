@@ -25,7 +25,7 @@ typedef struct {
     float rotSpeed;
 } stressContext;
 
-int main() {
+int contextmain() {
     OCT_WDWModule_init("Context Stress", 1920, 1080, clearColor);
     OCT_RESModule_init();
     OCT_RENModule_init((OCT_vec2) { 960, 540 });

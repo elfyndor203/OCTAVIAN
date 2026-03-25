@@ -23,7 +23,7 @@ typedef struct {
     float rotSpeed;
 } stressEntity;
 
-int entityMain() {
+int main() {
     OCT_WDWModule_init("Stress Test", 1920, 1080, clearColor);
     OCT_RESModule_init();
     OCT_RENModule_init((OCT_vec2) { 960, 540 });
@@ -40,6 +40,8 @@ int entityMain() {
 
     // spawn stress entities, each with a small arm cluster
     stressEntity entities[STRESS_ENTITY_COUNT];
+    arm armList[STRESS_ENTITY_COUNT * 4];
+    int armCount = 0;
     for (int i = 0; i < STRESS_ENTITY_COUNT; i++) {
         OCT_handle root = OCT_entity_new(context);
         entities[i].entity = root;
@@ -57,10 +59,11 @@ int entityMain() {
         // attach a small arm in each diagonal
         OCT_handle armRoot;
         OCT_handle layer = (i % 2 == 0) ? layer1 : layer2;
-        spawnArm(STRESS_ARM_LENGTH, root, layer, smallRect, (OCT_vec2) { 1, 1 }, & armRoot);
-        spawnArm(STRESS_ARM_LENGTH, root, layer, smallRect, (OCT_vec2) { 1, -1 }, & armRoot);
-        spawnArm(STRESS_ARM_LENGTH, root, layer, smallRect, (OCT_vec2) { -1, 1 }, & armRoot);
-        spawnArm(STRESS_ARM_LENGTH, root, layer, smallRect, (OCT_vec2) { -1, -1 }, & armRoot);
+        armList[armCount++] = spawnArm(STRESS_ARM_LENGTH, root, layer, smallRect, (OCT_vec2) { 1, 1 }, & armRoot);
+        armList[armCount++] = spawnArm(STRESS_ARM_LENGTH, root, layer, smallRect, (OCT_vec2) { 1, -1 }, & armRoot);
+        armList[armCount++] = spawnArm(STRESS_ARM_LENGTH, root, layer, smallRect, (OCT_vec2) { -1, 1 }, & armRoot);
+        armList[armCount++] = spawnArm(STRESS_ARM_LENGTH, root, layer, smallRect, (OCT_vec2) { -1, -1 }, & armRoot);
+        printf("Armcount: %d\n", armCount);
     }
 
     float time = 0.0f;
@@ -92,11 +95,30 @@ int entityMain() {
             }
         }
 
-        // press R to reset all positions
+        // rest positions
         if (OCT_keyState_read(OCT_KEY_R) == OCT_KEYSTATE_DOWN) {
             for (int i = 0; i < STRESS_ENTITY_COUNT; i++) {
                 OCT_transform2D_moveTo(entities[i].entity, (OCT_vec2) { 0, 0 });
             }
+        }
+
+        if (OCT_keyState_read(OCT_KEY_LEFT) == OCT_KEYSTATE_DOWN) {
+            for (int i = 0; i < armCount; i++) {
+                rotateArm(armList[i], 1, 1.1);
+            }
+        }
+
+        if (OCT_keyState_read(OCT_KEY_RIGHT) == OCT_KEYSTATE_DOWN) {
+            for (int i = 1; i < armCount; i++) {
+                rotateArm(armList[i], -1, 1.1);
+            }
+        }
+
+        if (OCT_keyState_read(OCT_KEY_2) == OCT_KEYSTATE_DOWN) {
+            OCT_transform2D_scaleBy(contextRoot, (OCT_vec2) { 1.01, 1.01 });
+        }
+        if (OCT_keyState_read(OCT_KEY_1) == OCT_KEYSTATE_DOWN) {
+            OCT_transform2D_scaleBy(contextRoot, (OCT_vec2) { 0.99, 0.99 });
         }
 
         OCT_INPModule_update();
