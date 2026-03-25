@@ -1,3 +1,4 @@
 /.vs/
 /TrashForReference/
 **/x64
+*.lnk
