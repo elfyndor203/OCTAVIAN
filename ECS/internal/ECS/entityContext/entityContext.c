@@ -12,12 +12,14 @@
 #include "ECS/components/transform2D/transform2D_internal.h"
 #include "ECS/components/hitBox2D/hitBox2D_internal.h"
 #include "ECS/components/sprite2D/sprite2D_internal.h"
+#include "ECS/components/physics2D/physics2D_internal.h"
 
 static size_t sizeList[OCT_ECSTypes_total] = {
 	sizeof(iOCT_entity),
 	sizeof(iOCT_transform2D),
 	sizeof(iOCT_hitBox2D),
-	sizeof(iOCT_sprite2D)
+	sizeof(iOCT_sprite2D),
+	sizeof(iOCT_physics2D)
 };
 
 iOCT_entityContext* iOCT_entityContext_get(OCT_ID contextID) {				// valid as long as the entityContext exists
