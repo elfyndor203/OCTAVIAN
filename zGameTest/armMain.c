@@ -21,7 +21,7 @@ OCT_vec2 downRight = { 1, -1 };
 OCT_vec2 upLeft = { -1, 1 };
 OCT_vec2 downLeft = { -1, -1 };
 
-int main() {
+int notmain() {
 	OCT_WDWModule_init("Arms", 1920, 1080, black);
 	OCT_RESModule_init();
 	OCT_RENModule_init((OCT_vec2) { 960, 540 });
@@ -29,8 +29,11 @@ int main() {
 
 	OCT_handle contextRoot;
 	OCT_handle armContext = OCT_entityContext_open(&contextRoot);
+	OCT_handle mouseRoot;
+	OCT_handle mouseContext = OCT_entityContext_open(&mouseRoot);
 
 	OCT_handle body = OCT_entity_new(armContext);
+	OCT_handle extension = OCT_entity_new(body);
 
 	OCT_handle armTex1 = OCT_image_load("ztestFiles/hannes.png");
 	OCT_handle armTex2 = OCT_image_load("ztestFiles/anya.png");
@@ -47,10 +50,27 @@ int main() {
 	OCT_handle leftBottomRoot;
 	arm leftBottomArm = spawnArm(10, body, armLayer1, normalRect, downLeft, &leftBottomRoot);
 
+	OCT_handle BrightTopRoot;
+	arm BrightTopArm = spawnArm(10, extension, armLayer1, normalRect, upRight, &BrightTopRoot);
+	OCT_handle BrightBottomRoot;
+	arm BrightBottomArm = spawnArm(10, extension, armLayer2, normalRect, downRight, &BrightBottomRoot);
+	OCT_handle BleftTopRoot;
+	arm BleftTopArm = spawnArm(10, extension, armLayer2, normalRect, upLeft, &BleftTopRoot);
+
+	OCT_handle BleftBottomRoot;
+	arm BleftBottomArm = spawnArm(10, extension, armLayer1, normalRect, downLeft, &BleftBottomRoot);
+
 	OCT_transform2D_moveBy(rightTopRoot, (OCT_vec2) { 50, 50 });
 	OCT_transform2D_moveBy(rightBottomRoot, (OCT_vec2) { 50, -50 });
 	OCT_transform2D_moveBy(leftTopRoot, (OCT_vec2) { -50, 50 });
 	OCT_transform2D_moveBy(leftBottomRoot, (OCT_vec2) { -50, -50 });
+
+	OCT_transform2D_moveBy(BrightTopRoot, (OCT_vec2) { 50, 50 });
+	OCT_transform2D_moveBy(BrightBottomRoot, (OCT_vec2) { 50, -50 });
+	OCT_transform2D_moveBy(BleftTopRoot, (OCT_vec2) { -50, 50 });
+	OCT_transform2D_moveBy(BleftBottomRoot, (OCT_vec2) { -50, -50 });
+
+	OCT_transform2D_rotateByDeg(extension, 90);
 
 	/*OCT_handle extraArmRoot;
 	arm extraArm = spawnArm(10, armContext, armLayer, normalRect, &extraArmRoot);
@@ -60,8 +80,11 @@ int main() {
 	float rotateSpeed = 0.03;
 	OCT_vec2 cursor;
 	float curl = 1;
+	OCT_handle newlySpawned = mouseRoot;
+	int frame = 0;
 	while (!OCT_window_closed()) {
 		OCT_WDWModule_startFrame();
+		frame++;
 		cursor = OCT_cursorPos_read(true);
 
 		if (OCT_keyState_read(OCT_KEY_UP) == OCT_KEYSTATE_DOWN) {
@@ -70,12 +93,22 @@ int main() {
 			rotateArm(leftTopArm, -rotateSpeed, curl);
 			rotateArm(leftBottomArm, rotateSpeed, curl);
 
+			rotateArm(BrightTopArm, rotateSpeed, curl);
+			rotateArm(BrightBottomArm, -rotateSpeed, curl);
+			rotateArm(BleftTopArm, -rotateSpeed, curl);
+			rotateArm(BleftBottomArm, rotateSpeed, curl);
+
 		}
 		if (OCT_keyState_read(OCT_KEY_DOWN) == OCT_KEYSTATE_DOWN) {
 			rotateArm(rightTopArm, -rotateSpeed, curl);
 			rotateArm(rightBottomArm, rotateSpeed, curl);
 			rotateArm(leftTopArm, rotateSpeed, curl);
 			rotateArm(leftBottomArm, -rotateSpeed, curl);
+
+			rotateArm(BrightTopArm, -rotateSpeed, curl);
+			rotateArm(BrightBottomArm, rotateSpeed, curl);
+			rotateArm(BleftTopArm, rotateSpeed, curl);
+			rotateArm(BleftBottomArm, -rotateSpeed, curl);
 		}
 
 		if (OCT_keyState_read(OCT_KEY_MOUSE_LEFT) == OCT_KEYSTATE_DOWN) {
@@ -86,11 +119,11 @@ int main() {
 			OCT_transform2D_rotateByDeg(body, 0.1);
 		}
 		if (OCT_keyState_read(OCT_KEY_RIGHT) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_rotateByDeg(body, -0.1);
+			OCT_transform2D_rotateByDeg(extension, -0.1);
 		}
 
 		if (OCT_keyState_read(OCT_KEY_W) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_moveBy(body, (OCT_vec2){ 0, 0.1 });
+			OCT_transform2D_moveBy(body, (OCT_vec2) { 0, 0.1 });
 		}
 		if (OCT_keyState_read(OCT_KEY_A) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_moveBy(body, (OCT_vec2) { -0.1, 0 });
@@ -102,12 +135,12 @@ int main() {
 			OCT_transform2D_moveBy(body, (OCT_vec2) { 0.1, 0 });
 		}
 		if (OCT_keyState_read(OCT_KEY_2) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_scaleBy(body, (OCT_vec2) {1.001, 1.001});
+			OCT_transform2D_scaleBy(body, (OCT_vec2) { 1.001, 1.001 });
 		}
 		if (OCT_keyState_read(OCT_KEY_1) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_scaleBy(body, (OCT_vec2) { 0.999, 0.999 });
 		}
-		
+
 		OCT_INPModule_update();
 		OCT_ECSModule_update();
 		OCT_RENModule_update();

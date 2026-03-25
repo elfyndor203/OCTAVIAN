@@ -6,8 +6,6 @@
 #include <glad/glad.h>
 #include <stdbool.h>
 
-#include "renderer/rendererObject/rendererObject_internal.h"
-
 enum iOCT_attributes {
 	iOCT_attrib_position = 0,
 	iOCT_attrib_vertUV,
@@ -22,13 +20,10 @@ enum iOCT_attributes {
 struct iOCT_layer {
 	OCT_ID layerID;
 
-	cOCT_IDMap IDMap;
-	cOCT_pool pool;
-
 	GLuint spriteVAO;
 
 	GLuint spriteBuffer;
-	OCT_counter spriteBufferCapacity;
+	cOCT_pool spriteDataPool;
 
 	OCT_handle spriteAtlasHandle;
 	GLuint spriteAtlas;
@@ -40,4 +35,5 @@ iOCT_layer* iOCT_layer_get(OCT_ID layerID);
 
 OCT_ID iOCT_layer_open(bool dynamic, OCT_handle texAtlasHandle);
 void iOCT_layer_close(iOCT_layer* context);
-void iOCT_layer_draw(iOCT_layer* layer);
+//void iOCT_layer_draw(iOCT_layer* layer);
+void iOCT_layer_drawAll();

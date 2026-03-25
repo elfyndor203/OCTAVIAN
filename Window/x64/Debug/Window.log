@@ -1,4 +1,5 @@
-﻿  inputs.c
+﻿  glad.c
+  inputs.c
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\inputs\inputs.c(197,53): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\Window\internal\inputs\inputs.c(197,56): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   WDWModule.c

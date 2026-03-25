@@ -43,4 +43,6 @@ float iOCT_transform2D_rotateBy(iOCT_entityContext* context, OCT_ID parentID, fl
 OCT_vec2 iOCT_transform2D_scaleBy(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 delta);
 void iOCT_transform2D_propagate(iOCT_entityContext* context);
 
+OCT_vec2 iOCT_transform2D_readPos(iOCT_entityContext* context, OCT_ID transformID);
+
 OCT_vec2 iOCT_transform2D_globalPos(iOCT_transform2D transform);

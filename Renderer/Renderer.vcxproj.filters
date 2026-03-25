@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="internal\renderer\rendererObject\rendererObject.c" />
     <ClCompile Include="internal\renderer\spriteData\spriteData.c" />
     <ClCompile Include="internal\renderer\layer\layer.c" />
     <ClCompile Include="internal\module\RENModule.c" />
@@ -12,7 +11,6 @@
   <ItemGroup>
     <ClInclude Include="GLAD\include\glad\glad.h" />
     <ClInclude Include="GLAD\include\KHR\khrplatform.h" />
-    <ClInclude Include="internal\renderer\rendererObject\rendererObject_internal.h" />
     <ClInclude Include="internal\renderer\types_internal.h" />
     <ClInclude Include="internal\renderer\spriteData\spriteData_internal.h" />
     <ClInclude Include="internal\renderer\layer\layer_internal.h" />
