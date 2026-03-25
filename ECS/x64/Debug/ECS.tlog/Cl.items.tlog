@@ -1,7 +1,0 @@
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\hitBox2D\hitBox2D.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\hitBox2D.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\sprite2D\sprite2D.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\sprite2D.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\components\transform2D\transform2D.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\transform2D.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\module\ECSModule.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\ECSModule.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entity\entity.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entity.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\internal\ECS\entityContext\entityContext.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\entityContext.obj
-C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\tests\newTestMain.c;C:\Users\Elfyndor\MyDocuments\Projects\OCTAVIAN\ECS\x64\Debug\newTestMain.obj
