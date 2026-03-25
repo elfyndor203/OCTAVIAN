@@ -21,7 +21,7 @@ OCT_vec2 downRight = { 1, -1 };
 OCT_vec2 upLeft = { -1, 1 };
 OCT_vec2 downLeft = { -1, -1 };
 
-int main() {
+int notmain() {
 	OCT_WDWModule_init("Arms", 1920, 1080, black);
 	OCT_RESModule_init();
 	OCT_RENModule_init((OCT_vec2) { 960, 540 });
@@ -50,7 +50,6 @@ int main() {
 	OCT_handle leftBottomRoot;
 	arm leftBottomArm = spawnArm(10, body, armLayer1, normalRect, downLeft, &leftBottomRoot);
 
-	OCT_RENModule_flush();
 	OCT_handle BrightTopRoot;
 	arm BrightTopArm = spawnArm(10, extension, armLayer1, normalRect, upRight, &BrightTopRoot);
 	OCT_handle BrightBottomRoot;
@@ -124,7 +123,7 @@ int main() {
 		}
 
 		if (OCT_keyState_read(OCT_KEY_W) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_moveBy(body, (OCT_vec2){ 0, 0.1 });
+			OCT_transform2D_moveBy(body, (OCT_vec2) { 0, 0.1 });
 		}
 		if (OCT_keyState_read(OCT_KEY_A) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_moveBy(body, (OCT_vec2) { -0.1, 0 });
@@ -136,12 +135,12 @@ int main() {
 			OCT_transform2D_moveBy(body, (OCT_vec2) { 0.1, 0 });
 		}
 		if (OCT_keyState_read(OCT_KEY_2) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_scaleBy(body, (OCT_vec2) {1.001, 1.001});
+			OCT_transform2D_scaleBy(body, (OCT_vec2) { 1.001, 1.001 });
 		}
 		if (OCT_keyState_read(OCT_KEY_1) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_scaleBy(body, (OCT_vec2) { 0.999, 0.999 });
 		}
-		
+
 		OCT_INPModule_update();
 		OCT_ECSModule_update();
 		OCT_RENModule_update();

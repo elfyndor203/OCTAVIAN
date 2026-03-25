@@ -21,6 +21,9 @@
     <ClCompile Include="armMain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stressTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arm.h">

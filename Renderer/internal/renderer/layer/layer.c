@@ -2,12 +2,12 @@
 #include "renderer/types_internal.h"
 
 #include "cOCT_EngineStructure.h"
-#include "_ECS_Output/_REN_include.h"
+#include "_ECS_Output/_ECS_include.h"
 #include <glad/glad.h>
 #include <stdio.h>
+#include <assert.h>
 
 #include "module/RENModule_internal.h"
-#include "renderer/rendererObject/rendererObject_internal.h"
 #include "renderer/spriteData/spriteData_internal.h"
 #include "renderer/texture/texture_internal.h"
 
@@ -43,8 +43,7 @@ OCT_ID iOCT_layer_open(bool dynamic, OCT_handle texAtlasHandle) {
 
 	// set defaults, init pool/map
 	newLayer->layerID = newID;
-	newLayer->IDMap = cOCT_IDMap_init(newID, iOCT_POOLSIZE_DEFAULT);
-	newLayer->pool = cOCT_pool_init(newID, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_rendererObject));
+	newLayer->spriteDataPool = cOCT_pool_init(newID, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_spriteData));
 	newLayer->dynamic = dynamic;
 	newLayer->spriteAtlasHandle = texAtlasHandle;
 	newLayer->spriteAtlas = iOCT_texture2D_get(texAtlasHandle);
@@ -103,43 +102,59 @@ OCT_ID iOCT_layer_open(bool dynamic, OCT_handle texAtlasHandle) {
 }
 
 void iOCT_layer_close(iOCT_layer* layer) {
-	cOCT_IDMap_free(&layer->IDMap);
-	cOCT_pool_free(&layer->pool);
+	cOCT_pool_free(&layer->spriteDataPool);
 }
 
-void iOCT_layer_draw(iOCT_layer* layer) {
-	if (layer->dynamic == false) {
-		return;
-	}
-
-	iOCT_rendererObject* array = (iOCT_rendererObject*)layer->pool.array;
-	iOCT_rendererObject* renObj;
-
-	glBindVertexArray(layer->spriteVAO);
-
-	// shaders and textures
-	glUseProgram(iOCT_RENModule_instance.spriteShader);
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, layer->spriteAtlas);
-
-	// sprite instance buffer
-	glBindBuffer(GL_ARRAY_BUFFER, layer->spriteBuffer);
-	glBufferData(GL_ARRAY_BUFFER, layer->pool.count * sizeof(iOCT_spriteData), NULL, GL_DYNAMIC_DRAW);	// orphan
-	iOCT_spriteData* buffer = (iOCT_spriteData*)glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-
+void iOCT_layer_drawAll() {
+	OCT_counter contextCount = _OCT_entityContext_getCount();
+	OCT_counter spriteCount;
+	_OCT_sprite2D_dataRequest ECSSpriteData;
+	iOCT_layer* layer;
 	iOCT_spriteData* slot;
-	for (int i = 0; i < layer->pool.count; i++) {
-		renObj = &array[i];
-		slot = &buffer[i];
 
-		slot->transform = _OCT_transform2D_getMatrix(renObj->transformHandle);
-		slot->color = _OCT_sprite2D_getColor(renObj->renderableHandle);
-		slot->uvRect = _OCT_sprite2D_getUV(renObj->renderableHandle);
-		slot->dimensions = _OCT_sprite2D_getDimensions(renObj->renderableHandle);
+	OCT_index poolDummy;
+	for (int l = 0; l < iOCT_RENModule_instance.layerPool.count; l++) {			// Pass 1: wipe all pools
+		layer = &((iOCT_layer*)iOCT_RENModule_instance.layerPool.array)[l];
+		layer->spriteDataPool.count = 0;
 	}
 
-	glUnmapBuffer(GL_ARRAY_BUFFER);	
+	for (int context = 0; context < contextCount; context++) {					// Pass 2: load all layers with sprite data
+		spriteCount = _OCT_sprite2D_getCount(context);
+		for (int sprite = 0; sprite < spriteCount; sprite++) {
+			ECSSpriteData = _OCT_sprite2D_getData(sprite, context);
 
-	glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0, (GLsizei)layer->pool.count);
+			if (!ECSSpriteData.visible) {
+				continue;
+			}
 
+			assert(ECSSpriteData.layer.type == OCT_handle_layer);
+			layer = iOCT_layer_get(ECSSpriteData.layer.objectID);
+			slot = cOCT_pool_addEntry(&layer->spriteDataPool, &poolDummy);
+			slot->color = ECSSpriteData.color;
+			slot->dimensions = ECSSpriteData.dimensions;
+			slot->transform = ECSSpriteData.transform;
+			slot->uvRect = ECSSpriteData.uv;
+		}
+	}
+
+	for (int l = 0; l < iOCT_RENModule_instance.layerPool.count; l++) {			// Pass 3: draw everything
+		layer = &((iOCT_layer*)iOCT_RENModule_instance.layerPool.array)[l];
+
+		if (layer->spriteDataPool.count == 0) {
+			continue;
+		}
+
+		// VAO
+		glBindVertexArray(layer->spriteVAO);
+		// Shaders
+		glUseProgram(iOCT_RENModule_instance.spriteShader);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, layer->spriteAtlas);
+		// Buffer
+		glBindBuffer(GL_ARRAY_BUFFER, layer->spriteBuffer);
+		glBufferData(GL_ARRAY_BUFFER, layer->spriteDataPool.count * sizeof(iOCT_spriteData), layer->spriteDataPool.array, GL_DYNAMIC_DRAW);
+		glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0, (GLsizei)layer->spriteDataPool.count);
+	}
 }
+
+

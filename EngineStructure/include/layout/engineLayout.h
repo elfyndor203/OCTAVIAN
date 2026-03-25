@@ -21,7 +21,6 @@ typedef enum {
 	OCT_handle_sprite2D,
 
 	OCT_handle_layer,
-	OCT_handle_rendererObject,
 	
 	OCT_handle_image,
 	OCT_handle_mesh,

@@ -28,7 +28,7 @@
     <ClInclude Include="internal\ECS\types_internal.h" />
     <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
     <ClInclude Include="include\ECS\types.h" />
-    <ClInclude Include="include\_ECS_Output\_REN_include.h" />
+    <ClInclude Include="include\_ECS_Output\_ECS_include.h" />
     <ClInclude Include="include\ECS\components\sprite2D\sprite2D.h" />
   </ItemGroup>
   <ItemGroup>

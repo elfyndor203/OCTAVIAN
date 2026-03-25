@@ -83,14 +83,7 @@ void OCT_RENModule_update() {
 }
 void iOCT_RENModule_update() {
 	iOCT_RENModule_handleMSGs();
-
-	iOCT_layer* array = (iOCT_layer*)iOCT_RENModule_instance.layerPool.array;
-	iOCT_layer* layer;
-	for (int i = 0; i < iOCT_RENModule_instance.layerPool.count; i++) {
-		layer = &array[i];
-		iOCT_layer_draw(layer);
-	}
-
+	iOCT_layer_drawAll();
 }
 
 #pragma region helpers
