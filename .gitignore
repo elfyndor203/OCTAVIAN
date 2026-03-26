@@ -2,3 +2,5 @@
 /TrashForReference/
 **/x64
 *.lnk
+*.exe
+*.pdb
