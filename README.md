@@ -17,7 +17,7 @@ OCTAVIAN is a simple game engine designed to make me learn C. It uses a mix of E
 
 ## Getting started
 - Init order: Window (WDW), Resource (RES), Renderer, (REN), Entity-component (ECS).
-
+- You will get a single sprite on a black background that follows the cursor when you hold left click.
 ```c
 #include "OCT_Math.h"
 #include "OCT_EngineStructure.h"
