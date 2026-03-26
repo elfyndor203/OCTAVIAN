@@ -1,7 +1,7 @@
 # OCTAVIAN
 OCTAVIAN is a WIP 2D game engine designed written in C. It uses a handle-based ECS-esque system, instanced rendering using OpenGL, and is designed to be modular. It has minimal dependencies: OpenGL using GLAD, GLFW, and stb_image. 
 
-Single threaded performance maintains 500fps at 16,000 entites. It is designed to support real-time reinforcement learning for NPC AI in the future. 
+Single threaded performance maintains 500fps at 16,000 entites, using 230MB RAM. It is designed to support real-time reinforcement learning for NPC AI in the future. 
 
 A simple example game is in zGameTest.
 
