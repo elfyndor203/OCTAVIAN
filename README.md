@@ -1,9 +1,9 @@
-# OCTAVIAN (WORK IN PROGRESS)
-A simple modular ECS game engine written in C 
+# OCTAVIAN
+A modular 2D game engine written in C 
 
-OCTAVIAN is a simple game engine designed to make me learn C. It uses a mix of ECS and object style systems to manage game data. Its subsystems are meant to be modular. A simple example game is in zGameTest.
+OCTAVIAN is a WIP 2D game engine designed written in C. It uses a handle-based ECS-esque system, instanced rendering using OpenGL, and is designed to be modular. Single threaded performance achieves 500fps at 16,000 entites. It is designed to support real-time reinforcement learning for NPC AI in the future. A simple example game is in zGameTest.
 
-# Libraries
+# Dependencies
 - OpenGL 3.3
 - GLAD
 - GLFW
@@ -13,7 +13,7 @@ OCTAVIAN is a simple game engine designed to make me learn C. It uses a mix of E
 1. Use Windows x64
 2. Clone the repo
 3. Open in VS 2022 (moving to CMAke soon)
-5. Set the game project (e.g. zGameTest) as startup, build, and run
+4. Set the game project (e.g. zGameTest) as startup, build, and run
 
 ## Getting started
 - Init order: Window (WDW), Resource (RES), Renderer, (REN), Entity-component (ECS).
