@@ -18,7 +18,7 @@ A simple example game is in zGameTest.
 4. Set the game project (e.g. zGameTest) as startup, build, and run
 
 ## Getting started
-- Init order: Window (WDW), Resource (RES), Renderer, (REN), Entity-component (ECS).
+- Init order: Window (WDW), Resource (RES), Renderer (REN), Entity-component (ECS).
 - You will get a single sprite on a black background that follows the cursor when you hold left click.
 ```c
 #include "OCT_Math.h"
