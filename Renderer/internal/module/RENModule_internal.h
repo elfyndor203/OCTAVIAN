@@ -26,7 +26,6 @@ struct iOCT_RENModule {
 extern iOCT_RENModule iOCT_RENModule_instance;
 
 void iOCT_RENModule_init(OCT_vec2 resolution);
-void iOCT_RENModule_free();
 
 void iOCT_RENModule_update();
 void iOCT_RENModule_handleMSGs();

@@ -6,3 +6,5 @@ void OCT_WDWModule_init(char* name, unsigned int sizeX, unsigned int sizeY, OCT_
 void OCT_WDWModule_startFrame();
 void OCT_WDWModule_endFrame();
 bool OCT_window_closed();
+
+void OCT_WDWModule_free();

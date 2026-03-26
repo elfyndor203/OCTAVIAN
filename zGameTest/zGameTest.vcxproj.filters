@@ -15,21 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="arm.c">
+    <ClCompile Include="StressTest\arm.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="armMain.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="entityStressTest.c">
+    <ClCompile Include="gettingStarted.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="arm.h">
+    <ClInclude Include="StressTest\arm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="main.h">
+    <ClInclude Include="StressTest\main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

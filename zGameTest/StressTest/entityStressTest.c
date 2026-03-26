@@ -14,8 +14,8 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define STRESS_ENTITY_COUNT 2000
-#define STRESS_ARM_LENGTH 15
+#define STRESS_ENTITY_COUNT 1250
+#define STRESS_ARM_LENGTH 10
 
 typedef struct {
     OCT_handle entity;

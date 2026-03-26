@@ -16,7 +16,7 @@ void iOCT_RESModule_init() {
 	iOCT_RESModule_instance.audioList = iOCT_resourceList_open(iOCT_resourceAudio);
 }
 
-void iOCT_RESModule_free() {
+void OCT_RESModule_free() {
 	iOCT_resourceList_close(&iOCT_RESModule_instance.imageList);
 	iOCT_resourceList_close(&iOCT_RESModule_instance.audioList);
 }

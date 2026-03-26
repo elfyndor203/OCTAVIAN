@@ -22,6 +22,7 @@
     <None Include="stb\LICENSE" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\module\RESModule.h" />
     <ClInclude Include="include\OCT_Resources.h" />
     <ClInclude Include="include\resources\image\image.h" />
     <ClInclude Include="include\resources\module\RESModule.h" />
@@ -34,6 +35,7 @@
     <ClInclude Include="internal\resources\types_internal.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="internal\module\messageHandling.c" />
     <ClCompile Include="internal\resources\resourceList\resourceList.c" />
     <ClCompile Include="internal\resources\image\image.c" />
     <ClCompile Include="internal\module\RESModule.c" />

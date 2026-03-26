@@ -62,7 +62,7 @@ void iOCT_RENModule_init(OCT_vec2 coordinateScale) {
 	GL_CHECK();
 }
 
-void iOCT_RENModule_free() {
+void OCT_RENModule_free() {
 	iOCT_layer* array = (iOCT_layer*)iOCT_RENModule_instance.layerPool.array;
 
 	for (int index = 0; index < iOCT_RENModule_instance.layerPool.count; index++) {

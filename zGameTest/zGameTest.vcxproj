@@ -135,13 +135,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="armMain.c" />
-    <ClCompile Include="arm.c" />
-    <ClCompile Include="entityStressTest.c" />
+    <ClCompile Include="StressTest\arm.c" />
+    <ClCompile Include="gettingStarted.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="arm.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="StressTest\arm.h" />
+    <ClInclude Include="StressTest\main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

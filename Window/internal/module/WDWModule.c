@@ -4,6 +4,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "window/window_internal.h"
 #include "inputs/inputs_internal.h"
@@ -56,4 +57,10 @@ bool OCT_window_closed() {
 	else {
 		return false;
 	}
+}
+
+void OCT_WDWModule_free() {
+	free(iOCT_WDWModule_instance.keyMap);
+	free(iOCT_WDWModule_instance.mouseMap);
+	free(iOCT_WDWModule_instance.windowPtr);
 }

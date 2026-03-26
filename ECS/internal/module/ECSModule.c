@@ -14,7 +14,7 @@ void iOCT_ECSModule_init() {
 	iOCT_module_init(&iOCT_ECSModule_instance, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_entityContext));
 }
 
-void iOCT_ECSModule_free() {
+void OCT_ECSModule_free() {
 	iOCT_entityContext* array = (iOCT_entityContext*)iOCT_ECSModule_instance.pool.array;
 
 	iOCT_entityContext* context;

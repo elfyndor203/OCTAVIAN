@@ -13,4 +13,3 @@ struct iOCT_RESModule {
 extern iOCT_RESModule iOCT_RESModule_instance;
 
 void iOCT_RESModule_init();
-void iOCT_RESModule_free();
