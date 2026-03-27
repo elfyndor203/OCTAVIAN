@@ -9,9 +9,6 @@
 #include "ECS/entityContext/entityContext_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 
-size_t iOCT_entity_max = iOCT_ENTITY_DEFAULT_MAX;
-OCT_handle testActiveEntity;
-
 iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID) {
 	return (iOCT_entity*)iOCT_getByID(context, entityID, OCT_ECStype_Entity);
 }
@@ -93,11 +90,6 @@ void iOCT_entity_updateMask(iOCT_entityContext* context, OCT_ID entityID, OCT_EC
 iOCT_entity* iOCT_entity_getParent(iOCT_entityContext* context, OCT_ID entityID) {
 	return iOCT_entity_get(context, iOCT_entity_get(context, entityID)->parentID);
 }
-
-void test_entitySetActive(OCT_handle entity) {
-	testActiveEntity = entity;
-}
-
 
 
 

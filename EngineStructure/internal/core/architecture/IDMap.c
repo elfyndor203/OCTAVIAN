@@ -5,6 +5,7 @@
 #include "OCT_Math.h"
 #include <stdlib.h>
 #include <string.h>
+#include <crtdbg.h>
 
 #include "architecture/pools_core.h"
 
@@ -17,7 +18,7 @@ cOCT_IDMap cOCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
 	map.ownerID = ownerID;
 	map.count = 1; // null ID
 	map.array = calloc(capacity + 1, sizeof(OCT_index)); // account for null ID slot
-	map.capacity = iOCT_POOLSIZE_DEFAULT;
+	map.capacity = capacity;
 	if (!map.array) {
 		OCT_logError(EXIT_FAILED_TO_ALLOCATE);
 	}
@@ -26,8 +27,8 @@ cOCT_IDMap cOCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
 
 // Registers the next available ID with the provided pool index for any new entity or component.
 OCT_ID cOCT_IDMap_register(cOCT_IDMap* map, OCT_index inIndex) {
-	if (map->count == map->capacity) {
-		void* newArray = realloc(map->array, sizeof(OCT_index) * map->capacity * 2);
+	if (map->count == (map->capacity + 1)) {
+		void* newArray = realloc(map->array, sizeof(OCT_index) * (map->capacity * 2 + 1));
 		if (!newArray) {
 			OCT_logError(EXIT_FAILED_TO_ALLOCATE);
 			return OCT_NULL_ID;
@@ -43,6 +44,7 @@ OCT_ID cOCT_IDMap_register(cOCT_IDMap* map, OCT_index inIndex) {
 	map->count += 1;
 
 	map->array[newID] = inIndex;		// Registers the index with the ID
+
 	return newID;							// only ID gets returned
 }
 

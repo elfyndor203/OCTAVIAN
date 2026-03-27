@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="StressTest\arm.c" />
     <ClCompile Include="gettingStarted.c" />
+    <ClCompile Include="StressTest\contextStressTest.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StressTest\arm.h" />

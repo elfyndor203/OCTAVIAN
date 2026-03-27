@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <assert.h>
 
+#include <crtdbg.h>
+
 #include "module/ECSModule_internal.h"
 #include "ECS/entity/entity_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
@@ -69,6 +71,7 @@ OCT_ID iOCT_entityContext_open() {
 	}
 
 	iOCT_entity_new(newContext, iOCT_NOPARENT);						// Create root entity
+
 	return newID;
 }
 

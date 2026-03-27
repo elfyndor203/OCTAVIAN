@@ -59,7 +59,6 @@
     <ClCompile Include="internal\module\ECSModule.c" />
     <ClCompile Include="internal\ECS\entity\entity.c" />
     <ClCompile Include="internal\ECS\entityContext\entityContext.c" />
-    <ClCompile Include="tests\newTestMain.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -32,8 +32,8 @@ int main() {
     OCT_handle contextRoot;
     OCT_handle context = OCT_entityContext_open(&contextRoot);
 
-    OCT_handle tex1 = OCT_image_load("ztestFiles/hannes.png");
-    OCT_handle tex2 = OCT_image_load("ztestFiles/anya.png");
+    OCT_handle tex1 = OCT_image_load("images/hannes.png");
+    OCT_handle tex2 = OCT_image_load("images/anya.png");
     OCT_RENModule_flush();
     OCT_handle layer1 = OCT_layer_open(true, tex1);
     OCT_handle layer2 = OCT_layer_open(true, tex2);

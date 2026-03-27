@@ -35,8 +35,8 @@ int armMain() {
 	OCT_handle body = OCT_entity_new(armContext);
 	OCT_handle extension = OCT_entity_new(body);
 
-	OCT_handle armTex1 = OCT_image_load("ztestFiles/hannes.png");
-	OCT_handle armTex2 = OCT_image_load("ztestFiles/anya.png");
+	OCT_handle armTex1 = OCT_image_load("images/hannes.png");
+	OCT_handle armTex2 = OCT_image_load("images/anya.png");
 	OCT_RENModule_flush();
 	OCT_handle armLayer1 = OCT_layer_open(true, armTex1);
 	OCT_handle armLayer2 = OCT_layer_open(true, armTex2);

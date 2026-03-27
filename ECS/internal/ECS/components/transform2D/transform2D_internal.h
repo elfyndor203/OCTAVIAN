@@ -13,7 +13,7 @@
 #define iOCT_DEFAULT_SCALE_X 1.0f
 #define iOCT_DEFAULT_SCALE_Y 1.0f
 
-#define iOCT_TRANSFORM_MAXDEPTH 16
+#define iOCT_TRANSFORM_MAXDEPTH 128
 
 /// <summary>
 /// Transform component. Stores local values and a global matrix. 

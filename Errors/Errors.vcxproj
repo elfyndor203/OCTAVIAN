@@ -138,11 +138,9 @@
     <ClInclude Include="include\errors\errorHandling.h" />
     <ClInclude Include="internal\errors\errorHandling_internal.h" />
     <ClInclude Include="internal\standards\errorStandards.h" />
-    <ClInclude Include="tests\testHeaders.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\errors\errorHandling.c" />
-    <ClCompile Include="tests\testMain.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

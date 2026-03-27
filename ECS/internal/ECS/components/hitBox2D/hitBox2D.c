@@ -10,7 +10,6 @@
 #include "ECS/entityContext/entityContext_internal.h"
 #include "ECS/components/transform2D/transform2D_internal.h"
 
-size_t iOCT_hitBox2D_max = iOCT_ENTITY_DEFAULT_MAX;
 OCT_vec2 iOCT_hitBox2D_default_size = { iOCT_HITBOX_DEFAULTSIZE_X, iOCT_HITBOX_DEFAULTSIZE_Y };
 
 iOCT_hitBox2D* iOCT_hitBox2D_get(iOCT_entityContext* context, OCT_ID hitBoxID) {
