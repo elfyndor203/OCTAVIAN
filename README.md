@@ -5,7 +5,7 @@ Single threaded performance maintains 500fps at 16,000 entites, using 230MB RAM.
 
 A simple example game is in zGameTest.
 
-# Dependencies
+## Dependencies
 - OpenGL 3.3
 - GLAD
 - GLFW
