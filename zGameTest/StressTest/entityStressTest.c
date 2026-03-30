@@ -14,7 +14,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define STRESS_ENTITY_COUNT 1250
+#define STRESS_ENTITY_COUNT 3000
 #define STRESS_ARM_LENGTH 10
 
 typedef struct {
@@ -24,7 +24,7 @@ typedef struct {
 } stressEntity;
 
 int main() {
-    OCT_WDWModule_init("Stress Test", 1920, 1080, clearColor);
+    OCT_WDWModule_init("Stress Test", 2560, 1440, clearColor);
     OCT_RESModule_init();
     OCT_RENModule_init((OCT_vec2) { 960, 540 });
     OCT_ECSModule_init();
