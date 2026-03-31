@@ -10,20 +10,21 @@ struct iOCT_physics2D {
 
 	OCT_ID transformID;
 
-	float m;
-	OCT_vec2 v;
-	OCT_vec2 a;
-	OCT_vec2 p;
+	float mass;
+	OCT_vec2 lin_v;
+	OCT_vec2 lin_a;
+	OCT_vec2 lin_p;
+	OCT_vec2 forceNet;
 
-	float I; 
-	float angV;
-	float angA;
-	OCT_vec2 angL;
+	float inertia;
+	float ang_v;
+	float ang_a;
+	float ang_L;
+	float torqueNet;
 
 	float friction;
 	float restitution;
-	OCT_vec2 forceNet;
-	float torqueNet;
+
 };
 
 OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, float mass, float inertia, float friction, float restitution);
