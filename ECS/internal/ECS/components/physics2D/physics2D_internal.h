@@ -3,6 +3,7 @@
 
 #include "OCT_Math.h"
 #include "cOCT_EngineStructure.h"
+#include <stdbool.h>
 
 #define iOCT_PHYSICS_RIGIDBODY_ORIGINDEPTH 1
 
@@ -16,22 +17,18 @@ struct iOCT_physics2D {
 
 	float mass;
 	OCT_vec2 lin_v;
-	OCT_vec2 lin_a;
-	OCT_vec2 lin_p;
 	OCT_vec2 forceNet;
 
 	float inertia;
 	float ang_v;
-	float ang_a;
-	float ang_L;
 	float torqueNet;
 
 	float friction;
 	float restitution;
+	float gravity;		// 1 = full gravity
 };
 
 iOCT_physics2D* iOCT_physics2D_get(iOCT_entityContext* context, OCT_ID physicsID);
-OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID rigidBodyID, float mass, float inertia, float friction, float restitution);
+OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID rigidBodyID, float gravity, float mass, float inertia, float friction, float restitution);
 
 OCT_vec2 iOCT_physics2D_addVelocity(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 velocity);
-OCT_vec2 iOCT_physics2D_addAcceleration(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 acceleration);

@@ -27,7 +27,7 @@ int main() {
 	OCT_RESModule_init();
 	OCT_RENModule_init((OCT_vec2) { 960 * 4, 540 * 4});
 	OCT_ECSModule_init();
-	OCT_PHYModule_init((OCT_vec2) {0, -9.8});
+	OCT_PHYModule_init((OCT_vec2) {0, -0.8});
 
 	OCT_handle contextRoot;
 	OCT_handle armContext = OCT_entityContext_open(&contextRoot);
@@ -36,7 +36,7 @@ int main() {
 
 	OCT_handle body = OCT_entity_new(armContext);
 	OCT_handle extension = OCT_entity_new(body);
-	OCT_physics2D_add(body, body, 3, 3, 3, 0.8);
+	OCT_physics2D_add(body, body, 0.001, 3, 3, 3, 0.8);
 
 	OCT_handle armTex1 = OCT_image_load("images/hannes.png");
 	OCT_handle armTex2 = OCT_image_load("images/anya.png");
