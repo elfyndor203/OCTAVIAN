@@ -27,8 +27,8 @@ iOCT_resourceList iOCT_resourceList_open(iOCT_resourceType type) {
 	OCT_ID newID = type;
 
 	newList.listID = newID;
-	newList.map = cOCT_IDMap_init(newID, iOCT_POOLSIZE_DEFAULT);
-	newList.pool = cOCT_pool_init(newID, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_resource));
+	newList.map = cOCT_IDMap_init(newID, cOCT_POOLSIZE_DEFAULT);
+	newList.pool = cOCT_pool_init(newID, cOCT_POOLSIZE_DEFAULT, sizeof(iOCT_resource));
 	newList.type = type;
 
 	return newList;

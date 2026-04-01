@@ -12,7 +12,7 @@ OCT_vec4 black = { 0.0, 0.0, 0.0, 0.5 };
 OCT_vec4 noTintSolid = {1.0, 1.0, 1.0, 1.0};
 OCT_vec4 wholeTexture = {0.0, 0.0, 1.0, 1.0};
 
-int nmain() {
+int main() {
 	OCT_WDWModule_init("My Game", 1920, 1080, black);	// start engine
 	OCT_RESModule_init();
 	OCT_RENModule_init((OCT_vec2) { 960, 540 });
@@ -47,4 +47,5 @@ int nmain() {
 	OCT_RENModule_free();
 	OCT_RESModule_free();
 	OCT_WDWModule_free();
+	return 0;
 }

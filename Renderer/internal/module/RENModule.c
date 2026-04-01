@@ -32,8 +32,8 @@ void OCT_RENModule_init(OCT_vec2 scale) {
 	iOCT_RENModule_init(scale);
 }
 void iOCT_RENModule_init(OCT_vec2 coordinateScale) {
-	iOCT_RENModule_instance.layerMap = cOCT_IDMap_init(OCT_subsystem_renderer, iOCT_POOLSIZE_DEFAULT);
-	iOCT_RENModule_instance.layerPool = cOCT_pool_init(OCT_subsystem_renderer, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_layer));
+	iOCT_RENModule_instance.layerMap = cOCT_IDMap_init(OCT_subsystem_renderer, cOCT_POOLSIZE_DEFAULT);
+	iOCT_RENModule_instance.layerPool = cOCT_pool_init(OCT_subsystem_renderer, cOCT_POOLSIZE_DEFAULT, sizeof(iOCT_layer));
 	iOCT_RENModule_instance.textureCapacity = iOCT_TEXTURE_INITIALCAPACITY;
 	iOCT_RENModule_instance.textureList = malloc(iOCT_TEXTURE_INITIALCAPACITY * sizeof(GLuint));
 

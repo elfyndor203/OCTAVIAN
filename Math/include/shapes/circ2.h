@@ -3,6 +3,5 @@
 
 typedef struct {
 	OCT_vec2 origin;
-	float width;
-	float height;
-} OCT_rect2;
+	float radius;
+} OCT_circ2;

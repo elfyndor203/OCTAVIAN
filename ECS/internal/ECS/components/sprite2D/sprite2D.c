@@ -86,16 +86,16 @@ OCT_vec2 _OCT_sprite2D_getDimensions(OCT_handle spriteHandle) {
 }
 
 OCT_counter _OCT_sprite2D_getCount(OCT_index contextIndex) {
-	iOCT_entityContext* context = &((iOCT_entityContext*)iOCT_ECSModule_instance.pool.array)[contextIndex];
+	iOCT_entityContext* context = &((iOCT_entityContext*)iOCT_ECSModule_instance.contextPool.array)[contextIndex];
 
 	return iOCT_pool_get(context, OCT_ECSType_sprite2D)->count;
 }
 
-_OCT_sprite2D_dataRequest _OCT_sprite2D_getData(OCT_index spriteIndex, OCT_index contextIndex) {
-	iOCT_entityContext* context = &((iOCT_entityContext*)iOCT_ECSModule_instance.pool.array)[contextIndex];
+_OCT_sprite2D_snapshot _OCT_sprite2D_getSnapshot(OCT_index spriteIndex, OCT_index contextIndex) {
+	iOCT_entityContext* context = &((iOCT_entityContext*)iOCT_ECSModule_instance.contextPool.array)[contextIndex];
 	iOCT_sprite2D* sprite = &((iOCT_sprite2D*)iOCT_pool_get(context, OCT_ECSType_sprite2D)->array)[spriteIndex];
 
-	_OCT_sprite2D_dataRequest data = {
+	_OCT_sprite2D_snapshot data = {
 		.visible = sprite->visible,
 		.color = sprite->color,
 		.dimensions = sprite->dimensions,

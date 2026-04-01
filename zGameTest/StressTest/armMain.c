@@ -8,11 +8,12 @@
 #include "OCT_Resources.h"
 #include "OCT_window.h"
 #include "OCT_Input.h"
+#include "OCT_Physics.h"
 
 #include <math.h>
 
-OCT_vec4 purple = { 0.5, 0.0, 0.5, 1.0 };
-OCT_vec4 black = { 0.0, 0.0, 0.0, 0.5 };
+OCT_vec4 color_purple = { 0.5, 0.0, 0.5, 1.0 };
+OCT_vec4 color_black = { 0.0, 0.0, 0.0, 0.5 };
 OCT_vec2 normalRect = { 49, 27 };
 OCT_vec2 normalSquare = { 20, 20 };
 
@@ -21,11 +22,12 @@ OCT_vec2 downRight = { 1, -1 };
 OCT_vec2 upLeft = { -1, 1 };
 OCT_vec2 downLeft = { -1, -1 };
 
-int armMain() {
-	OCT_WDWModule_init("Arms", 1920, 1080, black);
+int main() {
+	OCT_WDWModule_init("Arms", 1920, 1080, color_black);
 	OCT_RESModule_init();
-	OCT_RENModule_init((OCT_vec2) { 960, 540 });
+	OCT_RENModule_init((OCT_vec2) { 960 * 4, 540 * 4});
 	OCT_ECSModule_init();
+	OCT_PHYModule_init((OCT_vec2) {0, -9.8});
 
 	OCT_handle contextRoot;
 	OCT_handle armContext = OCT_entityContext_open(&contextRoot);
@@ -34,6 +36,7 @@ int armMain() {
 
 	OCT_handle body = OCT_entity_new(armContext);
 	OCT_handle extension = OCT_entity_new(body);
+	OCT_physics2D_add(body, body, 3, 3, 3, 0.8);
 
 	OCT_handle armTex1 = OCT_image_load("images/hannes.png");
 	OCT_handle armTex2 = OCT_image_load("images/anya.png");
@@ -116,10 +119,10 @@ int armMain() {
 		}
 
 		if (OCT_keyState_read(OCT_KEY_LEFT) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_rotateByDeg(body, 0.1);
+			OCT_physics2D_addVelocity(body, (OCT_vec2) { -0.001, 0 });
 		}
 		if (OCT_keyState_read(OCT_KEY_RIGHT) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_rotateByDeg(extension, -0.1);
+			OCT_physics2D_addVelocity(body, (OCT_vec2) { 0.001, 0 });
 		}
 
 		if (OCT_keyState_read(OCT_KEY_W) == OCT_KEYSTATE_DOWN) {
@@ -143,6 +146,7 @@ int armMain() {
 
 		OCT_INPModule_update();
 		OCT_ECSModule_update();
+		OCT_PHYModule_update();
 		OCT_RENModule_update();
 		OCT_WDWModule_endFrame();
 	}
