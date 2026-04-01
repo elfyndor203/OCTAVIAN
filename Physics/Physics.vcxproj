@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{958eae1d-799c-4029-8057-791886be38bf}</ProjectGuid>
-    <RootNamespace>ECSRENBridge</RootNamespace>
+    <ProjectGuid>{02793d58-3fa4-4205-a212-9da421ece399}</ProjectGuid>
+    <RootNamespace>Physics</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>EngineStructure</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -77,8 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(SolutionDir)Errors\include;$(ProjectDir)Core;$(SolutionDir)Math\include</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)Math\include;$(SolutionDir)ECS\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(SolutionDir)EngineStructure\core;$(ProjectDir)include;$(ProjectDir)internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -93,8 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(SolutionDir)Errors\include;$(ProjectDir)Core;$(SolutionDir)Math\include</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)Math\include;$(SolutionDir)ECS\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(SolutionDir)EngineStructure\core;$(ProjectDir)include;$(ProjectDir)internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -107,8 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(SolutionDir)Errors\include;$(ProjectDir)Core;$(SolutionDir)Math\include</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)Math\include;$(SolutionDir)ECS\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(SolutionDir)EngineStructure\core;$(ProjectDir)include;$(ProjectDir)internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,8 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(SolutionDir)Errors\include;$(ProjectDir)Core;$(SolutionDir)Math\include</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)Math\include;$(SolutionDir)ECS\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(SolutionDir)EngineStructure\core;$(ProjectDir)include;$(ProjectDir)internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,23 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="core\cOCT_EngineStructure.h" />
-    <ClInclude Include="core\linking\messaging_core.h" />
-    <ClInclude Include="internal\core\linking\messaging_internal.h" />
-    <ClInclude Include="include\layout\engineLayout.h" />
-    <ClInclude Include="include\OCT_EngineStructure.h" />
-    <ClInclude Include="core\architecture\IDMap_core.h" />
-    <ClInclude Include="core\architecture\pools_core.h" />
-    <ClInclude Include="include\layout\types.h" />
-    <ClInclude Include="core\linking\types_core.h" />
-    <ClInclude Include="internal\core\module\CORModule_internal.h" />
-    <ClInclude Include="internal\core\types_internal.h" />
+    <ClCompile Include="internal\module\PHYModule.c" />
+    <ClCompile Include="internal\physics\dynamics\dynamics.c" />
+    <ClCompile Include="internal\physics\kinematics\kinematics.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="internal\core\architecture\IDMap.c" />
-    <ClCompile Include="internal\core\linking\messaging.c" />
-    <ClCompile Include="internal\core\architecture\pools.c" />
-    <ClCompile Include="internal\core\module\CORModule.c" />
+    <ClInclude Include="include\module\PHYModule.h" />
+    <ClInclude Include="include\OCT_Physics.h" />
+    <ClInclude Include="internal\module\PHYModule_internal.h" />
+    <ClInclude Include="internal\physics\dynamics\dynamics_internal.h" />
+    <ClInclude Include="internal\physics\kinematics\kinematics_internal.h" />
+    <ClInclude Include="internal\physics\types_internal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

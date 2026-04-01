@@ -17,8 +17,8 @@ typedef enum {
 	OCT_handle_entityContext,
 	OCT_handle_entity,
 	OCT_handle_transform2D,
-	OCT_handle_hitBox2D,
 	OCT_handle_sprite2D,
+	OCT_handle_collider2D,
 
 	OCT_handle_layer,
 	

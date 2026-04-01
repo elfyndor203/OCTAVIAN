@@ -43,7 +43,7 @@ OCT_ID iOCT_layer_open(bool dynamic, OCT_handle texAtlasHandle) {
 
 	// set defaults, init pool/map
 	newLayer->layerID = newID;
-	newLayer->spriteDataPool = cOCT_pool_init(newID, iOCT_POOLSIZE_DEFAULT, sizeof(iOCT_spriteData));
+	newLayer->spriteDataPool = cOCT_pool_init(newID, cOCT_POOLSIZE_DEFAULT, sizeof(iOCT_spriteData));
 	newLayer->dynamic = dynamic;
 	newLayer->spriteAtlasHandle = texAtlasHandle;
 	newLayer->spriteAtlas = iOCT_texture2D_get(texAtlasHandle);
@@ -66,7 +66,7 @@ OCT_ID iOCT_layer_open(bool dynamic, OCT_handle texAtlasHandle) {
 	// spritebuffer
 	glGenBuffers(1, &newLayer->spriteBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, newLayer->spriteBuffer);
-	glBufferData(GL_ARRAY_BUFFER, iOCT_POOLSIZE_DEFAULT * sizeof(iOCT_spriteData), NULL, GL_DYNAMIC_DRAW);	// initial size
+	glBufferData(GL_ARRAY_BUFFER, cOCT_POOLSIZE_DEFAULT * sizeof(iOCT_spriteData), NULL, GL_DYNAMIC_DRAW);	// initial size
 
 		// matrix
 	glVertexAttribPointer(iOCT_attrib_transformCol0, 3, GL_FLOAT, GL_FALSE, sizeof(iOCT_spriteData), (void*)offsetof(iOCT_spriteData, transform.c0r0));
@@ -108,7 +108,7 @@ void iOCT_layer_close(iOCT_layer* layer) {
 void iOCT_layer_drawAll() {
 	OCT_counter contextCount = _OCT_entityContext_getCount();
 	OCT_counter spriteCount;
-	_OCT_sprite2D_dataRequest ECSSpriteData;
+	_OCT_sprite2D_snapshot ECSSpriteData;
 	iOCT_layer* layer;
 	iOCT_spriteData* slot;
 
@@ -121,7 +121,7 @@ void iOCT_layer_drawAll() {
 	for (int context = 0; context < contextCount; context++) {					// Pass 2: load all layers with sprite data
 		spriteCount = _OCT_sprite2D_getCount(context);
 		for (int sprite = 0; sprite < spriteCount; sprite++) {
-			ECSSpriteData = _OCT_sprite2D_getData(sprite, context);
+			ECSSpriteData = _OCT_sprite2D_getSnapshot(sprite, context);
 
 			if (!ECSSpriteData.visible) {
 				continue;

@@ -151,6 +151,8 @@
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\operations.h" />
     <ClInclude Include="include\matrices\mat3.h" />
+    <ClInclude Include="include\shapes\caps2.h" />
+    <ClInclude Include="include\shapes\circ2.h" />
     <ClInclude Include="include\units\constants.h" />
     <ClInclude Include="include\units\conversions.h" />
     <ClInclude Include="include\OCT_Math.h" />
@@ -163,7 +165,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\matrices\mat3.c" />
-    <ClCompile Include="internal\shapes\rect2.c" />
     <ClCompile Include="internal\units\constants.c" />
     <ClCompile Include="internal\units\conversions.c" />
     <ClCompile Include="internal\vec\vec2.c" />

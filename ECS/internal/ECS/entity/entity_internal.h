@@ -12,7 +12,8 @@ struct iOCT_entity{
 
 	OCT_ID parentID;		// each entity can have at most one of each component type
 	OCT_ID transformID;
-	OCT_ID hitBoxID;	// if more hitboxes are needed, add more child objects
+	OCT_ID physicsID;
+	OCT_ID colliderID;
 	///
 	uint64_t componentsMask;	// tracks if the object has each component
 };

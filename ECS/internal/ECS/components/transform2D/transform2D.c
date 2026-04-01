@@ -83,8 +83,8 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
     entity->transformID = newID;
     iOCT_entity_updateMask(context, entityID, OCT_ECSType_transform2D);
 
+    // maintain depth sort
     iOCT_transform2D_insert(context, newTransform);
-    // printf("ADD transform2D %5" PRIu64 " to entity %" PRIu64 " in entityContext %" PRIu64 "\n", newID, entityID, contextID);
     return newID;
 }
 
