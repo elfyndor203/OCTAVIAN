@@ -43,7 +43,7 @@ int main() {
     int armCount = 0;
     for (int i = 0; i < STRESS_ENTITY_COUNT; i++) {
         OCT_handle root = OCT_entity_new(context);
-        OCT_physics2D_add(root, root, 3, 3, 3, 0.8);
+        OCT_physics2D_add(root, root, 0.01, 3, 3, 3, 0.8);
 
         entities[i] = root;
 

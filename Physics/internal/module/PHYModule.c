@@ -3,7 +3,7 @@
 
 #include "_ECS_Output/_ECS_include.h"
 
-#include "physics/kinematics/kinematics_internal.h"
+#include "physics/physicsPass/physicsPass_internal.h"
 
 iOCT_PHYModule iOCT_PHYModule_instance = { 0 };
 
@@ -19,7 +19,7 @@ void OCT_PHYModule_update() {
 	for (OCT_index i = 0; i < contextCt; i++) {
 		snapshotPack = _OCT_physics2D_packSnapshot(&physCount, &contextID, i);
 		
-		iOCT_physPass_kinematics(snapshotPack, physCount);
+		iOCT_physPass_calc(snapshotPack, physCount);
 
 		_OCT_physics2D_writeBack(physCount, contextID);
 	}

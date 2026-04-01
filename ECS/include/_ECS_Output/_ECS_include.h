@@ -21,20 +21,16 @@ typedef struct {
 
 	float mass;
 	OCT_vec2 lin_v;
-	OCT_vec2 lin_a;
-	OCT_vec2 lin_p;
 	OCT_vec2 forceNet;
 	float inertia;
 	float ang_v;
-	float ang_a;
-	float ang_L;
 	float torqueNet;
 	float friction;
 	float restitution;
 
+	float gravity; // 1 = full gravity
 	OCT_vec2 position;
 	float rotation;
-	OCT_mat3 globalMatrix;
 
 	OCT_shapes collider;
 } _OCT_physics2D_snapshot;

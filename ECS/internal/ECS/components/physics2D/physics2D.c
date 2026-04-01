@@ -15,11 +15,11 @@
 iOCT_physics2D* iOCT_physics2D_get(iOCT_entityContext* context, OCT_ID physicsID) {
 	return (iOCT_physics2D*)iOCT_getByID(context, physicsID, OCT_ECSType_physics2D);
 }
-void OCT_physics2D_add(OCT_handle entity, OCT_handle rigidBodyOrigin, float mass, float inertia, float friction, float restitution) {
+void OCT_physics2D_add(OCT_handle entity, OCT_handle rigidBodyOrigin, float gravity, float mass, float inertia, float friction, float restitution) {
 	assert(entity.type == OCT_handle_entity);
-	iOCT_physics2D_add(iOCT_entityContext_get(entity.containerID), entity.objectID, rigidBodyOrigin.objectID, mass, inertia, friction, restitution);
+	iOCT_physics2D_add(iOCT_entityContext_get(entity.containerID), entity.objectID, rigidBodyOrigin.objectID, gravity, mass, inertia, friction, restitution);
 }
-OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID rigidBodyID, float mass, float inertia, float friction, float restitution) {
+OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID rigidBodyID, float gravity, float mass, float inertia, float friction, float restitution) {
 	OCT_ID newID;
 	OCT_index newIndex;
 	iOCT_physics2D* physics;
@@ -40,6 +40,7 @@ OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID r
 	physics->inertia = inertia;
 	physics->friction = friction;
 	physics->restitution = restitution;
+	physics->gravity = gravity;
 
 	entity->physicsID = newID;
 	iOCT_entity_updateMask(context, entityID, OCT_ECSType_physics2D);
@@ -59,17 +60,6 @@ OCT_vec2 iOCT_physics2D_addVelocity(iOCT_entityContext* context, OCT_ID physicsI
 	return physics->lin_v;
 }
 
-OCT_vec2 OCT_physics2D_addAcceleration(OCT_handle entityHandle, OCT_vec2 acceleration) {
-	assert(entityHandle.type == OCT_handle_entity);
-	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
-	iOCT_entity* entity = iOCT_entity_get(context, entityHandle.objectID);
-	return iOCT_physics2D_addAcceleration(context, entity->physicsID, acceleration);
-}
-OCT_vec2 iOCT_physics2D_addAcceleration(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 acceleration) {
-	iOCT_physics2D* physics = iOCT_physics2D_get(context, physicsID);
-	physics->lin_a = OCT_vec2_add(physics->lin_a, acceleration);
-	return physics->lin_a;
-}
 #pragma endregion
 #pragma region cross-module
 _OCT_physics2D_snapshot* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* outContextID, OCT_index contextIndex) {
@@ -96,19 +86,15 @@ _OCT_physics2D_snapshot* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID
 		dataSlot->rbOriginIndex = cOCT_IDMap_getIndex(&context->IDMap, phys->rbOriginID);
 		dataSlot->mass = phys->mass;
 		dataSlot->lin_v = phys->lin_v;
-		dataSlot->lin_a = phys->lin_a;
-		dataSlot->lin_p = phys->lin_p;
 		dataSlot->forceNet = phys->forceNet;
 		dataSlot->inertia = phys->inertia;
 		dataSlot->ang_v = phys->ang_v;
-		dataSlot->ang_a = phys->ang_a;
-		dataSlot->ang_L = phys->ang_L;
 		dataSlot->torqueNet = phys->torqueNet;
 		dataSlot->friction = phys->friction;
 		dataSlot->restitution = phys->restitution;
+		dataSlot->gravity = phys->gravity;
 
 		dataSlot->transformID = transf->transformID;
-		dataSlot->globalMatrix = transf->globalMatrix;
 		dataSlot->position = transf->position;
 		dataSlot->rotation = transf->rotation;
 
@@ -135,17 +121,12 @@ void _OCT_physics2D_writeBack(OCT_index count, OCT_ID contextID) {
 		transform = iOCT_transform2D_get(context, snapshot->transformID);
 		
 		physics->lin_v = snapshot->lin_v;
-		physics->lin_a = snapshot->lin_a;
-		physics->lin_p = snapshot->lin_p;
 		physics->forceNet = snapshot->forceNet;
 		physics->ang_v = snapshot->ang_v;
-		physics->ang_a = snapshot->ang_a;
-		physics->ang_L = snapshot->ang_L;
 		physics->torqueNet = snapshot->torqueNet;
 
 		transform->position = snapshot->position;
 		transform->rotation = snapshot->rotation;
-		transform->globalMatrix = snapshot->globalMatrix;
 	}
 }
 
