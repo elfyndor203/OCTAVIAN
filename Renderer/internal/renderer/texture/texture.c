@@ -1,5 +1,6 @@
 #include "texture_internal.h"
 
+#include "cOCT_Communication.h"
 #include "cOCT_EngineStructure.h"
 #include <glad/glad.h>
 #include <assert.h>

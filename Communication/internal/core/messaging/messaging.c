@@ -1,8 +1,9 @@
 #include "messaging_internal.h"
-#include "linking/messaging_core.h"
+#include "messaging/messaging_core.h"
 #include "core/types_internal.h"
+#include "types_core.h"
 
-#include "core/module/CORModule_internal.h"
+#include "module/COMModule_internal.h"
 
 static bool iOCT_queueEmpty(cOCT_messageBox* box);
 static bool iOCT_queueFull(cOCT_messageBox* box);
@@ -56,19 +57,19 @@ static cOCT_messageBox* iOCT_messageBox_get(OCT_subsystemList recipient, int box
 	if (boxType == iOCT_INBOX) {
 		switch (recipient) {
 		case OCT_subsystem_ECS:
-			box = &iOCT_CORModule_instance.inbox_ECS;
+			box = &iOCT_COMModule_instance.inbox_ECS;
 			break;
 		case OCT_subsystem_resources:
-			box = &iOCT_CORModule_instance.inbox_RES;
+			box = &iOCT_COMModule_instance.inbox_RES;
 			break;
 		case OCT_subsystem_renderer:
-			box = &iOCT_CORModule_instance.inbox_REN;
+			box = &iOCT_COMModule_instance.inbox_REN;
 			break;
 		case OCT_subsystem_window:
-			box = &iOCT_CORModule_instance.inbox_WDW;
+			box = &iOCT_COMModule_instance.inbox_WDW;
 			break;
 		case OCT_subsystem_input:
-			box = &iOCT_CORModule_instance.inbox_INP;
+			box = &iOCT_COMModule_instance.inbox_INP;
 			break;
 		default:
 			return NULL;
@@ -77,16 +78,16 @@ static cOCT_messageBox* iOCT_messageBox_get(OCT_subsystemList recipient, int box
 	else {
 		switch (recipient) {
 		case OCT_subsystem_ECS:
-			box = &iOCT_CORModule_instance.eventBox_ECS;
+			box = &iOCT_COMModule_instance.eventBox_ECS;
 			break;
 		case OCT_subsystem_resources:
-			box = &iOCT_CORModule_instance.eventBox_RES;
+			box = &iOCT_COMModule_instance.eventBox_RES;
 			break;
 		case OCT_subsystem_renderer:
-			box = &iOCT_CORModule_instance.eventBox_REN;
+			box = &iOCT_COMModule_instance.eventBox_REN;
 			break;
 		case OCT_subsystem_window:
-			box = &iOCT_CORModule_instance.eventBox_WDW;
+			box = &iOCT_COMModule_instance.eventBox_WDW;
 			break;
 		default:
 			return NULL;

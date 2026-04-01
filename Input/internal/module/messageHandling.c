@@ -1,4 +1,5 @@
 
+#include "cOCT_Communication.h"
 #include "cOCT_EngineStructure.h"
 #include "input/types.h"
 #include <assert.h>
