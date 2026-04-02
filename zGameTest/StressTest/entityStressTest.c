@@ -6,15 +6,17 @@
 #include "OCT_ECS.h"
 #include "OCT_Renderer.h"
 #include "OCT_Resources.h"
-#include "OCT_window.h"
+#include "OCT_Window.h"
 #include "OCT_Input.h"
 #include "OCT_Physics.h"
+#include "OCT_Platform.h"
 
 #include "main.h"
 
 #include <math.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <stdio.h>
 
 #define STRESS_ENTITY_COUNT 3000
 #define STRESS_ARM_LENGTH 10
@@ -25,6 +27,7 @@ int main() {
     OCT_RENModule_init((OCT_vec2) { 960, 540 });
     OCT_PHYModule_init((OCT_vec2) { 0, -9.8 });
     OCT_ECSModule_init();
+    OCT_PLTModule_init();
 
     OCT_handle contextRoot;
     OCT_handle context = OCT_entityContext_open(&contextRoot);
@@ -62,13 +65,16 @@ int main() {
         printf("Armcount: %d\n", armCount);
     }
 
-    float time = 0.0f;
+    double time = 0.0;
     int frame = 0;
 
     while (!OCT_window_closed()) {
         OCT_WDWModule_startFrame();
+        OCT_PLTModule_update();
+
         frame++;
-        time += 0.016f;
+        time += OCT_timer_getMS();
+        printf("Frame: %d   Time: %lf MS\n", frame, time);
 
         // hold space to curl all arms
         if (OCT_keyState_read(OCT_KEY_SPACE) == OCT_KEYSTATE_DOWN) {
@@ -108,6 +114,6 @@ int main() {
         OCT_ECSModule_update();
         OCT_PHYModule_update();
         OCT_RENModule_update();
-        OCT_WDWModule_endFrame();
+        OCT_WDWModule_update();
     }
 }

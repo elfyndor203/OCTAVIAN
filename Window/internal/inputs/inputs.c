@@ -7,6 +7,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "module/WDWModule_internal.h"
 
@@ -175,6 +176,9 @@ void iOCT_window_keyEvent(OCT_key key, int action, int modifiers) {
 OCT_vec2 OCT_window_cursorPos_get() {
     return iOCT_WDWModule_instance.cursorPos;
 }
+OCT_vec2 OCT_window_cursorDelta_get() {
+    return iOCT_WDWModule_instance.cursorDelta;
+}
 
 #pragma region helpers
 static OCT_key iOCT_getOCTKey(int glfwKey) {
@@ -195,6 +199,9 @@ void iOCT_window_callback_mouseEvent(GLFWwindow* window, int key, int action, in
 }
 
 void iOCT_window_callback_mouseMove(GLFWwindow* window, double x, double y) {
+    OCT_vec2 prevPos = iOCT_WDWModule_instance.cursorPos;
     iOCT_WDWModule_instance.cursorPos = (OCT_vec2){ x, y };
+    iOCT_WDWModule_instance.cursorDelta = OCT_vec2_sub(iOCT_WDWModule_instance.cursorPos, prevPos);
+    //printf("Delta x: %lf, y: %lf\n", iOCT_WDWModule_instance.cursorDelta.x, iOCT_WDWModule_instance.cursorDelta.y);
 }
 #pragma endregion

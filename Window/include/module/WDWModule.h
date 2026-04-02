@@ -4,7 +4,7 @@
 
 void OCT_WDWModule_init(char* name, unsigned int sizeX, unsigned int sizeY, OCT_vec4 color);
 void OCT_WDWModule_startFrame();
-void OCT_WDWModule_endFrame();
+void OCT_WDWModule_update();
 bool OCT_window_closed();
 
 void OCT_WDWModule_free();

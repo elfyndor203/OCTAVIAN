@@ -32,3 +32,6 @@ iOCT_physics2D* iOCT_physics2D_get(iOCT_entityContext* context, OCT_ID physicsID
 OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID rigidBodyID, float gravity, float mass, float inertia, float friction, float restitution);
 
 OCT_vec2 iOCT_physics2D_addVelocity(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 velocity);
+void iOCT_physics2D_setVelocity(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 velocity);
+void iOCT_physics2D_setGravity(iOCT_entityContext* context, OCT_ID physicsID, float multiplier);
+OCT_vec2 iOCT_physics2D_addForce(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 force);

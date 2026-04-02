@@ -2,13 +2,15 @@
 #include "physics/types_internal.h"
 
 #include "_ECS_Output/_ECS_include.h"
+#include "cOCT_Communication.h"
 
 #include "physics/physicsPass/physicsPass_internal.h"
 
 iOCT_PHYModule iOCT_PHYModule_instance = { 0 };
 
-void OCT_PHYModule_init(OCT_vec2 gravity) {
+void OCT_PHYModule_init(OCT_vec2 gravity, unsigned int hz) {
 	iOCT_PHYModule_instance.gravity = gravity;
+	iOCT_PHYModule_instance.deltaT = 1.0 / hz;
 }
 void OCT_PHYModule_update() {
 	OCT_index contextCt = _OCT_entityContext_getCount();

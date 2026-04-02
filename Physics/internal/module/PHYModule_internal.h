@@ -5,6 +5,7 @@
 
 struct iOCT_PHYModule {
 	OCT_vec2 gravity;
+	double deltaT;
 };
 
 extern iOCT_PHYModule iOCT_PHYModule_instance;

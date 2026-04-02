@@ -43,9 +43,10 @@ void iOCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OC
 }
 
 void OCT_WDWModule_startFrame() {
+	iOCT_WDWModule_instance.cursorDelta = OCT_vec2_zero;
 	glfwPollEvents();
 }
-void OCT_WDWModule_endFrame() {
+void OCT_WDWModule_update() {
 	iOCT_window_show();
 	iOCT_window_wipe();
 }
