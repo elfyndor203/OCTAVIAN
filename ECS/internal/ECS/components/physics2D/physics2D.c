@@ -5,6 +5,7 @@
 #include "OCT_Math.h"
 #include <string.h>
 #include <assert.h>
+#include <stdio.h>
 
 #include "ECS/entityContext/entityContext_internal.h"
 #include "_ECS_Output/_ECS_include.h"
@@ -60,6 +61,39 @@ OCT_vec2 iOCT_physics2D_addVelocity(iOCT_entityContext* context, OCT_ID physicsI
 	return physics->lin_v;
 }
 
+void OCT_physics2D_setVelocity(OCT_handle entityHandle, OCT_vec2 velocity) {
+	assert(entityHandle.type == OCT_handle_entity);
+	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
+	iOCT_entity* entity = iOCT_entity_get(context, entityHandle.objectID);
+	iOCT_physics2D_setVelocity(context, entity->physicsID, velocity);
+}
+void iOCT_physics2D_setVelocity(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 velocity) {
+	iOCT_physics2D* physics = iOCT_physics2D_get(context, physicsID);
+	physics->lin_v = velocity;
+}
+
+void OCT_physics2D_setGravity(OCT_handle entityHandle, float multiplier) {
+	assert(entityHandle.type == OCT_handle_entity);
+	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
+	iOCT_entity* entity = iOCT_entity_get(context, entityHandle.objectID);
+	iOCT_physics2D_setGravity(context, entity->physicsID, multiplier);
+}
+void iOCT_physics2D_setGravity(iOCT_entityContext* context, OCT_ID physicsID, float multiplier) {
+	iOCT_physics2D* physics = iOCT_physics2D_get(context, physicsID);
+	physics->gravity = multiplier;
+}
+
+OCT_vec2 OCT_physics2D_addForce(OCT_handle entityHandle, OCT_vec2 force) {
+	assert(entityHandle.type == OCT_handle_entity);
+	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
+	iOCT_entity* entity = iOCT_entity_get(context, entityHandle.objectID);
+	return iOCT_physics2D_addForce(context, entity->physicsID, force);
+}
+OCT_vec2 iOCT_physics2D_addForce(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 force) {
+	iOCT_physics2D* physics = iOCT_physics2D_get(context, physicsID);
+	physics->forceNet = OCT_vec2_add(physics->forceNet, force);
+	return physics->forceNet;
+}
 #pragma endregion
 #pragma region cross-module
 _OCT_physics2D_snapshot* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* outContextID, OCT_index contextIndex) {

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{02793d58-3fa4-4205-a212-9da421ece399}</ProjectGuid>
-    <RootNamespace>Physics</RootNamespace>
+    <ProjectGuid>{c312e567-d430-4bb8-9458-1c38d2133689}</ProjectGuid>
+    <RootNamespace>OCTAVIANEngine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Math\include;$(SolutionDir)ECS\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(SolutionDir)EngineStructure\core;$(ProjectDir)include;$(ProjectDir)internal;$(SolutionDir)Communication\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Window\include;$(SolutionDir)Resources\include;$(SolutionDir)Physics\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -91,7 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Math\include;$(SolutionDir)ECS\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(SolutionDir)EngineStructure\core;$(ProjectDir)include;$(ProjectDir)internal;$(SolutionDir)Communication\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Window\include;$(SolutionDir)Resources\include;$(SolutionDir)Physics\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Math\include;$(SolutionDir)ECS\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(SolutionDir)EngineStructure\core;$(ProjectDir)include;$(ProjectDir)internal;$(SolutionDir)Communication\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Window\include;$(SolutionDir)Resources\include;$(SolutionDir)Physics\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,7 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Math\include;$(SolutionDir)ECS\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(SolutionDir)EngineStructure\core;$(ProjectDir)include;$(ProjectDir)internal;$(SolutionDir)Communication\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Window\include;$(SolutionDir)Resources\include;$(SolutionDir)Physics\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Errors\include;$(ProjectDir)include;$(ProjectDir)internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,17 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="internal\module\PHYModule.c" />
-    <ClCompile Include="internal\physics\dynamics\dynamics.c" />
-    <ClCompile Include="internal\physics\physicsPass\physicsPass.c" />
+    <ClCompile Include="internal\engine\engine.c" />
+    <ClCompile Include="internal\engine\tick.c" />
+    <ClCompile Include="internal\module\OCTModule.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\module\PHYModule.h" />
-    <ClInclude Include="include\OCT_Physics.h" />
-    <ClInclude Include="internal\module\PHYModule_internal.h" />
-    <ClInclude Include="internal\physics\dynamics\dynamics_internal.h" />
-    <ClInclude Include="internal\physics\physicsPass\physicsPass_internal.h" />
-    <ClInclude Include="internal\physics\types_internal.h" />
+    <ClInclude Include="include\engine\engine.h" />
+    <ClInclude Include="include\module\OCTModule.h" />
+    <ClInclude Include="include\engine\tick.h" />
+    <ClInclude Include="include\OCT_engine.h" />
+    <ClInclude Include="internal\module\OCTModule_internal.h" />
+    <ClInclude Include="internal\types_internal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

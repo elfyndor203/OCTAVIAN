@@ -59,8 +59,8 @@ void iOCT_window_callback_resize(GLFWwindow* window, int newWidth, int newHeight
 #pragma endregion
 
 #pragma region cross-module requests
-OCT_vec2 _OCT_window_getResolution(OCT_vec2* viewPortOffset) {
-    *viewPortOffset = iOCT_WDWModule_instance.windowOffset;
+OCT_vec2 _OCT_window_getResolution(OCT_vec2* outViewPortOffset) {
+    *outViewPortOffset = iOCT_WDWModule_instance.windowOffset;
     return iOCT_WDWModule_instance.currentResolution;
 }
 #pragma endregion

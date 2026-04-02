@@ -1,11 +1,4 @@
-#include "OCT_Math.h"
-#include "OCT_EngineStructure.h"
-#include "OCT_Errors.h"
-#include "OCT_ECS.h"
-#include "OCT_Renderer.h"
-#include "OCT_Resources.h"
-#include "OCT_Window.h"
-#include "OCT_Input.h"
+#include "OCT_Engine.h"
 
 OCT_vec4 black = { 0.0, 0.0, 0.0, 0.5 };
 
@@ -13,10 +6,7 @@ OCT_vec4 noTintSolid = {1.0, 1.0, 1.0, 1.0};
 OCT_vec4 wholeTexture = {0.0, 0.0, 1.0, 1.0};
 
 int main() {
-	OCT_WDWModule_init("My Game", 1920, 1080, black);	// start engine
-	OCT_RESModule_init();
-	OCT_RENModule_init((OCT_vec2) { 960, 540 });
-	OCT_ECSModule_init();
+	OCT_engine_start("MyGame", 1920, 1080, black, 960, 650, 240, 120, 60);
 
 	OCT_handle myContextRoot;	
 	OCT_handle myContext = OCT_entityContext_open(&myContextRoot);	// create a context for entities to live in
@@ -37,15 +27,9 @@ int main() {
 			OCT_transform2D_moveTo(character, cursor);
 		}
 
-		OCT_INPModule_update();
-		OCT_ECSModule_update();
-		OCT_RENModule_update();
-		OCT_WDWModule_endFrame();
+		OCT_engine_tick();
 	}
 
-	OCT_ECSModule_free();	// shut down engine
-	OCT_RENModule_free();
-	OCT_RESModule_free();
-	OCT_WDWModule_free();
+	OCT_engine_stop();
 	return 0;
 }

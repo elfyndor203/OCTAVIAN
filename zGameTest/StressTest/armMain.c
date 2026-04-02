@@ -1,16 +1,11 @@
 #include "arm.h"
 
-#include "OCT_Math.h"
-#include "OCT_EngineStructure.h"
-#include "OCT_Errors.h"
-#include "OCT_ECS.h"
-#include "OCT_Renderer.h"
-#include "OCT_Resources.h"
-#include "OCT_window.h"
-#include "OCT_Input.h"
-#include "OCT_Physics.h"
+#include "OCT_Engine.h"
 
 #include <math.h>
+#include <stdio.h>
+
+#define DELTA_HISTORY 5
 
 OCT_vec4 color_purple = { 0.5, 0.0, 0.5, 1.0 };
 OCT_vec4 color_black = { 0.0, 0.0, 0.0, 0.5 };
@@ -23,11 +18,7 @@ OCT_vec2 upLeft = { -1, 1 };
 OCT_vec2 downLeft = { -1, -1 };
 
 int main() {
-	OCT_WDWModule_init("Arms", 1920, 1080, color_black);
-	OCT_RESModule_init();
-	OCT_RENModule_init((OCT_vec2) { 960 * 4, 540 * 4});
-	OCT_ECSModule_init();
-	OCT_PHYModule_init((OCT_vec2) {0, -0.8});
+	OCT_engine_init("The Ottoman Empire", 1920, 1080, color_black, 960 * 4, 540 * 4, 240, 100, 60);
 
 	OCT_handle contextRoot;
 	OCT_handle armContext = OCT_entityContext_open(&contextRoot);
@@ -36,7 +27,7 @@ int main() {
 
 	OCT_handle body = OCT_entity_new(armContext);
 	OCT_handle extension = OCT_entity_new(body);
-	OCT_physics2D_add(body, body, 0.001, 3, 3, 3, 0.8);
+	OCT_physics2D_add(body, body, 1, 1, 3, 3, 0.8);
 
 	OCT_handle armTex1 = OCT_image_load("images/hannes.png");
 	OCT_handle armTex2 = OCT_image_load("images/anya.png");
@@ -84,11 +75,21 @@ int main() {
 	OCT_vec2 cursor;
 	float curl = 1;
 	OCT_handle newlySpawned = mouseRoot;
-	int frame = 0;
+	bool mouseDown = false;
+	bool mouseChanged = false;
+
+	OCT_vec2 deltaHistory[DELTA_HISTORY] = { 0 };
+	int deltaHead = 0;
+	OCT_vec2 throwVelocity = { 0 };
+	OCT_vec2 sum = { 0 };
+	int count = 0;
 	while (!OCT_window_closed()) {
 		OCT_WDWModule_startFrame();
-		frame++;
 		cursor = OCT_cursorPos_read(true);
+
+		// each frame, store current delta
+		deltaHistory[deltaHead % DELTA_HISTORY] = OCT_cursorDelta_read(true);
+		deltaHead++;
 
 		if (OCT_keyState_read(OCT_KEY_UP) == OCT_KEYSTATE_DOWN) {
 			rotateArm(rightTopArm, rotateSpeed, curl);
@@ -115,14 +116,55 @@ int main() {
 		}
 
 		if (OCT_keyState_read(OCT_KEY_MOUSE_LEFT) == OCT_KEYSTATE_DOWN) {
+			if (!mouseDown) {
+				mouseChanged = true;
+				mouseDown = true;
+			}
+			else {
+				mouseChanged = false;
+			}
 			OCT_transform2D_moveTo(body, cursor);
+			OCT_physics2D_setVelocity(body, OCT_vec2_zero);
+		}
+		else {
+			if (mouseDown) {
+				mouseChanged = true;
+				mouseDown = false;
+			}
+			else {
+				mouseChanged = false;
+			}
 		}
 
+		if (mouseChanged) {
+			if (mouseDown) {
+				printf("no grav\n");
+				OCT_physics2D_setGravity(body, 0);
+			}
+			else {
+				printf("grav\n");
+				OCT_physics2D_setGravity(body, 1);
+				// on release, average the history
+				sum = OCT_vec2_zero;
+				for (int i = 0; i < DELTA_HISTORY; i++) {
+					if (deltaHistory[i].x != 0 || deltaHistory[i].y != 0) {
+						sum = OCT_vec2_add(sum, deltaHistory[i]);
+						count++;
+					}
+				}
+				OCT_vec2 throwVelocity = count > 0 ? OCT_vec2_div(sum, count) : (OCT_vec2) { 0, 0 };
+				printf("throw: %f %f\n", throwVelocity.x, throwVelocity.y);
+				OCT_physics2D_addForce(body, OCT_vec2_mul(throwVelocity, 100));
+			}
+		}
 		if (OCT_keyState_read(OCT_KEY_LEFT) == OCT_KEYSTATE_DOWN) {
-			OCT_physics2D_addVelocity(body, (OCT_vec2) { -0.001, 0 });
+			//OCT_physics2D_addVelocity(body, (OCT_vec2) { -0.001, 0 });
+			OCT_physics2D_addForce(body, (OCT_vec2) { -0.1, 0 });
+
 		}
 		if (OCT_keyState_read(OCT_KEY_RIGHT) == OCT_KEYSTATE_DOWN) {
-			OCT_physics2D_addVelocity(body, (OCT_vec2) { 0.001, 0 });
+			OCT_physics2D_addForce(body, (OCT_vec2) { 0.1, 0 });
+
 		}
 
 		if (OCT_keyState_read(OCT_KEY_W) == OCT_KEYSTATE_DOWN) {
@@ -138,16 +180,12 @@ int main() {
 			OCT_transform2D_moveBy(body, (OCT_vec2) { 0.1, 0 });
 		}
 		if (OCT_keyState_read(OCT_KEY_2) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_scaleBy(body, (OCT_vec2) { 1.001, 1.001 });
+			OCT_transform2D_scaleBy(body, (OCT_vec2) { 1.000001, 1.000001 });
 		}
 		if (OCT_keyState_read(OCT_KEY_1) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_scaleBy(body, (OCT_vec2) { 0.999, 0.999 });
 		}
 
-		OCT_INPModule_update();
-		OCT_ECSModule_update();
-		OCT_PHYModule_update();
-		OCT_RENModule_update();
-		OCT_WDWModule_endFrame();
+		OCT_engine_tick();
 	}
 }

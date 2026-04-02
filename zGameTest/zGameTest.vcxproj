@@ -88,13 +88,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ECS\include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Window\include;$(SolutionDir)Renderer\include;$(SolutionDir)Resources\include;$(SolutionDir)Input\include;$(SolutionDir)Physics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug;$(SolutionDir)External;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;Resources.lib;opengl32.lib;glfw3.lib;Window.lib;Renderer.lib;Input.lib;Physics.lib;Communication.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;Resources.lib;opengl32.lib;glfw3.lib;Window.lib;Renderer.lib;Input.lib;Physics.lib;Communication.lib;Platform.lib;OCTAVIANEngine.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -105,13 +105,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ECS\include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Window\include;$(SolutionDir)Renderer\include;$(SolutionDir)Resources\include;$(SolutionDir)Input\include;$(SolutionDir)Physics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug;$(SolutionDir)External;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;Resources.lib;opengl32.lib;glfw3.lib;Window.lib;Renderer.lib;Input.lib;Physics.lib;Communication.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;Resources.lib;opengl32.lib;glfw3.lib;Window.lib;Renderer.lib;Input.lib;Physics.lib;Communication.lib;Platform.lib;OCTAVIANEngine.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -120,13 +120,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ECS\include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Window\include;$(SolutionDir)Renderer\include;$(SolutionDir)Resources\include;$(SolutionDir)Input\include;$(SolutionDir)Physics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug;$(SolutionDir)External;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;Resources.lib;opengl32.lib;glfw3.lib;Window.lib;Renderer.lib;Input.lib;Physics.lib;Communication.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;Resources.lib;opengl32.lib;glfw3.lib;Window.lib;Renderer.lib;Input.lib;Physics.lib;Communication.lib;Platform.lib;OCTAVIANEngine.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -137,18 +137,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ECS\include;$(SolutionDir)Errors\include;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Window\include;$(SolutionDir)Renderer\include;$(SolutionDir)Resources\include;$(SolutionDir)Input\include;$(SolutionDir)Physics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug;$(SolutionDir)External;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;Resources.lib;opengl32.lib;glfw3.lib;Window.lib;Renderer.lib;Input.lib;Physics.lib;Communication.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Errors.lib;ECS.lib;EngineStructure.lib;Math.lib;Resources.lib;opengl32.lib;glfw3.lib;Window.lib;Renderer.lib;Input.lib;Physics.lib;Communication.lib;Platform.lib;OCTAVIANEngine.lib;user32.lib;gdi32.lib;shell32.lib;ole32.lib;advapi32.lib;winmm.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gettingStarted.c" />
     <ClCompile Include="StressTest\arm.c" />
-    <ClCompile Include="StressTest\entityStressTest.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StressTest\arm.h" />

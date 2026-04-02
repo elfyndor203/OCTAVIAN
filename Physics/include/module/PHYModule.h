@@ -1,5 +1,7 @@
 #pragma once
 #include "OCT_Math.h"
 
-void OCT_PHYModule_init(OCT_vec2 gravity);
+#define OCT_GRAVITY_DEFAULT -200
+
+void OCT_PHYModule_init(OCT_vec2 gravity, unsigned int hz);
 void OCT_PHYModule_update();

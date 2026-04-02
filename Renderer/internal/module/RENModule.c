@@ -129,4 +129,8 @@ OCT_vec2 _OCT_renderer_projectCoords(OCT_vec2 screen) {
 
 	return (OCT_vec2) { worldPos.x, worldPos.y };
 }
+
+OCT_vec2 _OCT_renderer_getVirtual() {
+	return iOCT_RENModule_instance.worldScale;
+}
 #pragma endregion

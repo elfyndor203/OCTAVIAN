@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ECS/module/ECSModule.h"
+#include "module/ECSModule.h"
 #include "ECS/entityContext/entityContext.h"
 
 #include "ECS/entity/entity.h"
