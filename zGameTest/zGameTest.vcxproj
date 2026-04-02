@@ -147,8 +147,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="gettingStarted.c" />
     <ClCompile Include="StressTest\arm.c" />
+    <ClCompile Include="StressTest\armMain.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StressTest\arm.h" />

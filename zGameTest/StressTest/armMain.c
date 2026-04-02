@@ -18,7 +18,7 @@ OCT_vec2 upLeft = { -1, 1 };
 OCT_vec2 downLeft = { -1, -1 };
 
 int main() {
-	OCT_engine_init("The Ottoman Empire", 1920, 1080, color_black, 960 * 4, 540 * 4, 240, 100, 60);
+	OCT_engine_start("The Ottoman Empire", 1920, 1080, color_black, 960 * 4, 540 * 4, 240, 100, 60);
 
 	OCT_handle contextRoot;
 	OCT_handle armContext = OCT_entityContext_open(&contextRoot);
@@ -168,22 +168,22 @@ int main() {
 		}
 
 		if (OCT_keyState_read(OCT_KEY_W) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_moveBy(body, (OCT_vec2) { 0, 0.1 });
+			OCT_physics2D_addForce(body, (OCT_vec2) { 0, 0.1 });
 		}
 		if (OCT_keyState_read(OCT_KEY_A) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_moveBy(body, (OCT_vec2) { -0.1, 0 });
+			OCT_physics2D_addForce(body, (OCT_vec2) { -0.05, 0 });
 		}
 		if (OCT_keyState_read(OCT_KEY_S) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_moveBy(body, (OCT_vec2) { 0, -0.1 });
 		}
 		if (OCT_keyState_read(OCT_KEY_D) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_moveBy(body, (OCT_vec2) { 0.1, 0 });
+			OCT_physics2D_addForce(body, (OCT_vec2) { 0.05, 0 });
 		}
 		if (OCT_keyState_read(OCT_KEY_2) == OCT_KEYSTATE_DOWN) {
 			OCT_transform2D_scaleBy(body, (OCT_vec2) { 1.000001, 1.000001 });
 		}
 		if (OCT_keyState_read(OCT_KEY_1) == OCT_KEYSTATE_DOWN) {
-			OCT_transform2D_scaleBy(body, (OCT_vec2) { 0.999, 0.999 });
+			OCT_transform2D_scaleBy(body, (OCT_vec2) { 0.999999, 0.999999 });
 		}
 
 		OCT_engine_tick();
