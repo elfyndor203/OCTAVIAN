@@ -1,11 +1,9 @@
 #pragma once
-#include "linking/types_core.h"
+#include "types_core.h"
 
+#include "cOCT_EngineStructure.h"
 #include "OCT_Math.h"
 #include <stdbool.h>
-
-#include "layout/engineLayout.h"
-#include "layout/types.h"
 
 #define cOCT_MESSAGES_MAX 64
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "inputs/inputs_internal.h"
 
+#include "cOCT_Communication.h"
 #include "cOCT_EngineStructure.h"
 #include "OCT_Errors.h"
 #include <glad/glad.h>

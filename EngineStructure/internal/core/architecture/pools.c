@@ -1,5 +1,5 @@
 #include "architecture/pools_core.h"
-#include "linking/types_core.h"
+#include "types_core.h"
 
 #include "OCT_Errors.h"
 #include "OCT_Math.h"

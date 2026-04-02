@@ -1,5 +1,5 @@
 #pragma once
-#include "linking/types_core.h"
+#include "types_core.h"
 
 #include "OCT_Math.h"
 

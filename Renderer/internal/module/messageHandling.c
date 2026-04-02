@@ -1,6 +1,7 @@
 #include "module/RENModule_internal.h"
 #include "renderer/types_internal.h"
 
+#include "cOCT_Communication.h"
 #include "cOCT_EngineStructure.h"
 #include <assert.h>
 #include <glad/glad.h>

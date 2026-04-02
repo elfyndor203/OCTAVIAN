@@ -1,6 +1,7 @@
 #include "image_internal.h"
 #include "resources/types_internal.h"
 
+#include "cOCT_Communication.h"
 #include "cOCT_EngineStructure.h"
 #include <string.h>
 

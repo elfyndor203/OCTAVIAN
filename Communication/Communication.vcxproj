@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -18,33 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="stb\LICENSE" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\module\RESModule.h" />
-    <ClInclude Include="include\OCT_Resources.h" />
-    <ClInclude Include="include\resources\image\image.h" />
-    <ClInclude Include="include\resources\module\RESModule.h" />
-    <ClInclude Include="include\_RES_Output\_REN_include.h" />
-    <ClInclude Include="internal\resources\image\image_internal.h" />
-    <ClInclude Include="internal\module\RESModule_internal.h" />
-    <ClInclude Include="internal\resources\resourceList\resourceList_internal.h" />
-    <ClInclude Include="internal\resources\resource\resource_internal.h" />
-    <ClInclude Include="stb\stb_image.h" />
-    <ClInclude Include="internal\resources\types_internal.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="internal\module\messageHandling.c" />
-    <ClCompile Include="internal\resources\resourceList\resourceList.c" />
-    <ClCompile Include="internal\resources\image\image.c" />
-    <ClCompile Include="internal\module\RESModule.c" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6fa5c755-9dcf-4359-9ddb-eef78b6ffb4d}</ProjectGuid>
-    <RootNamespace>Resources</RootNamespace>
+    <ProjectGuid>{bee2d553-9249-4e22-834e-9f026593c599}</ProjectGuid>
+    <RootNamespace>Communication</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -96,15 +74,13 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)Communication\include;$(SolutionDir)Communication\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)core;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>EngineStructure.lib;Errors.lib;Math.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,30 +89,26 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)Communication\include;$(SolutionDir)Communication\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)core;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>EngineStructure.lib;Errors.lib;Math.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)Communication\include;$(SolutionDir)Communication\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)core;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>EngineStructure.lib;Errors.lib;Math.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -145,17 +117,27 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)EngineStructure\include;$(ProjectDir)internal;$(ProjectDir)stb;$(SolutionDir)Math\include;$(SolutionDir)EngineStructure\core;$(SolutionDir)Communication\include;$(SolutionDir)Communication\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)internal;$(ProjectDir)core;$(SolutionDir)EngineStructure\core;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>EngineStructure.lib;Errors.lib;Math.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="core\cOCT_Communication.h" />
+    <ClInclude Include="core\messaging\messaging_core.h" />
+    <ClInclude Include="core\types_core.h" />
+    <ClInclude Include="internal\core\messaging\messaging_internal.h" />
+    <ClInclude Include="internal\core\types_internal.h" />
+    <ClInclude Include="internal\module\COMModule_internal.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="internal\core\messaging\messaging.c" />
+    <ClCompile Include="internal\module\COMModule.c" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
