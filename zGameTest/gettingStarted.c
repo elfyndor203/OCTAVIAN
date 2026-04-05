@@ -1,9 +1,6 @@
-#include "OCT_Engine.h"
+#include "OCT_engine.h"
 
-OCT_vec4 black = { 0.0, 0.0, 0.0, 0.5 };
-
-OCT_vec4 noTintSolid = {1.0, 1.0, 1.0, 1.0};
-OCT_vec4 wholeTexture = {0.0, 0.0, 1.0, 1.0};
+#include "definitions.h"
 
 int main() {
 	OCT_engine_start("MyGame", 1920, 1080, black, 960, 650, 240, 120, 60);
@@ -16,7 +13,7 @@ int main() {
 	OCT_handle myTexture = OCT_image_load("images/gear.png");
 	OCT_handle foreground = OCT_layer_open(true, myTexture);		// create a layer with a texture for all sprites it owns
 
-	OCT_sprite2D_add(character, foreground, noTintSolid, wholeTexture, (OCT_vec2) { 49, 27 });
+	OCT_sprite2D_add(character, foreground, noTintSolid, wholeTexture, (OCT_vec2) {40, 40});
 
 	OCT_vec2 cursor;
 	while (!OCT_window_closed()) {

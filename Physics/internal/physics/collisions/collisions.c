@@ -8,9 +8,11 @@
 #include <stdbool.h>
 #include <math.h>
 #include <float.h>
+#include <stdio.h>
 
 static OCT_vec2 iOCT_physics_project(OCT_vec2 axis, OCT_vec2* verts, OCT_index count);
 static float iOCT_physics_projOverlap(OCT_vec2 projA, OCT_vec2 projB);
+static OCT_vec2 iOCT_physics_SAT2Rect2(OCT_rect2 rectA, OCT_rect2 rectB);
 
 iOCT_collision iOCT_collision_none = { OCT_handle_NULL, OCT_handle_NULL, 0.0f, 0.0f };
 
@@ -23,13 +25,17 @@ iOCT_collision iOCT_physics_detectCollision(_OCT_snapshot_physics* physA, _OCT_s
 		return iOCT_collision_none;
 	}
 
-	if (physA->collider.type == OCT_shapeType_rect2 && physB->collider.type == OCT_shapeType_rect2) {	// check radii
+	if (physA->collider.type == OCT_shapeType_rect2 && physB->collider.type == OCT_shapeType_rect2) {
 		OCT_rect2 rectA = physA->collider.rect2;
 		OCT_rect2 rectB = physB->collider.rect2;
-		radiusA = OCT_vec2_mag(OCT_rect2_getVerts(physA->collider.rect2, NULL, NULL, NULL));
-		radiusB = OCT_vec2_mag(OCT_rect2_getVerts(physB->collider.rect2, NULL, NULL, NULL));
+		rectA.origin = OCT_vec2_add(rectA.origin, physA->position);	// move to global space
+		rectB.origin = OCT_vec2_add(rectB.origin, physB->position);
+
+		radiusA = sqrtf((rectA.width / 2) * (rectA.width / 2) + (rectA.height / 2) * (rectA.height / 2));
+		radiusB = sqrtf((rectB.width / 2) * (rectB.width / 2) + (rectB.height / 2) * (rectB.height / 2));
 
 		if (OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)) > (radiusA + radiusB)) {	// too far apart
+			//printf("Broad dist: %f\n", OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)));
 			return iOCT_collision_none;
 		}
 
@@ -38,7 +44,7 @@ iOCT_collision iOCT_physics_detectCollision(_OCT_snapshot_physics* physA, _OCT_s
 		collision.MTV = iOCT_physics_SAT2Rect2(rectA, rectB);
 	}
 
-	if (OCT_vec2_equal(collision.MTV, OCT_vec2_zero, epsilon)) {
+	if (OCT_vec2_equal(collision.MTV, OCT_vec2_zero, OCT_FLOAT_EQUAL_EPSILON)) {
 		return iOCT_collision_none;
 	}
 	else {

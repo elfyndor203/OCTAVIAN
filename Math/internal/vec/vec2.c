@@ -1,6 +1,6 @@
 #include "vectors/vec2.h"
 #include "units/conversions.h"
-#include "definitions/defaultValues_internal.h"
+#include "definitions/defaultValues.h"
 #include <math.h>
 
 const OCT_vec2 OCT_vec2_zero = { 0, 0 };

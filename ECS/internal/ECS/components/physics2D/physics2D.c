@@ -30,6 +30,9 @@ OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID r
 	physics = (iOCT_physics2D*)cOCT_pool_addEntry(pool, &newIndex);
 	newID = cOCT_IDMap_register(&context->IDMap, newIndex);
 
+	entity->physicsID = newID;	// must update before adding rbOriginID
+	iOCT_entity_updateMask(context, entityID, OCT_ECSType_physics2D);
+
 	memset(physics, 0, sizeof(iOCT_physics2D));
 	physics->parentID = entityID;
 	physics->physicsID = newID;
@@ -43,8 +46,7 @@ OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID r
 	physics->restitution = restitution;
 	physics->gravity = gravity;
 
-	entity->physicsID = newID;
-	iOCT_entity_updateMask(context, entityID, OCT_ECSType_physics2D);
+
 	return newID;
 }
 

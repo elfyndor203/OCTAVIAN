@@ -1,4 +1,5 @@
 #include "arm.h"
+#include "definitions.h"
 
 #include "OCT_Engine.h"
 
@@ -6,11 +7,6 @@
 #include <stdio.h>
 
 #define DELTA_HISTORY 5
-
-OCT_vec4 color_purple = { 0.5, 0.0, 0.5, 1.0 };
-OCT_vec4 color_black = { 0.0, 0.0, 0.0, 0.5 };
-OCT_vec2 normalRect = { 49, 27 };
-OCT_vec2 normalSquare = { 20, 20 };
 
 OCT_vec2 upRight = { 1, 1 };
 OCT_vec2 downRight = { 1, -1 };

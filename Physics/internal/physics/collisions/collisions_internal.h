@@ -12,3 +12,5 @@ struct iOCT_collision {
 };
 
 extern iOCT_collision iOCT_collision_none;
+
+iOCT_collision iOCT_physics_detectCollision(_OCT_snapshot_physics* physA, _OCT_snapshot_physics* physB);

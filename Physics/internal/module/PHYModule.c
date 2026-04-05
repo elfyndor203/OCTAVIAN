@@ -3,6 +3,7 @@
 
 #include "_ECS_Output/_ECS_include.h"
 #include "cOCT_Communication.h"
+#include <stdio.h>
 
 #include "physics/physicsPass/physicsPass_internal.h"
 
@@ -20,7 +21,7 @@ void OCT_PHYModule_update() {
 	_OCT_snapshot_physics* snapshotPack;
 	for (OCT_index i = 0; i < contextCt; i++) {
 		snapshotPack = _OCT_physics2D_packSnapshot(&physCount, &contextID, i);
-		
+		//printf("Received position 1: %f %f, position 2: %f %f\n", snapshotPack[0].position.x, snapshotPack[0].position.y, snapshotPack[1].position.x, snapshotPack[1].position.y);
 		iOCT_physPass_calc(snapshotPack, physCount);
 
 		_OCT_physics2D_writeBack(physCount, contextID);
