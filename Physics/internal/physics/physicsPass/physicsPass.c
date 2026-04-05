@@ -7,25 +7,29 @@
 #include "physics/collisions/collisions_internal.h"
 
 void iOCT_physPass_calc(_OCT_snapshot_physics* snapshotPack, OCT_index count) {
-	_OCT_snapshot_physics* snapshot;
-	_OCT_snapshot_physics* collisionPhys;
+	_OCT_snapshot_physics* physA;
+	_OCT_snapshot_physics* physB;
 	iOCT_collision collision;
 	OCT_index physCt = 0;
 
 	for (physCt = 0; physCt < count; physCt++) {
-		snapshot = &snapshotPack[physCt];
+		physA = &snapshotPack[physCt];
+		iOCT_physPass_addGravity(physA);
+		iOCT_physPass_integrateVelocity(physA);
+	}
+	for (physCt = 0; physCt < count; physCt++) {
+		physA = &snapshotPack[physCt];
 		for (OCT_index collisCt = physCt + 1; collisCt < count; collisCt++) {
-			collisionPhys = &snapshotPack[collisCt];
-			collision = iOCT_physics_detectCollision(snapshot, collisionPhys);
+			physB = &snapshotPack[collisCt];
+			collision = iOCT_physics_detectCollision(physA, physB);
 			if (OCT_vec2_mag(collision.MTV) > 0) {
-				printf("Collision between colliders %zu and %zu\n MTV: %f %f", collision.colliderA, collision.colliderB, collision.MTV.x, collision.MTV.y);
+				iOCT_physics_resolveCollision(physA, physB, collision);
 			}
 		}
 	}
 	for (physCt = 0; physCt < count; physCt++) {
-		snapshot = &snapshotPack[physCt];
-		iOCT_physPass_addGravity(snapshot);
-		iOCT_physPass_integrate(snapshot);
-		iOCT_physPass_finish(snapshot);
+		physA = &snapshotPack[physCt];
+		iOCT_physPass_integratePosition(physA);
+		iOCT_physPass_finish(physA);
 	}
 }

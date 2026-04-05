@@ -150,10 +150,12 @@
     <ClCompile Include="definitions.c" />
     <ClCompile Include="StressTest\arm.c" />
     <ClCompile Include="testing\collisionTest.c" />
+    <ClCompile Include="testing\wasd.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="definitions.h" />
     <ClInclude Include="StressTest\arm.h" />
+    <ClInclude Include="testing\wasd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -26,12 +26,14 @@ struct iOCT_physics2D {
 	float friction;
 	float restitution;
 	float gravity;		// 1 = full gravity
+	bool isStatic;
 };
 
 iOCT_physics2D* iOCT_physics2D_get(iOCT_entityContext* context, OCT_ID physicsID);
-OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID rigidBodyID, float gravity, float mass, float inertia, float friction, float restitution);
-
+OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID rigidBodyID, float gravity, float mass, float inertia, float friction, float restitution, bool isStatic);
 OCT_vec2 iOCT_physics2D_addVelocity(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 velocity);
 void iOCT_physics2D_setVelocity(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 velocity);
+OCT_vec2 iOCT_physics2D_readVelocity(iOCT_entityContext* context, OCT_ID physicsID);
 void iOCT_physics2D_setGravity(iOCT_entityContext* context, OCT_ID physicsID, float multiplier);
 OCT_vec2 iOCT_physics2D_addForce(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 force);
+OCT_vec2 iOCT_physics2D_addImpulse(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 impulse);

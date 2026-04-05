@@ -11,25 +11,27 @@
 #include "OCT_Input.h"
 #include "OCT_Physics.h"
 
+void OCT_engine_startFrame() {
+	OCT_WDWModule_poll();
+	OCT_INPModule_update();
+}
+
 void OCT_engine_tick() {
-	OCT_WDWModule_startFrame;	// get window events
+	//OCT_WDWModule_startFrame;	// get window events
 
 	OCT_PLTModule_update();  // update times
 	iOCT_OCTModule_update(); // query times
-
-	OCT_INPModule_update();
-
-	// phyics
-	while (iOCT_OCTModule_instance.PHY_accumulator > iOCT_OCTModule_instance.PHY_tickTime) {
-		OCT_PHYModule_update();
-
-		iOCT_OCTModule_instance.PHY_accumulator -= iOCT_OCTModule_instance.PHY_tickTime;
-	}
 
 	// ECS
 	while (iOCT_OCTModule_instance.ECS_accumulator > iOCT_OCTModule_instance.ECS_tickTime) {
 		OCT_ECSModule_update();
 		iOCT_OCTModule_instance.ECS_accumulator -= iOCT_OCTModule_instance.ECS_tickTime;
+	}
+	// phyics
+	while (iOCT_OCTModule_instance.PHY_accumulator > iOCT_OCTModule_instance.PHY_tickTime) {
+		OCT_PHYModule_update();
+
+		iOCT_OCTModule_instance.PHY_accumulator -= iOCT_OCTModule_instance.PHY_tickTime;
 	}
 
 	// all rendering

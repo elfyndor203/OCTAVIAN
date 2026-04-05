@@ -68,6 +68,9 @@ float OCT_vec2_dot(OCT_vec2 vectorA, OCT_vec2 vectorB) {
 	float dotProduct = (vectorA.x * vectorB.x) + (vectorA.y * vectorB.y);
 	return dotProduct;
 }
+float OCT_vec2_cross(OCT_vec2 vectorA, OCT_vec2 vectorB) {
+	return (vectorA.x * vectorB.y) - (vectorA.y * vectorB.x);
+}
 OCT_vec2 OCT_vec2_multi(OCT_operations operation, int vectorCount, OCT_vec2* vectorArray) {
 	OCT_vec2 resultantVector = vectorArray[0];
 	// operates on the first vector using the rest

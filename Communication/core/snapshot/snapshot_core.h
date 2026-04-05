@@ -1,6 +1,7 @@
 #pragma once
 #include "OCT_Math.h"
 #include "OCT_EngineStructure.h"
+#include <stdbool.h>
 
 typedef struct {
 	bool visible;
@@ -27,6 +28,7 @@ typedef struct {
 	float friction;
 	float restitution;
 	float gravity;		// 1 = full gravity
+	bool isStatic;
 
 	OCT_vec2 position;	// state
 	OCT_vec2 scale;

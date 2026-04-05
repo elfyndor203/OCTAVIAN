@@ -10,6 +10,7 @@ typedef struct {
 extern const OCT_vec2 OCT_vec2_zero;
 
 float OCT_vec2_dot(OCT_vec2 vectorA, OCT_vec2 vectorB);
+float OCT_vec2_cross(OCT_vec2 vectorA, OCT_vec2 vectorB);
 OCT_vec2 OCT_vec2_add(OCT_vec2 vectorA, OCT_vec2 vectorB);
 /// <summary>
 /// Element-wise subtraction of B from A
