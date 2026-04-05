@@ -9,14 +9,16 @@ typedef struct {
 	OCT_vec4 color;
 	OCT_vec2 dimensions;
 	OCT_handle layer;
-} _OCT_sprite2D_snapshot;
+} _OCT_snapshot_sprite;
 
 typedef struct {
-	OCT_ID physicsID;
+	OCT_ID physicsID;		// return identifiers
 	OCT_ID transformID;
-	OCT_index rbOriginIndex;
+	OCT_ID colliderID;
 
-	float mass;
+	OCT_index rbOriginIndex;	// rigid body grouping
+
+	float mass;			// properties
 	OCT_vec2 lin_v;
 	OCT_vec2 forceNet;
 	float inertia;
@@ -24,10 +26,11 @@ typedef struct {
 	float torqueNet;
 	float friction;
 	float restitution;
+	float gravity;		// 1 = full gravity
 
-	float gravity; // 1 = full gravity
-	OCT_vec2 position;
+	OCT_vec2 position;	// state
+	OCT_vec2 scale;
 	float rotation;
 
-	OCT_shapes collider;
-} _OCT_physics2D_snapshot;
+	OCT_shape2 collider;
+} _OCT_snapshot_physics;

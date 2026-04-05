@@ -1,6 +1,4 @@
 #pragma once
-#include "OCT_EngineStructure.h"
-
 #include "layout/types.h"
 #include "layout/engineLayout.h"
 

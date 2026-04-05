@@ -7,12 +7,13 @@ typedef enum {
 	OCT_subsystem_resources,
 	OCT_subsystem_window,
 	OCT_subsystem_input,
+	OCT_subsystem_physics,
 
 	OCT_subsystem_count
-} OCT_subsystemList;	// to add a new subsystem, add it here and give it an inbox and eventbox in CORModule_internal.h, then add it to the messageBox getter in messaging.c
+} OCT_subsystemList;
 
 typedef enum {
-	OCT_handle_null = 0,
+	OCT_handle_NULL = 0,
 
 	OCT_handle_entityContext,
 	OCT_handle_entity,
@@ -34,8 +35,4 @@ struct OCT_handle {
 	OCT_ID objectID;
 	OCT_handleType type;
 };
-
-extern const OCT_ID OCT_errorID;
-extern OCT_handle _OCT_active;
-extern OCT_handle _OCT_errorHandle;
 

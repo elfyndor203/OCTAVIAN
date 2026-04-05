@@ -17,7 +17,7 @@ void OCT_PHYModule_update() {
 
 	OCT_ID contextID;
 	OCT_index physCount;
-	_OCT_physics2D_snapshot* snapshotPack;
+	_OCT_snapshot_physics* snapshotPack;
 	for (OCT_index i = 0; i < contextCt; i++) {
 		snapshotPack = _OCT_physics2D_packSnapshot(&physCount, &contextID, i);
 		

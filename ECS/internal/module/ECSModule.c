@@ -16,7 +16,7 @@ void iOCT_ECSModule_init() {
 	iOCT_ECSModule_instance.contextMap = cOCT_IDMap_init(OCT_subsystem_ECS, cOCT_POOLSIZE_DEFAULT);
 	iOCT_ECSModule_instance.contextPool = cOCT_pool_init(OCT_subsystem_ECS, cOCT_POOLSIZE_DEFAULT, sizeof(iOCT_entityContext));
 
-	iOCT_ECSModule_instance.physicsDataPool = cOCT_pool_init(OCT_subsystem_ECS, cOCT_POOLSIZE_DEFAULT, sizeof(_OCT_physics2D_snapshot));
+	iOCT_ECSModule_instance.physicsDataPool = cOCT_pool_init(OCT_subsystem_ECS, cOCT_POOLSIZE_DEFAULT, sizeof(_OCT_snapshot_physics));
 }
 
 void OCT_ECSModule_free() {

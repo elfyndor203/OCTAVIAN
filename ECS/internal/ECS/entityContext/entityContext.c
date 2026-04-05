@@ -70,7 +70,7 @@ OCT_ID iOCT_entityContext_open() {
 		newContext->pools[poolType] = cOCT_pool_init(newContext->contextID, cOCT_POOLSIZE_DEFAULT, sizeList[poolType]);
 	}
 
-	iOCT_entity_new(newContext, iOCT_NOPARENT);						// Create root entity
+	iOCT_entity_new(newContext, OCT_ID_NULL);						// Create root entity
 
 	return newID;
 }
@@ -106,7 +106,7 @@ void iOCT_entityContext_close(iOCT_entityContext* closedContext) {
 /// <param name="type"></param>
 /// <returns></returns>
 void* iOCT_getByID(iOCT_entityContext* context, OCT_ID ID, OCT_ECSTypes type) {
-	if (ID == iOCT_NOPARENT) {
+	if (ID == OCT_ID_NULL) {
 		return NULL;
 	}
 

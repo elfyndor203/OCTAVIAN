@@ -3,8 +3,6 @@
 
 #include "OCT_Math.h"
 
-#define OCT_NULL_ID 0
-
 /// <summary>
 /// Maps hold lists of pool array locations, indexed by ID
 /// </summary>

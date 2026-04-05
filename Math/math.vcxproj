@@ -151,20 +151,19 @@
     <ClInclude Include="include\definitions\aliases.h" />
     <ClInclude Include="include\definitions\operations.h" />
     <ClInclude Include="include\matrices\mat3.h" />
-    <ClInclude Include="include\shapes\caps2.h" />
-    <ClInclude Include="include\shapes\circ2.h" />
+    <ClInclude Include="include\shapes\rect2.h" />
     <ClInclude Include="include\units\constants.h" />
     <ClInclude Include="include\units\conversions.h" />
     <ClInclude Include="include\OCT_Math.h" />
-    <ClInclude Include="include\shapes\rect2.h" />
     <ClInclude Include="include\shapes\shapes.h" />
     <ClInclude Include="include\vectors\vec3.h" />
     <ClInclude Include="include\vectors\vec4.h" />
-    <ClInclude Include="internal\definitions\defaultValues_internal.h" />
+    <ClInclude Include="include\definitions\defaultValues.h" />
     <ClInclude Include="include\vectors\vec2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internal\matrices\mat3.c" />
+    <ClCompile Include="internal\shapes\rect2.c" />
     <ClCompile Include="internal\units\constants.c" />
     <ClCompile Include="internal\units\conversions.c" />
     <ClCompile Include="internal\vec\vec2.c" />

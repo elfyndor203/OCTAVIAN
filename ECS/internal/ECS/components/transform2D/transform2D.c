@@ -7,8 +7,6 @@
 #include <stdlib.h>
 
 #include "OCT_Errors.h"
-#include "transform2D_internal.h"
-
 #include "cOCT_EngineStructure.h"
 #include "OCT_Math.h"
 #include <assert.h>
@@ -33,7 +31,7 @@ bool OCT_transform2D_add(OCT_handle handle) {
     assert(handle.type == OCT_handle_entity);
 
     iOCT_entityContext* context = iOCT_entityContext_get(handle.containerID);
-    if (iOCT_transform2D_add(context, handle.objectID) == OCT_NULL_ID) {
+    if (iOCT_transform2D_add(context, handle.objectID) == OCT_ID_NULL) {
         return false;
     }
     return true;
@@ -48,10 +46,10 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
     OCT_index parentIndex;
 
     int parentDepth;
-    if (entityID == iOCT_ROOT_ID) {
+    if (entityID == iOCT_ROOT_ID) {     // if root object
         parentDepth = -1;
-        parentIndex = iOCT_NOPARENT;
-        parentID = iOCT_NOPARENT;
+        parentIndex = OCT_index_NULL;
+        parentID = OCT_ID_NULL;
     }
     else {
         parentTransform = iOCT_transform2D_get(context, iOCT_entity_get(context, iOCT_entity_get(context, entityID)->parentID)->transformID);
@@ -76,7 +74,7 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
 
     if (newTransform->depth >= iOCT_TRANSFORM_MAXDEPTH) {
         OCT_logError(EXIT_TRANSFORM2D_MAX_DEPTH_EXCEEDED);
-        return OCT_NULL_ID;
+        return OCT_ID_NULL;
     }
 
     // Link to parent
@@ -104,6 +102,8 @@ void iOCT_transform2D_propagate(iOCT_entityContext* context) {
 
     for (OCT_index index = rootIndex + 1; index < pool->count; index++) {
         currentTransform = &array[index];
+        
+        assert(currentTransform->parentCache != OCT_index_NULL);
         parentTransform = &array[currentTransform->parentCache];
 
         currentTransform->localMatrix = iOCT_transform2D_generateMatrix(currentTransform);

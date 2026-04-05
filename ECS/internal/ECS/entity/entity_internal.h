@@ -4,8 +4,6 @@
 #include "OCT_Errors.h"
 #include "ECS/types_internal.h"
 
-#define iOCT_NOPARENT OCT_NULL_ID
-
 struct iOCT_entity{
 	OCT_ID contextID;
 	OCT_ID entityID;

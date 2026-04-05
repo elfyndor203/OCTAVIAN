@@ -1,15 +1,6 @@
 #include "arm.h"
 
-#include "OCT_Math.h"
-#include "OCT_EngineStructure.h"
-#include "OCT_Errors.h"
-#include "OCT_ECS.h"
-#include "OCT_Renderer.h"
-#include "OCT_Resources.h"
-#include "OCT_Window.h"
-#include "OCT_Input.h"
-#include "OCT_Physics.h"
-#include "OCT_Platform.h"
+#include "OCT_engine.h"
 
 #include "main.h"
 
@@ -18,16 +9,13 @@
 #include <assert.h>
 #include <stdio.h>
 
-#define STRESS_ENTITY_COUNT 3000
+#define STRESS_ENTITY_COUNT 2500
 #define STRESS_ARM_LENGTH 10
 
+OCT_vec4 color_black = { 0.0, 0.0, 0.0, 0.5 };
+
 int main() {
-    OCT_WDWModule_init("Stress Test", 2560, 1440, clearColor);
-    OCT_RESModule_init();
-    OCT_RENModule_init((OCT_vec2) { 960, 540 });
-    OCT_PHYModule_init((OCT_vec2) { 0, -9.8 });
-    OCT_ECSModule_init();
-    OCT_PLTModule_init();
+    OCT_engine_start("OCTAVIAN", 1920, 1080, color_black, 960, 540, 240, 120, 60);
 
     OCT_handle contextRoot;
     OCT_handle context = OCT_entityContext_open(&contextRoot);
@@ -73,7 +61,7 @@ int main() {
         OCT_PLTModule_update();
 
         frame++;
-        time += OCT_timer_getMS();
+        time += OCT_timer_getDeltaTime();
         printf("Frame: %d   Time: %lf MS\n", frame, time);
 
         // hold space to curl all arms
@@ -110,10 +98,8 @@ int main() {
             OCT_transform2D_scaleBy(contextRoot, (OCT_vec2) { 0.99, 0.99 });
         }
 
-        OCT_INPModule_update();
-        OCT_ECSModule_update();
-        OCT_PHYModule_update();
-        OCT_RENModule_update();
-        OCT_WDWModule_update();
+        OCT_engine_tick();
     }
+
+    OCT_engine_stop();
 }

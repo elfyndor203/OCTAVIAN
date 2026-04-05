@@ -4,8 +4,8 @@
 
 #include "physics/dynamics/dynamics_internal.h"
 
-void iOCT_physPass_calc(_OCT_physics2D_snapshot* snapshotPack, OCT_index* count) {
-	_OCT_physics2D_snapshot* snapshot;
+void iOCT_physPass_calc(_OCT_snapshot_physics* snapshotPack, OCT_index* count) {
+	_OCT_snapshot_physics* snapshot;
 	OCT_index physCt = 0;
 
 	for (physCt = 0; physCt < count; physCt++) {

@@ -6,11 +6,11 @@
 
 #include "module/PHYModule_internal.h"
 
-void iOCT_physPass_addGravity(_OCT_physics2D_snapshot* snapshot) {
+void iOCT_physPass_addGravity(_OCT_snapshot_physics* snapshot) {
 	snapshot->forceNet = OCT_vec2_add(snapshot->forceNet, OCT_vec2_mul(iOCT_PHYModule_instance.gravity, snapshot->gravity));
 }
 
-void iOCT_physPass_integrate(_OCT_physics2D_snapshot* snapshot) {
+void iOCT_physPass_integrate(_OCT_snapshot_physics* snapshot) {
 	OCT_vec2 lin_a;
 	float ang_a;
 
@@ -24,7 +24,7 @@ void iOCT_physPass_integrate(_OCT_physics2D_snapshot* snapshot) {
 	snapshot->rotation += snapshot->ang_v;
 }
 
-void iOCT_physPass_finish(_OCT_physics2D_snapshot* snapshot) {
+void iOCT_physPass_finish(_OCT_snapshot_physics* snapshot) {
 	snapshot->forceNet = OCT_vec2_zero;
 	snapshot->torqueNet = 0;
 }

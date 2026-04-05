@@ -108,7 +108,7 @@ void iOCT_layer_close(iOCT_layer* layer) {
 void iOCT_layer_drawAll() {
 	OCT_counter contextCount = _OCT_entityContext_getCount();
 	OCT_counter spriteCount;
-	_OCT_sprite2D_snapshot ECSSpriteData;
+	_OCT_snapshot_sprite ECSSpriteData;
 	iOCT_layer* layer;
 	iOCT_spriteData* slot;
 

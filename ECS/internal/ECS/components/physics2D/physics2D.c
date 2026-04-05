@@ -95,11 +95,12 @@ OCT_vec2 iOCT_physics2D_addForce(iOCT_entityContext* context, OCT_ID physicsID, 
 	return physics->forceNet;
 }
 #pragma endregion
+
 #pragma region cross-module
-_OCT_physics2D_snapshot* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* outContextID, OCT_index contextIndex) {
+_OCT_snapshot_physics* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* outContextID, OCT_index contextIndex) {
 	cOCT_pool* targetPool = &iOCT_ECSModule_instance.physicsDataPool;							// clear array
 	targetPool->count = 0;
-	memset(targetPool->array, 0, sizeof(_OCT_physics2D_snapshot) * targetPool->capacity);
+	memset(targetPool->array, 0, sizeof(_OCT_snapshot_physics) * targetPool->capacity);
 
 	iOCT_entityContext* context = &((iOCT_entityContext*)iOCT_ECSModule_instance.contextPool.array)[contextIndex];	// get physics array
 	iOCT_physics2D* physArray = (iOCT_physics2D*)iOCT_pool_get(context, OCT_ECSType_physics2D)->array;
@@ -108,7 +109,7 @@ _OCT_physics2D_snapshot* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID
 	iOCT_transform2D* transf;
 	iOCT_collider2D* coll;
 	OCT_index physicsCount = iOCT_pool_get(context, OCT_ECSType_physics2D)->count;
-	_OCT_physics2D_snapshot* dataSlot;
+	_OCT_snapshot_physics* dataSlot;
 	OCT_index dummy;
 	for (OCT_index i = 0; i < physicsCount; i++) {
 		dataSlot = cOCT_pool_addEntry(targetPool, &dummy);
@@ -130,24 +131,28 @@ _OCT_physics2D_snapshot* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID
 
 		dataSlot->transformID = transf->transformID;
 		dataSlot->position = transf->position;
+		dataSlot->scale = transf->scale;
 		dataSlot->rotation = transf->rotation;
 
-		//dataSlot->collider = coll->type; handle collider not existing
+		if (coll) {
+			dataSlot->colliderID = coll->colliderID;
+			dataSlot->collider = coll->shape;
+		}
 	}
 
 	*outContextID = context->contextID;
 	*outCount = physicsCount;
-	return (_OCT_physics2D_snapshot*)targetPool->array;
+	return (_OCT_snapshot_physics*)targetPool->array;
 }
 
 void _OCT_physics2D_writeBack(OCT_index count, OCT_ID contextID) {
 	iOCT_entityContext* context = iOCT_entityContext_get(contextID);
-	_OCT_physics2D_snapshot* data = (_OCT_physics2D_snapshot*)iOCT_ECSModule_instance.physicsDataPool.array;
+	_OCT_snapshot_physics* data = (_OCT_snapshot_physics*)iOCT_ECSModule_instance.physicsDataPool.array;
 
 	iOCT_transform2D* transform;
 	iOCT_physics2D* physics;
 
-	_OCT_physics2D_snapshot* snapshot;
+	_OCT_snapshot_physics* snapshot;
 	for (OCT_index i = 0; i < count; i++) {
 		snapshot = &data[i];
 

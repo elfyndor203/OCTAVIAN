@@ -9,8 +9,6 @@
 
 #include "architecture/pools_core.h"
 
-#define OCT_IDMAP_TYPECONTAINER SIZE_MAX
-
 // Allocates initial memory for a single entityContext.
 cOCT_IDMap cOCT_IDMap_init(OCT_ID ownerID, OCT_counter capacity) {
 	cOCT_IDMap map = { 0 };
@@ -31,7 +29,7 @@ OCT_ID cOCT_IDMap_register(cOCT_IDMap* map, OCT_index inIndex) {
 		void* newArray = realloc(map->array, sizeof(OCT_index) * (map->capacity * 2 + 1));
 		if (!newArray) {
 			OCT_logError(EXIT_FAILED_TO_ALLOCATE);
-			return OCT_NULL_ID;
+			return OCT_ID_NULL;
 		}
 		else {
 			map->array = newArray;

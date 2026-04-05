@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="internal\module\PHYModule.c" />
+    <ClCompile Include="internal\physics\collisions\collisions.c" />
     <ClCompile Include="internal\physics\dynamics\dynamics.c" />
     <ClCompile Include="internal\physics\physicsPass\physicsPass.c" />
   </ItemGroup>
@@ -135,6 +136,7 @@
     <ClInclude Include="include\module\PHYModule.h" />
     <ClInclude Include="include\OCT_Physics.h" />
     <ClInclude Include="internal\module\PHYModule_internal.h" />
+    <ClInclude Include="internal\physics\collisions\collisions_internal.h" />
     <ClInclude Include="internal\physics\dynamics\dynamics_internal.h" />
     <ClInclude Include="internal\physics\physicsPass\physicsPass_internal.h" />
     <ClInclude Include="internal\physics\types_internal.h" />
