@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="include\module\PHYModule.h" />
     <ClInclude Include="include\OCT_Physics.h" />
+    <ClInclude Include="include\physics\physics.h" />
     <ClInclude Include="internal\module\PHYModule_internal.h" />
     <ClInclude Include="internal\physics\collisions\collisions_internal.h" />
     <ClInclude Include="internal\physics\dynamics\dynamics_internal.h" />

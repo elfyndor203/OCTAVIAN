@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,7 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,7 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OCTAVIANEngine\include;$(SolutionDir)EngineStructure\include;$(SolutionDir)Math\include;$(SolutionDir)Errors\include;$(SolutionDir)ECS\include;$(SolutionDir)Renderer\include;$(SolutionDir)Physics\include;$(SolutionDir)Window\include;$(SolutionDir)Input\include;$(SolutionDir)Platform\include;$(SolutionDir)Resources\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,12 +147,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="definitions.c" />
     <ClCompile Include="StressTest\arm.c" />
-    <ClCompile Include="StressTest\armMain.c" />
+    <ClCompile Include="testing\collisionTest.c" />
+    <ClCompile Include="testing\wasd.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="definitions.h" />
     <ClInclude Include="StressTest\arm.h" />
-    <ClInclude Include="StressTest\main.h" />
+    <ClInclude Include="testing\wasd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

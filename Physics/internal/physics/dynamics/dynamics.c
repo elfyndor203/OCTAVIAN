@@ -10,7 +10,7 @@ void iOCT_physPass_addGravity(_OCT_snapshot_physics* snapshot) {
 	snapshot->forceNet = OCT_vec2_add(snapshot->forceNet, OCT_vec2_mul(iOCT_PHYModule_instance.gravity, snapshot->gravity));
 }
 
-void iOCT_physPass_integrate(_OCT_snapshot_physics* snapshot) {
+void iOCT_physPass_integrateVelocity(_OCT_snapshot_physics* snapshot) {
 	OCT_vec2 lin_a;
 	float ang_a;
 
@@ -19,7 +19,9 @@ void iOCT_physPass_integrate(_OCT_snapshot_physics* snapshot) {
 
 	snapshot->lin_v = OCT_vec2_add(snapshot->lin_v, lin_a);		// apply to velocity
 	snapshot->ang_v += ang_a;
+}
 
+void iOCT_physPass_integratePosition(_OCT_snapshot_physics* snapshot) {
 	snapshot->position = OCT_vec2_add(snapshot->position, snapshot->lin_v);	// update position
 	snapshot->rotation += snapshot->ang_v;
 }

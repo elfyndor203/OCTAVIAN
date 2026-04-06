@@ -11,3 +11,4 @@ struct iOCT_collider2D {
 };
 
 iOCT_collider2D* iOCT_collider2D_get(iOCT_entityContext* context, OCT_ID colliderID);
+OCT_ID iOCT_collider2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_shape2 shape);

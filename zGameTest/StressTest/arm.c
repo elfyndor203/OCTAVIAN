@@ -1,12 +1,9 @@
 #include "arm.h"
+#include "definitions.h"
 
-#include "OCT_EngineStructure.h"
-#include "OCT_ECS.h"
-#include "OCT_Math.h"
+#include "OCT_engine.h"
 
 #include <stdlib.h>
-
-OCT_vec4 solidColor = { 1.0, 1.0, 1.0, 1.0 };
 
 arm spawnArm(int count, OCT_handle context, OCT_handle layer, OCT_vec2 dimensions, OCT_vec2 direction, OCT_handle* outRoot) {
 	arm newArm = { 0 };

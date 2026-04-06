@@ -42,7 +42,7 @@ void iOCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OC
 	iOCT_mouseMap_init();
 }
 
-void OCT_WDWModule_startFrame() {
+void OCT_WDWModule_poll() {
 	iOCT_WDWModule_instance.cursorDelta = OCT_vec2_zero;
 	glfwPollEvents();
 }

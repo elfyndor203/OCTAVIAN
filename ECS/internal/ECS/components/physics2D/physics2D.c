@@ -16,11 +16,11 @@
 iOCT_physics2D* iOCT_physics2D_get(iOCT_entityContext* context, OCT_ID physicsID) {
 	return (iOCT_physics2D*)iOCT_getByID(context, physicsID, OCT_ECSType_physics2D);
 }
-void OCT_physics2D_add(OCT_handle entity, OCT_handle rigidBodyOrigin, float gravity, float mass, float inertia, float friction, float restitution) {
+void OCT_physics2D_add(OCT_handle entity, OCT_handle rigidBodyOrigin, float gravity, float mass, float inertia, float friction, float restitution, bool isStatic) {
 	assert(entity.type == OCT_handle_entity);
-	iOCT_physics2D_add(iOCT_entityContext_get(entity.containerID), entity.objectID, rigidBodyOrigin.objectID, gravity, mass, inertia, friction, restitution);
+	iOCT_physics2D_add(iOCT_entityContext_get(entity.containerID), entity.objectID, rigidBodyOrigin.objectID, gravity, mass, inertia, friction, restitution, isStatic);
 }
-OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID rigidBodyID, float gravity, float mass, float inertia, float friction, float restitution) {
+OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID rigidBodyID, float gravity, float mass, float inertia, float friction, float restitution, bool isStatic) {
 	OCT_ID newID;
 	OCT_index newIndex;
 	iOCT_physics2D* physics;
@@ -29,6 +29,9 @@ OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID r
 	cOCT_pool* pool = iOCT_pool_get(context, OCT_ECSType_physics2D);
 	physics = (iOCT_physics2D*)cOCT_pool_addEntry(pool, &newIndex);
 	newID = cOCT_IDMap_register(&context->IDMap, newIndex);
+
+	entity->physicsID = newID;	// must update before adding rbOriginID
+	iOCT_entity_updateMask(context, entityID, OCT_ECSType_physics2D);
 
 	memset(physics, 0, sizeof(iOCT_physics2D));
 	physics->parentID = entityID;
@@ -42,9 +45,8 @@ OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID r
 	physics->friction = friction;
 	physics->restitution = restitution;
 	physics->gravity = gravity;
+	physics->isStatic = isStatic;
 
-	entity->physicsID = newID;
-	iOCT_entity_updateMask(context, entityID, OCT_ECSType_physics2D);
 	return newID;
 }
 
@@ -71,6 +73,15 @@ void iOCT_physics2D_setVelocity(iOCT_entityContext* context, OCT_ID physicsID, O
 	iOCT_physics2D* physics = iOCT_physics2D_get(context, physicsID);
 	physics->lin_v = velocity;
 }
+OCT_vec2 OCT_physics2D_readVelocity(OCT_handle entityHandle) {
+	assert(entityHandle.type == OCT_handle_entity);
+	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
+	iOCT_entity* entity = iOCT_entity_get(context, entityHandle.objectID);
+	return iOCT_physics2D_readVelocity(context, entity->physicsID);
+}
+OCT_vec2 iOCT_physics2D_readVelocity(iOCT_entityContext* context, OCT_ID physicsID) {
+	return iOCT_physics2D_get(context, physicsID)->lin_v;
+}
 
 void OCT_physics2D_setGravity(OCT_handle entityHandle, float multiplier) {
 	assert(entityHandle.type == OCT_handle_entity);
@@ -93,6 +104,17 @@ OCT_vec2 iOCT_physics2D_addForce(iOCT_entityContext* context, OCT_ID physicsID, 
 	iOCT_physics2D* physics = iOCT_physics2D_get(context, physicsID);
 	physics->forceNet = OCT_vec2_add(physics->forceNet, force);
 	return physics->forceNet;
+}
+OCT_vec2 OCT_physics2D_addImpulse(OCT_handle entityHandle, OCT_vec2 impulse) {
+	assert(entityHandle.type == OCT_handle_entity);
+	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
+	iOCT_entity* entity = iOCT_entity_get(context, entityHandle.objectID);
+	return iOCT_physics2D_addImpulse(context, entity->physicsID, impulse);
+}
+OCT_vec2 iOCT_physics2D_addImpulse(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 impulse) {
+	iOCT_physics2D* physics = iOCT_physics2D_get(context, physicsID);
+	physics->lin_v = OCT_vec2_add(physics->lin_v, OCT_vec2_div(impulse, physics->mass));
+	return physics->lin_v;
 }
 #pragma endregion
 
@@ -128,6 +150,7 @@ _OCT_snapshot_physics* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* 
 		dataSlot->friction = phys->friction;
 		dataSlot->restitution = phys->restitution;
 		dataSlot->gravity = phys->gravity;
+		dataSlot->isStatic = phys->isStatic;
 
 		dataSlot->transformID = transf->transformID;
 		dataSlot->position = transf->position;

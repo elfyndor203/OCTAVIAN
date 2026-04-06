@@ -45,29 +45,6 @@ OCT_ID iOCT_sprite2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_handl
 	newSprite->transform = iOCT_entity_get(context, entityID)->transformID;
 	newSprite->layer = layer;
 
-	//OCT_handle transformHandle = {
-	//	.subsystem = OCT_subsystem_ECS,
-	//	.containerID = context->contextID,
-	//	.objectID = iOCT_entity_get(context, entityID)->transformID,
-	//	.type = OCT_handle_transform2D
-	//};
-	//OCT_handle spriteHandle = {
-	//.subsystem = OCT_subsystem_ECS,
-	//.containerID = context->contextID,
-	//.objectID = newID,
-	//.type = OCT_handle_sprite2D
-	//};
-
-	//cOCT_message renMsg = {
-	//	.messageType = cOCT_MSG_RENDERABLE_NEW,
-	//	.renderable_new = {
-	//		.layerHandle = layer,
-	//		.entityHandle = entityHandle,
-	//		.transformHandle = transformHandle,
-	//		.renderableHandle = spriteHandle
-	//	}
-	//};
-	//cOCT_message_push(OCT_subsystem_renderer, renMsg);
 	return newID;
 }
 
