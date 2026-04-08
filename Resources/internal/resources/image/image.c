@@ -62,6 +62,6 @@ OCT_handle iOCT_image_load(const char* path) {
 			}
 	};
 
-	cOCT_message_push(OCT_subsystem_renderer, renderMSG);
+	cOCT_message_push(OCT_subsystem_renderer, renderMSG, cOCT_INBOX);
 	return handle;
 }

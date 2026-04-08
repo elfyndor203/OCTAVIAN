@@ -46,7 +46,9 @@ void* cOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex) {
 	}
 
 	void* slot = cOCT_pool_access(pool, pool->count);
-	*outIndex = pool->count++;
+	if (outIndex) {
+		*outIndex = pool->count++;
+	}
 
 	return slot;
 }

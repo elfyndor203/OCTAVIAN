@@ -21,6 +21,12 @@ struct cOCT_pool {
 };
 
 cOCT_pool cOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSize);
+/// <summary>
+/// Returns a void* pointer to the pool slot to be written into.
+/// </summary>
+/// <param name="pool"></param>
+/// <param name="outIndex"></param>
+/// <returns></returns>
 void* cOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex);
 void* cOCT_pool_access(cOCT_pool* pool, OCT_index index);
 

@@ -7,6 +7,10 @@
 
 #define cOCT_MESSAGES_MAX 64
 
+enum cOCT_messageBoxType {
+	cOCT_INBOX,
+	cOCT_EVENTBOX
+};
 enum cOCT_messageTypes {
 	cOCT_MSG_ALLCLEAR,
 	cOCT_MSG_TEXTURE_LOAD,
@@ -15,7 +19,9 @@ enum cOCT_messageTypes {
 	cOCT_MSG_RENDERABLE_NEW,
 	
 	cOCT_MSG_KEY_DOWN,
-	cOCT_MSG_KEY_UP
+	cOCT_MSG_KEY_UP,
+
+	cOCT_MSG_COLLISION
 };
 
 struct cOCT_message {
@@ -28,6 +34,7 @@ struct cOCT_message {
 		struct { OCT_handle layerHandle; OCT_handle entityHandle; OCT_handle transformHandle; OCT_handle renderableHandle; } renderable_new;
 		struct { OCT_vec2 windowSize; } windowSize_set;
 		struct { int key; } key_event;
+		struct { OCT_ID colliderA; OCT_ID colliderB; } collision;
 	};
 };
 
@@ -39,5 +46,6 @@ struct cOCT_messageBox {
 	OCT_counter tail;
 };
 
-bool cOCT_message_push(OCT_subsystemList recipient, cOCT_message message);
+bool cOCT_message_push(OCT_subsystemList recipient, cOCT_message message, cOCT_messageBoxType box);
 cOCT_message cOCT_message_pop(OCT_subsystemList self);
+cOCT_message cOCT_event_read(OCT_subsystemList eventBox, OCT_index index);

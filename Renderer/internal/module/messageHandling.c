@@ -26,7 +26,7 @@ void iOCT_RENModule_handleMSGs() {
 				}
 
 			};
-			cOCT_message_push(OCT_subsystem_resources, doneMsg);
+			cOCT_message_push(OCT_subsystem_resources, doneMsg, cOCT_INBOX);
 			break;
 		}
 		default:

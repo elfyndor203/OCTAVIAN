@@ -1,4 +1,4 @@
 #pragma once
+#include "messaging/messaging_core.h"
 
-#define iOCT_INBOX 0
-#define iOCT_EVENTBOX 1
+void iOCT_eventBox_clear(cOCT_messageBox* eventBox);

@@ -37,3 +37,4 @@ OCT_vec2 iOCT_physics2D_readVelocity(iOCT_entityContext* context, OCT_ID physics
 void iOCT_physics2D_setGravity(iOCT_entityContext* context, OCT_ID physicsID, float multiplier);
 OCT_vec2 iOCT_physics2D_addForce(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 force);
 OCT_vec2 iOCT_physics2D_addImpulse(iOCT_entityContext* context, OCT_ID physicsID, OCT_vec2 impulse);
+bool iOCT_physics2D_isColliding(iOCT_entityContext* context, OCT_ID colliderA, OCT_ID colliderB);

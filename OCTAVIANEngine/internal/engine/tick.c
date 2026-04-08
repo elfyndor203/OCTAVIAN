@@ -29,6 +29,7 @@ void OCT_engine_tick() {
 	}
 	// phyics
 	while (iOCT_OCTModule_instance.PHY_accumulator > iOCT_OCTModule_instance.PHY_tickTime) {
+		OCT_COMModule_update();
 		OCT_PHYModule_update();
 
 		iOCT_OCTModule_instance.PHY_accumulator -= iOCT_OCTModule_instance.PHY_tickTime;

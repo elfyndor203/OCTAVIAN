@@ -131,6 +131,8 @@
     <ClInclude Include="core\messaging\messaging_core.h" />
     <ClInclude Include="core\snapshot\snapshot_core.h" />
     <ClInclude Include="core\types_core.h" />
+    <ClInclude Include="include\module\COMModule.h" />
+    <ClInclude Include="include\OCT_Communication.h" />
     <ClInclude Include="internal\core\messaging\messaging_internal.h" />
     <ClInclude Include="internal\core\types_internal.h" />
     <ClInclude Include="internal\module\COMModule_internal.h" />
