@@ -21,6 +21,7 @@ void OCT_engine_tick() {
 
 	OCT_PLTModule_update();  // update times
 	iOCT_OCTModule_update(); // query times
+	OCT_RESModule_update(); // update any new resources
 
 	// ECS
 	while (iOCT_OCTModule_instance.ECS_accumulator > iOCT_OCTModule_instance.ECS_tickTime) {

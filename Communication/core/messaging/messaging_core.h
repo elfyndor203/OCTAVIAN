@@ -29,7 +29,7 @@ struct cOCT_message {
 
 	union {
 		struct { OCT_handle texHandle;  char* pixels; int width; int height; } texture_load;
-		struct { OCT_handle texHandle; uint32_t rendererRef; } texture_done;
+		struct { OCT_handle texHandle; uint32_t rendererRef; char* pixels; } texture_done;
 
 		struct { OCT_handle layerHandle; OCT_handle entityHandle; OCT_handle transformHandle; OCT_handle renderableHandle; } renderable_new;
 		struct { OCT_vec2 windowSize; } windowSize_set;

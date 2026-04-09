@@ -5,7 +5,7 @@
 #include "OCT_Math.h"
 #include <stdbool.h>
 
-#define cOCT_POOLSIZE_DEFAULT 8
+#define cOCT_POOLSIZE_DEFAULT 4
 
 /// <summary>
 /// Pools manage the arrays of data. Each entitySet can have at most 1 pool per type. The arrays are contigous and allocated when a new pool is created. 
