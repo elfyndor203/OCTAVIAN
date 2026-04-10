@@ -14,6 +14,7 @@ struct iOCT_physics2D {
 	OCT_ID rbOriginID;	// physics component of the root of the rigidbody
 	OCT_ID transformID;
 	OCT_ID colliderID;
+	OCT_ID hitBoxID;
 
 	float mass;
 	OCT_vec2 lin_v;

@@ -10,6 +10,7 @@
 #include "OCT_Window.h"
 #include "OCT_Input.h"
 #include "OCT_Physics.h"
+#include "OCT_Communication.h"
 
 void OCT_engine_startFrame() {
 	OCT_WDWModule_poll();
@@ -17,6 +18,7 @@ void OCT_engine_startFrame() {
 }
 
 void OCT_engine_tick() {
+	OCT_index physTickCt = 0;
 	//OCT_WDWModule_startFrame;	// get window events
 
 	OCT_PLTModule_update();  // update times
@@ -30,9 +32,11 @@ void OCT_engine_tick() {
 	}
 	// phyics
 	while (iOCT_OCTModule_instance.PHY_accumulator > iOCT_OCTModule_instance.PHY_tickTime) {
-		OCT_COMModule_update();
+		if (physTickCt == 0) {
+			OCT_COMModule_update();
+		}
 		OCT_PHYModule_update();
-
+		physTickCt++;
 		iOCT_OCTModule_instance.PHY_accumulator -= iOCT_OCTModule_instance.PHY_tickTime;
 	}
 

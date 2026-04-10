@@ -15,6 +15,7 @@
 
 static OCT_vec2 iOCT_physics_project(OCT_vec2 axis, OCT_vec2* verts, OCT_index count);
 static float iOCT_physics_projOverlap(OCT_vec2 projA, OCT_vec2 projB);
+static bool iOCT_physics_broad2Rect2(OCT_rect2 rectA, OCT_rect2 rectB);
 static OCT_vec2 iOCT_physics_SAT2Rect2(OCT_rect2 rectA, OCT_rect2 rectB);
 
 static void iOCT_physics_resolveImpulse(_OCT_snapshot_physics* physA, _OCT_snapshot_physics* physB, iOCT_collision collision);
@@ -27,22 +28,19 @@ iOCT_collision iOCT_physics_detectCollision(_OCT_snapshot_physics* physA, _OCT_s
 	iOCT_collision collision = iOCT_collision_none;
 	float radiusA;
 	float radiusB;
+	OCT_rect2 rectA;
+	OCT_rect2 rectB;
 
 	if (physA->rbOriginIndex == physB->rbOriginIndex) {	// if they belong to the same rigidbody
 		return iOCT_collision_none;
 	}
 
 	if (physA->collider.type == OCT_shapeType_rect2 && physB->collider.type == OCT_shapeType_rect2) {
-		OCT_rect2 rectA = physA->collider.rect2;
-		OCT_rect2 rectB = physB->collider.rect2;
-		rectA.origin = OCT_vec2_add(rectA.origin, physA->position);	// move to global space
+		rectA = physA->collider.rect2;
+		rectB = physB->collider.rect2;
+		rectA.origin = OCT_vec2_add(rectA.origin, physA->position);
 		rectB.origin = OCT_vec2_add(rectB.origin, physB->position);
-
-		radiusA = sqrtf((rectA.width / 2) * (rectA.width / 2) + (rectA.height / 2) * (rectA.height / 2));
-		radiusB = sqrtf((rectB.width / 2) * (rectB.width / 2) + (rectB.height / 2) * (rectB.height / 2));
-
-		if (OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)) > (radiusA + radiusB)) {	// too far apart
-			//printf("Broad dist: %f\n", OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)));
+		if (!iOCT_physics_broad2Rect2(rectA, rectB)) {
 			return iOCT_collision_none;
 		}
 
@@ -62,6 +60,22 @@ iOCT_collision iOCT_physics_detectCollision(_OCT_snapshot_physics* physA, _OCT_s
 		cOCT_message_push(OCT_subsystem_physics, collMsg, cOCT_EVENTBOX);
 		//printf("MTV: %f %f\n", collision.MTV.x, collision.MTV.y);
 		return collision;
+	}
+}
+
+static bool iOCT_physics_broad2Rect2(OCT_rect2 rectA, OCT_rect2 rectB) {
+	float radiusA;
+	float radiusB;
+
+	radiusA = sqrtf((rectA.width / 2) * (rectA.width / 2) + (rectA.height / 2) * (rectA.height / 2));
+	radiusB = sqrtf((rectB.width / 2) * (rectB.width / 2) + (rectB.height / 2) * (rectB.height / 2));
+
+	if (OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)) > (radiusA + radiusB)) {	// too far apart
+		//printf("Broad dist: %f\n", OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)));
+		return false;
+	}
+	else {
+		return true;
 	}
 }
 

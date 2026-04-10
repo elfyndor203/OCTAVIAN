@@ -38,6 +38,7 @@ OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID r
 	physics->physicsID = newID;
 	physics->transformID = entity->transformID;
 	physics->colliderID = entity->colliderID;
+	physics->hitBoxID = entity->hitBoxID;
 	physics->rbOriginID = iOCT_entity_get(context, rigidBodyID)->physicsID;
 
 	physics->mass = mass;
@@ -155,6 +156,7 @@ _OCT_snapshot_physics* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* 
 	iOCT_physics2D* phys;
 	iOCT_transform2D* transf;
 	iOCT_collider2D* coll;
+	iOCT_collider2D* hitb;
 	OCT_index physicsCount = iOCT_pool_get(context, OCT_ECSType_physics2D)->count;
 	_OCT_snapshot_physics* dataSlot;
 	OCT_index dummy;
@@ -163,6 +165,7 @@ _OCT_snapshot_physics* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* 
 		phys = &physArray[i];
 		transf = iOCT_transform2D_get(context, phys->transformID);
 		coll = iOCT_collider2D_get(context, phys->colliderID);
+		hitb = iOCT_collider2D_get(context, phys->hitBoxID);
 
 		dataSlot->physicsID = phys->physicsID;
 		dataSlot->rbOriginIndex = cOCT_IDMap_getIndex(&context->IDMap, phys->rbOriginID);
@@ -185,6 +188,10 @@ _OCT_snapshot_physics* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* 
 		if (coll) {
 			dataSlot->colliderID = coll->colliderID;
 			dataSlot->collider = coll->shape;
+		}
+		if (hitb) {
+			dataSlot->hitBoxID = hitb->colliderID;
+			dataSlot->hitbox = hitb->shape;
 		}
 	}
 

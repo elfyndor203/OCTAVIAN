@@ -64,10 +64,15 @@ int main() {
 		cursor = OCT_cursorPos_read(true);
 		wasdMove(gear, MOVEMENT_SPEED);
 
-		if ((OCT_keyState_read(OCT_KEY_SPACE) == OCT_KEYSTATE_DOWN || OCT_keyState_read(OCT_KEY_SPACE) == OCT_KEYSTATE_DOWN) && OCT_physics2D_isColliding(gear, hannes)) {
-			printf("colliding\n");
-			OCT_physics2D_addImpulse(gear, (OCT_vec2) { 0, 30.0 });
+		if ((OCT_keyState_read(OCT_KEY_SPACE) == OCT_KEYSTATE_DOWN)) {
+			printf("space pressed\n");
+
+			if (OCT_physics2D_isColliding(gear, hannes)) {
+				printf("is colliding too\n");
+				OCT_physics2D_addImpulse(gear, (OCT_vec2) { 0, 30.0 });
+			}
 		}
+
 		if (OCT_physics2D_isColliding(gear, hannes)) {
 			//OCT_physics2D_addImpulse(gear, (OCT_vec2) { 0, 10 });
 		}
