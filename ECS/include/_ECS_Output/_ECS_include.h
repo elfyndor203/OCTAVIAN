@@ -18,3 +18,5 @@ _OCT_snapshot_sprite _OCT_sprite2D_getSnapshot(OCT_index spriteIndex, OCT_index 
 
 _OCT_snapshot_physics* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* outContextRef, OCT_index contextIndex);
 void _OCT_physics2D_writeBack(OCT_index count, OCT_ID contextID);
+
+OCT_mat3 _OCT_camera2D_getActiveMatrix();

@@ -22,6 +22,8 @@ struct iOCT_RENModule {
 	GLuint worldProjUniform;
 	OCT_mat3 worldProj;
 	OCT_mat3 inverseWorldProj;
+
+	GLint cameraProjUniform;
 };
 extern iOCT_RENModule iOCT_RENModule_instance;
 

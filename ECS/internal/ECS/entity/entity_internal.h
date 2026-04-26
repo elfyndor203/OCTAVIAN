@@ -13,6 +13,8 @@ struct iOCT_entity{
 	OCT_ID physicsID;
 	OCT_ID colliderID;
 	OCT_ID hitBoxID;
+	OCT_ID spriteID;
+	OCT_ID cameraID;
 	///
 	uint64_t componentsMask;	// tracks if the object has each component
 };

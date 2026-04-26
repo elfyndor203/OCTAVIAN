@@ -33,6 +33,7 @@ OCT_ID iOCT_sprite2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_handl
 	OCT_ID newID;
 	OCT_index newIndex;
 	iOCT_sprite2D* newSprite;
+	iOCT_entity* entity = iOCT_entity_get(context, entityID);
 
 	newSprite = (iOCT_sprite2D*)cOCT_pool_addEntry(iOCT_pool_get(context, OCT_ECSType_sprite2D), &newIndex);
 	newID = cOCT_IDMap_register(&context->IDMap, newIndex);
@@ -45,6 +46,8 @@ OCT_ID iOCT_sprite2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_handl
 	newSprite->transform = iOCT_entity_get(context, entityID)->transformID;
 	newSprite->layer = layer;
 
+	entity->spriteID = newID;
+	entity->componentsMask |= (1ULL << OCT_ECSType_sprite2D);
 	return newID;
 }
 

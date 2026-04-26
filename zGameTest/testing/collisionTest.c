@@ -44,6 +44,7 @@ int main() {
 	OCT_sprite2D_add(gear, foreGround, solidColor, wholeTexture, normalRect);
 	OCT_physics2D_add(gear, gear, 1.0, 3, 3, 4, 0, false);
 	OCT_collider2D_add(gear, entityCollider);
+	//OCT_camera2D_add(gear, OCT_vec2_zero, (OCT_vec2) { 1, 1 }, 0);
 
 	OCT_handle anya = OCT_entity_new(collisionCtx);
 	OCT_sprite2D_add(anya, anyaLayer, solidColor, wholeTexture, normalRect);
@@ -56,6 +57,10 @@ int main() {
 	OCT_physics2D_add(hannes, hannes, 0, 30, 3, 4, 0, true);
 	OCT_collider2D_add(hannes, platformCollider);
 	OCT_transform2D_moveBy(hannes, (OCT_vec2) { 0, -100 });
+
+	OCT_handle camera = OCT_entity_new(gear);
+	OCT_camera2D_add(camera, OCT_vec2_zero, (OCT_vec2) { 1, 1 }, 0);
+	OCT_camera2D_setActive(camera);
 
 	OCT_vec2 cursor;
 	while (!OCT_window_closed()) {

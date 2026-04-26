@@ -38,6 +38,7 @@
     <ClInclude Include="include\ECS\scenes.h" />
     <ClInclude Include="include\math\vectors.h" />
     <ClInclude Include="include\_ECS_Output\_ECS_include.h" />
+    <ClInclude Include="internal\ECS\components\camera2D\camera2D_internal.h" />
     <ClInclude Include="internal\ECS\components\collider2D\collider2D_internal.h" />
     <ClInclude Include="internal\ECS\components\physics2D\physics2D_internal.h" />
     <ClInclude Include="internal\ECS\components\sprite2D\sprite2D_internal.h" />
@@ -53,7 +54,7 @@
     <ClInclude Include="internal\_ECS_Input\messageHandling.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="include\ECS\components\camera2D\camera2D.c" />
+    <ClCompile Include="internal\ECS\components\camera2D\camera2D.c" />
     <ClCompile Include="internal\ECS\components\collider2D\collider2D.c" />
     <ClCompile Include="internal\ECS\components\physics2D\physics2D.c" />
     <ClCompile Include="internal\ECS\components\sprite2D\sprite2D.c" />

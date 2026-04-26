@@ -8,6 +8,8 @@ struct iOCT_ECSModule {
 	cOCT_pool contextPool;
 
 	cOCT_pool physicsDataPool;
+
+	OCT_handle activeCamera;
 };
 
 extern iOCT_ECSModule iOCT_ECSModule_instance;	// Current running ECS
