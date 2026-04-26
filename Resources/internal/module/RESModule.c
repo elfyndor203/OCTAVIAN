@@ -20,3 +20,7 @@ void OCT_RESModule_free() {
 	iOCT_resourceList_close(&iOCT_RESModule_instance.imageList);
 	iOCT_resourceList_close(&iOCT_RESModule_instance.audioList);
 }
+
+void OCT_RESModule_update() {
+	iOCT_RESModule_handleMSGs();
+}

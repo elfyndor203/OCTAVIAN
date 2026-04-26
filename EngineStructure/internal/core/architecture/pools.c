@@ -8,6 +8,7 @@
 #include <assert.h>
 #include <string.h>
 #include <crtdbg.h>
+#include <stdio.h>
 
 /// <summary>
 /// Allocates memory for a single pool. Allows creation of all pools without rewriting when new component types are added
@@ -23,6 +24,8 @@ cOCT_pool cOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSiz
 	if (!pool.array) {
 		OCT_logError(EXIT_FAILED_TO_ALLOCATE);
 	}
+
+	printf("Init pool of size: %zu\n", capacity * elementSize);
 	return pool;
 }
 
@@ -34,6 +37,8 @@ cOCT_pool cOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSiz
 /// <returns></returns>
 void* cOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex) {
 	if (pool->count == pool->capacity) {
+		printf("Realloc pool of size %zu", pool->capacity * pool->elementSize);
+
 		void* newArray = realloc(pool->array, pool->elementSize * pool->capacity * 2);
 		if (!newArray) {
 			OCT_logError(EXIT_FAILED_TO_ALLOCATE);
@@ -42,11 +47,14 @@ void* cOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex) {
 		else {
 			pool->array = newArray;
 			pool->capacity *= 2;
+			printf("%zu\n", pool->capacity * pool->elementSize);
 		}
 	}
 
 	void* slot = cOCT_pool_access(pool, pool->count);
-	*outIndex = pool->count++;
+	if (outIndex) {
+		*outIndex = pool->count++;
+	}
 
 	return slot;
 }

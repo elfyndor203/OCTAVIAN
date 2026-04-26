@@ -5,6 +5,7 @@
 #include "cOCT_EngineStructure.h"
 #include <assert.h>
 #include <glad/glad.h>
+#include <stdio.h>
 
 #include "renderer/layer/layer_internal.h"
 #include "renderer/texture/texture_internal.h"
@@ -22,11 +23,13 @@ void iOCT_RENModule_handleMSGs() {
 				.messageType = cOCT_MSG_TEXTURE_DONE,
 				.texture_done = {
 					.rendererRef = texture,
-					.texHandle = msg.texture_load.texHandle
+					.texHandle = msg.texture_load.texHandle,
+					.pixels = msg.texture_load.pixels
 				}
 
 			};
-			cOCT_message_push(OCT_subsystem_resources, doneMsg);
+			printf("Sent done for pixels %p\n", doneMsg.texture_done.pixels);
+			cOCT_message_push(OCT_subsystem_resources, doneMsg, cOCT_INBOX);
 			break;
 		}
 		default:

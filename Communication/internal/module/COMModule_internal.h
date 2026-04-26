@@ -11,12 +11,14 @@ struct iOCT_COMModule {
 	cOCT_messageBox inbox_RES;
 	cOCT_messageBox inbox_WDW;
 	cOCT_messageBox inbox_INP;
+	cOCT_messageBox inbox_PHY;
 
 	cOCT_messageBox eventBox_ECS;
 	cOCT_messageBox eventBox_REN;
 	cOCT_messageBox eventBox_RES;
 	cOCT_messageBox eventBox_WDW;
 	cOCT_messageBox eventBox_INP;
+	cOCT_messageBox eventBox_PHY;
 };
 
 extern iOCT_COMModule iOCT_COMModule_instance;

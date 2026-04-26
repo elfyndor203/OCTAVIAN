@@ -170,7 +170,7 @@ void iOCT_window_keyEvent(OCT_key key, int action, int modifiers) {
     }
     keyMsg.key_event.key = key;
 
-    cOCT_message_push(OCT_subsystem_input, keyMsg);
+    cOCT_message_push(OCT_subsystem_input, keyMsg, cOCT_INBOX);
 }
 
 OCT_vec2 OCT_window_cursorPos_get() {

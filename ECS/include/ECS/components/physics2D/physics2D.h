@@ -9,3 +9,4 @@ OCT_vec2 OCT_physics2D_readVelocity(OCT_handle entityHandle);
 void OCT_physics2D_setGravity(OCT_handle entityHandle, float multiplier);
 OCT_vec2 OCT_physics2D_addForce(OCT_handle entityHandle, OCT_vec2 force);
 OCT_vec2 OCT_physics2D_addImpulse(OCT_handle entityHandle, OCT_vec2 impulse);
+bool OCT_physics2D_isColliding(OCT_handle entityA, OCT_handle entityB);

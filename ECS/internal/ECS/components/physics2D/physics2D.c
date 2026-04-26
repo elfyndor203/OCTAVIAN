@@ -38,6 +38,7 @@ OCT_ID iOCT_physics2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_ID r
 	physics->physicsID = newID;
 	physics->transformID = entity->transformID;
 	physics->colliderID = entity->colliderID;
+	physics->hitBoxID = entity->hitBoxID;
 	physics->rbOriginID = iOCT_entity_get(context, rigidBodyID)->physicsID;
 
 	physics->mass = mass;
@@ -116,6 +117,31 @@ OCT_vec2 iOCT_physics2D_addImpulse(iOCT_entityContext* context, OCT_ID physicsID
 	physics->lin_v = OCT_vec2_add(physics->lin_v, OCT_vec2_div(impulse, physics->mass));
 	return physics->lin_v;
 }
+
+bool OCT_physics2D_isColliding(OCT_handle entityA, OCT_handle entityB) {
+	iOCT_entityContext* context = iOCT_entityContext_get(entityA.containerID);
+	OCT_ID colliderA = iOCT_entity_get(context, entityA.objectID)->colliderID;
+	OCT_ID colliderB = iOCT_entity_get(context, entityB.objectID)->colliderID;
+	return iOCT_physics2D_isColliding(context, colliderA, colliderB);
+}
+bool iOCT_physics2D_isColliding(iOCT_entityContext* context, OCT_ID colliderA, OCT_ID colliderB) {
+	cOCT_message event;
+	OCT_index count = 0;
+	event = cOCT_event_read(OCT_subsystem_physics, count);
+
+	while(event.messageType != cOCT_MSG_ALLCLEAR) {
+		if (event.messageType == cOCT_MSG_COLLISION) {
+			if ((event.collision.colliderA == colliderA && event.collision.colliderB == colliderB) ||
+				(event.collision.colliderA == colliderB && event.collision.colliderB == colliderA)) {
+				return true;
+			}
+		}
+		count++;
+		event = cOCT_event_read(OCT_subsystem_physics, count);
+	}
+	//printf("Checked %d events: all clear\n", (int)count);
+	return false;
+}
 #pragma endregion
 
 #pragma region cross-module
@@ -130,6 +156,7 @@ _OCT_snapshot_physics* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* 
 	iOCT_physics2D* phys;
 	iOCT_transform2D* transf;
 	iOCT_collider2D* coll;
+	iOCT_collider2D* hitb;
 	OCT_index physicsCount = iOCT_pool_get(context, OCT_ECSType_physics2D)->count;
 	_OCT_snapshot_physics* dataSlot;
 	OCT_index dummy;
@@ -138,6 +165,7 @@ _OCT_snapshot_physics* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* 
 		phys = &physArray[i];
 		transf = iOCT_transform2D_get(context, phys->transformID);
 		coll = iOCT_collider2D_get(context, phys->colliderID);
+		hitb = iOCT_collider2D_get(context, phys->hitBoxID);
 
 		dataSlot->physicsID = phys->physicsID;
 		dataSlot->rbOriginIndex = cOCT_IDMap_getIndex(&context->IDMap, phys->rbOriginID);
@@ -160,6 +188,10 @@ _OCT_snapshot_physics* _OCT_physics2D_packSnapshot(OCT_index* outCount, OCT_ID* 
 		if (coll) {
 			dataSlot->colliderID = coll->colliderID;
 			dataSlot->collider = coll->shape;
+		}
+		if (hitb) {
+			dataSlot->hitBoxID = hitb->colliderID;
+			dataSlot->hitbox = hitb->shape;
 		}
 	}
 

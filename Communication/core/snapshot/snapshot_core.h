@@ -16,6 +16,7 @@ typedef struct {
 	OCT_ID physicsID;		// return identifiers
 	OCT_ID transformID;
 	OCT_ID colliderID;
+	OCT_ID hitBoxID;
 
 	OCT_index rbOriginIndex;	// rigid body grouping
 
@@ -35,4 +36,5 @@ typedef struct {
 	float rotation;
 
 	OCT_shape2 collider;
+	OCT_shape2 hitbox;
 } _OCT_snapshot_physics;

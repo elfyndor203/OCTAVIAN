@@ -11,9 +11,11 @@
 #include <stdio.h>
 
 #include "physics/physics.h"
+#include "module/PHYModule_internal.h"
 
 static OCT_vec2 iOCT_physics_project(OCT_vec2 axis, OCT_vec2* verts, OCT_index count);
 static float iOCT_physics_projOverlap(OCT_vec2 projA, OCT_vec2 projB);
+static bool iOCT_physics_broad2Rect2(OCT_rect2 rectA, OCT_rect2 rectB);
 static OCT_vec2 iOCT_physics_SAT2Rect2(OCT_rect2 rectA, OCT_rect2 rectB);
 
 static void iOCT_physics_resolveImpulse(_OCT_snapshot_physics* physA, _OCT_snapshot_physics* physB, iOCT_collision collision);
@@ -26,22 +28,19 @@ iOCT_collision iOCT_physics_detectCollision(_OCT_snapshot_physics* physA, _OCT_s
 	iOCT_collision collision = iOCT_collision_none;
 	float radiusA;
 	float radiusB;
+	OCT_rect2 rectA;
+	OCT_rect2 rectB;
 
 	if (physA->rbOriginIndex == physB->rbOriginIndex) {	// if they belong to the same rigidbody
 		return iOCT_collision_none;
 	}
 
 	if (physA->collider.type == OCT_shapeType_rect2 && physB->collider.type == OCT_shapeType_rect2) {
-		OCT_rect2 rectA = physA->collider.rect2;
-		OCT_rect2 rectB = physB->collider.rect2;
-		rectA.origin = OCT_vec2_add(rectA.origin, physA->position);	// move to global space
+		rectA = physA->collider.rect2;
+		rectB = physB->collider.rect2;
+		rectA.origin = OCT_vec2_add(rectA.origin, physA->position);
 		rectB.origin = OCT_vec2_add(rectB.origin, physB->position);
-
-		radiusA = sqrtf((rectA.width / 2) * (rectA.width / 2) + (rectA.height / 2) * (rectA.height / 2));
-		radiusB = sqrtf((rectB.width / 2) * (rectB.width / 2) + (rectB.height / 2) * (rectB.height / 2));
-
-		if (OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)) > (radiusA + radiusB)) {	// too far apart
-			//printf("Broad dist: %f\n", OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)));
+		if (!iOCT_physics_broad2Rect2(rectA, rectB)) {
 			return iOCT_collision_none;
 		}
 
@@ -54,8 +53,29 @@ iOCT_collision iOCT_physics_detectCollision(_OCT_snapshot_physics* physA, _OCT_s
 		return iOCT_collision_none;
 	}
 	else {
-		printf("MTV: %f %f\n", collision.MTV.x, collision.MTV.y);
+		cOCT_message collMsg = {
+			.messageType = cOCT_MSG_COLLISION,
+			.collision = {collision.colliderA, collision.colliderB}
+		};
+		cOCT_message_push(OCT_subsystem_physics, collMsg, cOCT_EVENTBOX);
+		//printf("MTV: %f %f\n", collision.MTV.x, collision.MTV.y);
 		return collision;
+	}
+}
+
+static bool iOCT_physics_broad2Rect2(OCT_rect2 rectA, OCT_rect2 rectB) {
+	float radiusA;
+	float radiusB;
+
+	radiusA = sqrtf((rectA.width / 2) * (rectA.width / 2) + (rectA.height / 2) * (rectA.height / 2));
+	radiusB = sqrtf((rectB.width / 2) * (rectB.width / 2) + (rectB.height / 2) * (rectB.height / 2));
+
+	if (OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)) > (radiusA + radiusB)) {	// too far apart
+		//printf("Broad dist: %f\n", OCT_vec2_mag(OCT_vec2_sub(rectA.origin, rectB.origin)));
+		return false;
+	}
+	else {
+		return true;
 	}
 }
 
@@ -144,10 +164,11 @@ static void iOCT_physics_resolveImpulse(_OCT_snapshot_physics* physA, _OCT_snaps
 	float angular = 0;// ((powf(rAxN, 2))* invInertiaA) + (powf(rBxN, 2) * invInertiaB); NOTE_UNCOMMENT WHEN CONTACT POINT IS FIXED
 
 	float impulse = -(restitution * relVNorm) / (invMass + angular);
+	
 
 	if (!physA->isStatic) {
 		physA->lin_v = OCT_vec2_add(physA->lin_v, OCT_vec2_mul(normal, impulse / physA->mass));
-		printf("Impulse: %f | lin_v add: %f %f\n", impulse, OCT_vec2_mul(normal, impulse / physA->mass).x, OCT_vec2_mul(normal, impulse / physA->mass).y);
+		//printf("Impulse: %f | lin_v add: %f %f\n", impulse, OCT_vec2_mul(normal, impulse / physA->mass).x, OCT_vec2_mul(normal, impulse / physA->mass).y);
 	}
 	if (!physB->isStatic) {
 		physB->lin_v = OCT_vec2_sub(physB->lin_v, OCT_vec2_mul(normal, impulse / physB->mass));
@@ -158,17 +179,18 @@ static void iOCT_physics_resolveImpulse(_OCT_snapshot_physics* physA, _OCT_snaps
 }
 
 static void iOCT_physics_resolvePosition(_OCT_snapshot_physics* physA, _OCT_snapshot_physics* physB, iOCT_collision collision) {
-	float totalInvMass = 1.0f / physA->mass + 1.0f / physB->mass;
-	float factor = 1.25;
-	printf("Before A pos: %f %f\n", physA->position.x, physA->position.y);
-	if (!physA->isStatic) {
-		physA->position = OCT_vec2_add(physA->position, OCT_vec2_mul(collision.MTV, factor * (1.0f / physA->mass) / totalInvMass));
+	if (!physA->isStatic && physB->isStatic) {	// one static
+		physA->position = OCT_vec2_add(physA->position, collision.MTV);
 	}
-	if (!physB->isStatic) {
-		physB->position = OCT_vec2_sub(physB->position, OCT_vec2_mul(collision.MTV, factor * (1.0f / physB->mass) / totalInvMass));
+	else if (physA->isStatic && !physB->isStatic) {	// one static
+		physB->position = OCT_vec2_sub(physB->position, collision.MTV);
 	}
-	printf("After A pos: %f %f\n\n", physA->position.x, physA->position.y);
-
+	else {
+		float totalInvMass = 1.0f / physA->mass + 1.0f / physB->mass;
+		physA->position = OCT_vec2_add(physA->position, OCT_vec2_mul(collision.MTV, (1.0f / physA->mass) / totalInvMass));
+		physB->position = OCT_vec2_sub(physB->position, OCT_vec2_mul(collision.MTV, (1.0f / physB->mass) / totalInvMass));
+	}
+	//printf("After A pos: %f %f\n\n", physA->position.x, physA->position.y);
 }
 #pragma endregion
 #pragma region helpers

@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 #include "physics/physicsPass/physicsPass_internal.h"
+#include "physics/collisions/collisions_internal.h"
 
 iOCT_PHYModule iOCT_PHYModule_instance = { 0 };
 
