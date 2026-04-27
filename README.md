@@ -14,7 +14,7 @@ A simple example game is in zGameTest.
 ## Installation (WIP)
 1. Use Windows x64
 2. Clone the repo
-3. Open in VS 2022 (moving to CMake soon)
+3. Open in Visual Studio
 4. Set the game project (e.g. zGameTest) as startup, build, and run
 
 ## Getting started
