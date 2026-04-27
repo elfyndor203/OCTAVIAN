@@ -173,11 +173,15 @@ void iOCT_window_keyEvent(OCT_key key, int action, int modifiers) {
     cOCT_message_push(OCT_subsystem_input, keyMsg, cOCT_INBOX);
 }
 
-OCT_vec2 OCT_window_cursorPos_get() {
+OCT_vec2 _OCT_window_cursorPos_get() {
     return iOCT_WDWModule_instance.cursorPos;
 }
-OCT_vec2 OCT_window_cursorDelta_get() {
+OCT_vec2 _OCT_window_cursorDelta_get() {
     return iOCT_WDWModule_instance.cursorDelta;
+}
+
+OCT_vec2 _OCT_window_scrollDelta_get() {
+    return iOCT_WDWModule_instance.scrollDelta;
 }
 
 #pragma region helpers
@@ -203,5 +207,10 @@ void iOCT_window_callback_mouseMove(GLFWwindow* window, double x, double y) {
     iOCT_WDWModule_instance.cursorPos = (OCT_vec2){ x, y };
     iOCT_WDWModule_instance.cursorDelta = OCT_vec2_sub(iOCT_WDWModule_instance.cursorPos, prevPos);
     //printf("Delta x: %lf, y: %lf\n", iOCT_WDWModule_instance.cursorDelta.x, iOCT_WDWModule_instance.cursorDelta.y);
+}
+
+void iOCT_window_callback_mouseScroll(GLFWwindow* window, double xOffset, double yOffset) {
+	OCT_vec2 scrollDelta = { xOffset, yOffset };
+	iOCT_WDWModule_instance.scrollDelta = scrollDelta;
 }
 #pragma endregion

@@ -30,6 +30,7 @@ void iOCT_WDWModule_init(char* name, unsigned int width, unsigned int height, OC
 	glfwSetKeyCallback(window, iOCT_window_callback_keyEvent);
 	glfwSetMouseButtonCallback(window, iOCT_window_callback_mouseEvent);
 	glfwSetCursorPosCallback(window, iOCT_window_callback_mouseMove);
+	glfwSetScrollCallback(window, iOCT_window_callback_mouseScroll);
 
 	glClearColor(color.x, color.y, color.z, color.a);
 
@@ -47,6 +48,8 @@ void OCT_WDWModule_poll() {
 	glfwPollEvents();
 }
 void OCT_WDWModule_update() {
+	iOCT_WDWModule_instance.cursorDelta = OCT_vec2_zero;
+	iOCT_WDWModule_instance.scrollDelta = OCT_vec2_zero;
 	iOCT_window_show();
 	iOCT_window_wipe();
 }

@@ -9,6 +9,7 @@
 #include "renderer/layer/layer_internal.h"
 #include "renderer/shader/shader/shader_internal.h"
 #include "_WDW_Output/_WDW_include.h"
+#include "_ECS_Output/_ECS_include.h"
 
 static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale);
 static OCT_mat3 invertWorldProj(OCT_mat3 proj);
@@ -129,8 +130,10 @@ OCT_vec2 _OCT_renderer_projectCoords(OCT_vec2 screen) {
 	};
 	OCT_vec3 normVec = { normalized.x, normalized.y, 1.0f };
 	OCT_vec3 worldPos = OCT_mat3_mulVec3(iOCT_RENModule_instance.inverseWorldProj, normVec);
+	OCT_mat3 camera = _OCT_camera2D_getActiveMatrix();
 
-	return (OCT_vec2) { worldPos.x, worldPos.y };
+	OCT_vec3 viewPos = OCT_mat3_mulVec3(camera, worldPos);
+	return (OCT_vec2) { viewPos.x, viewPos.y };
 }
 
 OCT_vec2 _OCT_renderer_getVirtual() {

@@ -61,7 +61,7 @@ typedef enum {
 
     // mouse buttons
     OCT_KEY_MOUSE_LEFT, OCT_KEY_MOUSE_RIGHT, OCT_KEY_MOUSE_MIDDLE,
-    OCT_KEY_MOUSE_4, OCT_KEY_MOUSE_5,
+	OCT_KEY_MOUSE_4, OCT_KEY_MOUSE_5,
 
     OCT_KEYS_TOTAL
 } OCT_key;

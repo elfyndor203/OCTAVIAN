@@ -59,14 +59,17 @@ int main() {
 	OCT_transform2D_moveBy(hannes, (OCT_vec2) { 0, -100 });
 
 	OCT_handle camera = OCT_entity_new(gear);
-	OCT_camera2D_add(camera, OCT_vec2_zero, (OCT_vec2) { 1, 1 }, 0);
+	OCT_camera2D_add(camera, OCT_vec2_zero, 1.0f, 0);
 	OCT_camera2D_setActive(camera);
 
 	OCT_vec2 cursor;
+	float scroll;
 	while (!OCT_window_closed()) {
 		OCT_engine_startFrame();
 
 		cursor = OCT_cursorPos_read(true);
+		scroll = OCT_scrollDelta_read().y;
+
 		wasdMove(gear, MOVEMENT_SPEED);
 
 		if ((OCT_keyState_read(OCT_KEY_SPACE) == OCT_KEYSTATE_DOWN)) {
@@ -86,8 +89,10 @@ int main() {
 			OCT_physics2D_setVelocity(anya, OCT_vec2_zero);
 		}
 
+		OCT_camera2D_zoom(camera, scroll * 0.1);
 		OCT_engine_tick();
 	}
 
+	scroll = 0;
 	OCT_engine_stop();
 }

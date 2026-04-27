@@ -8,7 +8,7 @@
 #include "_REN_Output/_REN_include.h"
 
 OCT_vec2 OCT_cursorPos_read(bool virtual) {
-	OCT_vec2 pos = OCT_window_cursorPos_get();
+	OCT_vec2 pos = _OCT_window_cursorPos_get();
 	if (virtual) {
 		pos = _OCT_renderer_projectCoords(pos);
 	}
@@ -17,7 +17,7 @@ OCT_vec2 OCT_cursorPos_read(bool virtual) {
 }
 OCT_vec2 OCT_cursorDelta_read(bool virtual) {
 	OCT_vec2 dummy;
-	OCT_vec2 delta = OCT_window_cursorDelta_get();
+	OCT_vec2 delta = _OCT_window_cursorDelta_get();
 	OCT_vec2 resolution = _OCT_window_getResolution(&dummy);
 	OCT_vec2 virtualSize = _OCT_renderer_getVirtual();
 
@@ -27,4 +27,8 @@ OCT_vec2 OCT_cursorDelta_read(bool virtual) {
 	}
 
 	return delta;
+}
+
+OCT_vec2 OCT_scrollDelta_read() {
+	return _OCT_window_scrollDelta_get();
 }

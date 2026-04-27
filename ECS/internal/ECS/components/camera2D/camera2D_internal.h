@@ -8,9 +8,10 @@ struct iOCT_camera2D {
 	OCT_ID parentID;
 
 	OCT_vec2 position;
-	OCT_vec2 zoom;
+	float zoom;
 	float rotation; 
 };
 
 iOCT_camera2D* iOCT_camera2D_get(iOCT_entityContext* context, OCT_ID cameraID);
-OCT_ID iOCT_camera2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_vec2 position, OCT_vec2 zoom, float rotation);
+OCT_ID iOCT_camera2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_vec2 position, float zoom, float rotation);
+float iOCT_camera2D_zoom(iOCT_entityContext* context, OCT_ID cameraID, float delta);

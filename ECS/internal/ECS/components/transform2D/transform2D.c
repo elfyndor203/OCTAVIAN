@@ -71,6 +71,7 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
     newTransform->position = (OCT_vec2){iOCT_DEFAULT_POSITION_X, iOCT_DEFAULT_POSITION_Y};
     newTransform->rotation = iOCT_DEFAULT_ROTATION;
     newTransform->scale = (OCT_vec2){iOCT_DEFAULT_SCALE_X, iOCT_DEFAULT_SCALE_Y};
+	newTransform->globalMatrix = OCT_mat3_identity;
 
     if (newTransform->depth >= iOCT_TRANSFORM_MAXDEPTH) {
         OCT_logError(EXIT_TRANSFORM2D_MAX_DEPTH_EXCEEDED);

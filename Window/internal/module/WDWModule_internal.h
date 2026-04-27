@@ -17,6 +17,7 @@ struct iOCT_WDWModule {
 	OCT_key* mouseMap;
 	OCT_vec2 cursorPos;
 	OCT_vec2 cursorDelta;
+	OCT_vec2 scrollDelta;
 };
 
 extern iOCT_WDWModule iOCT_WDWModule_instance;
