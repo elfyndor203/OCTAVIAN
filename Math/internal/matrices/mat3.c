@@ -64,6 +64,31 @@ OCT_mat3 OCT_mat3_inverse(OCT_mat3 m) {
     return result;
 }
 
+OCT_mat3 OCT_mat3_translate(OCT_vec2 translation) {
+    OCT_mat3 result = OCT_mat3_identity;
+    result.c2r0 = translation.x;
+    result.c2r1 = translation.y;
+    return result;
+}
+
+OCT_mat3 OCT_mat3_scale(OCT_vec2 scale) {
+    OCT_mat3 result = OCT_mat3_identity;
+    result.c0r0 = scale.x;
+    result.c1r1 = scale.y;
+    return result;
+}
+
+OCT_mat3 OCT_mat3_rotate(float rotation) {
+    float cosRot = cosf(rotation);
+    float sinRot = sinf(rotation);
+    OCT_mat3 result = OCT_mat3_identity;
+    result.c0r0 = cosRot;
+    result.c0r1 = sinRot;
+    result.c1r0 = -sinRot;
+    result.c1r1 = cosRot;
+    return result;
+}
+
 void OCT_mat3_print(OCT_mat3 m) {
     printf("[%.2f, %.2f, %.2f]\n", m.c0r0, m.c1r0, m.c2r0);
     printf("[%.2f, %.2f, %.2f]\n", m.c0r1, m.c1r1, m.c2r1);

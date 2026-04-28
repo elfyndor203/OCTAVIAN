@@ -92,4 +92,5 @@ OCT_mat3 _OCT_camera2D_getActiveMatrix() {	// __NOTE DOESNT APPLY CAMERA TRANSFO
 	return result;
 }
 
+
 #pragma endregion
