@@ -19,9 +19,9 @@ void main() {
     mat3 transform = mat3(col0, col1, col2);
     vec3 position = transform * vec3(quadXY * size, 1.0);
     vec3 view = cameraProj * position;
-    vec3 projected = worldProj * view;
+    vec3 final = worldProj * view;
 
-    gl_Position = vec4(projected.xy, 0.0, 1.0);
+    gl_Position = vec4(final.xy, 0.0, 1.0);
     fragUV = texUV.xy + quadUV * texUV.zw;
     fragColor = color;
 }

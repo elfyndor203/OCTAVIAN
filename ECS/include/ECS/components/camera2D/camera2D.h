@@ -6,4 +6,4 @@
 
 OCT_handle OCT_camera2D_add(OCT_handle entity, OCT_vec2 position, float zoom, float rotation);
 void OCT_camera2D_setActive(OCT_handle entityHandle);
-float OCT_camera2D_zoom(OCT_handle entityHandle, float delta);
+float OCT_camera2D_zoom(OCT_handle entityHandle, float factor);

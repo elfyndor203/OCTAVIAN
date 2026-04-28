@@ -36,52 +36,57 @@ OCT_mat3 OCT_mat3_generate(OCT_vec2 translation, OCT_vec2 scale, float rotation)
     float cosRot = cosf(rotation);
     float sinRot = sinf(rotation);
     OCT_mat3 result = {
-        scale.x * cosRot, scale.x * sinRot, 0,
-        -scale.y * sinRot, scale.y * cosRot, 0,
-        translation.x, translation.y, 1
+        scale.x * cosRot, -scale.y * sinRot, translation.x,  // c0: r0, r1, r2
+        scale.x * sinRot,  scale.y * cosRot, translation.y,  // c1: r0, r1, r2
+        0,                 0,                1               // c2: r0, r1, r2
     };
     return result;
 }
 
 OCT_mat3 OCT_mat3_inverse(OCT_mat3 m) {
-    float det = m.c0r0 * (m.c1r1 * m.c2r2 - m.c2r1 * m.c1r2)
-        - m.c1r0 * (m.c0r1 * m.c2r2 - m.c2r1 * m.c0r2)
-        + m.c2r0 * (m.c0r1 * m.c1r2 - m.c1r1 * m.c0r2);
+    // Scale squared from each column
+    float sx2 = m.c0r0 * m.c0r0 + m.c0r1 * m.c0r1;
+    float sy2 = m.c1r0 * m.c1r0 + m.c1r1 * m.c1r1;
 
-    assert(det != 0);
-    float invDet = 1.0f / det;
+    float inv_sx2 = 1.0f / sx2;
+    float inv_sy2 = 1.0f / sy2;
 
-    OCT_mat3 result;
-    result.c0r0 = (m.c1r1 * m.c2r2 - m.c1r2 * m.c2r1) * invDet;
-    result.c0r1 = -(m.c0r1 * m.c2r2 - m.c0r2 * m.c2r1) * invDet;
-    result.c0r2 = (m.c0r1 * m.c1r2 - m.c0r2 * m.c1r1) * invDet;
-    result.c1r0 = -(m.c1r0 * m.c2r2 - m.c1r2 * m.c2r0) * invDet;
-    result.c1r1 = (m.c0r0 * m.c2r2 - m.c0r2 * m.c2r0) * invDet;
-    result.c1r2 = -(m.c0r0 * m.c1r2 - m.c0r2 * m.c1r0) * invDet;
-    result.c2r0 = (m.c1r0 * m.c2r1 - m.c1r1 * m.c2r0) * invDet;
-    result.c2r1 = -(m.c0r0 * m.c2r1 - m.c0r1 * m.c2r0) * invDet;
-    result.c2r2 = (m.c0r0 * m.c1r1 - m.c0r1 * m.c1r0) * invDet;
+    // Transposed 2x2 with inverse scale applied
+    float r00 = m.c0r0 * inv_sx2;
+    float r01 = m.c0r1 * inv_sx2;
+    float r10 = m.c1r0 * inv_sy2;
+    float r11 = m.c1r1 * inv_sy2;
+
+    // Inverse translation
+    float inv_tx = -(r00 * m.c2r0 + r10 * m.c2r1);
+    float inv_ty = -(r01 * m.c2r0 + r11 * m.c2r1);
+
+    OCT_mat3 result = {
+        r00,  r01,  0,
+        r10,  r11,  0,
+        inv_tx, inv_ty, 1
+    };
     return result;
 }
 
-OCT_mat3 OCT_mat3_translate(OCT_vec2 translation) {
-    OCT_mat3 result = OCT_mat3_identity;
+OCT_mat3 OCT_mat3_translate(OCT_mat3 m, OCT_vec2 translation) {
+    OCT_mat3 result = m;
     result.c2r0 = translation.x;
     result.c2r1 = translation.y;
     return result;
 }
 
-OCT_mat3 OCT_mat3_scale(OCT_vec2 scale) {
-    OCT_mat3 result = OCT_mat3_identity;
+OCT_mat3 OCT_mat3_scale(OCT_mat3 m, OCT_vec2 scale) {
+    OCT_mat3 result = m;
     result.c0r0 = scale.x;
     result.c1r1 = scale.y;
     return result;
 }
 
-OCT_mat3 OCT_mat3_rotate(float rotation) {
+OCT_mat3 OCT_mat3_rotate(OCT_mat3 m, float rotation) {
     float cosRot = cosf(rotation);
     float sinRot = sinf(rotation);
-    OCT_mat3 result = OCT_mat3_identity;
+    OCT_mat3 result = m;
     result.c0r0 = cosRot;
     result.c0r1 = sinRot;
     result.c1r0 = -sinRot;

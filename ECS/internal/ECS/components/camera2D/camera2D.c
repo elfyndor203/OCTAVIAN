@@ -5,6 +5,8 @@
 #include "cOCT_EngineStructure.h"
 #include "OCT_Math.h"
 #include <assert.h>
+#include <math.h>
+#include <stdio.h>
 
 #include "module/ECSModule_internal.h"
 #include "ECS/entityContext/entityContext_internal.h"
@@ -61,36 +63,37 @@ void OCT_camera2D_setActive(OCT_handle entityHandle) {
 	iOCT_ECSModule_instance.activeCamera = cameraHandle;
 }
 
-float OCT_camera2D_zoom(OCT_handle entityHandle, float delta) {
+float OCT_camera2D_zoom(OCT_handle entityHandle, float factor) {
 	assert(entityHandle.type == OCT_handle_entity);
 	iOCT_entityContext* context = iOCT_entityContext_get(entityHandle.containerID);
 	OCT_ID cameraID = iOCT_entity_get(context, entityHandle.objectID)->cameraID;
-	return iOCT_camera2D_zoom(context, cameraID, delta);
+	return iOCT_camera2D_zoom(context, cameraID, factor);
 }
-float iOCT_camera2D_zoom(iOCT_entityContext* context, OCT_ID cameraID, float delta) {
+float iOCT_camera2D_zoom(iOCT_entityContext* context, OCT_ID cameraID, float factor) {
 	iOCT_camera2D* camera = iOCT_camera2D_get(context, cameraID);
-	camera->zoom = camera->zoom * (1.0f + delta * OCT_CAMERA2D_ZOOM_SPEED) ;
+	camera->zoom = camera->zoom * (1.0f - factor) ;
 	return camera->zoom;
 }
 
 #pragma region cross-module requests
 
-OCT_mat3 _OCT_camera2D_getActiveMatrix() {	// __NOTE DOESNT APPLY CAMERA TRANSFORM YET 
+OCT_mat3 _OCT_camera2D_getActiveMatrix() {
 	OCT_mat3 result;
 	OCT_handle activeCameraHandle = iOCT_ECSModule_instance.activeCamera;
 	iOCT_entityContext* context = iOCT_entityContext_get(activeCameraHandle.containerID);
-
 	if (activeCameraHandle.type != OCT_handle_camera2D) {
 		return OCT_mat3_identity;
 	}
-
 	iOCT_camera2D camera = *iOCT_camera2D_get(context, activeCameraHandle.objectID);
-	OCT_mat3 cameraTransform = OCT_mat3_generate(camera.position, (OCT_vec2){camera.zoom, camera.zoom}, camera.rotation);
-	OCT_mat3 global = iOCT_transform2D_get(context, camera.parentID)->globalMatrix;
 
-	result = OCT_mat3_mul(cameraTransform, global);
+	printf("Zoom : %f\n", camera.zoom);
+	OCT_mat3 cameraTransform = OCT_mat3_generate(camera.position, (OCT_vec2) { camera.zoom, camera.zoom }, camera.rotation);
+	OCT_mat3 globalPosition = iOCT_transform2D_get(context, camera.parentID)->globalMatrix;
+
+	result = OCT_mat3_mul(globalPosition, cameraTransform);
+
+	printf("Active:\n");
+	OCT_mat3_print(result);
 	return result;
 }
-
-
 #pragma endregion

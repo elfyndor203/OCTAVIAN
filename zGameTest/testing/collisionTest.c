@@ -62,6 +62,8 @@ int main() {
 	OCT_camera2D_add(camera, OCT_vec2_zero, 1.0f, 0);
 	OCT_camera2D_setActive(camera);
 
+	OCT_transform2D_moveBy(gear, (OCT_vec2) { -100, 0 });
+
 	OCT_vec2 cursor;
 	float scroll;
 	while (!OCT_window_closed()) {
@@ -75,10 +77,10 @@ int main() {
 		if ((OCT_keyState_read(OCT_KEY_SPACE) == OCT_KEYSTATE_DOWN)) {
 			printf("space pressed\n");
 
-			if (OCT_physics2D_isColliding(gear, hannes)) {
-				printf("is colliding too\n");
+			//if (OCT_physics2D_isColliding(gear, hannes)) {
+			//	printf("is colliding too\n");
 				OCT_physics2D_addImpulse(gear, (OCT_vec2) { 0, 30.0 });
-			}
+			//}
 		}
 
 		if (OCT_physics2D_isColliding(gear, hannes)) {
@@ -89,7 +91,20 @@ int main() {
 			OCT_physics2D_setVelocity(anya, OCT_vec2_zero);
 		}
 
-		OCT_camera2D_zoom(camera, scroll * 0.1);
+		if ((OCT_keyState_read(OCT_KEY_UP) == OCT_KEYSTATE_DOWN)) {
+			OCT_transform2D_scaleBy(gear, (OCT_vec2) {2.0f, 2.0f});
+		}
+		if ((OCT_keyState_read(OCT_KEY_DOWN) == OCT_KEYSTATE_DOWN)) {
+			OCT_transform2D_scaleBy(gear, (OCT_vec2) { -2.0f, -2.0f });
+		}
+		if ((OCT_keyState_read(OCT_KEY_RIGHT) == OCT_KEYSTATE_DOWN)) {
+			OCT_transform2D_moveBy(camera, (OCT_vec2) { 10.0f, 0 });
+		}
+		if ((OCT_keyState_read(OCT_KEY_LEFT) == OCT_KEYSTATE_DOWN)) {
+			OCT_transform2D_moveBy(camera, (OCT_vec2) { -10.0f, 0 });
+		}
+
+		OCT_camera2D_zoom(camera, scroll * 0.01f);
 		OCT_engine_tick();
 	}
 

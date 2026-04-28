@@ -14,4 +14,4 @@ struct iOCT_camera2D {
 
 iOCT_camera2D* iOCT_camera2D_get(iOCT_entityContext* context, OCT_ID cameraID);
 OCT_ID iOCT_camera2D_add(iOCT_entityContext* context, OCT_ID entityID, OCT_vec2 position, float zoom, float rotation);
-float iOCT_camera2D_zoom(iOCT_entityContext* context, OCT_ID cameraID, float delta);
+float iOCT_camera2D_zoom(iOCT_entityContext* context, OCT_ID cameraID, float factor);
