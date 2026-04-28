@@ -9,6 +9,7 @@
 #include "renderer/layer/layer_internal.h"
 #include "renderer/shader/shader/shader_internal.h"
 #include "_WDW_Output/_WDW_include.h"
+#include "_ECS_Output/_ECS_include.h"
 
 static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale);
 static OCT_mat3 invertWorldProj(OCT_mat3 proj);
@@ -58,7 +59,10 @@ void iOCT_RENModule_init(OCT_vec2 coordinateScale) {
 	iOCT_RENModule_instance.worldProj = iOCT_calcWorldProj(coordinateScale);
 	iOCT_RENModule_instance.inverseWorldProj = invertWorldProj(iOCT_RENModule_instance.worldProj);
 	iOCT_RENModule_instance.worldProjUniform = glGetUniformLocation(basicShader, "worldProj");
+	iOCT_RENModule_instance.cameraProjUniform = glGetUniformLocation(basicShader, "cameraProj");
 	glUniformMatrix3fv(iOCT_RENModule_instance.worldProjUniform, 1, GL_FALSE, &iOCT_RENModule_instance.worldProj.c0r0);
+	glUniformMatrix3fv(iOCT_RENModule_instance.cameraProjUniform, 1, GL_FALSE, &OCT_mat3_identity);
+
 	GL_CHECK();
 }
 
@@ -94,8 +98,8 @@ static OCT_mat3 iOCT_calcWorldProj(OCT_vec2 coordinateScale) {
 	OCT_mat3 proj = { 0 };
 	proj.c0r0 = 2 / coordinateScale.x;
 	proj.c1r1 = 2 / coordinateScale.y;
-	proj.c2r0 = -1;
-	proj.c2r1 = -1;
+	proj.c2r0 = 0;
+	proj.c2r1 = 0;
 	proj.c2r2 = 1;
 	return proj;
 }
@@ -125,9 +129,11 @@ OCT_vec2 _OCT_renderer_projectCoords(OCT_vec2 screen) {
 		.y = 1.0f - (screen.y - offset.y) / displayArea.y * 2.0f
 	};
 	OCT_vec3 normVec = { normalized.x, normalized.y, 1.0f };
-	OCT_vec3 worldPos = OCT_mat3_mulVec(iOCT_RENModule_instance.inverseWorldProj, normVec);
+	OCT_vec3 worldPos = OCT_mat3_mulVec3(iOCT_RENModule_instance.inverseWorldProj, normVec);
+	OCT_mat3 camera = _OCT_camera2D_getActiveMatrix();
 
-	return (OCT_vec2) { worldPos.x, worldPos.y };
+	OCT_vec3 viewPos = OCT_mat3_mulVec3(camera, worldPos);
+	return (OCT_vec2) { viewPos.x, viewPos.y };
 }
 
 OCT_vec2 _OCT_renderer_getVirtual() {

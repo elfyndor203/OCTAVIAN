@@ -111,6 +111,10 @@ void iOCT_layer_drawAll() {
 	_OCT_snapshot_sprite ECSSpriteData;
 	iOCT_layer* layer;
 	iOCT_spriteData* slot;
+	OCT_mat3 cameraMatrix = OCT_mat3_inverse(_OCT_camera2D_getActiveMatrix());
+
+	printf("Camera \n");
+	OCT_mat3_print(cameraMatrix);
 
 	OCT_index poolDummy;
 	for (int l = 0; l < iOCT_RENModule_instance.layerPool.count; l++) {			// Pass 1: wipe all pools
@@ -137,6 +141,8 @@ void iOCT_layer_drawAll() {
 		}
 	}
 
+	glUseProgram(iOCT_RENModule_instance.spriteShader);
+	glUniformMatrix3fv(iOCT_RENModule_instance.cameraProjUniform, 1, GL_FALSE, (float*)&cameraMatrix);	// upload changing uniforms
 	for (int l = 0; l < iOCT_RENModule_instance.layerPool.count; l++) {			// Pass 3: draw everything
 		layer = &((iOCT_layer*)iOCT_RENModule_instance.layerPool.array)[l];
 
@@ -147,7 +153,6 @@ void iOCT_layer_drawAll() {
 		// VAO
 		glBindVertexArray(layer->spriteVAO);
 		// Shaders
-		glUseProgram(iOCT_RENModule_instance.spriteShader);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, layer->spriteAtlas);
 		// Buffer

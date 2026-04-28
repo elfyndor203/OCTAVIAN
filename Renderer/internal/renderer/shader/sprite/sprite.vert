@@ -10,6 +10,7 @@ layout(location = 6) in vec4 texUV;
 layout(location = 7) in vec2 size;
 
 uniform mat3 worldProj;
+uniform mat3 cameraProj;
 
 out vec2 fragUV;
 out vec4 fragColor;
@@ -17,9 +18,10 @@ out vec4 fragColor;
 void main() {
     mat3 transform = mat3(col0, col1, col2);
     vec3 position = transform * vec3(quadXY * size, 1.0);
-    vec3 projection = position * worldProj;
+    vec3 view = cameraProj * position;
+    vec3 final = worldProj * view;
 
-    gl_Position = vec4(projection.xy, 0.0, 1.0);
+    gl_Position = vec4(final.xy, 0.0, 1.0);
     fragUV = texUV.xy + quadUV * texUV.zw;
     fragColor = color;
 }

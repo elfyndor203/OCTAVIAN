@@ -44,6 +44,7 @@ int main() {
 	OCT_sprite2D_add(gear, foreGround, solidColor, wholeTexture, normalRect);
 	OCT_physics2D_add(gear, gear, 1.0, 3, 3, 4, 0, false);
 	OCT_collider2D_add(gear, entityCollider);
+	//OCT_camera2D_add(gear, OCT_vec2_zero, (OCT_vec2) { 1, 1 }, 0);
 
 	OCT_handle anya = OCT_entity_new(collisionCtx);
 	OCT_sprite2D_add(anya, anyaLayer, solidColor, wholeTexture, normalRect);
@@ -57,20 +58,29 @@ int main() {
 	OCT_collider2D_add(hannes, platformCollider);
 	OCT_transform2D_moveBy(hannes, (OCT_vec2) { 0, -100 });
 
+	OCT_handle camera = OCT_entity_new(gear);
+	OCT_camera2D_add(camera, OCT_vec2_zero, 1.0f, 0);
+	OCT_camera2D_setActive(camera);
+
+	OCT_transform2D_moveBy(gear, (OCT_vec2) { -100, 0 });
+
 	OCT_vec2 cursor;
+	float scroll;
 	while (!OCT_window_closed()) {
 		OCT_engine_startFrame();
 
 		cursor = OCT_cursorPos_read(true);
+		scroll = OCT_scrollDelta_read().y;
+
 		wasdMove(gear, MOVEMENT_SPEED);
 
 		if ((OCT_keyState_read(OCT_KEY_SPACE) == OCT_KEYSTATE_DOWN)) {
 			printf("space pressed\n");
 
-			if (OCT_physics2D_isColliding(gear, hannes)) {
-				printf("is colliding too\n");
+			//if (OCT_physics2D_isColliding(gear, hannes)) {
+			//	printf("is colliding too\n");
 				OCT_physics2D_addImpulse(gear, (OCT_vec2) { 0, 30.0 });
-			}
+			//}
 		}
 
 		if (OCT_physics2D_isColliding(gear, hannes)) {
@@ -81,8 +91,23 @@ int main() {
 			OCT_physics2D_setVelocity(anya, OCT_vec2_zero);
 		}
 
+		if ((OCT_keyState_read(OCT_KEY_UP) == OCT_KEYSTATE_DOWN)) {
+			OCT_transform2D_scaleBy(gear, (OCT_vec2) {2.0f, 2.0f});
+		}
+		if ((OCT_keyState_read(OCT_KEY_DOWN) == OCT_KEYSTATE_DOWN)) {
+			OCT_transform2D_scaleBy(gear, (OCT_vec2) { -2.0f, -2.0f });
+		}
+		if ((OCT_keyState_read(OCT_KEY_RIGHT) == OCT_KEYSTATE_DOWN)) {
+			OCT_transform2D_moveBy(camera, (OCT_vec2) { 10.0f, 0 });
+		}
+		if ((OCT_keyState_read(OCT_KEY_LEFT) == OCT_KEYSTATE_DOWN)) {
+			OCT_transform2D_moveBy(camera, (OCT_vec2) { -10.0f, 0 });
+		}
+
+		OCT_camera2D_zoom(camera, scroll * 0.01f);
 		OCT_engine_tick();
 	}
 
+	scroll = 0;
 	OCT_engine_stop();
 }
