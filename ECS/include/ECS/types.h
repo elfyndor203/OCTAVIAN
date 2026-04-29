@@ -1,7 +1,7 @@
 #pragma once
 
 typedef enum {
-	OCT_ECStype_Entity,
+	OCT_ECSType_entity,
 
 	OCT_ECSType_transform2D,
 	OCT_ECSType_sprite2D,

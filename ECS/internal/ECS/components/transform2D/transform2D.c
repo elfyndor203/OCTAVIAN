@@ -16,6 +16,7 @@
 
 static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform);
 static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2D* newTransform);
+static void iOCT_transform2D_pull(iOCT_entityContext* context, iOCT_transform2D* transform);
 static void iOCT_transform2D_updateParentCaches(iOCT_entityContext* context);
 
 iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContext* context, OCT_ID transformID) {
@@ -47,7 +48,7 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
 
     int parentDepth;
     if (entityID == iOCT_ROOT_ID) {     // if root object
-        parentDepth = -1;
+        parentDepth = iOCT_TRANSFORM_ROOTDEPTH - 1;
         parentIndex = OCT_index_NULL;
         parentID = OCT_ID_NULL;
     }
@@ -84,7 +85,14 @@ OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID entityID) {
 
     // maintain depth sort
     iOCT_transform2D_insert(context, newTransform);
+
+	printf("Current max depth: %d\n", context->currentMaxDepth);
     return newID;
+}
+
+void iOCT_transform2D_delete(iOCT_entityContext* context, OCT_ID entityID) {
+	iOCT_transform2D* transform = iOCT_transform2D_get(context, iOCT_entity_get(context, entityID)->transformID);
+    iOCT_transform2D_pull(context, transform);
 }
 
 void iOCT_transform2D_propagate(iOCT_entityContext* context) {
@@ -161,6 +169,31 @@ static void iOCT_transform2D_insert(iOCT_entityContext* context, iOCT_transform2
     poolArray[finalIndex] = workingTransform;
     cOCT_IDMap_remap(&context->IDMap, workingTransform.transformID, finalIndex);
     depthEnds[*currentMaxDepth] += 1;
+}
+
+static void iOCT_transform2D_pull(iOCT_entityContext* context, iOCT_transform2D* transform) {
+	cOCT_pool* pool = iOCT_pool_get(context, OCT_ECSType_transform2D);
+    cOCT_IDMap* map = &context->IDMap;
+
+    iOCT_transform2D* keep;                // last transform in the next layer
+    iOCT_transform2D* replace = transform;    // hole to be filled with keep
+    OCT_index keepIndex;                                                            // location of keep
+    OCT_index replaceIndex = cOCT_IDMap_getIndex(map, transform->transformID);      // destination of keep
+
+    cOCT_pool_deleteEntry(pool, replaceIndex, false); // remove and decrement count but do not reshuffle
+
+    for (int layer = transform->depth; layer < context->currentMaxDepth; layer++) { // layer is the depth of the hole, so the final depth does not need handling
+		keepIndex = context->depthEnds[layer + 1]; // index of the last transform in the next layer, which will be moved up to fill the hole
+        keep = cOCT_pool_access(pool, keepIndex);
+
+		memcpy(replace, keep, sizeof(iOCT_transform2D)); // replace data
+
+		context->depthEnds[layer + 1] -= 1; 
+		cOCT_IDMap_remap(map, keep->transformID, replaceIndex); // remap to its new destination
+
+        replace = keep;           // prep for next layer
+		replaceIndex = keepIndex; // next hole to be filled is the one left by the moved transform
+    }
 }
 
 static OCT_mat3 iOCT_transform2D_generateMatrix(iOCT_transform2D* transform) {

@@ -13,6 +13,7 @@
 #define iOCT_DEFAULT_SCALE_X 1.0f
 #define iOCT_DEFAULT_SCALE_Y 1.0f
 
+#define iOCT_TRANSFORM_ROOTDEPTH 0
 #define iOCT_TRANSFORM_MAXDEPTH 128
 
 /// <summary>
@@ -37,6 +38,8 @@ struct iOCT_transform2D {
 
 iOCT_transform2D* iOCT_transform2D_get(iOCT_entityContext* context, OCT_ID transformID);
 OCT_ID iOCT_transform2D_add(iOCT_entityContext* context, OCT_ID parentID);
+void iOCT_transform2D_delete(iOCT_entityContext* context, OCT_ID entityID);
+
 OCT_vec2 iOCT_transform2D_moveBy(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 delta);
 OCT_vec2 iOCT_transform2D_moveTo(iOCT_entityContext* context, OCT_ID transformID, OCT_vec2 newPos);
 float iOCT_transform2D_rotateBy(iOCT_entityContext* context, OCT_ID parentID, float deltaDegrees);

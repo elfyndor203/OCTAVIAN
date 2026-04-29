@@ -20,7 +20,11 @@ struct iOCT_entity{
 };
 
 iOCT_entity* iOCT_entity_get(iOCT_entityContext* context, OCT_ID entityID);
+OCT_ID iOCT_entity_getCompID(iOCT_entityContext* context, OCT_ID entityID, OCT_ECSTypes componentType);
+
 OCT_ID iOCT_entity_new(iOCT_entityContext* context, OCT_ID parentID);
+void iOCT_entity_delete(iOCT_entityContext* context, OCT_ID entityID);
+
 bool iOCT_entity_hasComponent(iOCT_entityContext* context, OCT_ID entityID, OCT_ECSTypes component);
 void iOCT_entity_updateMask(iOCT_entityContext* context, OCT_ID entityID, OCT_ECSTypes componentType);
 iOCT_entity* iOCT_entity_getParent(iOCT_entityContext* context, OCT_ID entityID);

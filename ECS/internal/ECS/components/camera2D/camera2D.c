@@ -86,14 +86,11 @@ OCT_mat3 _OCT_camera2D_getActiveMatrix() {
 	}
 	iOCT_camera2D camera = *iOCT_camera2D_get(context, activeCameraHandle.objectID);
 
-	printf("Zoom : %f\n", camera.zoom);
 	OCT_mat3 cameraTransform = OCT_mat3_generate(camera.position, (OCT_vec2) { camera.zoom, camera.zoom }, camera.rotation);
 	OCT_mat3 globalPosition = iOCT_transform2D_get(context, camera.parentID)->globalMatrix;
-
+	
 	result = OCT_mat3_mul(globalPosition, cameraTransform);
 
-	printf("Active:\n");
-	OCT_mat3_print(result);
 	return result;
 }
 #pragma endregion

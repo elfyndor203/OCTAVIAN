@@ -30,5 +30,5 @@ cOCT_pool cOCT_pool_init(OCT_ID ownerID, OCT_counter capacity, size_t elementSiz
 void* cOCT_pool_addEntry(cOCT_pool* pool, OCT_index* outIndex);
 void* cOCT_pool_access(cOCT_pool* pool, OCT_index index);
 
-void cOCT_pool_deleteEntry(cOCT_pool* pool, OCT_index index, bool compact);
+OCT_ID cOCT_pool_deleteEntry(cOCT_pool* pool, OCT_index index, bool compact);
 void cOCT_pool_free(cOCT_pool* pool);

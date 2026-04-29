@@ -3,6 +3,9 @@
 
 #define OCT_ID_NULL 0
 
+/// <summary>
+/// A component's ID MUST be the first field in its struct. This allows the ID to be read from a generic pointer, which is necessary for the IDMap and pool compaction.
+/// </summary>
 typedef uint64_t OCT_ID;
 typedef struct OCT_handle OCT_handle;
 

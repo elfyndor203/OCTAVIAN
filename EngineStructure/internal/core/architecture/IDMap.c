@@ -73,6 +73,9 @@ OCT_ID cOCT_IDMap_remap(cOCT_IDMap* map, OCT_ID ID, OCT_index newIndex) {
 }
 
 OCT_index cOCT_IDMap_getIndex(cOCT_IDMap* map, OCT_ID ID) {
+	if (ID == OCT_ID_NULL) {
+		return OCT_index_NULL;
+	}
 	return map->array[ID];
 }
 

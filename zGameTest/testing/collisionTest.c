@@ -8,7 +8,7 @@
 #define MOVEMENT_SPEED 3
 
 int main() {
-	OCT_engine_start("Henry Sugar", 1920, 1080, color_black, 960, 540, 240, 120, 120);
+	OCT_engine_start("Henry Sugar", 1920, 1080, color_black, 960, 540, 540, 120, 120);
 
 	OCT_shape2 entityCollider = {
 		.type = OCT_shapeType_rect2,
@@ -64,8 +64,16 @@ int main() {
 
 	OCT_transform2D_moveBy(gear, (OCT_vec2) { -100, 0 });
 
+	OCT_handle spawned = OCT_entity_new(anya);
+	OCT_sprite2D_add(spawned, platforms, solidColor, wholeTexture, (OCT_vec2) { 960, 30 });
+	OCT_physics2D_add(spawned, spawned, 0, 30, 3, 4, 0, true);
+	OCT_collider2D_add(spawned, platformCollider);
+	OCT_transform2D_moveBy(spawned, (OCT_vec2) { 0, 100 });
+
+
 	OCT_vec2 cursor;
 	float scroll;
+	bool spawnedExists = true;
 	while (!OCT_window_closed()) {
 		OCT_engine_startFrame();
 
@@ -104,8 +112,22 @@ int main() {
 			OCT_transform2D_moveBy(camera, (OCT_vec2) { -10.0f, 0 });
 		}
 
+		if ((OCT_keyState_read(OCT_KEY_N) == OCT_KEYSTATE_DOWN) && !spawnedExists) {
+			spawned = OCT_entity_new(anya);
+			OCT_sprite2D_add(spawned, platforms, solidColor, wholeTexture, (OCT_vec2) { 960, 30 });
+			OCT_physics2D_add(spawned, spawned, 0, 30, 3, 4, 0, true);
+			OCT_collider2D_add(spawned, platformCollider);
+			OCT_transform2D_moveTo(spawned, cursor);
+			spawnedExists = true;
+		}
+
+		if ((OCT_keyState_read(OCT_KEY_K) == OCT_KEYSTATE_DOWN) && spawnedExists) {
+			OCT_entity_delete(spawned);
+			spawnedExists = false;
+		}
+
 		OCT_camera2D_zoom(camera, scroll * 0.01f);
-		OCT_engine_tick();
+		OCT_engine_tick();     
 	}
 
 	scroll = 0;

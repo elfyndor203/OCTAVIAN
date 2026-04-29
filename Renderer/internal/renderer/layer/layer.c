@@ -113,9 +113,6 @@ void iOCT_layer_drawAll() {
 	iOCT_spriteData* slot;
 	OCT_mat3 cameraMatrix = OCT_mat3_inverse(_OCT_camera2D_getActiveMatrix());
 
-	printf("Camera \n");
-	OCT_mat3_print(cameraMatrix);
-
 	OCT_index poolDummy;
 	for (int l = 0; l < iOCT_RENModule_instance.layerPool.count; l++) {			// Pass 1: wipe all pools
 		layer = &((iOCT_layer*)iOCT_RENModule_instance.layerPool.array)[l];
