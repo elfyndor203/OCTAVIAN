@@ -8,8 +8,8 @@
 #define iOCT_PHYSICS_RIGIDBODY_ORIGINDEPTH 1
 
 struct iOCT_physics2D {
-	OCT_ID parentID;
 	OCT_ID physicsID;
+	OCT_ID parentID;
 
 	OCT_ID rbOriginID;	// physics component of the root of the rigidbody
 	OCT_ID transformID;

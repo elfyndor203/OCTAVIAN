@@ -6,8 +6,8 @@
 #include <stdbool.h>
 
 struct iOCT_sprite2D {
-	bool visible;
 	OCT_ID spriteID;
+	bool visible;
 
 	OCT_vec4 uv;
 	OCT_vec4 color;

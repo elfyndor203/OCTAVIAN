@@ -7,6 +7,7 @@
 
 struct iOCT_collider2D {
 	OCT_ID colliderID;
+
 	OCT_shape2 shape;
 	bool hitbox;
 };
